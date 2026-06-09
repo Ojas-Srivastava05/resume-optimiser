@@ -4,9 +4,9 @@ Daily digest of **software / ML / AI internships** for **batch 2028** at **547 p
 
 ## GitHub Actions (recommended — runs at 8 AM IST even when Mac is off)
 
-Repo: **https://github.com/Ojas-Srivastava05/internship-scout** (private)
+Repo: **https://github.com/Ojas-Srivastava05/resume-optimiser** (private monorepo; scout lives in `internship-scout/`)
 
-Add these [repository secrets](https://github.com/Ojas-Srivastava05/internship-scout/settings/secrets/actions):
+Add these [repository secrets](https://github.com/Ojas-Srivastava05/resume-optimiser/settings/secrets/actions):
 
 | Secret | Value |
 |--------|-------|
