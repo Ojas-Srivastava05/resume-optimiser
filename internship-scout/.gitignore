@@ -1,0 +1,8 @@
+.env
+venv/
+__pycache__/
+*.pyc
+seen_jobs.json
+logs/
+sheet_*.csv
+priority_companies.csv

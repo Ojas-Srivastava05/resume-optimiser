@@ -1,0 +1,68 @@
+{
+  "greenhouse": {
+    "abnormalsecurity": {
+      "slug": "abnormalsecurity",
+      "company": "Abnormal Security"
+    },
+    "agoda": {
+      "slug": "agoda",
+      "company": "Agoda"
+    },
+    "airbnb": {
+      "slug": "airbnb",
+      "company": "Airbnb"
+    },
+    "airtable": {
+      "slug": "airtable",
+      "company": "Airtable"
+    },
+    "akunacapitalindia": {
+      "slug": "akunacapital",
+      "company": "Akuna Capital India"
+    },
+    "alphagrepsecurities": {
+      "slug": "alphagrepsecurities",
+      "company": "AlphaGrep Securities"
+    },
+    "amplitude": {
+      "slug": "amplitude",
+      "company": "Amplitude"
+    },
+    "anthropic": {
+      "slug": "anthropic",
+      "company": "Anthropic"
+    },
+    "arizeai": {
+      "slug": "arizeai",
+      "company": "Arize AI"
+    }
+  },
+  "lever": {
+    "acceldata": {
+      "slug": "acceldata",
+      "company": "Acceldata"
+    },
+    "anyscale": {
+      "slug": "anyscale",
+      "company": "Anyscale"
+    },
+    "ataccama": {
+      "slug": "ataccama",
+      "company": "Ataccama"
+    }
+  },
+  "ashby": {
+    "1password": {
+      "slug": "1password",
+      "company": "1Password"
+    },
+    "airbyte": {
+      "slug": "airbyte",
+      "company": "Airbyte"
+    },
+    "andela": {
+      "slug": "andela",
+      "company": "Andela"
+    }
+  }
+}

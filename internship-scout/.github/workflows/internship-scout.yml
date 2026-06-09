@@ -1,0 +1,67 @@
+name: Internship Scout Daily
+
+on:
+  schedule:
+    # 8:00 AM IST = 2:30 AM UTC (primary)
+    - cron: "30 2 * * *"
+    # Backup slot 8:30 AM IST — GitHub cron can be delayed/skipped on private repos
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+# Required for scheduled runs on private repos
+permissions:
+  contents: read
+
+concurrency:
+  group: internship-scout-daily
+  cancel-in-progress: false
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore seen-jobs cache
+        uses: actions/cache@v4
+        with:
+          path: seen_jobs.json
+          key: internship-scout-seen-jobs-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Quick source health check
+        run: python test_sources.py
+
+      - name: Run internship scout (fast)
+        env:
+          FAST_MODE: "1"
+          COMPANY_BATCH_SIZE: "120"
+          MAX_EMAIL_SENDS: "2"
+          FETCH_WORKERS: "16"
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+        run: |
+          echo "Trigger: ${{ github.event_name }} at $(date -u)"
+          python scout.py --fast --no-sync
+
+      - name: Upload seen jobs cache
+        uses: actions/upload-artifact@v4
+        with:
+          name: seen-jobs
+          path: seen_jobs.json
+          if-no-files-found: ignore

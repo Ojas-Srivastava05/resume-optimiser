@@ -1,0 +1,194 @@
+%-------------------------
+% Resume - Angel One SDE Intern | Ojas Srivastava
+% One-page | ATS-optimized + JD-aligned
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage[most]{tcolorbox}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.2cm, top=0.4cm, right=1.2cm, bottom=0.4cm}
+
+\tcbset{
+  frame code={}, center title,
+  left=0pt, right=0pt, top=0pt, bottom=0pt,
+  colback=gray!20, colframe=white,
+  width=\dimexpr\textwidth\relax,
+  enlarge left by=-2mm, boxsep=3pt,
+  arc=0pt, outer arc=0pt,
+}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.6cm}}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.98\textwidth}[t]{L R}
+    \textbf{#1} & \textit{\footnotesize #4} \\
+    \textit{\footnotesize #3} & \footnotesize #2 \\
+  \end{tabularx}
+  \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.98\textwidth}[t]{L R}
+    \textbf{#1} & \textit{\footnotesize #3} \\
+    \footnotesize #2 & \footnotesize #4 \\
+  \end{tabularx}
+  \vspace{-2.4mm}
+}
+
+\newcommand{\resumePOR}[3]{
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.97\textwidth}[t]{L R}
+    \textbf{#1} \newline \footnotesize #2 & \textit{\small #3} \\
+  \end{tabularx}
+  \vspace{-3mm}
+}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{0.5mm}}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
+
+\newcommand{\cvsection}[1]{%
+  \vspace{0.8mm}
+  \begin{tcolorbox}
+    \textbf{\large #1}
+  \end{tcolorbox}
+  \vspace{-4mm}
+}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[1mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{github.com/Ojas-Srivastava05} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.5mm]
+  \small
+  B.Tech Artificial Intelligence, SVNIT Surat \textbar{}
+  \textbf{CGPA: 9.19/10} \textbar{}
+  2024--2028 \textbar{}
+  U24AI028 \\[0.5mm]
+  \small
+  \textbf{LeetCode Knight} (Max 2039, 600+ solved) \textbar{}
+  \textbf{Codeforces} Max Rating: 1360
+\end{center}
+
+\vspace{-2.5mm}
+
+\cvsection{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Bachelor of Technology in Artificial Intelligence}{2024 -- 2028}
+    {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat}{CGPA: 9.19/10}
+\resumeSubHeadingListEnd
+
+\cvsection{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Software Engineering Intern}{Jun -- Jul 2025}
+    {IFFCO (Indian Farmers Fertiliser Cooperative) --- Phulpur Unit, Prayagraj}{}
+    \resumeItemListStart
+      \item Built and deployed a \textbf{production full-stack application} (Node.js, Express.js, MySQL) automating \textbf{50+ daily enterprise workflow operations} for the System Networking Division; JWT auth, input validation, and structured error handling.
+      \item Designed \textbf{10+ RESTful APIs} with optimized SQL (indexing, joins); shipped through \textbf{unit testing}, debugging, peer code reviews, and integration testing on internal production infrastructure.
+      \item Contributed to \textbf{Docker} containerization, \textbf{CI/CD}, and deployment --- owned features end-to-end from implementation to production release.
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\cvsection{Projects}
+\resumeSubHeadingListStart
+
+  \resumeProject
+    {LogiFlow --- Multi-Modal Logistics Platform}
+    {Next.js 16, React 19, TypeScript, FastAPI, Supabase, Redis, Leaflet, Scikit-learn, Gemini}
+    {Apr -- Present 2026}
+    {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
+    \resumeItemListStart
+      \item \textbf{Neural Foundry} \textbar{} \textbf{Technical Co-Lead}, \textbf{UI/UX Head}: owned entire Next.js web frontend (7 pipeline surfaces, design system, API client, Zustand, Vercel proxy, backend warmup, Leaflet maps); co-led technical delivery with team leads across modes.
+      \item \textbf{Railway Pipeline Owner}: engineered \textbf{sub-second read paths} (100--400 ms Supabase-first geometry and ML fetches) separate from heavy search compute --- real-time corridor maps, branded cold-start UX, split caching (580+ corridors, 9,526 stations); \textbf{pytest} + \textbf{100/100} IRCA tariff validation.
+      \item Shipped with team on \textbf{parallel real-time data pipelines} (road, rail, air, water + hybrid comparator): live ingestion, Gradient Boosting delay ML on 15,650 train-days (MAE 22.7 min, 81\% within 30 min CV), validated pricing logic, Pareto ranking, and Gemini explainability.
+    \resumeItemListEnd
+  \vspace{-2mm}
+
+  \resumeProject
+    {AirHelp --- AI Airport Companion}
+    {FastAPI, React, WebSockets, ChromaDB, Sentence Transformers, NetworkX, RAG, Ollama}
+    {2026}
+    {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+    \resumeItemListStart
+      \item \textbf{PowerMind Hackathon 2026}: shipped \textbf{AI-powered} conversational backend with intent orchestration, RAG semantic search, A* navigation, and \textbf{WebSocket real-time alerts}; 1--3s response, 95\%+ nav accuracy, 50--100 concurrent users/instance.
+    \resumeItemListEnd
+  \vspace{-2mm}
+
+  \resumeProject
+    {RangRiti --- Full-Stack Marketplace}
+    {Node.js, Express.js, MongoDB, Cloudinary, Hugging Face, REST APIs}
+    {Jun -- Aug 2025}
+    {\href{https://github.com/Ojas-Srivastava05/RangRiti}{GitHub} \textbar{} \href{https://rangriti.onrender.com/}{Live}}
+    \resumeItemListStart
+      \item \textbf{Web Wonders 2025} \textbar{} \textbf{Technical Lead}: led 4-member team; shipped 40+ pages with booking flows, commerce logic, and AI integrations --- deployed on Render with owned API layer.
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\cvsection{Technical Skills}
+\begin{itemize}[leftmargin=0.05in, label={}]
+  \small{\item{
+    \textbf{Languages}{: Python, C/C++, JavaScript, TypeScript, SQL} \\
+    \textbf{Backend \& Real-Time Systems}{: FastAPI, Node.js, Express.js, REST APIs, WebSockets, Redis, sub-second read-path design, async/parallel pipelines, JWT} \\
+    \textbf{Frontend \& Mobile}{: React 19, Next.js 16, TypeScript, Tailwind, Zustand, Leaflet, Capacitor} \\
+    \textbf{Data, ML \& AI}{: Supabase, MySQL, MongoDB, Scikit-learn, Pandas, NumPy, RAG, LLMs (Gemini), feature pipelines} \\
+    \textbf{Quality \& DevOps}{: pytest, unit/integration testing, Docker, Git, CI/CD, GitHub Actions, Vercel, Render, code review} \\
+    \textbf{CS Fundamentals}{: DSA, System Design, DBMS, OS, Computer Networks, Distributed Systems, OOP} \\
+    \textbf{Interests}{: Indian equities, mutual funds, and personal investing/trading (\textbf{3+ years})}
+  }}
+\end{itemize}
+
+\cvsection{Achievements}
+\vspace{-1mm}
+\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep, labelsep=1.2mm, itemsep=0mm]\small
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 100} (LogiFlow, Neural Foundry); Technical Co-Lead and UI/UX Head; Railway Pipeline Owner
+  \item \textbf{LeetCode Knight} --- Max Rating 2039, \textbf{600+ problems} solved; \textbf{Codeforces} Max Rating 1360
+  \item \textbf{PowerMind Hackathon 2026} (AirHelp) \textbar{} \textbf{Web Wonders 2025} Technical Lead (RangRiti, 40+ pages shipped)
+  \item \textbf{CGPA 9.19/10} --- top-performing cohort, B.Tech Artificial Intelligence, SVNIT Surat; \textbf{7+ live deployments} on GitHub
+\end{itemize}
+
+\cvsection{Leadership}
+\resumeSubHeadingListStart
+  \resumePOR{Technical Co-Lead \& UI/UX Head --- LogiFlow (Neural Foundry)}{Owned full Next.js frontend, design system, and co-led technical delivery}{2026}
+  \resumePOR{Railway Pipeline Owner --- LogiFlow}{Owned rail UI, Supabase geometry cascade, pricing validation, and production latency fixes}{2026}
+  \resumePOR{Executive Member --- ACM SVNIT Surat}{Organizes campus coding contests and engineering workshops}{2024 -- Present}
+  \resumePOR{Mentor --- Nexus SVNIT}{Mentors juniors in DSA, competitive programming, and project shipping}{2024 -- Present}
+\resumeSubHeadingListEnd
+
+\end{document}

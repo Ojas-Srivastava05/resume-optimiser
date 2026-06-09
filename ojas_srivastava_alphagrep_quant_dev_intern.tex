@@ -1,0 +1,187 @@
+%-------------------------
+% Resume - AlphaGrep Quantitative Developer Intern | Ojas Srivastava
+% One-page | ATS-optimized | JD-aligned (quant / HFT / ML / C++ / Python)
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage[most]{tcolorbox}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.2cm, top=0.4cm, right=1.2cm, bottom=0.4cm}
+
+\tcbset{
+  frame code={}, center title,
+  left=0pt, right=0pt, top=0pt, bottom=0pt,
+  colback=gray!20, colframe=white,
+  width=\dimexpr\textwidth\relax,
+  enlarge left by=-2mm, boxsep=3pt,
+  arc=0pt, outer arc=0pt,
+}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.6cm}}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.98\textwidth}[t]{L R}
+    \textbf{#1} & \textit{\footnotesize #4} \\
+    \textit{\footnotesize #3} & \footnotesize #2 \\
+  \end{tabularx}
+  \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.98\textwidth}[t]{L R}
+    \textbf{#1} & \textit{\footnotesize #3} \\
+    \footnotesize #2 & \footnotesize #4 \\
+  \end{tabularx}
+  \vspace{-2.4mm}
+}
+
+\newcommand{\resumePOR}[3]{
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.97\textwidth}[t]{L R}
+    \textbf{#1} \newline \footnotesize #2 & \textit{\small #3} \\
+  \end{tabularx}
+  \vspace{-3mm}
+}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{0.5mm}}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
+
+\newcommand{\cvsection}[1]{%
+  \vspace{0.8mm}
+  \begin{tcolorbox}
+    \textbf{\large #1}
+  \end{tcolorbox}
+  \vspace{-4mm}
+}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[1mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{github.com/Ojas-Srivastava05} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.5mm]
+  \small
+  B.Tech Artificial Intelligence, SVNIT Surat \textbar{}
+  \textbf{CGPA: 9.19/10} \textbar{}
+  2024--2028 \textbar{}
+  Mumbai / Surat \textbar{}
+  U24AI028 \\[0.5mm]
+  \small
+  \textbf{LeetCode Knight} (Max 2039, 600+ solved) \textbar{}
+  \textbf{Codeforces} Max 1360
+\end{center}
+
+\vspace{-2.5mm}
+
+\cvsection{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Bachelor of Technology in Artificial Intelligence}{2024 -- 2028}
+    {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat}{CGPA: 9.19/10}
+    \resumeItemListStart
+      \item \textbf{Relevant coursework}: Probability \& Statistics, Linear Algebra, Machine Learning, Data Structures \& Algorithms, DBMS, OS, Computer Networks
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\cvsection{Projects \& Quantitative Engineering}
+\resumeSubHeadingListStart
+
+  \resumeProject
+    {LogiFlow --- Real-Time Logistics \& Predictive Analytics Platform}
+    {Python, Scikit-learn, Pandas, NumPy, FastAPI, Redis, Supabase, TypeScript}
+    {Apr -- Present 2026}
+    {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
+    \resumeItemListStart
+      \item Built \textbf{Gradient Boosting} delay-prediction models on \textbf{15,650 train-day} operational records (MAE \textbf{22.7 min}, \textbf{81\%} within 30 min CV); engineered features from timetable, route, and delay history --- pattern discovery on structured time-series data.
+      \item Designed \textbf{sub-second read paths} (100--400 ms) for hot geometry and ML inference vs.\ heavy search compute --- latency-aware system design analogous to separating signal generation from execution paths.
+      \item Owned \textbf{100/100 IRCA tariff validation} suite and \textbf{pytest} pipelines; built analytical libraries for corridor pricing, Pareto ranking, and explainability over multi-modal route data.
+      \item \textbf{Google Solution Challenge 2026 Global Top 100} \textbar{} Technical Co-Lead \& Railway Pipeline Owner (Neural Foundry).
+    \resumeItemListEnd
+  \vspace{-2mm}
+
+  \resumeProject
+    {Market Data \& Investing Toolkit (Personal)}
+    {Python, Pandas, SQL, REST APIs, Linux}
+    {2022 -- Present}
+    {Personal}
+    \resumeItemListStart
+      \item \textbf{3+ years} active Indian \textbf{equities \& mutual funds} investing; track positions, drawdowns, and sector exposure; use price/volume data and fundamentals to stress-test ideas before deployment.
+      \item Built scripts for portfolio logging, return attribution, and watchlist screening --- comfortable exploring datasets for \textbf{patterns} and validating hypotheses with code.
+    \resumeItemListEnd
+  \vspace{-2mm}
+
+  \resumeProject
+    {AirHelp --- Real-Time AI Systems}
+    {Python, FastAPI, WebSockets, RAG, NetworkX, ChromaDB}
+    {2026}
+    {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+    \resumeItemListStart
+      \item Shipped low-latency conversational backend (1--3s) with \textbf{WebSocket} event streams, graph-based routing (A*), and semantic retrieval --- \textbf{PowerMind Hackathon 2026}.
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\cvsection{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Software Engineering Intern}{Jun -- Jul 2025}
+    {IFFCO (Indian Farmers Fertiliser Cooperative) --- Phulpur Unit, Prayagraj}{}
+    \resumeItemListStart
+      \item Developed production \textbf{Node.js/MySQL} services with \textbf{10+ REST APIs}; optimized SQL queries (indexing, joins) for high-throughput internal workflows (\textbf{50+ daily operations}).
+      \item Deployed on \textbf{Linux} servers via \textbf{Docker} and CI/CD; rigorous unit testing, debugging, and code review before production release.
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\cvsection{Technical Skills}
+\begin{itemize}[leftmargin=0.05in, label={}]
+  \small{\item{
+    \textbf{Languages}{: Python, C/C++, SQL, JavaScript, TypeScript} \\
+    \textbf{Quant \& ML}{: Scikit-learn, Pandas, NumPy, feature engineering, cross-validation, Gradient Boosting, time-series modeling, data visualization} \\
+    \textbf{Systems \& Tools}{: Linux/Unix, Git, Docker, Redis, FastAPI, pytest, algorithmic problem solving, low-latency API design} \\
+    \textbf{CS Fundamentals}{: DSA, probability \& statistics, linear algebra, DBMS, OS, networks, OOP}
+  }}
+\end{itemize}
+
+\cvsection{Achievements}
+\vspace{-1mm}
+\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep, labelsep=1.2mm, itemsep=0mm]\small
+  \item \textbf{LeetCode Knight} --- Max Rating \textbf{2039}, \textbf{600+} problems; \textbf{Codeforces} Max \textbf{1360} --- strong algorithmic and problem-solving track record
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 100} (predictive ML + production engineering)
+  \item \textbf{CGPA 9.19/10}, B.Tech AI, SVNIT Surat; ACM SVNIT executive; mentor for DSA and competitive programming
+\end{itemize}
+
+\end{document}

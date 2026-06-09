@@ -1,0 +1,183 @@
+%-------------------------
+% Resume - Amazon ML Summer School 2026 | Ojas Srivastava
+% One-page | ATS-friendly
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage[most]{tcolorbox}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.2cm, top=0.45cm, right=1.2cm, bottom=0.45cm}
+
+\tcbset{
+  frame code={}, center title,
+  left=0pt, right=0pt, top=0pt, bottom=0pt,
+  colback=gray!20, colframe=white,
+  width=\dimexpr\textwidth\relax,
+  enlarge left by=-2mm, boxsep=3pt,
+  arc=0pt, outer arc=0pt,
+}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{0.5mm}\item
+  \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textit{\footnotesize{#4}} \\
+    \textit{\footnotesize{#3}} & \footnotesize{#2}\\
+  \end{tabular*}
+  \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+  \vspace{0.5mm}\item
+  \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textit{\footnotesize{#3}} \\
+    \footnotesize{\textit{#2}} & \footnotesize{#4}
+  \end{tabular*}
+  \vspace{-2.4mm}
+}
+
+\newcommand{\resumePOR}[3]{
+  \vspace{0.5mm}\item
+  \begin{tabular*}{0.97\textwidth}[t]{p{0.72\textwidth}@{\extracolsep{\fill}}r}
+    \textbf{#1} \newline \footnotesize{#2} & \textit{\small{#3}}
+  \end{tabular*}
+  \vspace{-3mm}
+}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{0.5mm}}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
+
+\newcommand{\cvsection}[1]{%
+  \vspace{1mm}
+  \begin{tcolorbox}
+    \textbf{\large #1}
+  \end{tcolorbox}
+  \vspace{-4mm}
+}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[0.8mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{github.com/Ojas-Srivastava05} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{linkedin.com/in/ojas-srivastava05} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.4mm]
+  \small
+  B.Tech Artificial Intelligence, SVNIT Surat \textbar{} CGPA: \textbf{9.19/10} \textbar{}
+  Expected Graduation: \textbf{2028} \textbar{} Roll: U24AI028
+\end{center}
+
+\vspace{-2mm}
+
+\cvsection{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Bachelor of Technology in Artificial Intelligence}{2024 -- 2028}
+    {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat, India}{CGPA: 9.19/10}
+  \resumeItemListStart
+    \item \textbf{Relevant coursework:} Machine Learning, Deep Learning, Probability \& Statistics, Linear Algebra, Data Structures \& Algorithms, Optimization, Database Management Systems, Computer Networks
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\cvsection{Machine Learning \& AI Projects}
+\resumeSubHeadingListStart
+
+  \resumeProject
+    {LogiFlow --- Multi-Modal Logistics Optimizer \textnormal{\small{(Google Solution Challenge 2026)}}}
+    {Python, FastAPI, Scikit-learn, NumPy, Pandas, Redis, Feature Engineering}
+    {2026 -- Present}
+    {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub}}
+    \resumeItemListStart
+      \item Built a \textbf{Gradient Boosting} delay-prediction model on traffic, weather, and historical shipment features; trained/evaluated with train-test splits and error analysis for route risk scoring.
+      \item Designed a \textbf{multi-objective ranking} pipeline using Pareto dominance over time, cost, and predicted delay; parallelized data fetching with Redis caching for production-scale inference.
+      \item Deployed end-to-end ML + API stack (FastAPI backend, Next.js frontend) with explainability via Gemini for human-readable routing decisions.
+    \resumeItemListEnd
+  \vspace{-2mm}
+
+  \resumeProject
+    {AirHelp --- AI Airport Companion \textnormal{\small{(PowerMind Hackathon 2026)}}}
+    {Python, FastAPI, RAG, ChromaDB, Sentence Transformers, A* Pathfinding}
+    {2026}
+    {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+    \resumeItemListStart
+      \item Implemented \textbf{semantic search} with embedding-based retrieval (Sentence Transformers + ChromaDB) and graph-based \textbf{A*} navigation for real-time airport guidance.
+      \item Built modular AI stack: RAG QA, OCR boarding-pass parsing, WebSocket alerts, and offline speech (Whisper STT) with layered conversation memory.
+    \resumeItemListEnd
+  \vspace{-2mm}
+
+  \resumeProject
+    {RangRiti --- Cultural Marketplace (Technical Lead)}
+    {Node.js, Express.js, MongoDB, REST APIs, AI Storytelling}
+    {Jun -- Aug 2025}
+    {\href{https://github.com/Ojas-Srivastava05/RangRiti}{GitHub}}
+    \resumeItemListStart
+      \item Led a 4-member team to ship a full-stack marketplace (40+ pages/services) with AI-assisted content features for Web Wonders 2025.
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\cvsection{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Software Engineering Intern}{Jun -- Jul 2025}
+    {IFFCO (Indian Farmers Fertiliser Cooperative) --- Phulpur Unit, Prayagraj}{}
+    \resumeItemListStart
+      \item Developed production \textbf{Node.js/Express/MySQL} services with JWT auth, validation, and REST APIs automating \textbf{50+ daily} enterprise workflows.
+      \item Contributed to \textbf{Docker} containerization, CI/CD, and deployment with senior engineers; practiced code review and structured debugging in a live environment.
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\cvsection{Technical Skills}
+\begin{itemize}[leftmargin=0.05in, label={}]
+  \small{\item{
+    \textbf{Machine Learning}{: Scikit-learn (Gradient Boosting, classification/regression), NumPy, Pandas, feature engineering, train/validation evaluation, model deployment} \\
+    \textbf{AI / NLP}{: RAG pipelines, embeddings (Sentence Transformers), vector databases (ChromaDB), LLM integration (Gemini)} \\
+    \textbf{Programming}{: Python, C/C++ (STL), JavaScript, TypeScript --- strong DSA and implementation skills} \\
+    \textbf{Math \& CS Foundations}{: Probability, Statistics, Linear Algebra, Optimization, DBMS, OS, Computer Networks, Distributed Systems} \\
+    \textbf{Tools}{: FastAPI, Git, Docker, Linux, Redis, MongoDB, MySQL, React/Next.js, Vercel/Render
+  }}
+\end{itemize}
+
+\cvsection{Achievements \& Leadership}
+\resumeSubHeadingListStart
+  \resumePOR{LeetCode Knight (Max Rating 2039, 600+ problems solved)}{Competitive programming --- algorithms, data structures, implementation under time constraints}{}
+  \resumePOR{Codeforces (Max Rating 1360)}{Regular contest participation and problem-solving practice}{}
+  \resumePOR{Executive Member --- ACM SVNIT Surat}{Organizes campus coding contests, workshops, and technical events}{2024 -- Present}
+  \resumePOR{Mentor --- Nexus SVNIT}{Mentors juniors in DSA, competitive programming, and software projects}{2024 -- Present}
+\resumeSubHeadingListEnd
+
+\vspace{-1mm}
+\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep, labelsep=1.2mm, itemsep=0mm]\small
+  \item Google Solution Challenge 2026 (LogiFlow) \textbar{} PowerMind Hackathon 2026 (AirHelp) \textbar{} Top-performing cohort, B.Tech AI, SVNIT Surat
+\end{itemize}
+
+\end{document}

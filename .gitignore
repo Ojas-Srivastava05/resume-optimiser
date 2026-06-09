@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Internship Scout (see internship-scout/.gitignore for details)
+internship-scout/.env
+internship-scout/venv/
+internship-scout/__pycache__/
+internship-scout/**/*.pyc
+internship-scout/seen_jobs.json
+internship-scout/logs/
+internship-scout/sheet_*.csv
+internship-scout/priority_companies.csv
