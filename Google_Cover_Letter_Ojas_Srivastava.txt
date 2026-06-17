@@ -1,0 +1,24 @@
+Dear Google Recruiting Team,
+
+I am writing to express my strong interest in the Software Engineering Intern position for Summer 2027 (Preferred locations: Bengaluru, Hyderabad, Pune). As a penultimate-year Bachelor of Technology student in Artificial Intelligence at SVNIT Surat with a CGPA of 9.20/10, I am eager to apply my skills in algorithms, distributed systems, and performance engineering to Google’s large-scale infrastructure.
+
+My technical foundation is rooted in strong algorithmic problem-solving and systems design:
+
+Algorithms and Systems Foundations: I am a LeetCode Knight (Peak Rating: 2048, 636 problems solved) and a Codeforces Specialist. My coursework in Data Structures, Operating Systems, Computer Networks, and Distributed Systems has prepared me to tackle complex software engineering problems.
+
+LogiFlow (Google Solution Challenge Top 100): I co-led the backend and deployment for this multi-modal logistics platform. To handle high traffic, I deployed the application to GCP Cloud Run with optimized memory/CPU limits and implemented dynamic runtime Google OAuth. To solve critical latency issues under serverless timeouts, I built progressive result streaming over HTTP and engineered a Supabase gzip-compressed caching layer, reducing hot read-path query times to 100-400 ms.
+
+AirHelp (AI Airport Companion): I designed and implemented an indoor navigation system using graph-based A* routing on custom Terminal 2 layout walking networks, maintaining 1-3s latency for 50-100 concurrent users. I also automated the local integration of offline Text-to-Speech (Piper) and managed persistent WebSocket states using FastAPI lifespan hooks.
+
+Production Experience: During my internship at IFFCO, I designed and containerized (Docker) a production full-stack application using Node.js, Express, and MySQL, successfully automating 50+ daily enterprise workflows through validated REST APIs.
+
+Google is an engineering-first organization where software must scale to handle billions of operations. I am excited by the prospect of contributing to high-performance applications, collaborating with world-class engineers, and building reliable infrastructure during this 10-12 week internship.
+
+Thank you for your time and consideration. I look forward to the opportunity to discuss my application further.
+
+Sincerely,
+
+Ojas Srivastava
+SVNIT Surat, Class of 2028
+srivastavaojas454@gmail.com | +91-7424978046
+ojas-srivastava.vercel.app | github.com/Ojas-Srivastava05
