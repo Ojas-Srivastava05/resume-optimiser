@@ -139,11 +139,53 @@ const curatedQuestions = parseCsv("questions.csv").map((q) => ({
 }));
 
 // Load scraped questions if they exist
+const CODING_DOMAINS = [
+	"leetcode.com", "geeksforgeeks.org", "codeforces.com", "hackerrank.com",
+	"codechef.com", "interviewbit.com", "naukri.com/code360", "codingninjas.com",
+	"hackerearth.com", "atcoder.jp", "spoj.com", "topcoder.com",
+	"binarysearch.com", "algoexpert.io",
+];
+
+const INTERVIEW_DOMAINS = [
+	"glassdoor.", "reddit.com", "teamblind.com", "leetcode.com/discuss",
+	"prepbytes.com", "workat.tech", "careercup.com",
+];
+
+function domainMatches(url, domains) {
+	if (!url) return false;
+	const lower = url.toLowerCase();
+	return domains.some((d) => lower.includes(d));
+}
+
+function isRelevant(title, snippet, url) {
+	if (!url || url.includes("bing.com/ck/a")) return false;
+
+	// Auto-accept known coding domains
+	if (domainMatches(url, CODING_DOMAINS)) return true;
+
+	// Auto-accept interview discussion domains if text mentions coding/OA
+	if (domainMatches(url, INTERVIEW_DOMAINS)) {
+		const text = `${title || ""} ${snippet || ""}`.toLowerCase();
+		return /\boa\b|online assessment|coding test|coding round|interview question|dsa|algorithm|data structure|leetcode/.test(text);
+	}
+
+	// For other domains, require very strong signals
+	const text = `${title || ""} ${snippet || ""}`.toLowerCase();
+	const strongSignals = /online assessment|coding round|coding test|\boa\b.*question|interview coding|dsa question|leetcode.*asked|asked in.*interview/.test(text);
+	const antiSignals = /job posting|apply now|salary|resume|career page|captcha|human visitor|login|sign in|youtube\.com|shopping|earbuds|bollywood/.test(text);
+
+	return strongSignals && !antiSignals;
+}
+
 let scrapedQuestions = [];
 const scrapedPath = path.join(root, "data", "scraped-questions.csv");
 if (fs.existsSync(scrapedPath)) {
 	try {
-		scrapedQuestions = parseCsv("scraped-questions.csv");
+		const rawScraped = parseCsv("scraped-questions.csv");
+		scrapedQuestions = rawScraped.filter((sq) => {
+			return isRelevant(sq.title, sq.snippet, sq.source_url);
+		});
+		console.log(`Loaded ${rawScraped.length} scraped questions, found ${scrapedQuestions.length} relevant.`);
 	} catch (err) {
 		console.warn("Could not read scraped-questions.csv:", err.message);
 	}

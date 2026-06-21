@@ -143,24 +143,7 @@ async function searchBing(query, count = 10) {
 		if (!hrefMatch) continue;
 		const href = hrefMatch[1];
 		
-		let realUrl = href;
-		if (href.includes("bing.com/ck/a")) {
-			try {
-				const urlObj = new URL(href);
-				const u = urlObj.searchParams.get("u");
-				if (u) {
-					for (let offset = 0; offset < 5; offset++) {
-						try {
-							const candidate = Buffer.from(u.substring(offset), "base64").toString("utf8");
-							if (candidate.startsWith("http")) {
-								realUrl = candidate;
-								break;
-							}
-						} catch (_) {}
-					}
-				}
-			} catch (_) {}
-		}
+		let realUrl = decodeBingUrl(href);
 
 		const titleMatch = h2Content.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 		const title = titleMatch || "";
@@ -308,7 +291,45 @@ async function performSearch(query, count = 10) {
 	return [];
 }
 
+// ─── URL helpers ─────────────────────────────────────────────────────────────
+
+function decodeBingUrl(href) {
+	if (!href.includes("bing.com/ck/a")) return href;
+	try {
+		const urlObj = new URL(href);
+		const u = urlObj.searchParams.get("u");
+		if (u) {
+			for (let offset = 0; offset < 5; offset++) {
+				try {
+					const candidate = Buffer.from(u.substring(offset), "base64").toString("utf8");
+					if (candidate.startsWith("http")) return candidate;
+				} catch (_) {}
+			}
+		}
+	} catch (_) {}
+	return href; // return as-is if decoding fails
+}
+
 // ─── Enrichment helpers ──────────────────────────────────────────────────────
+
+/** Domains known to host actual coding problems / interview experiences */
+const CODING_DOMAINS = [
+	"leetcode.com", "geeksforgeeks.org", "codeforces.com", "hackerrank.com",
+	"codechef.com", "interviewbit.com", "naukri.com/code360", "codingninjas.com",
+	"hackerearth.com", "atcoder.jp", "spoj.com", "topcoder.com",
+	"binarysearch.com", "algoexpert.io",
+];
+
+/** Domains with interview discussion threads worth scraping */
+const INTERVIEW_DOMAINS = [
+	"glassdoor.", "reddit.com", "teamblind.com", "leetcode.com/discuss",
+	"prepbytes.com", "workat.tech", "careercup.com",
+];
+
+function domainMatches(url, domains) {
+	const lower = url.toLowerCase();
+	return domains.some((d) => lower.includes(d));
+}
 
 function inferSource(url) {
 	const lower = url.toLowerCase();
@@ -317,6 +338,8 @@ function inferSource(url) {
 	if (lower.includes("geeksforgeeks.org")) return "gfg";
 	if (lower.includes("codeforces.com")) return "codeforces";
 	if (lower.includes("hackerrank.com")) return "hackerrank";
+	if (lower.includes("codingninjas.com") || lower.includes("naukri.com/code360")) return "codingninjas";
+	if (lower.includes("interviewbit.com")) return "interviewbit";
 	if (lower.includes("reddit.com")) return "reddit";
 	if (lower.includes("github.com")) return "github";
 	if (lower.includes("glassdoor.")) return "glassdoor";
@@ -348,12 +371,31 @@ function inferCategory(text) {
 	return "arrays";
 }
 
+/**
+ * Strict relevance filter. A result is relevant if:
+ * 1. URL is on a known coding/interview domain, OR
+ * 2. Text has STRONG coding interview signals (not just "question" or "problem")
+ * AND the URL isn't an unresolved Bing redirect.
+ */
 function isRelevant(title, snippet, url) {
-	const text = `${title} ${snippet} ${url}`.toLowerCase();
-	return (
-		/interview|assessment|oa\b|coding|leetcode|problem|question/.test(text) &&
-		!/job posting|apply now|salary|resume|career page/.test(text)
-	);
+	// Reject unresolved Bing tracking URLs
+	if (url.includes("bing.com/ck/a")) return false;
+
+	// Auto-accept known coding domains
+	if (domainMatches(url, CODING_DOMAINS)) return true;
+
+	// Auto-accept interview discussion domains if text mentions coding/OA
+	if (domainMatches(url, INTERVIEW_DOMAINS)) {
+		const text = `${title} ${snippet}`.toLowerCase();
+		return /\boa\b|online assessment|coding test|coding round|interview question|dsa|algorithm|data structure|leetcode/.test(text);
+	}
+
+	// For other domains, require very strong signals
+	const text = `${title} ${snippet}`.toLowerCase();
+	const strongSignals = /online assessment|coding round|coding test|\boa\b.*question|interview coding|dsa question|leetcode.*asked|asked in.*interview/.test(text);
+	const antiSignals = /job posting|apply now|salary|resume|career page|captcha|human visitor|login|sign in|youtube\.com|shopping|earbuds|bollywood/.test(text);
+
+	return strongSignals && !antiSignals;
 }
 
 // ─── Per-company scrape ───────────────────────────────────────────────────────

@@ -8,6 +8,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"seed:bank": "node scripts/import-curated-bank.mjs",
+		"seed:github": "node scripts/import-github-repos.mjs",
+		"prepopulate:questions": "node scripts/prepopulate-questions.mjs",
 		"generate:bank": "node scripts/generate-bank.mjs",
 		"refresh:oa-leads": "node scripts/refresh-oa-leads.mjs",
 		"scrape:questions": "node scripts/scrape-questions.mjs"
