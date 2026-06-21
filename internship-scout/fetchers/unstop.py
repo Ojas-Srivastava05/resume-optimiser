@@ -25,6 +25,14 @@ BROAD_QUERIES = [
     "fintech intern",
     "backend intern",
     "full stack intern",
+    "data science intern",
+    "AI intern",
+    "python developer intern",
+    "java developer intern",
+    "cloud computing intern",
+    "devops intern",
+    "quant intern",
+    "software developer intern",
 ]
 
 

@@ -30,11 +30,33 @@ LINKEDIN_INTERN_HINT = re.compile(
 )
 
 BROAD_QUERIES = [
+    # Core SWE intern searches
     "software engineer intern 2028 India",
     "SDE intern India",
+    "software developer intern India",
+    "software engineering internship India 2028",
+    # ML / AI / Data
     "machine learning intern India",
+    "data science intern India",
+    "AI intern India",
+    "deep learning intern India",
+    # Domain-specific
     "fintech intern India",
     "quant developer intern India",
+    "backend developer intern India",
+    "frontend developer intern India",
+    "full stack developer intern India",
+    "cloud engineer intern India",
+    "devops intern India",
+    "platform engineer intern India",
+    # Campus / graduate
+    "campus intern software India",
+    "graduate engineer trainee software India",
+    # Additional phrasing variants
+    "software intern Bangalore",
+    "software intern Hyderabad",
+    "software intern Pune",
+    "software intern Gurgaon",
 ]
 
 

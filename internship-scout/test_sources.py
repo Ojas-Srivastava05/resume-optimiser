@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Quick health-check for every job source (< 90 seconds in fast mode)."""
+"""Quick health-check for every job + hackathon source (< 120 seconds in fast mode)."""
 
 import os
 import sys
@@ -17,8 +17,12 @@ from fetchers.adzuna import fetch_adzuna_jobs
 from fetchers.ashby import fetch_ashby_jobs
 from fetchers.careers import fetch_careers_jobs
 from fetchers.greenhouse import fetch_greenhouse_jobs
+from fetchers.hackathons import fetch_hackathons
+from fetchers.indeed import fetch_indeed_jobs
+from fetchers.internshala import fetch_internshala_jobs
 from fetchers.lever import fetch_lever_jobs
 from fetchers.linkedin import _parse_cards, _search, fetch_linkedin_jobs
+from fetchers.naukri import fetch_naukri_jobs
 from fetchers.unstop import fetch_unstop_jobs
 
 
@@ -40,6 +44,7 @@ def main() -> int:
     except Exception as exc:
         results.append(_fail("Company List", str(exc)))
 
+    # --- Internship Sources ---
     for name, fn in [
         ("Greenhouse API", fetch_greenhouse_jobs),
         ("Lever API", fetch_lever_jobs),
@@ -47,6 +52,9 @@ def main() -> int:
         ("Unstop API", fetch_unstop_jobs),
         ("Careers Scraper", fetch_careers_jobs),
         ("Adzuna API", fetch_adzuna_jobs),
+        ("Internshala", fetch_internshala_jobs),
+        ("Naukri", fetch_naukri_jobs),
+        ("Indeed India", fetch_indeed_jobs),
     ]:
         try:
             n = len(fn())
@@ -54,6 +62,7 @@ def main() -> int:
         except Exception as exc:
             results.append(_fail(name, str(exc)))
 
+    # LinkedIn (special — test search + full fetch)
     try:
         html = _search("SDE intern India")
         cards = _parse_cards(html)
@@ -65,7 +74,15 @@ def main() -> int:
     except Exception as exc:
         results.append(_fail("LinkedIn Guest API", str(exc)))
 
+    # --- Hackathon Sources ---
+    try:
+        hacks = fetch_hackathons()
+        results.append(_ok("Hackathon Scout", f"{len(hacks)} elite hackathons"))
+    except Exception as exc:
+        results.append(_fail("Hackathon Scout", str(exc)))
+
     failed = sum(1 for r in results if r["status"] == "FAIL")
+    print("\n" + "=" * 60)
     for r in results:
         icon = "✓" if r["status"] == "OK" else "✗"
         print(f"{icon} {r['source']}: {r['detail']}")

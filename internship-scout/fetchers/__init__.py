@@ -2,8 +2,12 @@ from .adzuna import fetch_adzuna_jobs
 from .ashby import fetch_ashby_jobs
 from .careers import fetch_careers_jobs
 from .greenhouse import fetch_greenhouse_jobs
+from .hackathons import fetch_hackathons
+from .indeed import fetch_indeed_jobs
+from .internshala import fetch_internshala_jobs
 from .lever import fetch_lever_jobs
 from .linkedin import fetch_linkedin_jobs
+from .naukri import fetch_naukri_jobs
 from .unstop import fetch_unstop_jobs
 
 __all__ = [
@@ -14,4 +18,8 @@ __all__ = [
     "fetch_linkedin_jobs",
     "fetch_careers_jobs",
     "fetch_adzuna_jobs",
+    "fetch_internshala_jobs",
+    "fetch_naukri_jobs",
+    "fetch_indeed_jobs",
+    "fetch_hackathons",
 ]

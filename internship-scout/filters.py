@@ -18,7 +18,15 @@ TECH_ROLE_RE = re.compile(
     r"\b(software|sde|swe|developer|engineer|engineering|backend|frontend|"
     r"full[\s-]?stack|platform|devops|site\s+reliability|sre|ml|machine\s+learning|"
     r"\bai\b|artificial\s+intelligence|data\s+(scientist|engineer|analyst)|"
-    r"android|ios|mobile|cloud|distributed|systems|quant|research)\b",
+    r"android|ios|mobile|cloud|distributed|systems|quant|research|"
+    r"cyber\s*security|infosec|information\s+security|blockchain|web3|"
+    r"embedded|firmware|hardware|fpga|vlsi|asic|"
+    r"nlp|natural\s+language|computer\s+vision|deep\s+learning|"
+    r"automation|test\s+automation|qa\s+automation|"
+    r"database|sql|nosql|infrastructure|networking|network\s+engineer|"
+    r"compiler|language|runtime|kernel|os\s+engineer|"
+    r"robotics|iot|internet\s+of\s+things|edge\s+computing|"
+    r"technical|technology|tech\s+intern|coding)\b",
     re.I,
 )
 INDIA_RE = re.compile(

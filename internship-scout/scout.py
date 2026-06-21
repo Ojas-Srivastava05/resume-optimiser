@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Daily internship scout — priority companies, batch 2028, multi-source."""
+"""Daily internship + hackathon scout — priority companies, batch 2028, multi-source."""
 
 import argparse
 import sys
@@ -16,8 +16,12 @@ from fetchers import (
     fetch_ashby_jobs,
     fetch_careers_jobs,
     fetch_greenhouse_jobs,
+    fetch_hackathons,
+    fetch_indeed_jobs,
+    fetch_internshala_jobs,
     fetch_lever_jobs,
     fetch_linkedin_jobs,
+    fetch_naukri_jobs,
     fetch_unstop_jobs,
 )
 from filters import Job, dedupe_jobs
@@ -37,10 +41,14 @@ def log_coverage_plan() -> None:
     log(f"FULL SCAN every run (no openings missed on these boards):")
     log(f"  • Greenhouse: {gh} ATS boards — all intern roles polled")
     log(f"  • Lever + Ashby: all known boards")
-    log(f"  • LinkedIn: 5 broad India intern queries (all priority companies)")
-    log(f"  • Unstop: 6 broad sector queries (all priority companies)")
+    log(f"  • LinkedIn: 23 broad India intern queries (all priority companies)")
+    log(f"  • Unstop: 14 broad sector queries (all priority companies)")
+    log(f"  • Internshala: 13 tech intern categories (priority + ₹40k+ stipend)")
+    log(f"  • Naukri: 10 broad + company rotation")
+    log(f"  • Indeed India: 8 broad queries")
+    log(f"  • Hackathons: Unstop + Devfolio + 19 direct MNC pages")
     log(f"ROTATED daily ({batch} companies/day, full cycle ~{days} days):")
-    log(f"  • LinkedIn per-company + Unstop per-company + career portals")
+    log(f"  • LinkedIn per-company + Unstop per-company + Naukri per-company + career portals")
     log(f"  → New postings on ATS/broad sources appear same day; company-specific")
     log(f"    sources rotate but broad queries catch the same live postings.")
     log(f"Email dedup: max {MAX_EMAIL_SENDS} sends per opening, then suppressed")
@@ -55,6 +63,9 @@ def collect_jobs() -> list[Job]:
         ("Careers Web", fetch_careers_jobs, "rotation"),
         ("Unstop", fetch_unstop_jobs, "broad+rotation"),
         ("Adzuna", fetch_adzuna_jobs, "full"),
+        ("Internshala", fetch_internshala_jobs, "full"),
+        ("Naukri", fetch_naukri_jobs, "broad+rotation"),
+        ("Indeed", fetch_indeed_jobs, "broad"),
     ]
     all_jobs: list[Job] = []
     for name, fn, mode in collectors:
@@ -70,17 +81,18 @@ def collect_jobs() -> list[Job]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Internship scout digest")
+    parser = argparse.ArgumentParser(description="Internship + Hackathon scout digest")
     parser.add_argument("--dry-run", action="store_true", help="Fetch only, no email")
     parser.add_argument("--full", action="store_true", help="Ignore send-count limit")
     parser.add_argument("--no-email", action="store_true", help="Do not send email")
     parser.add_argument("--no-sync", action="store_true", help="Skip Google Sheet company sync")
     parser.add_argument("--fast", action="store_true", help="Skip slow setup steps")
+    parser.add_argument("--no-hackathons", action="store_true", help="Skip hackathon scouting")
     args = parser.parse_args()
 
     fast = args.fast or FAST_MODE
     ist = datetime.now(ZoneInfo("Asia/Kolkata"))
-    log_section("Internship Scout start")
+    log_section("Internship + Hackathon Scout start")
     log(f"Run time: {ist.strftime('%Y-%m-%d %H:%M IST')} | fast={fast} | batch={COMPANY_BATCH_SIZE}")
 
     try:
@@ -110,6 +122,7 @@ def main() -> int:
     batch = rotated_names()
     log(f"Today's rotation sample: {', '.join(batch[:5])} … ({len(batch)} total)")
 
+    # ─── Internships ──────────────────────────────────────────────────────────
     jobs = collect_jobs()
     log(f"Total unique matches after dedup: {len(jobs)}")
 
@@ -137,6 +150,25 @@ def main() -> int:
     if len(to_send) > 25:
         log(f"  … and {len(to_send) - 25} more")
 
+    # ─── Hackathons ───────────────────────────────────────────────────────────
+    hackathons = []
+    if not args.no_hackathons:
+        log_section("Fetching Hackathons")
+        try:
+            hackathons = fetch_hackathons()
+            log(f"Hackathons found: {len(hackathons)} elite events")
+
+            # Filter hackathons through seen-jobs too (using hackathon keys)
+            hackathon_to_send = []
+            for h in hackathons:
+                if should_email(h.key, records, full=args.full):
+                    hackathon_to_send.append(h)
+            hackathons = hackathon_to_send
+            log(f"Hackathons eligible to email: {len(hackathons)}")
+        except Exception as exc:
+            log(f"Hackathon scouting FAILED: {exc}", level="ERROR")
+            print(f"Hackathon ERROR: {exc}", file=sys.stderr)
+
     if args.dry_run:
         log("Dry run — no email sent")
         return 0
@@ -148,9 +180,15 @@ def main() -> int:
                 new_only=not args.full,
                 suppressed_count=len(suppressed),
                 total_scanned=len(jobs),
+                hackathons=hackathons,
             )
-            if to_send:
-                log(f"Email sent: {len(to_send)} listings → configured recipient")
+            if to_send or hackathons:
+                parts = []
+                if to_send:
+                    parts.append(f"{len(to_send)} internship listings")
+                if hackathons:
+                    parts.append(f"{len(hackathons)} hackathons")
+                log(f"Email sent: {' + '.join(parts)} → configured recipient")
             else:
                 log(
                     f"Email sent: No new openings today "
@@ -160,8 +198,11 @@ def main() -> int:
             log(f"Email failed: {exc}", level="ERROR")
             return 1
 
-    if not args.full and to_send:
-        record_sends([j.key for j in to_send])
+    if not args.full:
+        all_keys = [j.key for j in to_send]
+        all_keys.extend(h.key for h in hackathons)
+        if all_keys:
+            record_sends(all_keys)
 
     log_section("Done")
     return 0
