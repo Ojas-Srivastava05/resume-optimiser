@@ -73,28 +73,8 @@ const headers = [
 	"source_url",
 ];
 
-const rows = [];
-for (let ci = 0; ci < companies.length; ci++) {
-	const c = companies[ci];
-	if (!c.slug || !c.name) continue;
-	// Rotate question order per company for variety
-	const offset = ci % slugs.length;
-	for (let qi = 0; qi < slugs.length; qi++) {
-		const slug = slugs[(offset + qi) % slugs.length];
-		const tier = qi < 4 ? "B" : "C"; // first 4 per company = tier B for strict pool
-		rows.push([
-			c.slug,
-			slug,
-			year,
-			"SDE Intern",
-			"oa",
-			tier,
-			`OA practice pool for ${c.name}. Tier B = common intern OA patterns.`,
-			"",
-		]);
-	}
+// Keep existing occurrences.csv if it exists, otherwise write empty header
+if (!fs.existsSync(outCsv)) {
+	fs.writeFileSync(outCsv, "company_slug,question_slug,year,season,round_type,confidence_tier,pair_id,source_notes,source_url\n");
 }
-
-const csv = [headers.join(","), ...rows.map((r) => r.map(csvEscape).join(","))].join("\n");
-fs.writeFileSync(outCsv, csv);
-console.log(`Wrote ${rows.length} occurrences for ${companies.length} companies (${slugs.length} questions each).`);
+console.log("generate-occurrences.mjs is deprecated. Occurrences are now ingested from the GitHub repository and scraped-questions.csv.");

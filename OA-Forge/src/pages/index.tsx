@@ -119,7 +119,7 @@ export default function Home() {
 							OA<span className="text-forge-neon">FORGE</span>
 						</h1>
 						<p className="text-xl lg:text-2xl text-forge-muted mb-8 leading-relaxed">
-							966 companies · 20 questions each · C++ only · no sign-in
+							926+ companies · 7,500+ verified occurrences · C++ only · no sign-in
 						</p>
 						<div className="flex flex-wrap gap-4">
 							<div className="flex items-center gap-2 text-forge-neon font-mono text-sm">
@@ -226,21 +226,21 @@ export default function Home() {
 								{/* Start Button */}
 								<button
 									onClick={handleStartMockOA}
-									disabled={startingMock || !canStart}
+									disabled={startingMock || !selected}
 									className="w-full py-5 text-lg font-display font-bold rounded-xl bg-forge-neon text-forge-bg hover:shadow-glow transition-all disabled:opacity-40 disabled:cursor-not-allowed"
 								>
 									{startingMock
 										? "Initializing session..."
 										: canStart
 										? "Start Mock OA"
-										: "Add questions first"}
+										: "Start OA (Classics Fallback)"}
 								</button>
 
 								{!canStart && selected && (
-									<p className="text-sm text-forge-danger text-center">
+									<p className="text-sm text-forge-muted text-center italic">
 										{availableQuestions === 0
-											? `No questions found for ${selected.name}. Add occurrences to data/occurrences.csv`
-											: `Need ${requiredQuestions} questions, only ${availableQuestions} available`}
+											? `No recent verified questions are available for ${selected.name} yet. Starting this session will automatically fall back to the general OA Crucible classics pool.`
+											: `Only ${availableQuestions} of ${requiredQuestions} required questions are available for ${selected.name}. General classics will be used as fallback.`}
 									</p>
 								)}
 							</div>

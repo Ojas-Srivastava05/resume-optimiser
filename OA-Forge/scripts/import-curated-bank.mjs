@@ -32,20 +32,7 @@ function slugify(name) {
 }
 
 function loadAllCompanies() {
-	const configured = parseCsv("companies.csv");
-	const scoutPath = path.join(root, "..", "internship-scout", "data", "all_companies.csv");
-	const scout = fs.existsSync(scoutPath)
-		? parseCsvFile(scoutPath).map((row) => ({
-				slug: slugify(row.Company),
-				name: row.Company,
-				default_duration_minutes: "90",
-				default_num_questions: "2",
-				target_role: "SDE Intern",
-			}))
-		: [];
-	const bySlug = new Map(scout.map((c) => [c.slug, c]));
-	for (const c of configured) bySlug.set(c.slug, c);
-	return Array.from(bySlug.values()).filter((c) => c.slug && c.name);
+	return parseCsv("companies.csv");
 }
 
 function parseCsvFile(filePath) {
@@ -334,6 +321,13 @@ scrapedOccurrences.forEach((o) => {
 });
 
 const occurrences = Array.from(allOccurrencesMap.values());
+
+console.log("Clearing existing occurrences from Supabase...");
+const { error: deleteOccError } = await supabase
+	.from("oa_question_occurrences")
+	.delete()
+	.gt("year", 0);
+if (deleteOccError) throw deleteOccError;
 
 console.log("Inserting occurrences...");
 for (let i = 0; i < occurrences.length; i += BATCH) {

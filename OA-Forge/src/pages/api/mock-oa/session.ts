@@ -22,6 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 					startedAt: local.startedAt,
 					endedAt: expired ? new Date(startedMs + local.durationMinutes * 60 * 1000).toISOString() : null,
 					company: { slug: local.companySlug, name: local.companyName },
+					isFallback: local.sourceMode === "classic-fallback",
 				},
 				questions: local.questions.map((q) => ({
 					order: q.order,
@@ -99,6 +100,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 				.eq("id", sessionId);
 		}
 
+		const isFallback = (tierRows ?? []).length === 0;
+
 		return res.status(200).json({
 			session: {
 				id: session.id,
@@ -107,6 +110,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 				startedAt: session.started_at,
 				endedAt: session.ended_at,
 				company,
+				isFallback,
 			},
 			questions: (sessionQuestions ?? []).map((sq) => {
 				const q = sq.oa_questions as unknown as {

@@ -127,7 +127,7 @@ async function runCppWithPiston(
 }
 
 async function runCppLocally(source: string, testsRun: number) {
-	const dir = await fs.mkdtemp(path.join(os.tmpdir(), "oa-forge-cpp-"));
+	const dir = await fs.mkdtemp(path.join(os.tmpdir(), "oa-crucible-cpp-"));
 	const sourcePath = path.join(dir, "main.cpp");
 	const binaryPath = path.join(dir, "main");
 	try {

@@ -113,12 +113,19 @@ async function runImport() {
 	});
 	console.log(`Loaded ${doocsMap.size} questions from doocs/leetcode index.`);
 
+	// Load allowed companies from local companies.csv
+	console.log("Loading allowed companies from data/companies.csv...");
+	const allowedCompaniesText = fs.readFileSync(path.join(root, "data", "companies.csv"), "utf8");
+	const allowedCompanies = parseCsvContent(allowedCompaniesText);
+	const allowedSlugs = new Set(allowedCompanies.map(c => c.slug));
+	console.log(`Loaded ${allowedSlugs.size} allowed company slugs.`);
+
 	// Load existing companies from Supabase
 	console.log("Fetching existing companies from Supabase...");
-	const { data: existingCompanies, error: compErr } = await supabase.from("oa_companies").select("slug, name");
+	const { data: existingCompanies, error: compErr } = await supabase.from("oa_companies").select("id, slug, name");
 	if (compErr) throw compErr;
-	const companyBySlug = new Map(existingCompanies.map((c) => [c.slug, c.name]));
-	console.log(`Supabase currently has ${companyBySlug.size} companies.`);
+	const companyIdBySlug = new Map(existingCompanies.map((c) => [c.slug, c.id]));
+	console.log(`Supabase currently has ${companyIdBySlug.size} companies.`);
 
 	// Scan company directories
 	const repoPath = path.join(root, "scratch", "git-repos", "leetcode-companywise-interview-questions");
@@ -133,30 +140,82 @@ async function runImport() {
 	});
 	console.log(`Found ${companyFolders.length} company folders in GitHub repo.`);
 
-	// Ensure all company slugs exist or register them
-	const companiesToUpsert = [];
-	for (const folder of companyFolders) {
-		const slug = slugify(folder);
-		if (!companyBySlug.has(slug)) {
-			// Human-readable name from folder name
-			const name = folder
-				.split("-")
-				.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-				.join(" ");
-			companiesToUpsert.push({ slug, name });
-			companyBySlug.set(slug, name);
-		}
-	}
-
-	if (companiesToUpsert.length > 0) {
-		console.log(`Registering ${companiesToUpsert.length} new companies in Supabase...`);
-		await upsertBatched("oa_companies", companiesToUpsert, "slug");
-	}
-
-	// Refetch full list of company IDs
-	const { data: allCompRows, error: compRefetchErr } = await supabase.from("oa_companies").select("id, slug");
-	if (compRefetchErr) throw compRefetchErr;
-	const companyIdBySlug = new Map(allCompRows.map((c) => [c.slug, c.id]));
+	// Mapping for manual merges and corrections
+	const canonicalMappping = {
+		"1mg": "tata-1mg",
+		"tata-1mg": "tata-1mg",
+		"akamai": "akamai-technologies",
+		"akamai-technologies": "akamai-technologies",
+		"appdynamics": "appdynamics-cisco",
+		"appdynamics-cisco": "appdynamics-cisco",
+		"amazon": "amazon",
+		"amazon-india": "amazon",
+		"amazon-seller-services": "amazon",
+		"goldman-sachs": "goldman-sachs",
+		"goldman-sachs-india": "goldman-sachs",
+		"google": "google",
+		"google-india": "google",
+		"microsoft": "microsoft",
+		"microsoft-india": "microsoft",
+		"mckinsey": "mckinsey-and-company",
+		"mckinsey-and-company": "mckinsey-and-company",
+		"eightfoldai": "eightfold-ai",
+		"eigthfold": "eightfold-ai",
+		"antropic": "anthropic",
+		"anthropic": "anthropic",
+		"byd-india": "byd",
+		"byd": "byd",
+		"walmart": "walmart-global-tech",
+		"walmart-labs": "walmart-global-tech",
+		"walmart-global-tech": "walmart-global-tech",
+		"samsung": "samsung-r-and-d",
+		"samsung-r-and-d": "samsung-r-and-d",
+		"samsung-r-and-d-institute-india": "samsung-r-and-d",
+		"intel": "intel",
+		"intel-india": "intel",
+		"ibm": "ibm",
+		"ibm-consulting": "ibm",
+		"ibm-india": "ibm",
+		"ibm-research": "ibm",
+		"oracle": "oracle",
+		"oracle-india": "oracle",
+		"salesforce": "salesforce",
+		"salesforce-india": "salesforce",
+		"adobe": "adobe",
+		"adobe-india": "adobe",
+		"nvidia": "nvidia",
+		"nvidia-india": "nvidia",
+		"cisco": "cisco",
+		"cisco-india": "cisco",
+		"ey": "ey",
+		"ernst-and-young-ey": "ey",
+		"ey-consulting": "ey",
+		"deloitte": "deloitte",
+		"deloitte-consulting": "deloitte",
+		"monitor-deloitte": "deloitte",
+		"phonepe": "phonepe",
+		"phonepe-switch": "phonepe",
+		"flipkart": "flipkart",
+		"flipkart-wholesale": "flipkart",
+		"razorpay": "razorpay",
+		"razorpayx": "razorpay",
+		"sony": "sony",
+		"sony-japan": "sony",
+		"toyota-india": "toyota",
+		"volvo-india": "volvo",
+		"bmw-india": "bmw",
+		"hyundai-india": "hyundai",
+		"jaguar-land-rover-india": "jaguar-land-rover",
+		"jaguar-land-rover-technology-and-business-services-india-private-limited": "jaguar-land-rover",
+		"wells-fargo": "wells-fargo",
+		"wells-fargo-international-solutions-private-limited": "wells-fargo",
+		"procter-and-gamble-home-products-private-limited": "procter-and-gamble",
+		"imagine-marketing": "boat",
+		"boat-imagine-marketing": "boat",
+		"boat": "boat",
+		"perplexity": "perplexity-ai",
+		"perplexity-ai": "perplexity-ai",
+	};
 
 	// Extract questions and occurrences
 	console.log("Parsing company CSV files...");
@@ -172,7 +231,17 @@ async function runImport() {
 	];
 
 	for (const folder of companyFolders) {
-		const companySlug = slugify(folder);
+		let folderSlug = slugify(folder);
+		if (folderSlug.endsWith("-india")) {
+			folderSlug = folderSlug.slice(0, -6);
+		}
+		const companySlug = canonicalMappping[folderSlug] || folderSlug;
+		
+		// Only process if it is in the allowed list
+		if (!allowedSlugs.has(companySlug)) {
+			continue;
+		}
+
 		const companyId = companyIdBySlug.get(companySlug);
 		if (!companyId) continue;
 
@@ -223,6 +292,7 @@ async function runImport() {
 					const occurrenceKey = `${questionSlug}-${companySlug}`;
 					occurrencesMap.set(occurrenceKey, {
 						company_id: companyId,
+						company_slug: companySlug,
 						question_slug: questionSlug,
 						year: csvConfig.year,
 						season: csvConfig.season,
@@ -281,6 +351,68 @@ async function runImport() {
 		process.stdout.write(`  oa_question_occurrences: ${Math.min(i + BATCH, occurrencesToInsert.length)}/${occurrencesToInsert.length}\r`);
 	}
 	console.log(`  oa_question_occurrences: ${occurrencesToInsert.length} rows`);
+
+	// Write occurrences to data/occurrences.csv
+	console.log("Writing occurrences to data/occurrences.csv...");
+	const occCsvHeader = "company_slug,question_slug,year,season,round_type,confidence_tier,pair_id,source_notes,source_url";
+	const occCsvRows = [occCsvHeader];
+	for (const occ of occurrencesMap.values()) {
+		const escapedNotes = String(occ.source_notes ?? "").replace(/"/g, '""');
+		const row = [
+			occ.company_slug,
+			occ.question_slug,
+			occ.year,
+			occ.season,
+			occ.round_type,
+			occ.confidence_tier,
+			"", // pair_id
+			`"${escapedNotes}"`,
+			occ.source_url || ""
+		].join(",");
+		occCsvRows.push(row);
+	}
+	fs.writeFileSync(path.join(root, "data", "occurrences.csv"), occCsvRows.join("\n"), "utf8");
+	console.log(`Wrote ${occurrencesMap.size} real occurrences to data/occurrences.csv`);
+
+	// Read existing questions.csv to keep the classics
+	const qCsvPath = path.join(root, "data", "questions.csv");
+	let existingQuestions = [];
+	if (fs.existsSync(qCsvPath)) {
+		existingQuestions = parseCsvContent(fs.readFileSync(qCsvPath, "utf8"));
+	}
+	const finalQuestionsMap = new Map();
+	// Add existing questions first (keeps classics)
+	existingQuestions.forEach(q => {
+		finalQuestionsMap.set(q.slug, q);
+	});
+	// Add newly parsed questions from github
+	for (const q of questionsMap.values()) {
+		if (!finalQuestionsMap.has(q.slug)) {
+			finalQuestionsMap.set(q.slug, {
+				slug: q.slug,
+				title: q.title,
+				difficulty: q.difficulty,
+				category: q.category,
+				question_order: q.question_order
+			});
+		}
+	}
+	// Write back to data/questions.csv
+	const qCsvHeader = "slug,title,difficulty,category,question_order";
+	const qCsvRows = [qCsvHeader];
+	for (const q of finalQuestionsMap.values()) {
+		const escapedTitle = String(q.title ?? "").replace(/"/g, '""');
+		const row = [
+			q.slug,
+			`"${escapedTitle}"`,
+			q.difficulty,
+			q.category,
+			q.question_order
+		].join(",");
+		qCsvRows.push(row);
+	}
+	fs.writeFileSync(qCsvPath, qCsvRows.join("\n"), "utf8");
+	console.log(`Wrote ${finalQuestionsMap.size} questions to data/questions.csv`);
 
 	console.log("GitHub Repository Ingest Completed Successfully!");
 }

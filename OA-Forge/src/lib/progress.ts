@@ -1,4 +1,4 @@
-const STORAGE_KEY = "oa-forge-solved";
+const STORAGE_KEY = "oa-crucible-solved";
 
 export function getSolvedSlugs(): string[] {
 	if (typeof window === "undefined") return [];

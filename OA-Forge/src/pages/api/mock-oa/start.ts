@@ -28,45 +28,72 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		if (company) {
 			const pool = await getQuestionsByCompany(companySlug, false);
 			const eligible = pool.filter((q) => strictTiers.includes(q.confidence_tier));
+			
+			let picked: any[] = [];
+			let isFallback = false;
+
 			if (eligible.length >= numQuestions) {
-				const picked = await pickRandomQuestions(companySlug, numQuestions, strictTiers);
+				picked = await pickRandomQuestions(companySlug, numQuestions, strictTiers);
+			} else {
+				// Fallback to classics
+				const classicsSlugs = [
+					"two-sum", "valid-parentheses", "merge-sorted-arrays", "maximum-subarray",
+					"jump-game", "search-a-2d-matrix", "number-of-islands", "reverse-linked-list",
+					"best-time-to-buy-sell-stock", "contains-duplicate", "climbing-stairs", "house-robber",
+					"longest-substring-without-repeating", "single-number", "move-zeroes", "binary-search",
+					"product-of-array-except-self", "rotate-array", "intersection-of-two-arrays-ii", "palindrome-number"
+				];
+				const { data: classicPool, error: classicErr } = await supabase
+					.from("oa_questions")
+					.select("id, slug, title, difficulty, category")
+					.in("slug", classicsSlugs);
+				
+				if (classicErr || !classicPool || classicPool.length === 0) {
+					throw new Error("Classics pool not found in database");
+				}
 
-				const { data: session, error: sessionError } = await supabase
-					.from("oa_sessions")
-					.insert({
-						company_id: company.id,
-						template_id: template?.id ?? null,
-						duration_minutes: durationMinutes,
-						status: "active",
-					})
-					.select("id, company_id, duration_minutes, started_at, status")
-					.single();
-
-				if (sessionError) throw sessionError;
-
-				const sessionQuestions = picked.map((q, idx) => ({
-					session_id: session.id,
-					question_id: q.id,
-					question_order: idx + 1,
-				}));
-
-				const { error: sqError } = await supabase.from("oa_session_questions").insert(sessionQuestions);
-				if (sqError) throw sqError;
-
-				return res.status(200).json({
-					sessionId: session.id,
-					company: company.name,
-					durationMinutes,
-					source: "supabase",
-					questions: picked.map((q, idx) => ({
-						order: idx + 1,
-						slug: q.slug,
-						title: null,
-						difficulty: null,
-						confidenceTier: null,
-					})),
-				});
+				// Pick random questions from classics
+				const shuffled = [...classicPool].sort(() => 0.5 - Math.random());
+				picked = shuffled.slice(0, numQuestions);
+				isFallback = true;
 			}
+
+			const { data: session, error: sessionError } = await supabase
+				.from("oa_sessions")
+				.insert({
+					company_id: company.id,
+					template_id: template?.id ?? null,
+					duration_minutes: durationMinutes,
+					status: "active",
+				})
+				.select("id, company_id, duration_minutes, started_at, status")
+				.single();
+
+			if (sessionError) throw sessionError;
+
+			const sessionQuestions = picked.map((q, idx) => ({
+				session_id: session.id,
+				question_id: q.id,
+				question_order: idx + 1,
+			}));
+
+			const { error: sqError } = await supabase.from("oa_session_questions").insert(sessionQuestions);
+			if (sqError) throw sqError;
+
+			return res.status(200).json({
+				sessionId: session.id,
+				company: company.name,
+				durationMinutes,
+				source: "supabase",
+				isFallback,
+				questions: picked.map((q, idx) => ({
+					order: idx + 1,
+					slug: q.slug,
+					title: null,
+					difficulty: null,
+					confidenceTier: null,
+				})),
+			});
 		}
 
 		const localSession = startLocalMockSession(companySlug, strictMode);

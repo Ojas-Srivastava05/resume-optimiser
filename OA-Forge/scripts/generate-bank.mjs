@@ -114,24 +114,9 @@ for (const [a, b] of PAIRS) {
 	pairBySlug.set(b, a);
 }
 
-const year = new Date().getFullYear();
-const occurrenceRows = ["company_slug,question_slug,year,season,round_type,confidence_tier,pair_id,source_notes,source_url"];
-
-for (const company of companies) {
-	const offset = hash(company.slug) % QUESTIONS.length;
-	const rotated = [...QUESTIONS.slice(offset), ...QUESTIONS.slice(0, offset)];
-
-	for (let i = 0; i < 20; i++) {
-		const q = rotated[i];
-		const pairIdx = PAIRS.findIndex(([a, b]) => a === q.slug || b === q.slug);
-		const pairId = pairIdx >= 0 ? String(pairIdx + 1) : "";
-		const tier = i < 4 ? "B" : "C";
-		const notes = `OA practice pool for ${company.name}. Classic pattern #${i + 1}.`;
-		occurrenceRows.push(
-			[company.slug, q.slug, year, "Intern", "oa", tier, pairId, csvEscape(notes), ""].join(",")
-		);
-	}
+// Keep existing occurrences.csv if it exists, otherwise write empty header
+const occPath = path.join(dataDir, "occurrences.csv");
+if (!fs.existsSync(occPath)) {
+	fs.writeFileSync(occPath, "company_slug,question_slug,year,season,round_type,confidence_tier,pair_id,source_notes,source_url\n");
 }
-
-fs.writeFileSync(path.join(dataDir, "occurrences.csv"), occurrenceRows.join("\n"));
-console.log(`Generated ${QUESTIONS.length} questions, ${companies.length} companies, ${occurrenceRows.length - 1} occurrences.`);
+console.log(`Generated ${QUESTIONS.length} questions, ${companies.length} companies.`);

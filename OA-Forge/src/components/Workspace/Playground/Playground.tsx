@@ -26,7 +26,7 @@ export interface ISettings {
 const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved }) => {
 	const [activeTestCaseId, setActiveTestCaseId] = useState<number>(0);
 	const [userCode, setUserCode] = useState<string>(cppStarters[problem.id] ?? problem.starterCode);
-	const [fontSize, setFontSize] = useLocalStorage("oa-forge-fontSize", "14px");
+	const [fontSize, setFontSize] = useLocalStorage("oa-crucible-fontSize", "14px");
 
 	const [settings, setSettings] = useState<ISettings>({
 		fontSize: fontSize,

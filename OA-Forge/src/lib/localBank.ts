@@ -7,7 +7,7 @@ type LocalSession = {
 	companySlug: string;
 	companyName: string;
 	durationMinutes: number;
-	sourceMode?: "curated" | "live-pattern";
+	sourceMode?: "curated" | "live-pattern" | "classic-fallback";
 	startedAt: string;
 	status: "active" | "completed";
 	questions: {
@@ -45,22 +45,7 @@ function decodeSession(id: string): LocalSession | null {
 }
 
 export function getLocalCompanyReadiness(): OACompanyReadiness[] {
-	const configuredCompanies = readDataCsv("companies.csv");
-	const scoutPath = path.join(process.cwd(), "..", "internship-scout", "data", "all_companies.csv");
-	const scoutCompanies = readCsvFile(scoutPath)
-		.filter((row) => row.Company && !row.Company.includes("http") && !row.Company.startsWith("<"))
-		.map((row) => ({
-		slug: slugifyCompany(row.Company),
-		name: row.Company,
-		default_duration_minutes: "90",
-		default_num_questions: "2",
-		target_role: "SDE Intern",
-	}));
-	const configuredBySlug = new Map(configuredCompanies.map((company) => [company.slug, company]));
-	const companies = scoutCompanies.map((company) => configuredBySlug.get(company.slug) ?? company);
-	for (const company of configuredCompanies) {
-		if (!companies.some((c) => c.slug === company.slug)) companies.push(company);
-	}
+	const companies = readDataCsv("companies.csv");
 	const occurrences = readDataCsv("occurrences.csv");
 	const leads = readDataCsv("oa-source-leads.csv");
 	return companies.map((company) => {
@@ -166,16 +151,46 @@ export function startLocalMockSession(companySlug: string, strictMode: boolean) 
 	const pool = Array.from(uniqueBySlug.values());
 	const count = Number(company.num_questions || 2);
 
-	if (pool.length < count) return null;
+	let pickedQuestions: EligibleQ[] = [];
+	let sourceMode: "curated" | "live-pattern" | "classic-fallback" = "curated";
+
+	if (pool.length < count) {
+		const classicsSlugs = [
+			"two-sum", "valid-parentheses", "merge-sorted-arrays", "maximum-subarray",
+			"jump-game", "search-a-2d-matrix", "number-of-islands", "reverse-linked-list",
+			"best-time-to-buy-sell-stock", "contains-duplicate", "climbing-stairs", "house-robber",
+			"longest-substring-without-repeating", "single-number", "move-zeroes", "binary-search",
+			"product-of-array-except-self", "rotate-array", "intersection-of-two-arrays-ii", "palindrome-number"
+		];
+		const classicsPool = classicsSlugs
+			.map(slug => {
+				const q = questionBySlug.get(slug);
+				if (!q) return null;
+				return {
+					slug: q.slug,
+					title: q.title,
+					difficulty: q.difficulty,
+					category: q.category,
+					confidenceTier: "B" as ConfidenceTier,
+					pairId: ""
+				};
+			})
+			.filter((q): q is EligibleQ => Boolean(q));
+		
+		pickedQuestions = weightedSample(classicsPool, count);
+		sourceMode = "classic-fallback";
+	} else {
+		pickedQuestions = pickQuestions(pool, count);
+	}
 
 	const payload: Omit<LocalSession, "id"> = {
 		companySlug,
 		companyName: company.name,
 		durationMinutes: Number(company.duration_minutes || 90),
-		sourceMode: "curated",
+		sourceMode,
 		startedAt: new Date().toISOString(),
 		status: "active",
-		questions: pickQuestions(pool, count).map((q, idx) => ({ ...q, order: idx + 1 })),
+		questions: pickedQuestions.map((q, idx) => ({ ...q, order: idx + 1 })),
 	};
 	const session: LocalSession = { ...payload, id: encodeSession(payload) };
 	sessions.set(session.id, session);

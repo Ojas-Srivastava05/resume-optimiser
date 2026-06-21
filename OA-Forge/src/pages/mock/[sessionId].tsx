@@ -21,6 +21,7 @@ type SessionData = {
 	durationMinutes: number;
 	startedAt: string;
 	company: { slug: string; name: string };
+	isFallback?: boolean;
 };
 
 export default function MockOAPage() {
@@ -119,7 +120,14 @@ export default function MockOAPage() {
 			<div className="border-b border-forge-border bg-forge-surface/90">
 				<div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
 					<div>
-						<p className="forge-label">{session.company.name} · mock OA</p>
+						<p className="forge-label flex items-center gap-2">
+							<span>{session.company.name} · mock OA</span>
+							{session.isFallback && (
+								<span className="text-forge-warn font-mono text-[10px] bg-forge-warn/10 border border-forge-warn/30 px-2 py-0.5 rounded uppercase">
+									classics fallback
+								</span>
+							)}
+						</p>
 						<p className="font-mono text-2xl text-forge-accent tabular-nums">{formatTime(secondsLeft)}</p>
 					</div>
 					<div className="text-right font-mono text-sm text-forge-muted">
@@ -129,6 +137,16 @@ export default function MockOAPage() {
 			</div>
 
 			<div className="max-w-2xl mx-auto px-4 py-12">
+				{session.isFallback && (
+					<div className="bg-forge-warn/10 border border-forge-warn/30 text-forge-warn rounded-xl p-4 mb-8 text-sm flex items-start gap-3">
+						<span className="font-bold font-mono">⚠️ FALLBACK MODE:</span>
+						<span>
+							No verified OA questions were available in the pool for {session.company.name}. 
+							This session has been generated from the standard global OA Crucible classics.
+						</span>
+					</div>
+				)}
+
 				{completed ? (
 					<div className="space-y-8">
 						<div>
