@@ -84,7 +84,7 @@ async function runCppWithPiston(
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
-					language: "cpp",
+					language: "c++",
 					version: "10.2.0",
 					files: [{ name: "main.cpp", content: source }],
 				}),
@@ -107,9 +107,19 @@ async function runCppWithPiston(
 					message: output,
 					testsRun: tests.length,
 				};
+			} else {
+				return {
+					passed: false,
+					verdict: "Remote Judge Error",
+					message: `Remote compilation service returned status ${response.status}. Please try again shortly.`,
+				};
 			}
-		} catch {
-			// Fall through to local g++ when remote judge is unavailable.
+		} catch (error: any) {
+			return {
+				passed: false,
+				verdict: "Remote Judge Error",
+				message: `Failed to connect to the remote compilation service: ${error.message || error}`,
+			};
 		}
 	}
 

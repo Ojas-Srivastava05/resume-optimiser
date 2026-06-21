@@ -32,7 +32,7 @@ export default function Shell({ children, problemPage }: ShellProps) {
 					<div className="flex items-center gap-3 min-w-0">
 						<Link href="/" className="font-display text-sm font-bold tracking-widest shrink-0">
 							<span className="text-forge-accent">OA</span>
-							<span className="text-forge-magenta">FORGE</span>
+							<span className="text-forge-magenta">CRUCIBLE</span>
 						</Link>
 						<span className="hidden sm:inline forge-label text-[10px] truncate text-forge-muted">
 							c++ · mock oa · no auth
@@ -75,7 +75,7 @@ export default function Shell({ children, problemPage }: ShellProps) {
 			<main className="flex-1">{children}</main>
 			<footer className="border-t border-forge-border py-4 mt-auto">
 				<div className="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-forge-muted">
-					<span>{"// ojas.srivastava — OA Forge v1"}</span>
+					<span>{"// ojas.srivastava — OA Crucible v1"}</span>
 					<span>● UTF-8 · questions from Supabase · tiers A/B/C</span>
 				</div>
 			</footer>
