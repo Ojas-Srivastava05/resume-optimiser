@@ -129,58 +129,133 @@ const { data: companyRows, error: companyError } = await supabase.from("oa_compa
 if (companyError) throw companyError;
 const companyBySlug = new Map(companyRows.map((c) => [c.slug, c.id]));
 
-await upsertBatched(
-	"oa_questions",
-	parseCsv("questions.csv").map((q) => ({
-		slug: q.slug,
-		title: q.title,
-		difficulty: q.difficulty,
-		category: q.category,
-		question_order: Number(q.question_order),
-	})),
-	"slug"
-);
+// Load curated questions
+const curatedQuestions = parseCsv("questions.csv").map((q) => ({
+	slug: q.slug,
+	title: q.title,
+	difficulty: q.difficulty,
+	category: q.category,
+	question_order: Number(q.question_order),
+}));
+
+// Load scraped questions if they exist
+let scrapedQuestions = [];
+const scrapedPath = path.join(root, "data", "scraped-questions.csv");
+if (fs.existsSync(scrapedPath)) {
+	try {
+		scrapedQuestions = parseCsv("scraped-questions.csv");
+	} catch (err) {
+		console.warn("Could not read scraped-questions.csv:", err.message);
+	}
+}
+
+const questionsMap = new Map(curatedQuestions.map((q) => [q.slug, q]));
+scrapedQuestions.forEach((sq, idx) => {
+	if (sq.slug && !questionsMap.has(sq.slug)) {
+		questionsMap.set(sq.slug, {
+			slug: sq.slug,
+			title: sq.title || sq.slug,
+			difficulty: sq.difficulty || "Medium",
+			category: sq.category || "arrays",
+			question_order: 1000 + idx,
+		});
+	}
+});
+
+const allQuestionsToInsert = Array.from(questionsMap.values());
+
+await upsertBatched("oa_questions", allQuestionsToInsert, "slug");
 
 const { data: questionRows, error: questionError } = await supabase.from("oa_questions").select("id, slug");
 if (questionError) throw questionError;
 const questionBySlug = new Map(questionRows.map((q) => [q.slug, q.id]));
 
+console.log("Upserting roles in batches...");
+const rolesToUpsert = companies.map((c) => ({
+	company_id: companyBySlug.get(c.slug),
+	title: c.target_role || "SDE Intern",
+	level: "intern",
+})).filter((r) => r.company_id);
+
+const { data: upsertedRoles, error: rolesError } = await supabase
+	.from("oa_roles")
+	.upsert(rolesToUpsert, { onConflict: "company_id,title" })
+	.select("id, company_id, title");
+if (rolesError) throw rolesError;
+
+console.log(`  upserted ${upsertedRoles.length} roles`);
+
+console.log("Fetching existing templates...");
+const { data: existingTemplates, error: templatesError } = await supabase
+	.from("oa_templates")
+	.select("id, company_id, name");
+if (templatesError) throw templatesError;
+
+const existingTemplatesMap = new Map(
+	existingTemplates.map((t) => [`${t.company_id}-${t.name}`, t.id])
+);
+
+console.log("Upserting templates in batches...");
+const templatesToInsert = [];
+const templatesToUpdate = [];
+const roleByCompanyAndTitle = new Map(
+	upsertedRoles.map((r) => [`${r.company_id}-${r.title}`, r.id])
+);
+
 for (const c of companies) {
 	const company_id = companyBySlug.get(c.slug);
 	if (!company_id) continue;
-	const { data: role, error: roleError } = await supabase
-		.from("oa_roles")
-		.upsert({ company_id, title: c.target_role || "SDE Intern", level: "intern" }, { onConflict: "company_id,title" })
-		.select("id")
-		.single();
-	if (roleError) throw roleError;
+	const role_id = roleByCompanyAndTitle.get(`${company_id}-${c.target_role || "SDE Intern"}`);
+	if (!role_id) continue;
 
-	const templatePayload = {
+	const name = `${c.name} ${c.target_role || "SDE Intern"} Mock OA`;
+	const existingId = existingTemplatesMap.get(`${company_id}-${name}`);
+
+	const payload = {
 		company_id,
-		role_id: role.id,
-		name: `${c.name} ${c.target_role || "SDE Intern"} Mock OA`,
+		role_id,
+		name,
 		duration_minutes: Number(c.default_duration_minutes || 90),
 		num_questions: Number(c.default_num_questions || 2),
 		strict_tiers: ["A", "B"],
 	};
-	const { data: existingTemplate } = await supabase
-		.from("oa_templates")
-		.select("id")
-		.eq("company_id", company_id)
-		.eq("name", templatePayload.name)
-		.maybeSingle();
 
-	if (existingTemplate) {
-		await supabase.from("oa_templates").update(templatePayload).eq("id", existingTemplate.id);
+	if (existingId) {
+		templatesToUpdate.push({ id: existingId, ...payload });
 	} else {
-		await supabase.from("oa_templates").insert(templatePayload);
+		templatesToInsert.push(payload);
 	}
 }
 
-const occurrences = parseCsv("occurrences.csv")
+if (templatesToInsert.length > 0) {
+	for (let i = 0; i < templatesToInsert.length; i += BATCH) {
+		const chunk = templatesToInsert.slice(i, i + BATCH);
+		const { error: insertError } = await supabase
+			.from("oa_templates")
+			.insert(chunk);
+		if (insertError) throw insertError;
+		process.stdout.write(`  templates insert: ${Math.min(i + BATCH, templatesToInsert.length)}/${templatesToInsert.length}\r`);
+	}
+	console.log(`  templates insert: ${templatesToInsert.length} rows`);
+}
+
+if (templatesToUpdate.length > 0) {
+	for (let i = 0; i < templatesToUpdate.length; i += BATCH) {
+		const chunk = templatesToUpdate.slice(i, i + BATCH);
+		const { error: updateError } = await supabase
+			.from("oa_templates")
+			.upsert(chunk, { onConflict: "id" });
+		if (updateError) throw updateError;
+		process.stdout.write(`  templates update: ${Math.min(i + BATCH, templatesToUpdate.length)}/${templatesToUpdate.length}\r`);
+	}
+	console.log(`  templates update: ${templatesToUpdate.length} rows`);
+}
+
+const curatedOccurrences = parseCsv("occurrences.csv")
 	.map((o) => ({
 		company_id: companyBySlug.get(o.company_slug),
 		question_id: questionBySlug.get(o.question_slug),
+		role_id: null,
 		year: Number(o.year),
 		season: o.season,
 		round_type: o.round_type || "oa",
@@ -190,11 +265,39 @@ const occurrences = parseCsv("occurrences.csv")
 	}))
 	.filter((o) => o.company_id && o.question_id);
 
+const scrapedOccurrences = scrapedQuestions
+	.map((o) => ({
+		company_id: companyBySlug.get(o.company_slug),
+		question_id: questionBySlug.get(o.slug),
+		role_id: null,
+		year: Number(o.year || new Date().getFullYear()),
+		season: "Intern",
+		round_type: "oa",
+		confidence_tier: o.confidence_tier || "C",
+		source_notes: `Scraped lead: ${o.snippet || ""}`.substring(0, 500),
+		source_url: o.source_url || null,
+	}))
+	.filter((o) => o.company_id && o.question_id);
+
+const allOccurrencesMap = new Map();
+curatedOccurrences.forEach((o) => {
+	const key = `${o.question_id}-${o.company_id}-${o.year}-${o.season}-${o.round_type}`;
+	allOccurrencesMap.set(key, o);
+});
+scrapedOccurrences.forEach((o) => {
+	const key = `${o.question_id}-${o.company_id}-${o.year}-${o.season}-${o.round_type}`;
+	if (!allOccurrencesMap.has(key)) {
+		allOccurrencesMap.set(key, o);
+	}
+});
+
+const occurrences = Array.from(allOccurrencesMap.values());
+
 console.log("Inserting occurrences...");
 for (let i = 0; i < occurrences.length; i += BATCH) {
 	const chunk = occurrences.slice(i, i + BATCH);
 	const { error } = await supabase.from("oa_question_occurrences").upsert(chunk, {
-		onConflict: "question_id,company_id,year,season,round_type",
+		onConflict: "question_id,company_id,role_id,year,season,round_type",
 		ignoreDuplicates: true,
 	});
 	if (error) throw error;

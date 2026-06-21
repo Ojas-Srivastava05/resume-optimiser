@@ -69,11 +69,67 @@ function stripHtml(html) {
 		.trim();
 }
 
+async function searchYahoo(query) {
+	const url = `https://search.yahoo.com/search?p=${encodeURIComponent(query)}&n=15`;
+	const headers = {
+		"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+	};
+	const res = await fetch(url, { headers });
+	if (!res.ok) throw new Error(`Yahoo status ${res.status}`);
+	const html = await res.text();
+	
+	const results = [];
+	const blocks = html.split(/<div[^>]*class="[^"]*algo-sr[^"]*"/g);
+	if (blocks.length <= 1) return results;
+
+	for (let i = 1; i < blocks.length; i++) {
+		const block = blocks[i];
+		const hrefMatch = block.match(/href="([^"]+)"/);
+		const href = hrefMatch ? hrefMatch[1] : "";
+		
+		let realUrl = href;
+		const ruMatch = href.match(/\/RU=([^/]+)/);
+		if (ruMatch) {
+			try {
+				realUrl = decodeURIComponent(ruMatch[1]);
+			} catch (_) {}
+		}
+
+		const titleMatch = block.match(/class="title[^>]*>([\s\S]*?)<\/h3>/);
+		let title = "";
+		if (titleMatch) {
+			title = stripHtml(titleMatch[1]);
+		}
+
+		const snippetMatch = block.match(/class="compText[^>]*>([\s\S]*?)<\/div>/);
+		let snippet = "";
+		if (snippetMatch) {
+			snippet = stripHtml(snippetMatch[1]);
+		}
+
+		if (realUrl && (title || snippet)) {
+			results.push({
+				title,
+				url: realUrl,
+				snippet
+			});
+		}
+	}
+	return results;
+}
+
 function duckDuckGoUrl(query) {
 	return `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;
 }
 
 async function search(query) {
+	try {
+		const yahooResults = await searchYahoo(query);
+		if (yahooResults.length > 0) return yahooResults;
+	} catch (err) {
+		console.warn(`Yahoo search failed: ${err.message}. Falling back to DuckDuckGo.`);
+	}
+
 	const res = await fetch(duckDuckGoUrl(query), {
 		headers: {
 			"user-agent":
