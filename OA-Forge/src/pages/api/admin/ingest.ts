@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { supabase } from "@/supabase/supabase";
 import { ConfidenceTier } from "@/lib/types/oa";
-
+import { getOrIngestDynamicQuestion } from "@/lib/dynamicQuestions";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
@@ -35,12 +35,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			.single();
 		if (!company) return res.status(404).json({ error: "Company not found" });
 
-		const { data: question } = await supabase
+		let { data: question } = await supabase
 			.from("oa_questions")
 			.select("id")
 			.eq("slug", questionSlug)
-			.single();
-		if (!question) return res.status(404).json({ error: "Question not found — add slug to oa_questions first" });
+			.maybeSingle();
+
+		if (!question) {
+			const dynamicProb = await getOrIngestDynamicQuestion(questionSlug);
+			if (dynamicProb) {
+				const { data: retryQ } = await supabase
+					.from("oa_questions")
+					.select("id")
+					.eq("slug", questionSlug)
+					.maybeSingle();
+				question = retryQ;
+			}
+		}
+
+		if (!question) return res.status(404).json({ error: "Question not found and could not be fetched from LeetCode." });
 
 		const { data, error } = await supabase
 			.from("oa_question_occurrences")

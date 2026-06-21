@@ -1,7 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getRealtimeOALeads } from "@/lib/oaResearch";
-import { mapUrlToForgeSlug, mapTitleToForgeSlug } from "@/lib/leetcodeMap";
 import { slugifyCompany, readDataCsv } from "@/lib/csv";
+
+function extractLeetcodeSlug(url: string): string | null {
+	const m = url.match(/leetcode\.com\/problems\/([a-z0-9-]+)/i);
+	return m?.[1]?.toLowerCase() ?? null;
+}
 
 async function enrichCompany(name: string, slug: string, maxQuestions: number) {
 	const leads = await getRealtimeOALeads(name, slug);
@@ -9,7 +13,7 @@ async function enrichCompany(name: string, slug: string, maxQuestions: number) {
 	const seen = new Set<string>();
 
 	for (const lead of leads) {
-		const forgeSlug = mapUrlToForgeSlug(lead.url) ?? mapTitleToForgeSlug(lead.title);
+		const forgeSlug = extractLeetcodeSlug(lead.url);
 		if (!forgeSlug || seen.has(forgeSlug)) continue;
 		seen.add(forgeSlug);
 		mapped.push({ forgeSlug, title: lead.title, url: lead.url, source: lead.source_type });

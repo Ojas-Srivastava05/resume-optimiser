@@ -11,6 +11,8 @@ import { promisify } from "util";
 
 const execFileAsync = promisify(execFile);
 
+import { getOrIngestDynamicQuestion } from "@/lib/dynamicQuestions";
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
@@ -24,7 +26,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		return res.status(400).json({ error: "slug and code required" });
 	}
 
-	const problem = problems[slug];
+	let problem = problems[slug];
+	if (!problem) {
+		const dynamicProb = await getOrIngestDynamicQuestion(slug);
+		if (dynamicProb) {
+			problem = dynamicProb;
+		}
+	}
 	if (!problem) {
 		return res.status(404).json({ error: "Problem not found" });
 	}

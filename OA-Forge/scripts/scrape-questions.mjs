@@ -10,13 +10,13 @@ if (fs.existsSync(envPath)) {
 	}
 }
 
-const BRAVE_KEY = process.env.BRAVE_SEARCH_API_KEY;
+const FIRECRAWL_KEY = process.env.FIRECRAWL_API_KEY;
 const scoutCsv = path.join(process.cwd(), "..", "internship-scout", "data", "all_companies.csv");
 
-if (!BRAVE_KEY) {
-	console.error("❌ Missing BRAVE_SEARCH_API_KEY in .env.local");
-	console.error("   Get a free key at https://brave.com/search/api (2000 queries/month, no credit card)");
-	process.exit(1);
+if (FIRECRAWL_KEY) {
+	console.log("🔑 Firecrawl API key detected. Will prioritize Firecrawl Search API.");
+} else {
+	console.log("ℹ️ No FIRECRAWL_API_KEY detected. Will use unauthenticated DuckDuckGo/Google search scraping.");
 }
 
 // ─── CSV helpers ────────────────────────────────────────────────────────────
@@ -50,34 +50,77 @@ function slugifyCompany(name) {
 		.replace(/-+/g, "-");
 }
 
-// ─── Brave Search ────────────────────────────────────────────────────────────
+// ─── Search API ────────────────────────────────────────────────────────────
 
-async function braveSearch(query, count = 10) {
-	const url = new URL("https://api.search.brave.com/res/v1/web/search");
-	url.searchParams.set("q", query);
-	url.searchParams.set("count", String(count));
-	url.searchParams.set("search_lang", "en");
-
-	const res = await fetch(url.toString(), {
-		headers: {
-			"Accept": "application/json",
-			"Accept-Encoding": "gzip",
-			"X-Subscription-Token": BRAVE_KEY,
-		},
-		signal: AbortSignal.timeout(15000),
-	});
-
-	if (!res.ok) {
-		const body = await res.text().catch(() => "");
-		throw new Error(`Brave API ${res.status}: ${body.slice(0, 120)}`);
+async function performSearch(query, count = 10) {
+	if (FIRECRAWL_KEY) {
+		try {
+			const res = await fetch("https://api.firecrawl.dev/v1/search", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${FIRECRAWL_KEY}`
+				},
+				body: JSON.stringify({
+					query,
+					limit: count
+				}),
+				signal: AbortSignal.timeout(15000),
+			});
+			if (res.ok) {
+				const json = await res.json();
+				if (json.success && Array.isArray(json.data)) {
+					return json.data.map((item) => ({
+						title: item.metadata?.title ?? item.title ?? "",
+						url: item.url ?? item.metadata?.sourceURL ?? "",
+						snippet: item.metadata?.description ?? item.snippet ?? "",
+					}));
+				}
+			}
+			console.warn(`  Firecrawl API search failed. Falling back to DuckDuckGo/Google search scraping.`);
+		} catch (err) {
+			console.warn(`  Firecrawl Search API error: ${err.message}. Falling back to DuckDuckGo/Google search scraping.`);
+		}
 	}
 
-	const json = await res.json();
-	return (json.web?.results ?? []).map((r) => ({
-		title: r.title ?? "",
-		url: r.url ?? "",
-		snippet: r.description ?? "",
-	}));
+	const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;
+	const headers = {
+		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+		"Accept-Language": "en-US,en;q=0.9"
+	};
+	const res = await fetch(url, { headers, signal: AbortSignal.timeout(15000) });
+	if (!res.ok) {
+		throw new Error(`Unauthenticated scraper failed with status ${res.status}`);
+	}
+	const html = await res.text();
+	const blockRegex = /<div class="[^"]*result__body[^"]*">([\s\S]*?)<div class="clear"><\/div>\s*<\/div>/g;
+	let match;
+	const results = [];
+	while ((match = blockRegex.exec(html)) !== null && results.length < count) {
+		const blockHtml = match[1];
+		const titleMatch = blockHtml.match(/<a[^>]*class="result__a"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/);
+		if (!titleMatch) continue;
+
+		let rawUrl = titleMatch[1];
+		let title = titleMatch[2].trim().replace(/<[^>]*>/g, "");
+		let cleanUrl = rawUrl;
+		if (rawUrl.startsWith("//")) {
+			rawUrl = "https:" + rawUrl;
+		}
+		const urlMatch = rawUrl.match(/[?&]uddg=([^&]+)/);
+		if (urlMatch) {
+			cleanUrl = decodeURIComponent(urlMatch[1]);
+		}
+
+		const snippetMatch = blockHtml.match(/<a[^>]*class="result__snippet"[^>]*>([\s\S]*?)<\/a>/);
+		let snippet = "";
+		if (snippetMatch) {
+			snippet = snippetMatch[1].trim().replace(/<[^>]*>/g, "");
+		}
+
+		results.push({ title, url: cleanUrl, snippet });
+	}
+	return results;
 }
 
 // ─── Enrichment helpers ──────────────────────────────────────────────────────
@@ -144,7 +187,7 @@ async function scrapeQuestionsForCompany(companyName, companySlug, maxQuestions 
 	for (const query of queries) {
 		if (questions.length >= maxQuestions) break;
 		try {
-			const results = await braveSearch(query, 10);
+			const results = await performSearch(query, 10);
 			for (const result of results) {
 				if (questions.length >= maxQuestions) break;
 				if (seenUrls.has(result.url)) continue;
@@ -195,7 +238,7 @@ async function main() {
 		process.exit(1);
 	}
 
-	console.log("🔍 Starting OA question scraper (Brave Search API)...");
+	console.log("🔍 Starting OA question scraper...");
 
 	const companies = parseCsv(fs.readFileSync(scoutCsv, "utf8"))
 		.map((row) => ({ name: row.Company, slug: slugifyCompany(row.Company) }))

@@ -12,28 +12,7 @@ export type ScrapeLead = {
 	mapped_question_slug?: string;
 };
 
-const LEETCODE_MAP: Record<string, string> = {
-	"two-sum": "two-sum",
-	"valid-parentheses": "valid-parentheses",
-	"merge-sorted-array": "merge-sorted-arrays",
-	"maximum-subarray": "maximum-subarray",
-	"jump-game": "jump-game",
-	"search-a-2d-matrix": "search-a-2d-matrix",
-	"number-of-islands": "number-of-islands",
-	"reverse-linked-list": "reverse-linked-list",
-	"best-time-to-buy-and-sell-stock": "best-time-to-buy-sell-stock",
-	"contains-duplicate": "contains-duplicate",
-	"climbing-stairs": "climbing-stairs",
-	"house-robber": "house-robber",
-	"longest-substring-without-repeating-characters": "longest-substring-without-repeating",
-	"single-number": "single-number",
-	"move-zeroes": "move-zeroes",
-	"binary-search": "binary-search",
-	"product-of-array-except-self": "product-of-array-except-self",
-	"rotate-array": "rotate-array",
-	"intersection-of-two-arrays-ii": "intersection-of-two-arrays-ii",
-	"palindrome-number": "palindrome-number",
-};
+import { getOrIngestDynamicQuestion } from "./dynamicQuestions";
 
 function extractLeetcodeSlug(url: string) {
 	const m = url.match(/leetcode\.com\/problems\/([a-z0-9-]+)/i);
@@ -57,29 +36,62 @@ function isRelevant(title: string, snippet: string, url: string) {
 	);
 }
 
-async function braveSearch(query: string, count = 8) {
-	const key = process.env.BRAVE_SEARCH_API_KEY;
-	if (!key) return [];
+async function firecrawlSearch(query: string, limit = 8) {
+	const key = process.env.FIRECRAWL_API_KEY;
+	if (!key) {
+		console.warn("No FIRECRAWL_API_KEY found in environment.");
+		return [];
+	}
 
-	const url = new URL("https://api.search.brave.com/res/v1/web/search");
-	url.searchParams.set("q", query);
-	url.searchParams.set("count", String(count));
+	try {
+		const res = await fetch("https://api.firecrawl.dev/v1/search", {
+			method: "POST",
+			headers: {
+				"Authorization": `Bearer ${key}`,
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				query,
+				limit
+			}),
+			signal: AbortSignal.timeout(15000),
+		});
 
-	const res = await fetch(url.toString(), {
-		headers: {
-			Accept: "application/json",
-			"X-Subscription-Token": key,
-		},
-		signal: AbortSignal.timeout(12000),
-	});
+		if (!res.ok) {
+			const resV2 = await fetch("https://api.firecrawl.dev/v2/search", {
+				method: "POST",
+				headers: {
+					"Authorization": `Bearer ${key}`,
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					query,
+					limit
+				}),
+				signal: AbortSignal.timeout(15000),
+			});
+			if (!resV2.ok) {
+				console.error(`Firecrawl search failed: ${resV2.statusText}`);
+				return [];
+			}
+			const json = await resV2.json();
+			return (json.data ?? []).map((r: any) => ({
+				title: r.title ?? "",
+				url: r.url ?? "",
+				snippet: r.description ?? r.markdown ?? ""
+			}));
+		}
 
-	if (!res.ok) return [];
-	const json = await res.json();
-	return (json.web?.results ?? []).map((r: { title?: string; url?: string; description?: string }) => ({
-		title: r.title ?? "",
-		url: r.url ?? "",
-		snippet: r.description ?? "",
-	}));
+		const json = await res.json();
+		return (json.data ?? []).map((r: any) => ({
+			title: r.title ?? "",
+			url: r.url ?? "",
+			snippet: r.description ?? r.markdown ?? ""
+		}));
+	} catch (err) {
+		console.error("Firecrawl search error:", err);
+		return [];
+	}
 }
 
 export async function scrapeCompanyLeads(companyName: string, companySlug: string, max = 5): Promise<ScrapeLead[]> {
@@ -93,7 +105,7 @@ export async function scrapeCompanyLeads(companyName: string, companySlug: strin
 
 	for (const query of queries) {
 		if (leads.length >= max) break;
-		const results = await braveSearch(query, 8);
+		const results = await firecrawlSearch(query, 8);
 		for (const r of results) {
 			if (leads.length >= max || seen.has(r.url) || !isRelevant(r.title, r.snippet, r.url)) continue;
 			seen.add(r.url);
@@ -102,7 +114,7 @@ export async function scrapeCompanyLeads(companyName: string, companySlug: strin
 				...r,
 				source_type: inferSource(r.url),
 				leetcode_slug: lc,
-				mapped_question_slug: lc ? LEETCODE_MAP[lc] : undefined,
+				mapped_question_slug: lc || undefined,
 			});
 		}
 		await new Promise((r) => setTimeout(r, 1100));
@@ -142,6 +154,7 @@ export async function ingestScrapeResults(companySlug: string, leads: ScrapeLead
 	const mapped = leads.filter((l) => l.mapped_question_slug);
 
 	for (const lead of mapped) {
+		await getOrIngestDynamicQuestion(lead.mapped_question_slug!);
 		if (appendLocalOccurrence(companySlug, lead.mapped_question_slug!, lead.url)) ingested++;
 	}
 

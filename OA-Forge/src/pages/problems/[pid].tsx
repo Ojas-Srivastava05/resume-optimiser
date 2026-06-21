@@ -3,6 +3,7 @@ import Workspace from "@/components/Workspace/Workspace";
 import useHasMounted from "@/hooks/useHasMounted";
 import { problems } from "@/utils/problems";
 import { Problem } from "@/utils/types/problem";
+import { getOrIngestDynamicQuestion } from "@/lib/dynamicQuestions";
 import React from "react";
 
 type ProblemPageProps = {
@@ -32,7 +33,7 @@ export async function getStaticPaths() {
 
 	return {
 		paths,
-		fallback: false,
+		fallback: "blocking",
 	};
 }
 
@@ -40,7 +41,14 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: { params: { pid: string } }) {
 	const { pid } = params;
-	const problem = problems[pid];
+	let problem = problems[pid];
+
+	if (!problem) {
+		const dynamicProb = await getOrIngestDynamicQuestion(pid);
+		if (dynamicProb) {
+			problem = { ...dynamicProb };
+		}
+	}
 
 	if (!problem) {
 		return {

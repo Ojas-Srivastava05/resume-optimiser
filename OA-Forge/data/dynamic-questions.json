@@ -1,0 +1,27 @@
+{
+  "container-with-most-water": {
+    "id": "container-with-most-water",
+    "title": "Container With Most Water",
+    "problemStatement": "<p>You are given an integer array <code>height</code> of length <code>n</code>. There are <code>n</code> vertical lines drawn such that the two endpoints of the <code>i<sup>th</sup></code> line are <code>(i, 0)</code> and <code>(i, height[i])</code>.</p>\n\n<p>Find two lines that together with the x-axis form a container, such that the container contains the most water.</p>\n\n<p>Return <em>the maximum amount of water a container can store</em>.</p>\n\n<p><strong>Notice</strong> that you may not slant the container.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">",
+    "examples": [
+      {
+        "id": 1,
+        "inputText": "{\"height\":[1,8,6,2,5,4,8,3,7]}",
+        "outputText": "49",
+        "explanation": "The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49."
+      },
+      {
+        "id": 2,
+        "inputText": "{\"height\":[1,1]}",
+        "outputText": "1"
+      }
+    ],
+    "constraints": "</strong></p>\n\n\n\t<li><code>n == height.length</code></li>\n\t<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>\n\t<li><code>0 &lt;= height[i] &lt;= 10<sup>4</sup></code></li>\n",
+    "order": 0,
+    "starterCode": "class Solution {\npublic:\n    int maxArea(vector<int>& height) {\n        \n    }\n};",
+    "handlerFunction": "",
+    "starterFunctionName": "maxArea",
+    "category": "arrays",
+    "difficulty": "Medium"
+  }
+}

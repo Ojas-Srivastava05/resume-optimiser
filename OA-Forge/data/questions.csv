@@ -19,3 +19,4 @@ product-of-array-except-self,Product of Array Except Self,Medium,prefix-sum,17
 rotate-array,Rotate Array,Medium,arrays,18
 intersection-of-two-arrays-ii,Intersection of Two Arrays II,Easy,hashing,19
 palindrome-number,Palindrome Number,Easy,math,20
+container-with-most-water,"Container With Most Water",Medium,arrays,0

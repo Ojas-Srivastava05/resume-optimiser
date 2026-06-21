@@ -262,20 +262,206 @@ function helperBlock(slug: string) {
 	return "";
 }
 
+function splitParams(raw: string): string[] {
+	const params: string[] = [];
+	let current = "";
+	let depth = 0;
+	for (let i = 0; i < raw.length; i++) {
+		const char = raw[i];
+		if (char === "<") depth++;
+		else if (char === ">") depth--;
+		
+		if (char === "," && depth === 0) {
+			params.push(current.trim());
+			current = "";
+		} else {
+			current += char;
+		}
+	}
+	if (current.trim()) {
+		params.push(current.trim());
+	}
+	return params;
+}
+
+function parseSignature(userCode: string) {
+	const match = userCode.match(/class\s+Solution\s*\{[^]*?public\s*:[^]*?([\w<>\*&\s]+)\s+(\w+)\s*\(([^)]*)\)/);
+	if (!match) return null;
+	const returnType = match[1].trim();
+	const functionName = match[2].trim();
+	const paramsRaw = match[3].trim();
+	
+	const paramsList = splitParams(paramsRaw);
+	const params = paramsList.map(p => {
+		const parts = p.trim().split(/\s+/);
+		const name = parts[parts.length - 1].replace(/^[*&]+/, "");
+		const type = p.slice(0, p.lastIndexOf(name)).trim();
+		const normType = type.replace(/\s+/g, "").replace(/const/g, "").replace(/&/g, "");
+		return { name, type, normType };
+	});
+	
+	return { returnType, functionName, params };
+}
+
+function toCppLiteral(val: any, normType: string): string {
+	if (normType.startsWith("vector<")) {
+		if (!Array.isArray(val)) return "{}";
+		if (normType === "vector<int>" || normType === "vector<double>" || normType === "vector<float>") {
+			return "{" + val.join(",") + "}";
+		}
+		if (normType === "vector<char>") {
+			return "{" + val.map(v => `'${v}'`).join(",") + "}";
+		}
+		if (normType === "vector<string>") {
+			return "{" + val.map(v => JSON.stringify(v)).join(",") + "}";
+		}
+		if (normType === "vector<vector<int>>" || normType === "vector<vector<double>>") {
+			return "{" + val.map(row => "{" + row.join(",") + "}").join(",") + "}";
+		}
+		if (normType === "vector<vector<char>>") {
+			return "{" + val.map(row => "{" + row.map((v: any) => `'${v}'`).join(",") + "}").join(",") + "}";
+		}
+		if (normType === "vector<vector<string>>") {
+			return "{" + val.map(row => "{" + row.map((v: any) => JSON.stringify(v)).join(",") + "}").join(",") + "}";
+		}
+		return "{}";
+	}
+	if (normType === "string") {
+		return `string(${JSON.stringify(val)})`;
+	}
+	if (normType === "char") {
+		return `'${val}'`;
+	}
+	if (normType === "bool") {
+		return val ? "true" : "false";
+	}
+	if (normType === "ListNode*") {
+		const arr = Array.isArray(val) ? val : [];
+		return `buildList({${arr.join(",")}})`;
+	}
+	return String(val);
+}
+
+function buildGenericAssertion(
+	index: number,
+	input: Record<string, unknown>,
+	expected: unknown,
+	functionName: string,
+	returnType: string,
+	params: { name: string; type: string; normType: string }[]
+): string {
+	const declarations: string[] = [];
+	const callArgs: string[] = [];
+	
+	params.forEach(p => {
+		const val = input[p.name];
+		const cppVal = toCppLiteral(val, p.normType);
+		const declType = p.type.replace(/&/g, "").replace(/\bconst\b/g, "").trim();
+		declarations.push(`${declType} ${p.name} = ${cppVal};`);
+		callArgs.push(p.name);
+	});
+	
+	const isVoid = returnType.replace(/\s+/g, "") === "void";
+	
+	if (isVoid) {
+		const firstArg = params[0];
+		if (!firstArg) {
+			throw new Error("Void function has no arguments to assert in-place mutations.");
+		}
+		const expectedCpp = toCppLiteral(expected, firstArg.normType);
+		const firstArgDeclType = firstArg.type.replace(/&/g, "").replace(/\bconst\b/g, "").trim();
+		return `{
+    ${declarations.join("\n    ")}
+    sol.${functionName}(${callArgs.join(", ")});
+    ${firstArg.type.includes("ListNode") ? `if (listToVec(${firstArg.name}) != vector<int>${expectedCpp}) fail(${index + 1});` : `if (${firstArg.name} != ${firstArg.type.includes("vector") ? `${firstArgDeclType}${expectedCpp}` : expectedCpp}) fail(${index + 1});`}
+}`;
+	} else if (returnType.replace(/\s+/g, "") === "ListNode*") {
+		const expectedCpp = toCppLiteral(expected, "vector<int>");
+		return `{
+    ${declarations.join("\n    ")}
+    ListNode* expected = buildList(${expectedCpp});
+    auto got = sol.${functionName}(${callArgs.join(", ")});
+    if (listToVec(got) != listToVec(expected)) fail(${index + 1});
+}`;
+	} else {
+		const expectedCpp = toCppLiteral(expected, returnType.replace(/\s+/g, "").replace(/const/g, "").replace(/&/g, ""));
+		const cleanReturnType = returnType.replace(/&/g, "").replace(/\bconst\b/g, "").trim();
+		return `{
+    ${declarations.join("\n    ")}
+    ${cleanReturnType} expected = ${expectedCpp};
+    if (sol.${functionName}(${callArgs.join(", ")}) != expected) fail(${index + 1});
+}`;
+	}
+}
+
 export function buildCppHarness(slug: string, userCode: string, tests: { input_text: string; expected_output: string }[]) {
 	const builder = harnessBuilders[slug];
-	if (!builder) throw new Error(`No C++ harness for ${slug}`);
+	let assertions = "";
+	let helpers = "";
 
-	const assertions = tests
-		.map((test, index) => {
-			const input = JSON.parse(test.input_text) as Record<string, unknown>;
-			const expected = JSON.parse(test.expected_output);
-			return builder(input, expected, index);
-		})
-		.join("\n");
+	if (builder) {
+		assertions = tests
+			.map((test, index) => {
+				const input = JSON.parse(test.input_text) as Record<string, unknown>;
+				const expected = JSON.parse(test.expected_output);
+				return builder(input, expected, index);
+			})
+			.join("\n");
+		helpers = helperBlock(slug);
+	} else {
+		const cleaned = userCode
+			.replace(/\/\/[^\n]*/g, "")
+			.replace(/\/\*[\s\S]*?\*\//g, "");
+		const sig = parseSignature(cleaned);
+		if (!sig) {
+			throw new Error(`Failed to parse function signature from code for ${slug}`);
+		}
+		
+		assertions = tests
+			.map((test, index) => {
+				const input = JSON.parse(test.input_text) as Record<string, unknown>;
+				const expected = JSON.parse(test.expected_output);
+				return buildGenericAssertion(index, input, expected, sig.functionName, sig.returnType, sig.params);
+			})
+			.join("\n");
 
-	return `${userCode}
-${helperBlock(slug)}
+		const hasList = sig.returnType.includes("ListNode") || sig.params.some(p => p.normType.includes("ListNode"));
+		if (hasList) {
+			const listStruct = `
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode(int x) : val(x), next(nullptr) {}
+};`;
+			const needStruct = !userCode.includes("struct ListNode") && !userCode.includes("class ListNode");
+			helpers = `
+${needStruct ? listStruct : ""}
+ListNode* buildList(const vector<int>& vals) {
+    ListNode dummy(0);
+    ListNode* tail = &dummy;
+    for (int v : vals) {
+        tail->next = new ListNode(v);
+        tail = tail->next;
+    }
+    return dummy.next;
+}
+vector<int> listToVec(ListNode* head) {
+    vector<int> out;
+    while (head) {
+        out.push_back(head->val);
+        head = head->next;
+    }
+    return out;
+}
+`;
+		}
+	}
+
+	return `#include <bits/stdc++.h>
+using namespace std;
+
+${userCode}
+${helpers}
 
 void fail(int caseNo) {
     cout << "WA case " << caseNo << endl;

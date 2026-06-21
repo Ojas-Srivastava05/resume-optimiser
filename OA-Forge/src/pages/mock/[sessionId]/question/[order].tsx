@@ -4,6 +4,7 @@ import { getLocalMockSession } from "@/lib/localBank";
 import { supabase } from "@/supabase/supabase";
 import { problems } from "@/utils/problems";
 import { Problem } from "@/utils/types/problem";
+import { getOrIngestDynamicQuestion } from "@/lib/dynamicQuestions";
 import { GetServerSideProps } from "next";
 
 type MockQuestionPageProps = {
@@ -37,9 +38,18 @@ export const getServerSideProps: GetServerSideProps<MockQuestionPageProps> = asy
 		slug = question?.slug ?? null;
 	}
 
-	if (!slug || !problems[slug]) return { notFound: true };
+	if (!slug) return { notFound: true };
 
-	const problem = { ...problems[slug] };
+	let problem: Problem | null = problems[slug] ? { ...problems[slug] } : null;
+	if (!problem) {
+		const dynamicProb = await getOrIngestDynamicQuestion(slug);
+		if (dynamicProb) {
+			problem = { ...dynamicProb };
+		}
+	}
+
+	if (!problem) return { notFound: true };
+
 	problem.handlerFunction = problem.handlerFunction.toString();
 	return { props: { problem } };
 };
