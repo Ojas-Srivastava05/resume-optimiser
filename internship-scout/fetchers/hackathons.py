@@ -11,6 +11,7 @@ Sources: Unstop, Devfolio, MLH, direct company pages.
 
 import re
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from urllib.parse import urljoin
 
 import requests
@@ -96,6 +97,44 @@ STIPEND_RE = re.compile(r"\b(stipend|paid\s+internship|intern\s+offer)\b", re.I)
 
 # Minimum prize pool to consider (in INR)
 MIN_PRIZE_POOL = 50000  # ₹50k
+
+
+def _is_expired(date_str: str) -> bool:
+    """Return True if the given ISO-ish date string is in the past."""
+    if not date_str:
+        return False  # No date → can't confirm expired, let it through
+    for fmt in (
+        "%Y-%m-%dT%H:%M:%S%z",      # 2025-07-19T12:27:11+05:30
+        "%Y-%m-%dT%H:%M:%S.%f%z",   # with microseconds
+        "%Y-%m-%d %H:%M:%S%z",      # 2025-07-19 12:27:11+05:30
+        "%Y-%m-%dT%H:%M:%S",        # no tz
+        "%Y-%m-%d %H:%M:%S",        # no tz
+        "%Y-%m-%d",                  # date only
+    ):
+        try:
+            dt = datetime.strptime(date_str.strip(), fmt)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt < datetime.now(timezone.utc)
+        except ValueError:
+            continue
+    return False  # Unparseable → let it through
+
+
+def _hackathon_is_stale(item: dict) -> bool:
+    """Return True if an Unstop hackathon item has expired (all relevant dates in the past)."""
+    # Collect all date fields that indicate the event is still relevant
+    end_date = item.get("end_date", "") or ""
+    regn = item.get("regnRequirements") or {}
+    regn_end = regn.get("end_regn_dt", "") if isinstance(regn, dict) else ""
+
+    # If we have an end_date and it's in the past, the hackathon is done
+    if end_date and _is_expired(end_date):
+        return True
+    # If no end_date but registration ended, also stale
+    if not end_date and regn_end and _is_expired(regn_end):
+        return True
+    return False
 
 
 @dataclass(frozen=True)
@@ -198,39 +237,47 @@ UNSTOP_HACKATHON_QUERIES = [
 
 
 def _unstop_search_hackathons(query: str) -> list[dict]:
-    """Search Unstop for hackathons/competitions."""
+    """Search Unstop for hackathons/competitions (open/upcoming only)."""
     params = {
         "opportunity": "hackathons",
         "page": 1,
         "per_page": 30,
         "searchTerm": query,
+        "oppstatus": "upcoming",  # server-side hint (unreliable, we also filter client-side)
     }
     try:
         resp = SESSION.get(UNSTOP_API, params=params, timeout=15)
         resp.raise_for_status()
-        return (resp.json().get("data") or {}).get("data") or []
+        items = (resp.json().get("data") or {}).get("data") or []
+        return [i for i in items if not _hackathon_is_stale(i)]
     except requests.RequestException:
         return []
 
 
 def _unstop_search_competitions(query: str) -> list[dict]:
-    """Search Unstop for competitions (separate category)."""
+    """Search Unstop for competitions (open/upcoming only)."""
     params = {
         "opportunity": "competitions",
         "page": 1,
         "per_page": 30,
         "searchTerm": query,
+        "oppstatus": "upcoming",
     }
     try:
         resp = SESSION.get(UNSTOP_API, params=params, timeout=15)
         resp.raise_for_status()
-        return (resp.json().get("data") or {}).get("data") or []
+        items = (resp.json().get("data") or {}).get("data") or []
+        return [i for i in items if not _hackathon_is_stale(i)]
     except requests.RequestException:
         return []
 
 
 def _parse_unstop_hackathon(item: dict) -> Hackathon | None:
-    """Parse an Unstop hackathon item."""
+    """Parse an Unstop hackathon item. Returns None for expired or low-quality events."""
+    # ── Date gate: reject expired hackathons immediately ──
+    if _hackathon_is_stale(item):
+        return None
+
     title = item.get("title") or item.get("name") or ""
     org = item.get("organisation") or item.get("organization") or {}
     organizer = org.get("name", "") if isinstance(org, dict) else str(org)
@@ -320,7 +367,7 @@ DEVFOLIO_API = "https://api.devfolio.co/api/search/hackathons"
 
 
 def _fetch_devfolio_hackathons() -> list[Hackathon]:
-    """Fetch hackathons from Devfolio."""
+    """Fetch hackathons from Devfolio (upcoming/open only)."""
     hackathons: list[Hackathon] = []
     seen: set[str] = set()
 
@@ -352,6 +399,10 @@ def _fetch_devfolio_hackathons() -> list[Hackathon]:
                 ends = item.get("ends_at", "") or ""
                 slug = item.get("slug", "")
                 url = f"https://devfolio.co/hackathons/{slug}" if slug else ""
+
+                # Skip expired Devfolio hackathons
+                if ends and _is_expired(ends):
+                    continue
 
                 blob = f"{title} {organizer} {desc} {prize}"
                 score, tags = _score_hackathon(title, organizer, blob)
