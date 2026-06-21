@@ -1,0 +1,11 @@
+pair_id,question_slug_a,question_slug_b
+1,two-sum,contains-duplicate
+2,valid-parentheses,longest-substring-without-repeating
+3,merge-sorted-arrays,move-zeroes
+4,maximum-subarray,house-robber
+5,jump-game,climbing-stairs
+6,search-a-2d-matrix,binary-search
+7,number-of-islands,rotate-array
+8,reverse-linked-list,intersection-of-two-arrays-ii
+9,best-time-to-buy-sell-stock,product-of-array-except-self
+10,single-number,palindrome-number

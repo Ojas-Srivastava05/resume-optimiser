@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@500;700;900&display=swap');
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: Inter, system-ui, sans-serif;
+	background: #050508;
+	color: rgba(230, 240, 255, 0.95);
+	-webkit-font-smoothing: antialiased;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+	background-size: 48px 48px;
+	pointer-events: none;
+	z-index: 0;
+}
+
+body::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background: radial-gradient(ellipse at 20% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+		radial-gradient(ellipse at 80% 100%, rgba(255, 0, 170, 0.06) 0%, transparent 50%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+::selection {
+	background: rgba(0, 240, 255, 0.25);
+	color: #fff;
+}
+
+@layer components {
+	.forge-panel {
+		@apply bg-forge-surface border border-forge-border rounded-xl shadow-card backdrop-blur-sm;
+	}
+
+	.forge-label {
+		@apply font-mono text-[11px] uppercase tracking-[0.18em] text-forge-muted;
+	}
+
+	.forge-chip {
+		@apply inline-flex items-center gap-1.5 font-mono text-xs px-2.5 py-1 rounded-md border border-forge-border bg-forge-elevated;
+	}
+
+	.forge-btn-primary {
+		@apply inline-flex items-center justify-center gap-2 font-mono font-semibold text-sm px-5 py-2.5 rounded-lg
+		bg-forge-accent/10 text-forge-accent border border-forge-accent/50
+		hover:bg-forge-accent/20 hover:shadow-glow-sm transition-all
+		disabled:opacity-40 disabled:cursor-not-allowed;
+	}
+
+	.forge-btn-ghost {
+		@apply inline-flex items-center justify-center gap-2 font-mono text-sm px-4 py-2 rounded-lg
+		border border-forge-border bg-forge-elevated/80 text-forge-text
+		hover:border-forge-accent/40 hover:text-forge-accent transition-colors;
+	}
+
+	.forge-table-row {
+		@apply border-b border-forge-border/60 hover:bg-forge-elevated/60 transition-colors;
+	}
+
+	.forge-choice {
+		@apply text-left rounded-lg border border-forge-border bg-forge-elevated/80 p-4 transition-all hover:border-forge-accent/40 hover:shadow-glow-sm;
+	}
+
+	.forge-choice-active {
+		@apply border-forge-accent/60 bg-forge-accent/10 shadow-glow-sm;
+	}
+
+	.forge-company-card {
+		@apply flex min-h-[82px] flex-col justify-between rounded-lg border border-forge-border bg-forge-surface/80 p-4 text-left transition-all hover:border-forge-accent/40 hover:bg-forge-elevated hover:shadow-glow-sm;
+	}
+
+	.cyber-title {
+		@apply font-display font-bold tracking-wider;
+		background: linear-gradient(135deg, #00f0ff 0%, #7b61ff 50%, #ff00aa 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 0.45rem;
+	height: 0.45rem;
+}
+
+::-webkit-scrollbar-track {
+	background: #0a0a12;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 240, 255, 0.25);
+	border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 240, 255, 0.4);
+}
+
+.split {
+	display: flex;
+	flex-direction: row;
+}
+
+.gutter {
+	background-color: #0a0a12;
+	background-repeat: no-repeat;
+	background-position: 50%;
+}
+
+.gutter:hover {
+	background-color: #00f0ff;
+}
+
+.gutter.gutter-horizontal {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
+	cursor: col-resize;
+}
+
+.gutter.gutter-vertical {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
+	cursor: row-resize;
+}
+
+.cm-scroller,
+.cm-gutters {
+	background-color: #0a0a12 !important;
+}
+
+.cm-focused {
+	outline: none !important;
+}
+
+code {
+	border-radius: 5px;
+	border-width: 1px;
+	font-family: "JetBrains Mono", monospace;
+	font-size: 0.75rem;
+	padding: 0.125rem 0.35rem;
+	background-color: rgba(0, 240, 255, 0.06);
+	border-color: rgba(0, 240, 255, 0.15);
+	color: rgba(0, 240, 255, 0.85);
+}
+
+.example-card pre {
+	background-color: rgba(0, 240, 255, 0.04);
+	border-radius: 0.5rem;
+	color: rgba(230, 240, 255, 0.75);
+	font-size: 0.9rem;
+	line-height: 1.4rem;
+	margin: 0.75rem 0;
+	padding: 1rem;
+	white-space: pre-wrap;
+	border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.example-card pre strong {
+	color: #00f0ff;
+}
+
+.prose-forge h3 {
+	@apply font-mono text-xs uppercase tracking-widest text-forge-muted mb-3;
+}
+
+.prose-forge p {
+	@apply text-forge-text/90 leading-relaxed mb-3;
+}

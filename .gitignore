@@ -18,3 +18,8 @@ internship-scout/seen_jobs.json
 internship-scout/logs/
 internship-scout/sheet_*.csv
 internship-scout/priority_companies.csv
+
+# OA Forge
+OA-Forge/.env.local
+OA-Forge/node_modules/
+OA-Forge/.next/

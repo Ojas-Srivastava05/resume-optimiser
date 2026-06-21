@@ -1,0 +1,967 @@
+slug,name,default_duration_minutes,default_num_questions,target_role
+1mg,1MG,90,2,SDE Intern
+1password,1Password,90,2,SDE Intern
+2k-games,2K Games,90,2,SDE Intern
+343-industries,343 Industries,90,2,SDE Intern
+3i-infotech,3i Infotech,90,2,SDE Intern
+3m-india,3M India,90,2,SDE Intern
+5paisa,5paisa,90,2,SDE Intern
+99acres,99acres,90,2,SDE Intern
+99games,99Games,90,2,SDE Intern
+abb-india,ABB India,90,2,SDE Intern
+abbott-india,Abbott India,90,2,SDE Intern
+abhibus,AbhiBus,90,2,SDE Intern
+abnormal-security,Abnormal Security,90,2,SDE Intern
+acceldata,Acceldata,90,2,SDE Intern
+accenture-strategy,Accenture Strategy,90,2,SDE Intern
+acer-india,Acer India,90,2,SDE Intern
+acko,Acko,90,2,SDE Intern
+activision-blizzard,Activision Blizzard,90,2,SDE Intern
+adani-group,Adani Group,90,2,SDE Intern
+adept-ai,Adept AI,90,2,SDE Intern
+adidas,Adidas,90,2,SDE Intern
+aditya-birla-fashion,Aditya Birla Fashion,90,2,SDE Intern
+adobe,Adobe,90,2,SDE Intern
+adobe-india,Adobe India,90,2,SDE Intern
+adp,ADP,90,2,SDE Intern
+agoda,Agoda,90,2,SDE Intern
+air-india,Air India,90,2,SDE Intern
+airbnb,Airbnb,90,2,SDE Intern
+airbus,Airbus,90,2,SDE Intern
+airbyte,Airbyte,90,2,SDE Intern
+airtable,Airtable,90,2,SDE Intern
+airtel,Airtel,90,2,SDE Intern
+ajio,Ajio,90,2,SDE Intern
+akamai,Akamai,90,2,SDE Intern
+akamai-technologies,Akamai Technologies,90,2,SDE Intern
+akuna-capital-india,Akuna Capital India,90,2,SDE Intern
+alation,Alation,90,2,SDE Intern
+alice-blue,Alice Blue,90,2,SDE Intern
+allen-and-company,Allen & Company,90,2,SDE Intern
+allston-trading,Allston Trading,90,2,SDE Intern
+alphagrep,AlphaGrep,90,2,SDE Intern
+alphagrep-securities,AlphaGrep Securities,90,2,SDE Intern
+alteryx,Alteryx,90,2,SDE Intern
+altium,Altium,90,2,SDE Intern
+alvarez-and-marsal,Alvarez & Marsal,90,2,SDE Intern
+amazon,Amazon,90,2,SDE Intern
+amazon-india,Amazon India,90,2,SDE Intern
+amazon-seller-services,Amazon Seller Services,90,2,SDE Intern
+amd,AMD,90,2,SDE Intern
+american-express,American Express,90,2,SDE Intern
+amplitude,Amplitude,90,2,SDE Intern
+analog-devices,Analog Devices,90,2,SDE Intern
+andela,Andela,90,2,SDE Intern
+anduril,Anduril,90,2,SDE Intern
+angel-broking,Angel Broking,90,2,SDE Intern
+angel-one,Angel One,90,2,SDE Intern
+ansys,Ansys,90,2,SDE Intern
+anthropic,Anthropic,90,2,SDE Intern
+antropic,Antropic,90,2,SDE Intern
+anyscale,Anyscale,90,2,SDE Intern
+apollo-hospitals,Apollo Hospitals,90,2,SDE Intern
+apollo247,Apollo247,90,2,SDE Intern
+appdynamics,AppDynamics,90,2,SDE Intern
+appdynamics-cisco,AppDynamics (Cisco),90,2,SDE Intern
+apple,Apple,90,2,SDE Intern
+apple-silicon-india,Apple Silicon India,90,2,SDE Intern
+applied-materials,Applied Materials,90,2,SDE Intern
+aptiva-capital,Aptiva Capital,90,2,SDE Intern
+aqr-capital-management,AQR Capital Management,90,2,SDE Intern
+arcesium,Arcesium,90,2,SDE Intern
+argo-ai,Argo AI,90,2,SDE Intern
+arista-networks,Arista Networks,90,2,SDE Intern
+arize-ai,Arize AI,90,2,SDE Intern
+arkane-studios,Arkane Studios,90,2,SDE Intern
+arm,Arm,90,2,SDE Intern
+arthur-ai,Arthur AI,90,2,SDE Intern
+ashok-leyland,Ashok Leyland,90,2,SDE Intern
+aston-martin-aramco-f1-team,Aston Martin Aramco F1 Team,90,2,SDE Intern
+astrazeneca-india,AstraZeneca India,90,2,SDE Intern
+asus-india,Asus India,90,2,SDE Intern
+at-and-t,AT&T,90,2,SDE Intern
+ataccama,Ataccama,90,2,SDE Intern
+ather-energy,Ather Energy,90,2,SDE Intern
+atlan,Atlan,90,2,SDE Intern
+atlassian,Atlassian,90,2,SDE Intern
+au-small-finance-bank,AU Small Finance Bank,90,2,SDE Intern
+audi-india,Audi India,90,2,SDE Intern
+aurora,Aurora,90,2,SDE Intern
+autodesk,Autodesk,90,2,SDE Intern
+auxoai,auxoAI,90,2,SDE Intern
+avast,Avast,90,2,SDE Intern
+axis-bank,Axis Bank,90,2,SDE Intern
+backblaze,Backblaze,90,2,SDE Intern
+bain-and-company,Bain & Company,90,2,SDE Intern
+bain-capital,Bain Capital,90,2,SDE Intern
+bajaj-auto,Bajaj Auto,90,2,SDE Intern
+baker-hughes,BAKER HUGHES,90,2,SDE Intern
+balyasny-asset-management,Balyasny Asset Management,90,2,SDE Intern
+bank-of-america,Bank of America,90,2,SDE Intern
+bank-of-america-merrill-lynch,Bank of America Merrill Lynch,90,2,SDE Intern
+barclays,Barclays,90,2,SDE Intern
+bcg,BCG,90,2,SDE Intern
+bcg-boston-consulting-group,BCG (Boston Consulting Group),90,2,SDE Intern
+bdo,BDO,90,2,SDE Intern
+belvedere-trading,Belvedere Trading,90,2,SDE Intern
+bentley-systems,Bentley Systems,90,2,SDE Intern
+bharat-billpay,Bharat BillPay,90,2,SDE Intern
+bharatpe,BharatPe,90,2,SDE Intern
+bigbasket,BigBasket,90,2,SDE Intern
+bigeye,Bigeye,90,2,SDE Intern
+billdesk,BillDesk,90,2,SDE Intern
+birlasoft,Birlasoft,90,2,SDE Intern
+bitwarden,Bitwarden,90,2,SDE Intern
+blackbuck,BlackBuck,90,2,SDE Intern
+blackrock,BlackRock,90,2,SDE Intern
+blackstone,Blackstone,90,2,SDE Intern
+blinkit,Blinkit,90,2,SDE Intern
+blizzard-entertainment,Blizzard Entertainment,90,2,SDE Intern
+bloomberg,Bloomberg,90,2,SDE Intern
+blusmart,BluSmart,90,2,SDE Intern
+bmc-software,BMC Software,90,2,SDE Intern
+bmo-capital-markets,BMO Capital Markets,90,2,SDE Intern
+bmw-india,BMW India,90,2,SDE Intern
+bnp-paribas,BNP Paribas,90,2,SDE Intern
+bny,BNY,90,2,SDE Intern
+bny-mellon,BNY Mellon,90,2,SDE Intern
+boat-imagine-marketing,Boat (Imagine Marketing),90,2,SDE Intern
+booking-holdings,Booking Holdings,90,2,SDE Intern
+booking-com,Booking.com,90,2,SDE Intern
+bookmyshow,BookMyShow,90,2,SDE Intern
+bosch,Bosch,90,2,SDE Intern
+bosch-global-software,Bosch Global Software,90,2,SDE Intern
+boston-consulting-group,Boston Consulting Group,90,2,SDE Intern
+box,Box,90,2,SDE Intern
+brex,Brex,90,2,SDE Intern
+bridgewater-associates,Bridgewater Associates,90,2,SDE Intern
+broadcom,Broadcom,90,2,SDE Intern
+browserstack,BrowserStack,90,2,SDE Intern
+bungie,Bungie,90,2,SDE Intern
+byd-india,BYD India,90,2,SDE Intern
+byju-s,Byju’s,90,2,SDE Intern
+c3-ai,C3.ai,90,2,SDE Intern
+cadence,Cadence,90,2,SDE Intern
+cadence-design-systems,Cadence Design Systems,90,2,SDE Intern
+canon-india,Canon India,90,2,SDE Intern
+canva,Canva,90,2,SDE Intern
+capgemini-invent,Capgemini Invent,90,2,SDE Intern
+capital-float,Capital Float,90,2,SDE Intern
+capital-one,Capital One,90,2,SDE Intern
+capital-one-tech,Capital One Tech,90,2,SDE Intern
+capula-investment-management,Capula Investment Management,90,2,SDE Intern
+cardekho,CarDekho,90,2,SDE Intern
+cars24,Cars24,90,2,SDE Intern
+cashfree-payments,Cashfree Payments,90,2,SDE Intern
+cd-projekt-red,CD Projekt Red,90,2,SDE Intern
+centerview-partners,Centerview Partners,90,2,SDE Intern
+cerebras,Cerebras,90,2,SDE Intern
+cerner-india,Cerner India,90,2,SDE Intern
+character-ai,Character.AI,90,2,SDE Intern
+chargebee,Chargebee,90,2,SDE Intern
+checkpoint,Checkpoint,90,2,SDE Intern
+chegg-tech,Chegg Tech,90,2,SDE Intern
+chicago-trading-company,Chicago Trading Company,90,2,SDE Intern
+cisco,Cisco,90,2,SDE Intern
+cisco-india,Cisco India,90,2,SDE Intern
+citadel,Citadel,90,2,SDE Intern
+citadel-securities,Citadel Securities,90,2,SDE Intern
+citi,Citi,90,2,SDE Intern
+citi-bank,Citi Bank,90,2,SDE Intern
+cleartax,ClearTax,90,2,SDE Intern
+cleartrip,Cleartrip,90,2,SDE Intern
+cloudera,Cloudera,90,2,SDE Intern
+cloudflare,Cloudflare,90,2,SDE Intern
+cloudflare-zero-trust,Cloudflare Zero Trust,90,2,SDE Intern
+cockroach-labs,Cockroach Labs,90,2,SDE Intern
+codeium,Codeium,90,2,SDE Intern
+codesandbox,CodeSandbox,90,2,SDE Intern
+coforge,Coforge,90,2,SDE Intern
+cognizant-consulting,Cognizant Consulting,90,2,SDE Intern
+cohere,Cohere,90,2,SDE Intern
+cohesity,Cohesity,90,2,SDE Intern
+coinbase,Coinbase,90,2,SDE Intern
+coindcx,CoinDCX,90,2,SDE Intern
+coinswitch,CoinSwitch,90,2,SDE Intern
+comet-ml,Comet ML,90,2,SDE Intern
+commvault,Commvault,90,2,SDE Intern
+concentrix,Concentrix,90,2,SDE Intern
+confirmtkt,ConfirmTkt,90,2,SDE Intern
+confluent,Confluent,90,2,SDE Intern
+couchbase,Couchbase,90,2,SDE Intern
+country-delight,Country Delight,90,2,SDE Intern
+coupang,Coupang,90,2,SDE Intern
+coursera,Coursera,90,2,SDE Intern
+cred,CRED,90,2,SDE Intern
+credit-suisse,Credit Suisse,90,2,SDE Intern
+crossover,Crossover,90,2,SDE Intern
+crowdstrike,CrowdStrike,90,2,SDE Intern
+crowdstrike-falcon,CrowdStrike Falcon,90,2,SDE Intern
+crowe,Crowe,90,2,SDE Intern
+cruise,Cruise,90,2,SDE Intern
+cyberark,CyberArk,90,2,SDE Intern
+cyient,Cyient,90,2,SDE Intern
+d-e-shaw-and-co,D. E. Shaw & Co,90,2,SDE Intern
+da-vinci,Da Vinci,90,2,SDE Intern
+da-vinci-derivatives,Da Vinci Derivatives,90,2,SDE Intern
+darktrace,Darktrace,90,2,SDE Intern
+darwinbox,Darwinbox,90,2,SDE Intern
+dashlane,Dashlane,90,2,SDE Intern
+dassault-systemes,Dassault Systemes,90,2,SDE Intern
+databricks,Databricks,90,2,SDE Intern
+datadog,Datadog,90,2,SDE Intern
+dataiku,Dataiku,90,2,SDE Intern
+datarobot,DataRobot,90,2,SDE Intern
+datastax,DataStax,90,2,SDE Intern
+dbs-bank,DBS Bank,90,2,SDE Intern
+dbt-labs,dbt Labs,90,2,SDE Intern
+de-shaw,DE Shaw,90,2,SDE Intern
+dealshare,Dealshare,90,2,SDE Intern
+decathlon-india,Decathlon India,90,2,SDE Intern
+deel,Deel,90,2,SDE Intern
+deepmind,DeepMind,90,2,SDE Intern
+delhivery,Delhivery,90,2,SDE Intern
+dell,Dell,90,2,SDE Intern
+dell-technologies,Dell Technologies,90,2,SDE Intern
+deloitte,Deloitte,90,2,SDE Intern
+deloitte-consulting,Deloitte Consulting,90,2,SDE Intern
+deutsche-bank,Deutsche Bank,90,2,SDE Intern
+dhan,Dhan,90,2,SDE Intern
+digit-insurance,Digit Insurance,90,2,SDE Intern
+digitalocean,DigitalOcean,90,2,SDE Intern
+discord,Discord,90,2,SDE Intern
+disney-hotstar,Disney+ Hotstar,90,2,SDE Intern
+docker,Docker,90,2,SDE Intern
+docsapp,DocsApp,90,2,SDE Intern
+docusign,DocuSign,90,2,SDE Intern
+domino-data-lab,Domino Data Lab,90,2,SDE Intern
+domo,Domo,90,2,SDE Intern
+doordash,DoorDash,90,2,SDE Intern
+dream11,Dream11,90,2,SDE Intern
+dremio,Dremio,90,2,SDE Intern
+dropbox,Dropbox,90,2,SDE Intern
+drw,DRW,90,2,SDE Intern
+drw-cumberland,DRW Cumberland,90,2,SDE Intern
+dunzo,Dunzo,90,2,SDE Intern
+duolingo,Duolingo,90,2,SDE Intern
+dv-trading,DV Trading,90,2,SDE Intern
+ea,EA,90,2,SDE Intern
+earlysalary,EarlySalary,90,2,SDE Intern
+easebuzz,Easebuzz,90,2,SDE Intern
+ebay,EBay,90,2,SDE Intern
+eclerx,eClerx,90,2,SDE Intern
+eclipse-trading,Eclipse Trading,90,2,SDE Intern
+edx,edX,90,2,SDE Intern
+eicher-motors,Eicher Motors,90,2,SDE Intern
+eightfoldai,EightFoldAi,90,2,SDE Intern
+eigthfold,EigthFold,90,2,SDE Intern
+elastic,Elastic,90,2,SDE Intern
+elastic-elasticsearch,Elastic (ElasticSearch),90,2,SDE Intern
+electronic-arts,Electronic Arts,90,2,SDE Intern
+elevenlabs,ElevenLabs,90,2,SDE Intern
+emerson-india,Emerson India,90,2,SDE Intern
+epic-games,Epic Games,90,2,SDE Intern
+epic-india,Epic India,90,2,SDE Intern
+epic-systems,Epic Systems,90,2,SDE Intern
+epson-india,Epson India,90,2,SDE Intern
+ericsson,Ericsson,90,2,SDE Intern
+ernst-and-young-ey,Ernst & Young (EY),90,2,SDE Intern
+eset,ESET,90,2,SDE Intern
+estee-advisors,Estee Advisors,90,2,SDE Intern
+et-money,ET Money,90,2,SDE Intern
+evercore,Evercore,90,2,SDE Intern
+exl-service,EXL Service,90,2,SDE Intern
+exoduspoint-capital,ExodusPoint Capital,90,2,SDE Intern
+expedia,Expedia,90,2,SDE Intern
+expedia-group,Expedia Group,90,2,SDE Intern
+ey,EY,90,2,SDE Intern
+ey-consulting,EY Consulting,90,2,SDE Intern
+f5-networks,F5 Networks,90,2,SDE Intern
+fabhotels,FabHotels,90,2,SDE Intern
+fair-facebook-ai-research,FAIR (Facebook AI Research),90,2,SDE Intern
+fampay,FamPay,90,2,SDE Intern
+fastly,Fastly,90,2,SDE Intern
+ferrari,Ferrari,90,2,SDE Intern
+fi-money,Fi Money,90,2,SDE Intern
+fiddler-ai,Fiddler AI,90,2,SDE Intern
+fidelity-investments,Fidelity Investments,90,2,SDE Intern
+figma,Figma,90,2,SDE Intern
+fino-payments-bank,Fino Payments Bank,90,2,SDE Intern
+fireeye,FireEye,90,2,SDE Intern
+firstsource,Firstsource,90,2,SDE Intern
+fis-global,FIS Global,90,2,SDE Intern
+fiserv,Fiserv,90,2,SDE Intern
+five-rings-capital,Five Rings Capital,90,2,SDE Intern
+fivetran,Fivetran,90,2,SDE Intern
+flexiloans,FlexiLoans,90,2,SDE Intern
+flipkart,Flipkart,90,2,SDE Intern
+flipkart-wholesale,Flipkart Wholesale,90,2,SDE Intern
+flow-traders,Flow Traders,90,2,SDE Intern
+fly-io,Fly.io,90,2,SDE Intern
+ford-india,Ford India,90,2,SDE Intern
+fortinet,Fortinet,90,2,SDE Intern
+fortis-healthcare,Fortis Healthcare,90,2,SDE Intern
+fractal-analytics,Fractal Analytics,90,2,SDE Intern
+fractal-ai,Fractal.ai,90,2,SDE Intern
+freecharge,Freecharge,90,2,SDE Intern
+freshworks,Freshworks,90,2,SDE Intern
+fti-consulting,FTI Consulting,90,2,SDE Intern
+fujitsu-india,Fujitsu India,90,2,SDE Intern
+g-research,G-Research,90,2,SDE Intern
+games2win,Games2Win,90,2,SDE Intern
+garmin-india,Garmin India,90,2,SDE Intern
+ge-healthcare,GE Healthcare,90,2,SDE Intern
+ge-india,GE India,90,2,SDE Intern
+gelber-group,Gelber Group,90,2,SDE Intern
+geneva-trading,Geneva Trading,90,2,SDE Intern
+genpact,Genpact,90,2,SDE Intern
+geojit,Geojit,90,2,SDE Intern
+github,GitHub,90,2,SDE Intern
+gitkraken,GitKraken,90,2,SDE Intern
+gitlab,GitLab,90,2,SDE Intern
+glance,Glance,90,2,SDE Intern
+glitch,Glitch,90,2,SDE Intern
+global-logic,Global Logic,90,2,SDE Intern
+globalfoundries,GlobalFoundries,90,2,SDE Intern
+godaddy,GoDaddy,90,2,SDE Intern
+goibibo,Goibibo,90,2,SDE Intern
+goldman-sachs,Goldman Sachs,90,2,SDE Intern
+goldman-sachs-india,Goldman Sachs India,90,2,SDE Intern
+google,Google,90,2,SDE Intern
+google-chronicle,Google Chronicle,90,2,SDE Intern
+google-india,Google India,90,2,SDE Intern
+google-tensor-india,Google Tensor India,90,2,SDE Intern
+grab,Grab,90,2,SDE Intern
+grammarly,Grammarly,90,2,SDE Intern
+grant-thornton,Grant Thornton,90,2,SDE Intern
+graviton,Graviton,90,2,SDE Intern
+graviton-research,Graviton Research,90,2,SDE Intern
+graviton-research-capital,Graviton Research Capital,90,2,SDE Intern
+green-portfolio,Green Portfolio,90,2,SDE Intern
+greenhill,Greenhill,90,2,SDE Intern
+greyorange,GreyOrange,90,2,SDE Intern
+groq,Groq,90,2,SDE Intern
+groww,Groww,90,2,SDE Intern
+gsa-capital,GSA Capital,90,2,SDE Intern
+gsk-india,GSK India,90,2,SDE Intern
+gts,GTS,90,2,SDE Intern
+gts-securities,GTS Securities,90,2,SDE Intern
+guerrilla-games,Guerrilla Games,90,2,SDE Intern
+guggenheim-partners,Guggenheim Partners,90,2,SDE Intern
+guggenheim-securities,Guggenheim Securities,90,2,SDE Intern
+gun-io,Gun.io,90,2,SDE Intern
+h2o-ai,H2O.ai,90,2,SDE Intern
+happiest-minds,Happiest Minds,90,2,SDE Intern
+harmans,Harmans,90,2,SDE Intern
+harness,Harness,90,2,SDE Intern
+hashicorp,HashiCorp,90,2,SDE Intern
+hasura,Hasura,90,2,SDE Intern
+hazelcast,Hazelcast,90,2,SDE Intern
+hcl-consulting,HCL Consulting,90,2,SDE Intern
+hdfc,HDFC,90,2,SDE Intern
+hdfc-securities,HDFC Securities,90,2,SDE Intern
+headlands-technologies,Headlands Technologies,90,2,SDE Intern
+hero-motocorp,Hero MotoCorp,90,2,SDE Intern
+hexaware,Hexaware,90,2,SDE Intern
+hgs,HGS,90,2,SDE Intern
+highradius,HighRadius,90,2,SDE Intern
+hilti,Hilti,90,2,SDE Intern
+hitachi-india,Hitachi India,90,2,SDE Intern
+home-centre,Home Centre,90,2,SDE Intern
+honda-cars-india,Honda Cars India,90,2,SDE Intern
+honda-r-and-d,Honda R&D,90,2,SDE Intern
+honeywell,Honeywell,90,2,SDE Intern
+hortonworks,Hortonworks,90,2,SDE Intern
+housing-com,Housing.com,90,2,SDE Intern
+hoyoverse,HoYoverse,90,2,SDE Intern
+hp,HP,90,2,SDE Intern
+hsbc,HSBC,90,2,SDE Intern
+huawei-ai,Huawei AI,90,2,SDE Intern
+hubspot,HubSpot,90,2,SDE Intern
+hudson-river-trading,Hudson River Trading,90,2,SDE Intern
+hudson-river-trading-hrt,Hudson River Trading (HRT),90,2,SDE Intern
+hugging-face,Hugging Face,90,2,SDE Intern
+huron-consulting,Huron Consulting,90,2,SDE Intern
+hyprbots-systems,Hyprbots Systems,90,2,SDE Intern
+hyundai-india,Hyundai India,90,2,SDE Intern
+hyundai-mobis,Hyundai Mobis,90,2,SDE Intern
+ibm,IBM,90,2,SDE Intern
+ibm-consulting,IBM Consulting,90,2,SDE Intern
+ibm-india,IBM India,90,2,SDE Intern
+ibm-research,IBM Research,90,2,SDE Intern
+icertis,Icertis,90,2,SDE Intern
+icici-bank,ICICI Bank,90,2,SDE Intern
+icici-securities,ICICI Securities,90,2,SDE Intern
+id-software,id Software,90,2,SDE Intern
+idfc-first-bank,IDFC First Bank,90,2,SDE Intern
+ii-vi,II-VI,90,2,SDE Intern
+iifl-securities,IIFL Securities,90,2,SDE Intern
+ikea-india,IKEA India,90,2,SDE Intern
+imc-trading,IMC Trading,90,2,SDE Intern
+increff,Increff,90,2,SDE Intern
+indeed,Indeed,90,2,SDE Intern
+indifi,Indifi,90,2,SDE Intern
+indmoney,INDmoney,90,2,SDE Intern
+infineon,Infineon,90,2,SDE Intern
+inflection-ai,Inflection AI,90,2,SDE Intern
+info-edge,Info Edge,90,2,SDE Intern
+informatica,Informatica,90,2,SDE Intern
+infosys-consulting,Infosys Consulting,90,2,SDE Intern
+infurnia-technologies,Infurnia Technologies,90,2,SDE Intern
+inmobi,InMobi,90,2,SDE Intern
+inphi,Inphi,90,2,SDE Intern
+insomniac-games,Insomniac Games,90,2,SDE Intern
+instacart,Instacart,90,2,SDE Intern
+intel,Intel,90,2,SDE Intern
+intel-india,Intel India,90,2,SDE Intern
+intellect-design,Intellect Design,90,2,SDE Intern
+intuit,Intuit,90,2,SDE Intern
+invisible-technologies,Invisible Technologies,90,2,SDE Intern
+ippb,IPPB,90,2,SDE Intern
+irage-capital,iRage Capital,90,2,SDE Intern
+ixigo,Ixigo,90,2,SDE Intern
+jaguar-land-rover-india,Jaguar Land Rover India,90,2,SDE Intern
+jaguar-land-rover-technology-and-business-services-india-private-limited,Jaguar Land Rover technology and business services India private limited,90,2,SDE Intern
+jane-street,Jane Street,90,2,SDE Intern
+jefferies,Jefferies,90,2,SDE Intern
+jetbrains,JetBrains,90,2,SDE Intern
+jetsynthesys,JetSynthesys,90,2,SDE Intern
+jio,Jio,90,2,SDE Intern
+john-deere,John Deere,90,2,SDE Intern
+johnson-and-johnson-india,Johnson & Johnson India,90,2,SDE Intern
+johnson-and-johnson-technology,Johnson & Johnson Technology,90,2,SDE Intern
+jp-morgan,JP Morgan,90,2,SDE Intern
+jp-morgan-india,JP Morgan India,90,2,SDE Intern
+jpmc,JPMC,90,2,SDE Intern
+jpmorgan-and-chase,JPMorgan & Chase,90,2,SDE Intern
+jump-trading,Jump Trading,90,2,SDE Intern
+juniper-networks,Juniper Networks,90,2,SDE Intern
+jupiter,Jupiter,90,2,SDE Intern
+juspay,Juspay,90,2,SDE Intern
+kaspersky,Kaspersky,90,2,SDE Intern
+kearney,Kearney,90,2,SDE Intern
+kershner-trading,Kershner Trading,90,2,SDE Intern
+khatabook,Khatabook,90,2,SDE Intern
+kia-india,Kia India,90,2,SDE Intern
+king,King,90,2,SDE Intern
+kla-corporation,KLA Corporation,90,2,SDE Intern
+klarna,Klarna,90,2,SDE Intern
+kognitos,Kognitos,90,2,SDE Intern
+kotak,Kotak,90,2,SDE Intern
+kotak-mahindra-bank,Kotak Mahindra Bank,90,2,SDE Intern
+kotak-securities,Kotak Securities,90,2,SDE Intern
+kpit-technologies,KPIT Technologies,90,2,SDE Intern
+kpmg-consulting,KPMG Consulting,90,2,SDE Intern
+krafton-india,Krafton India,90,2,SDE Intern
+kreditbee,Kreditbee,90,2,SDE Intern
+kredivo,Kredivo,90,2,SDE Intern
+kuvera,Kuvera,90,2,SDE Intern
+labelbox,Labelbox,90,2,SDE Intern
+lacework,Lacework,90,2,SDE Intern
+lam-research,Lam Research,90,2,SDE Intern
+larsen-and-toubro-infotech,Larsen & Toubro Infotech,90,2,SDE Intern
+lastpass,LastPass,90,2,SDE Intern
+latentview-analytics,LatentView Analytics,90,2,SDE Intern
+launchdarkly,LaunchDarkly,90,2,SDE Intern
+lazard,Lazard,90,2,SDE Intern
+lek-consulting,LEK Consulting,90,2,SDE Intern
+lek-india,LEK India,90,2,SDE Intern
+lendingkart,Lendingkart,90,2,SDE Intern
+lenovo-india,Lenovo India,90,2,SDE Intern
+lg-soft-india,LG Soft India,90,2,SDE Intern
+li-auto,Li Auto,90,2,SDE Intern
+licious,Licious,90,2,SDE Intern
+lifestyle,Lifestyle,90,2,SDE Intern
+linear,Linear,90,2,SDE Intern
+linear-technology,Linear Technology,90,2,SDE Intern
+linkedin,LinkedIn,90,2,SDE Intern
+liontree,LionTree,90,2,SDE Intern
+livspace,Livspace,90,2,SDE Intern
+locus,Locus,90,2,SDE Intern
+logitech-india,Logitech India,90,2,SDE Intern
+looker,Looker,90,2,SDE Intern
+ltimindtree,LTIMindtree,90,2,SDE Intern
+ltts,LTTS,90,2,SDE Intern
+lucid-motors,Lucid Motors,90,2,SDE Intern
+lumentum,Lumentum,90,2,SDE Intern
+lybrate,Lybrate,90,2,SDE Intern
+m2p-fintech,M2P Fintech,90,2,SDE Intern
+macquarie,Macquarie,90,2,SDE Intern
+magicbricks,MagicBricks,90,2,SDE Intern
+mahindra-electric,Mahindra Electric,90,2,SDE Intern
+mahindra-tech,Mahindra Tech,90,2,SDE Intern
+makemytrip,MakeMyTrip,90,2,SDE Intern
+mamaearth-honasa,Mamaearth (Honasa),90,2,SDE Intern
+man-group,Man Group,90,2,SDE Intern
+mandiant,Mandiant,90,2,SDE Intern
+manipal-hospitals,Manipal Hospitals,90,2,SDE Intern
+mapr,MapR,90,2,SDE Intern
+marcellus-investment,Marcellus Investment,90,2,SDE Intern
+mariadb,MariaDB,90,2,SDE Intern
+marqeta,Marqeta,90,2,SDE Intern
+maruti-suzuki,Maruti Suzuki,90,2,SDE Intern
+marvell-india,Marvell India,90,2,SDE Intern
+marvell-technology,Marvell Technology,90,2,SDE Intern
+marwari-catalysts,Marwari Catalysts,90,2,SDE Intern
+mastek,Mastek,90,2,SDE Intern
+mastercard,Mastercard,90,2,SDE Intern
+mastercard-labs,Mastercard Labs,90,2,SDE Intern
+material-security,Material Security,90,2,SDE Intern
+mathworks,MathWorks,90,2,SDE Intern
+matillion,Matillion,90,2,SDE Intern
+matrix-org,Matrix.org,90,2,SDE Intern
+maven-securities,Maven Securities,90,2,SDE Intern
+max-healthcare,Max Healthcare,90,2,SDE Intern
+maxim-integrated,Maxim Integrated,90,2,SDE Intern
+mcafee,McAfee,90,2,SDE Intern
+mckinsey,Mckinsey,90,2,SDE Intern
+mckinsey-and-company,McKinsey & Company,90,2,SDE Intern
+mckinsey-and-company,McKinsey and Company,90,2,SDE Intern
+mclaren-racing,McLaren Racing,90,2,SDE Intern
+media-net,Media. Net,90,2,SDE Intern
+mediatek,Mediatek,90,2,SDE Intern
+medlife,Medlife,90,2,SDE Intern
+medtronic-india,Medtronic India,90,2,SDE Intern
+meesho,Meesho,90,2,SDE Intern
+menlo-security,Menlo Security,90,2,SDE Intern
+mercedes-benz,Mercedes-Benz,90,2,SDE Intern
+mercedes-benz-group,Mercedes-Benz Group,90,2,SDE Intern
+mercor,Mercor,90,2,SDE Intern
+meta,Meta,90,2,SDE Intern
+meta-facebook,Meta (Facebook),90,2,SDE Intern
+mfine,Mfine,90,2,SDE Intern
+mg-motor-india,MG Motor India,90,2,SDE Intern
+microchip,Microchip,90,2,SDE Intern
+micron-technology,Micron Technology,90,2,SDE Intern
+microsoft,Microsoft,90,2,SDE Intern
+microsoft-india,Microsoft India,90,2,SDE Intern
+midjourney,Midjourney,90,2,SDE Intern
+mihoyo,miHoYo,90,2,SDE Intern
+millenium,Millenium,90,2,SDE Intern
+millennium-management,Millennium Management,90,2,SDE Intern
+mindtickle,Mindtickle,90,2,SDE Intern
+miro,Miro,90,2,SDE Intern
+mistral-ai,Mistral AI,90,2,SDE Intern
+mit-lincoln-laboratory,MIT Lincoln Laboratory,90,2,SDE Intern
+mitsubishi-electric-india,Mitsubishi Electric India,90,2,SDE Intern
+mixpanel,Mixpanel,90,2,SDE Intern
+mobikwik,Mobikwik,90,2,SDE Intern
+mobileye,Mobileye,90,2,SDE Intern
+moelis-and-company,Moelis & Company,90,2,SDE Intern
+moelis-india,Moelis India,90,2,SDE Intern
+moj,Moj,90,2,SDE Intern
+monday-com,Monday.com,90,2,SDE Intern
+moneycontrol,Moneycontrol,90,2,SDE Intern
+moneytap,MoneyTap,90,2,SDE Intern
+mongodb,MongoDB,90,2,SDE Intern
+monitor-deloitte,Monitor Deloitte,90,2,SDE Intern
+monolithic-power,Monolithic Power,90,2,SDE Intern
+monte-carlo,Monte Carlo,90,2,SDE Intern
+moonfrog-labs,Moonfrog Labs,90,2,SDE Intern
+morgan-stanley,Morgan Stanley,90,2,SDE Intern
+morgan-stanley-india,Morgan Stanley India,90,2,SDE Intern
+motilal-oswal,Motilal Oswal,90,2,SDE Intern
+mozilla-corporation,Mozilla Corporation,90,2,SDE Intern
+mphasis,Mphasis,90,2,SDE Intern
+mpl,MPL,90,2,SDE Intern
+msci,MSCI,90,2,SDE Intern
+msi-india,MSI India,90,2,SDE Intern
+mu-sigma,Mu Sigma,90,2,SDE Intern
+mybillbook,myBillBook,90,2,SDE Intern
+myntra,Myntra,90,2,SDE Intern
+nagaro,Nagaro,90,2,SDE Intern
+narayana-health,Narayana Health,90,2,SDE Intern
+nasdaq,Nasdaq,90,2,SDE Intern
+nation-with-namo,Nation with Namo,90,2,SDE Intern
+natwest,Natwest,90,2,SDE Intern
+naughty-dog,Naughty Dog,90,2,SDE Intern
+navi,Navi,90,2,SDE Intern
+https-www-navipartner-com-navipartner-career,"<https://www.navipartner.com/navipartner-career/>""",90,2,SDE Intern
+navitas-semiconductor,Navitas Semiconductor,90,2,SDE Intern
+nazara-technologies,Nazara Technologies,90,2,SDE Intern
+nec-india,NEC India,90,2,SDE Intern
+neogrowth,NeoGrowth,90,2,SDE Intern
+neon-database,Neon Database,90,2,SDE Intern
+neophotonics,NeoPhotonics,90,2,SDE Intern
+neptune-ai,Neptune.ai,90,2,SDE Intern
+nestaway,Nestaway,90,2,SDE Intern
+nestle,Nestle,90,2,SDE Intern
+netapp,NetApp,90,2,SDE Intern
+netease-games,NetEase Games,90,2,SDE Intern
+netflix,Netflix,90,2,SDE Intern
+netlify,Netlify,90,2,SDE Intern
+netmeds,Netmeds,90,2,SDE Intern
+netskope,Netskope,90,2,SDE Intern
+new-relic,New Relic,90,2,SDE Intern
+newgen-software,Newgen Software,90,2,SDE Intern
+nexdigm,Nexdigm,90,2,SDE Intern
+niit-technologies,NIIT Technologies,90,2,SDE Intern
+nike,Nike,90,2,SDE Intern
+ninjacart,Ninjacart,90,2,SDE Intern
+nintendo,Nintendo,90,2,SDE Intern
+nio,NIO,90,2,SDE Intern
+nissan-india,Nissan India,90,2,SDE Intern
+nium,Nium,90,2,SDE Intern
+niyo,Niyo,90,2,SDE Intern
+nk-securities,NK Securities,90,2,SDE Intern
+nobroker,NoBroker,90,2,SDE Intern
+nomura,Nomura,90,2,SDE Intern
+nord-security,Nord Security,90,2,SDE Intern
+north-star-trading,North Star Trading,90,2,SDE Intern
+notion,Notion,90,2,SDE Intern
+novartis-india,Novartis India,90,2,SDE Intern
+npci,NPCI,90,2,SDE Intern
+nucleus-software,Nucleus Software,90,2,SDE Intern
+nupay,Nupay,90,2,SDE Intern
+nuro,Nuro,90,2,SDE Intern
+nutanix,Nutanix,90,2,SDE Intern
+nvidia,NVIDIA,90,2,SDE Intern
+nvidia-india,NVIDIA India,90,2,SDE Intern
+nxp-semiconductors,NXP Semiconductors,90,2,SDE Intern
+nykaa,Nykaa,90,2,SDE Intern
+ocbc-bank,OCBC Bank,90,2,SDE Intern
+octro,Octro,90,2,SDE Intern
+okcredit,OkCredit,90,2,SDE Intern
+okta,Okta,90,2,SDE Intern
+ola,Ola,90,2,SDE Intern
+ola-electric,Ola Electric,90,2,SDE Intern
+old-mission-capital,Old Mission Capital,90,2,SDE Intern
+oliver-wyman,Oliver Wyman,90,2,SDE Intern
+onecard,OneCard,90,2,SDE Intern
+onsemi,onsemi,90,2,SDE Intern
+open-financial,Open Financial,90,2,SDE Intern
+openai,OpenAI,90,2,SDE Intern
+openai-research,OpenAI Research,90,2,SDE Intern
+oppo-india-r-and-d-center,OPPO India R and D Center,90,2,SDE Intern
+opstra,Opstra,90,2,SDE Intern
+optiver,Optiver,90,2,SDE Intern
+optym,Optym,90,2,SDE Intern
+oracle,Oracle,90,2,SDE Intern
+oracle-india,Oracle India,90,2,SDE Intern
+orca-security,Orca Security,90,2,SDE Intern
+outreach,Outreach,90,2,SDE Intern
+oyo,OYO,90,2,SDE Intern
+o-reilly-media-tech,O’Reilly Media Tech,90,2,SDE Intern
+palantir,Palantir,90,2,SDE Intern
+palo-alto-networks,Palo Alto Networks,90,2,SDE Intern
+panasonic-india,Panasonic India,90,2,SDE Intern
+pantaloons,Pantaloons,90,2,SDE Intern
+paynearby,PayNearby,90,2,SDE Intern
+payoneer,Payoneer,90,2,SDE Intern
+paypal,PayPal,90,2,SDE Intern
+paytm,Paytm,90,2,SDE Intern
+payu,PayU,90,2,SDE Intern
+pb-fintech,PB Fintech,90,2,SDE Intern
+peak6,Peak6,90,2,SDE Intern
+pepperfry,Pepperfry,90,2,SDE Intern
+perella-weinberg,Perella Weinberg,90,2,SDE Intern
+perfios,Perfios,90,2,SDE Intern
+perplexity,Perplexity,90,2,SDE Intern
+perplexity-ai,Perplexity AI,90,2,SDE Intern
+persistent-systems,Persistent Systems,90,2,SDE Intern
+pfizer-india,Pfizer India,90,2,SDE Intern
+pharmeasy,PharmEasy,90,2,SDE Intern
+philips-healthcare,Philips Healthcare,90,2,SDE Intern
+philips-india,Philips India,90,2,SDE Intern
+phonepe,PhonePe,90,2,SDE Intern
+phonepe-switch,PhonePe Switch,90,2,SDE Intern
+physicswallah,PhysicsWallah,90,2,SDE Intern
+pimco,PIMCO,90,2,SDE Intern
+pine-labs,Pine Labs,90,2,SDE Intern
+pinecone,Pinecone,90,2,SDE Intern
+pinterest,Pinterest,90,2,SDE Intern
+pjt-partners,PJT Partners,90,2,SDE Intern
+plaid,Plaid,90,2,SDE Intern
+planetscale,PlanetScale,90,2,SDE Intern
+playstation-studios,PlayStation Studios,90,2,SDE Intern
+point72,Point72,90,2,SDE Intern
+policybazaar,PolicyBazaar,90,2,SDE Intern
+policybazaar-tech,PolicyBazaar Tech,90,2,SDE Intern
+porsche-india,Porsche India,90,2,SDE Intern
+portea-medical,Portea Medical,90,2,SDE Intern
+porter,Porter,90,2,SDE Intern
+postman,Postman,90,2,SDE Intern
+power-bi,Power BI,90,2,SDE Intern
+power-integrations,Power Integrations,90,2,SDE Intern
+practo,Practo,90,2,SDE Intern
+procter-and-gamble-home-products-private-limited,Procter & Gamble Home Products Private Limited,90,2,SDE Intern
+proptiger,PropTiger,90,2,SDE Intern
+providence,Providence,90,2,SDE Intern
+ptc,PTC,90,2,SDE Intern
+pulumi,Pulumi,90,2,SDE Intern
+pure-storage,Pure Storage,90,2,SDE Intern
+pwc-consulting,PwC Consulting,90,2,SDE Intern
+qatalyst-partners,Qatalyst Partners,90,2,SDE Intern
+qlik,Qlik,90,2,SDE Intern
+quadeye,Quadeye,90,2,SDE Intern
+quadeye-securities,Quadeye Securities,90,2,SDE Intern
+quadric,Quadric,90,2,SDE Intern
+qualcomm,Qualcomm,90,2,SDE Intern
+qualcomm-india,Qualcomm India,90,2,SDE Intern
+qualtrics,Qualtrics,90,2,SDE Intern
+qualys,Qualys,90,2,SDE Intern
+quantiphi,Quantiphi,90,2,SDE Intern
+quantitative-systems,Quantitative Systems,90,2,SDE Intern
+quantlab,Quantlab,90,2,SDE Intern
+qube-research-and-technologies,Qube Research & Technologies,90,2,SDE Intern
+qubole,Qubole,90,2,SDE Intern
+quicko,Quicko,90,2,SDE Intern
+radix-trading,Radix Trading,90,2,SDE Intern
+railway,Railway,90,2,SDE Intern
+railyatri,Railyatri,90,2,SDE Intern
+rakuten,Rakuten,90,2,SDE Intern
+ramco-systems,Ramco Systems,90,2,SDE Intern
+rapid7,Rapid7,90,2,SDE Intern
+rapido,Rapido,90,2,SDE Intern
+rario,Rario,90,2,SDE Intern
+razorpay,Razorpay,90,2,SDE Intern
+razorpayx,RazorpayX,90,2,SDE Intern
+rbc-capital-markets,RBC Capital Markets,90,2,SDE Intern
+rbc-india,RBC India,90,2,SDE Intern
+red-hat,Red Hat,90,2,SDE Intern
+redbus,Redbus,90,2,SDE Intern
+redis,Redis,90,2,SDE Intern
+refrens,Refrens,90,2,SDE Intern
+reliance-retail,Reliance Retail,90,2,SDE Intern
+remote,Remote,90,2,SDE Intern
+renaissance-technologies,Renaissance Technologies,90,2,SDE Intern
+renault-india,Renault India,90,2,SDE Intern
+renault-nissan-tech,Renault Nissan Tech,90,2,SDE Intern
+render,Render,90,2,SDE Intern
+renesas,Renesas,90,2,SDE Intern
+replicate,Replicate,90,2,SDE Intern
+replit,Replit,90,2,SDE Intern
+retool,Retool,90,2,SDE Intern
+revolut,Revolut,90,2,SDE Intern
+riot-games,Riot Games,90,2,SDE Intern
+rippling,Rippling,90,2,SDE Intern
+rivian,Rivian,90,2,SDE Intern
+rivigo,Rivigo,90,2,SDE Intern
+robinhood,Robinhood,90,2,SDE Intern
+roblox,Roblox,90,2,SDE Intern
+roboflow,Roboflow,90,2,SDE Intern
+roche-india,Roche India,90,2,SDE Intern
+rockstar-india,Rockstar India,90,2,SDE Intern
+rockwell-automation,Rockwell Automation,90,2,SDE Intern
+roland-berger,Roland Berger,90,2,SDE Intern
+rolta,Rolta,90,2,SDE Intern
+rothschild,Rothschild,90,2,SDE Intern
+rovio,Rovio,90,2,SDE Intern
+royal-enfield,Royal Enfield,90,2,SDE Intern
+rsm,RSM,90,2,SDE Intern
+rubrik,Rubrik,90,2,SDE Intern
+runway,Runway,90,2,SDE Intern
+rupifi,Rupifi,90,2,SDE Intern
+salesforce,Salesforce,90,2,SDE Intern
+salesforce-india,Salesforce India,90,2,SDE Intern
+sambanova,SambaNova,90,2,SDE Intern
+samsung,Samsung,90,2,SDE Intern
+samsung-r-and-d,Samsung R&D,90,2,SDE Intern
+samsung-r-and-d-institute-india,Samsung R&D Institute India,90,2,SDE Intern
+sanofi-india,Sanofi India,90,2,SDE Intern
+santa-monica-studio,Santa Monica Studio,90,2,SDE Intern
+sap,SAP,90,2,SDE Intern
+sas,SAS,90,2,SDE Intern
+sbi-securities,SBI Securities,90,2,SDE Intern
+scale-ai,Scale AI,90,2,SDE Intern
+schlumberger,Schlumberger,90,2,SDE Intern
+schneider-electric,Schneider Electric,90,2,SDE Intern
+schonfeld,Schonfeld,90,2,SDE Intern
+scotiabank,Scotiabank,90,2,SDE Intern
+segment,Segment,90,2,SDE Intern
+sembly,Sembly,90,2,SDE Intern
+sensibull,Sensibull,90,2,SDE Intern
+sentinelone,SentinelOne,90,2,SDE Intern
+servicenow,ServiceNow,90,2,SDE Intern
+setu,Setu,90,2,SDE Intern
+shadowfax,Shadowfax,90,2,SDE Intern
+sharechat,ShareChat,90,2,SDE Intern
+sharekhan,Sharekhan,90,2,SDE Intern
+shiprocket,Shiprocket,90,2,SDE Intern
+shoppers-stop,Shoppers Stop,90,2,SDE Intern
+sibros,Sibros,90,2,SDE Intern
+siemens,Siemens,90,2,SDE Intern
+siemens-healthineers,Siemens Healthineers,90,2,SDE Intern
+sig,SIG,90,2,SDE Intern
+silicon-labs,Silicon Labs,90,2,SDE Intern
+simon-kucher,Simon-Kucher,90,2,SDE Intern
+singlestore,SingleStore,90,2,SDE Intern
+sisense,Sisense,90,2,SDE Intern
+skoda-india,Skoda India,90,2,SDE Intern
+skywater,SkyWater,90,2,SDE Intern
+skyworks,Skyworks,90,2,SDE Intern
+slack,Slack,90,2,SDE Intern
+slice,Slice,90,2,SDE Intern
+https-www-slicebysaddleback-com-careers,"<https://www.slicebysaddleback.com/careers>""",90,2,SDE Intern
+smallcase,Smallcase,90,2,SDE Intern
+smic,SMIC,90,2,SDE Intern
+snap,Snap,90,2,SDE Intern
+snorkel-ai,Snorkel AI,90,2,SDE Intern
+snowflake,Snowflake,90,2,SDE Intern
+snyk,Snyk,90,2,SDE Intern
+sonata-software,Sonata Software,90,2,SDE Intern
+sony,Sony,90,2,SDE Intern
+sony-japan,Sony Japan,90,2,SDE Intern
+sophos,Sophos,90,2,SDE Intern
+sourcegraph,Sourcegraph,90,2,SDE Intern
+spacex,SpaceX,90,2,SDE Intern
+spice-money,Spice Money,90,2,SDE Intern
+spinny,Spinny,90,2,SDE Intern
+splunk,Splunk,90,2,SDE Intern
+spot-trading,Spot Trading,90,2,SDE Intern
+spotify,Spotify,90,2,SDE Intern
+sprinklr,Sprinklr,90,2,SDE Intern
+square-yards,Square Yards,90,2,SDE Intern
+squarepoint-capital,Squarepoint Capital,90,2,SDE Intern
+stability-ai,Stability AI,90,2,SDE Intern
+stackblitz,StackBlitz,90,2,SDE Intern
+standard-chartered,Standard Chartered,90,2,SDE Intern
+stanza-living,Stanza Living,90,2,SDE Intern
+starburst,Starburst,90,2,SDE Intern
+stashfin,Stashfin,90,2,SDE Intern
+state-street,State Street,90,2,SDE Intern
+state-street-global-advisors,State Street Global Advisors,90,2,SDE Intern
+stellantis-india,Stellantis India,90,2,SDE Intern
+stillfront,Stillfront,90,2,SDE Intern
+stitch,Stitch,90,2,SDE Intern
+stmicroelectronics,STMicroelectronics,90,2,SDE Intern
+stockgro,StockGro,90,2,SDE Intern
+strategy-and,Strategy&,90,2,SDE Intern
+stripe,Stripe,90,2,SDE Intern
+subex,Subex,90,2,SDE Intern
+sublime-security,Sublime Security,90,2,SDE Intern
+supabase,Supabase,90,2,SDE Intern
+supercell,Supercell,90,2,SDE Intern
+surge-ai,Surge AI,90,2,SDE Intern
+susquehanna-international-group,Susquehanna International Group,90,2,SDE Intern
+sutherland-global,Sutherland Global,90,2,SDE Intern
+swiggy,Swiggy,90,2,SDE Intern
+symantec,Symantec,90,2,SDE Intern
+synopsys,Synopsys,90,2,SDE Intern
+tableau,Tableau,90,2,SDE Intern
+tabnine,Tabnine,90,2,SDE Intern
+take-two-interactive,Take-Two Interactive,90,2,SDE Intern
+talend,Talend,90,2,SDE Intern
+tata-1mg,Tata 1mg,90,2,SDE Intern
+tata-elxsi,Tata Elxsi,90,2,SDE Intern
+tata-motors-ev,Tata Motors EV,90,2,SDE Intern
+tata-neu,Tata Neu,90,2,SDE Intern
+tata-technologies,Tata Technologies,90,2,SDE Intern
+taxmann,Taxmann,90,2,SDE Intern
+td-securities,TD Securities,90,2,SDE Intern
+tech-mahindra-consulting,Tech Mahindra Consulting,90,2,SDE Intern
+teleperformance,Teleperformance,90,2,SDE Intern
+tenable,Tenable,90,2,SDE Intern
+tencent-games,Tencent Games,90,2,SDE Intern
+teradata,Teradata,90,2,SDE Intern
+tesla,Tesla,90,2,SDE Intern
+texas-instrument,Texas Instrument,90,2,SDE Intern
+texus-instruments,Texus Instruments,90,2,SDE Intern
+teza-technologies,Teza Technologies,90,2,SDE Intern
+thoughtspot,ThoughtSpot,90,2,SDE Intern
+thougthworks,ThougthWorks,90,2,SDE Intern
+tickertape,Tickertape,90,2,SDE Intern
+tiger-analytics,Tiger Analytics,90,2,SDE Intern
+toffee-insurance,Toffee Insurance,90,2,SDE Intern
+together-ai,Together AI,90,2,SDE Intern
+toggl,Toggl,90,2,SDE Intern
+toptal,Toptal,90,2,SDE Intern
+tower-research,Tower Research,90,2,SDE Intern
+tower-research-capital,Tower Research Capital,90,2,SDE Intern
+tower-semiconductor,Tower Semiconductor,90,2,SDE Intern
+toyota-india,Toyota India,90,2,SDE Intern
+tradebot-systems,Tradebot Systems,90,2,SDE Intern
+transmarket-group,TransMarket Group,90,2,SDE Intern
+treebo,Treebo,90,2,SDE Intern
+trellix,Trellix,90,2,SDE Intern
+trend-micro,Trend Micro,90,2,SDE Intern
+trendlyne,Trendlyne,90,2,SDE Intern
+trent,Trent,90,2,SDE Intern
+trimble,Trimble,90,2,SDE Intern
+true-beacon,True Beacon,90,2,SDE Intern
+truera,TruEra,90,2,SDE Intern
+tsmc,TSMC,90,2,SDE Intern
+turing-com,Turing.com,90,2,SDE Intern
+turtlemint,Turtlemint,90,2,SDE Intern
+tvs-motor,TVS Motor,90,2,SDE Intern
+twilio,Twilio,90,2,SDE Intern
+twitter-x,Twitter (X),90,2,SDE Intern
+two-sigma,Two Sigma,90,2,SDE Intern
+uber,Uber,90,2,SDE Intern
+ubisoft-india,Ubisoft India,90,2,SDE Intern
+ubs,UBS,90,2,SDE Intern
+udaan,Udaan,90,2,SDE Intern
+ukg,UKG,90,2,SDE Intern
+umc,UMC,90,2,SDE Intern
+unacademy,Unacademy,90,2,SDE Intern
+unicommerce,Unicommerce,90,2,SDE Intern
+unity,Unity,90,2,SDE Intern
+unity-technologies,Unity Technologies,90,2,SDE Intern
+upstox,Upstox,90,2,SDE Intern
+urban-company,Urban Company,90,2,SDE Intern
+urban-ladder,Urban Ladder,90,2,SDE Intern
+valkyrie-trading,Valkyrie Trading,90,2,SDE Intern
+vanguard,Vanguard,90,2,SDE Intern
+varonis,Varonis,90,2,SDE Intern
+vayana-network,Vayana Network,90,2,SDE Intern
+vectra-ai,Vectra AI,90,2,SDE Intern
+venmo,Venmo,90,2,SDE Intern
+vercel,Vercel,90,2,SDE Intern
+visa,Visa,90,2,SDE Intern
+visa-labs,Visa Labs,90,2,SDE Intern
+vmware,VMware,90,2,SDE Intern
+vmware-broadcom,VMware (Broadcom),90,2,SDE Intern
+volkswagen-india,Volkswagen India,90,2,SDE Intern
+volvo-india,Volvo India,90,2,SDE Intern
+wakefit,Wakefit,90,2,SDE Intern
+walleye-capital,Walleye Capital,90,2,SDE Intern
+walleye-trading,Walleye Trading,90,2,SDE Intern
+walmart,Walmart,90,2,SDE Intern
+walmart-global-tech,Walmart Global Tech,90,2,SDE Intern
+walmart-labs,Walmart Labs,90,2,SDE Intern
+walt-disney,Walt Disney,90,2,SDE Intern
+warner-bros,Warner Bros,90,2,SDE Intern
+wayfair,WayFair,90,2,SDE Intern
+waymo,Waymo,90,2,SDE Intern
+weights-and-biases,Weights & Biases,90,2,SDE Intern
+wells-fargo,Wells Fargo,90,2,SDE Intern
+wells-fargo-international-solutions-private-limited,WELLS FARGO INTERNATIONAL SOLUTIONS PRIVATE LIMITED,90,2,SDE Intern
+western-digital,Western Digital,90,2,SDE Intern
+westside,Westside,90,2,SDE Intern
+whylabs,WhyLabs,90,2,SDE Intern
+wincent-trading,Wincent Trading,90,2,SDE Intern
+winzo,WinZO,90,2,SDE Intern
+wipro-consulting,Wipro Consulting,90,2,SDE Intern
+wise,Wise,90,2,SDE Intern
+wiz,Wiz,90,2,SDE Intern
+wns,WNS,90,2,SDE Intern
+wolfram-research,Wolfram Research,90,2,SDE Intern
+wolfspeed,Wolfspeed,90,2,SDE Intern
+workday,Workday,90,2,SDE Intern
+worldpay,Worldpay,90,2,SDE Intern
+worldquant,WorldQuant,90,2,SDE Intern
+x-twitter,X (Twitter),90,2,SDE Intern
+xai,xAI,90,2,SDE Intern
+xbox-game-studios,Xbox Game Studios,90,2,SDE Intern
+xerox-india,Xerox India,90,2,SDE Intern
+xpeng,XPeng,90,2,SDE Intern
+xpressbees,Xpressbees,90,2,SDE Intern
+xtx-markets,XTX Markets,90,2,SDE Intern
+yatra,Yatra,90,2,SDE Intern
+yes-bank,YES Bank,90,2,SDE Intern
+yokogawa-india,Yokogawa India,90,2,SDE Intern
+yugabyte,Yugabyte,90,2,SDE Intern
+zapier,Zapier,90,2,SDE Intern
+zendesk,Zendesk,90,2,SDE Intern
+zensar,Zensar,90,2,SDE Intern
+zepto,Zepto,90,2,SDE Intern
+zerodha,Zerodha,90,2,SDE Intern
+zerodha-kite,Zerodha / Kite,90,2,SDE Intern
+zeta,Zeta,90,2,SDE Intern
+zoho,Zoho,90,2,SDE Intern
+zoho-corp,Zoho Corp,90,2,SDE Intern
+zomato,Zomato,90,2,SDE Intern
+zoox,Zoox,90,2,SDE Intern
+zs-associates,ZS Associates,90,2,SDE Intern
+zscaler,Zscaler,90,2,SDE Intern
+zynga,Zynga,90,2,SDE Intern
