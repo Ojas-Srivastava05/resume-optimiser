@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "queue": [],
+  "queue_index": 0,
+  "cycles": 0,
+  "company_visits": {
+    "microsoft": 1
+  },
+  "sent_pairs": {
+    "microsoft": [
+      "climbing-stairs|house-robber"
+    ]
+  },
+  "last_run": null
+}
