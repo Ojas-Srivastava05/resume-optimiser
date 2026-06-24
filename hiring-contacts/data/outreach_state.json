@@ -15,19 +15,37 @@
       "sent_at": "2026-06-24T13:16:19.018225+00:00",
       "followup_sent": false,
       "followup_count": 0
+    },
+    "r.chandrasi1996@gmail.com": {
+      "email": "r.chandrasi1996@gmail.com",
+      "company": "Paypal",
+      "name": "",
+      "role_title": "",
+      "contact_type": "unknown",
+      "confidence": "scraped_personal",
+      "in_scout_list": true,
+      "source_id": "web:substack_atoz_50_hr",
+      "career_portal": "https://www.paypal.com/us/webapps/mpp/jobs",
+      "subject": "SVNIT AI student \u2014 Paypal intern question",
+      "dry_run": false,
+      "sent_at": "2026-06-24T13:23:46.018311+00:00",
+      "followup_sent": false,
+      "followup_count": 0
     }
   },
   "stats": {
-    "total_sent": 1,
+    "total_sent": 2,
     "total_followups": 0
   },
   "daily_log": {
     "2026-06-24": {
       "emails": [
-        "himanshubarak@gmail.com"
+        "himanshubarak@gmail.com",
+        "r.chandrasi1996@gmail.com"
       ],
       "companies": [
-        "meesho"
+        "meesho",
+        "paypal"
       ]
     }
   }
