@@ -1,12 +1,11 @@
-"""Email templates — 2026 cold-email format: short, soft ask, full links."""
+"""Email templates — direct, scannable plain text (best deliverability for 1:1 Gmail)."""
 
 from __future__ import annotations
 
 import re
 
-from cold_email.config import RESUME_ATTACHMENT_NAME, TARGET_SEASON
+from cold_email.config import TARGET_SEASON
 from cold_email.profile import (
-	ACHIEVEMENTS,
 	CGPA,
 	CODEFORCES,
 	CODEFORCES_STAT,
@@ -24,6 +23,7 @@ from cold_email.profile import (
 	LOGIFLOW_HOOK,
 	LOGIFLOW_LIVE,
 	LOGIFLOW_NAME,
+	OUTREACH_AUTOMATION_NOTE,
 	PHONE,
 	PORTFOLIO,
 	SCHOOL,
@@ -37,7 +37,6 @@ def _first_name(contact_name: str, email: str) -> str:
 	local = email.split("@", 1)[0]
 	if "." in local:
 		a, b = local.split(".", 1)
-		# r.chandrasi1996@... → Chandrasi
 		if len(a) <= 2 and b:
 			name_part = re.sub(r"\d+", "", b)
 			if len(name_part) > 2:
@@ -47,40 +46,54 @@ def _first_name(contact_name: str, email: str) -> str:
 	return local.split("+", 1)[0].title()
 
 
-def _links_block() -> str:
-	return f"""Quick links:
-Portfolio: {PORTFOLIO}
-GitHub: {GITHUB}
-LinkedIn: {LINKEDIN}
-LeetCode ({LEETCODE_STAT}): {LEETCODE}
-Codeforces ({CODEFORCES_STAT}): {CODEFORCES}
-{LOGIFLOW_NAME} (demo): {LOGIFLOW_LIVE}
-{LOGIFLOW_NAME} (code): {LOGIFLOW_GITHUB}"""
+def _credentials_bullets() -> str:
+	return f"""• {SCHOOL} — {DEGREE}, CGPA {CGPA}, {GRAD_MONTH_YEAR}
+• {LOGIFLOW_HOOK}
+• {INTERN_HOOK}
+• CP: {LEETCODE_STAT} · {CODEFORCES_STAT}
+• {STACK_LINE}"""
 
 
-def _soft_ask(company: str, contact_type: str) -> str:
+def _links_bullets() -> str:
+	return f"""• Portfolio: {PORTFOLIO}
+• GitHub: {GITHUB}
+• LinkedIn: {LINKEDIN}
+• LeetCode: {LEETCODE}
+• Codeforces: {CODEFORCES}
+• {LOGIFLOW_NAME}: {LOGIFLOW_LIVE}
+• {LOGIFLOW_NAME} (code): {LOGIFLOW_GITHUB}"""
+
+
+def _ask_line(company: str, contact_type: str) -> str:
 	company = company.strip() or "your company"
 	if contact_type in ("careers_inbox", "hr_inbox"):
 		return (
-			f"If you have a moment, I'd really appreciate any guidance on how students "
-			f"typically apply for {TARGET_SEASON} software intern roles at {company} — "
-			f"or a pointer to whoever owns campus / university recruiting. "
-			f"No pressure at all; even the right portal or timing would help."
+			f"Open to a brief note on how {TARGET_SEASON} SWE intern hiring works at {company} "
+			f"— or a pointer to campus / university recruiting."
 		)
 	return (
-		f"If you have 10–15 minutes in the coming weeks, I'd love your perspective on "
-		f"internship opportunities at {company} — what you look for in candidates, or "
-		f"the best way to apply. If you're not the right person, a referral or intro "
-		f"to campus recruiting would mean a lot."
+		f"Open to a 10-minute call on {TARGET_SEASON} intern hiring at {company}, "
+		f"or a referral / intro to campus recruiting if you're not the right contact."
 	)
 
 
 def subject_line(company: str, *, is_followup: bool = False) -> str:
 	company = company.strip() or "your team"
+	base = f"Summer 2027 Intern SWE — {company}"
 	if is_followup:
-		return f"Re: SVNIT student — {company} intern question"[:60]
-	# Specific, human, under ~60 chars (Whali / FirstSales 2026)
-	return f"SVNIT AI student — {company} intern question"[:60]
+		return f"Re: {base}"[:72]
+	return base[:72]
+
+
+def _signature() -> str:
+	return f"""{FULL_NAME}
+{PHONE} · {EMAIL}
+{LINKEDIN}"""
+
+
+def _footer() -> str:
+	return f"""—
+{OUTREACH_AUTOMATION_NOTE}"""
 
 
 def body_initial(
@@ -94,43 +107,23 @@ def body_initial(
 	greet = _first_name(contact_name, email)
 	company = company.strip() or "your company"
 
-	opening = (
-		f"I'm exploring {TARGET_SEASON} software engineering internships at {company} "
-		f"and wanted to reach out respectfully — I hope you're the right person to ask, "
-		f"or can point me to whoever handles campus hiring."
-	)
-	if career_portal and career_portal.startswith("http"):
-		opening = (
-			f"I'm exploring {TARGET_SEASON} software engineering internships at {company}. "
-			f"I've seen the careers site and wanted to reach out to a real person rather "
-			f"than send a generic application into the void."
-		)
-
-	credibility = (
-		f"I'm {FIRST_NAME}, penultimate-year {DEGREE} at {SCHOOL} "
-		f"(CGPA {CGPA}, graduating {GRAD_MONTH_YEAR}). "
-		f"{LOGIFLOW_HOOK}. {INTERN_HOOK}. "
-		f"{ACHIEVEMENTS}. "
-		f"Competitive programming: {LEETCODE_STAT}; {CODEFORCES_STAT}. "
-		f"Stack: {STACK_LINE}."
-	)
-
 	return f"""Hi {greet},
 
-{opening}
+I'm targeting {TARGET_SEASON} software engineering internships at {company}.
 
-{credibility}
+Background:
+{_credentials_bullets()}
 
-{_soft_ask(company, contact_type)}
+{_ask_line(company, contact_type)}
 
-{_links_block()}
+Links:
+{_links_bullets()}
 
-I've attached my resume ({RESUME_ATTACHMENT_NAME}) for convenience.
+I've attached my resume.
 
-Thank you for your time,
-{FULL_NAME}
-{PHONE} · {EMAIL}
-{LINKEDIN}
+{_signature()}
+
+{_footer()}
 """
 
 
@@ -139,16 +132,16 @@ def body_followup(*, company: str, contact_name: str, email: str) -> str:
 	company = company.strip() or "your company"
 	return f"""Hi {greet},
 
-Just bumping my note from last week about {TARGET_SEASON} internships at {company} — totally understand if you're busy.
+Following up on my note about {TARGET_SEASON} SWE internships at {company}.
 
-If a quick 10-minute chat isn't feasible, I'd still be grateful for any steer on how to apply, who owns campus recruiting, or whether a referral might be appropriate.
+Still interested in a short call, or a pointer to campus recruiting / referral if that fits better.
 
-{_links_block()}
+Links:
+{_links_bullets()}
 
-Resume attached ({RESUME_ATTACHMENT_NAME}).
+I've attached my resume.
 
-Best,
-{FULL_NAME}
-{PHONE} · {EMAIL}
-{LINKEDIN}
+{_signature()}
+
+{_footer()}
 """

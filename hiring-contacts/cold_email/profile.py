@@ -54,3 +54,9 @@ STACK_LINE = os.getenv(
 	"OUTREACH_STACK",
 	"C++ · Python · TypeScript · Node.js · SQL · system design & DSA",
 )
+
+OUTREACH_AUTOMATION_NOTE = os.getenv(
+	"OUTREACH_AUTOMATION_NOTE",
+	"This message was sent via a small automation I built in my spare time — "
+	"an example of the AI/workflow tooling I ship outside class.",
+)

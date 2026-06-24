@@ -1,4 +1,7 @@
-"""SMTP mailer with resume attachment."""
+"""SMTP mailer with resume attachment.
+
+Plain text only — multipart HTML raises spam risk for 1:1 personal Gmail cold outreach.
+"""
 
 from __future__ import annotations
 
@@ -7,6 +10,7 @@ import time
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.utils import formataddr
 from pathlib import Path
 
 from cold_email.config import (
@@ -30,16 +34,17 @@ def send_email(
 	if dry_run:
 		print(f"[dry-run] Would send to {to_addr}")
 		print(f"  Subject: {subject}")
-		print(body_text[:500] + ("..." if len(body_text) > 500 else ""))
+		print(body_text[:800] + ("..." if len(body_text) > 800 else ""))
 		return
 
 	if not SMTP_APP_PASSWORD:
 		raise RuntimeError("SMTP_APP_PASSWORD missing — set in internship-scout/.env or GitHub secrets")
 
 	msg = MIMEMultipart()
-	msg["From"] = SMTP_EMAIL
+	msg["From"] = formataddr((FULL_NAME, SMTP_EMAIL))
 	msg["To"] = to_addr
 	msg["Subject"] = subject
+	msg["Reply-To"] = formataddr((FULL_NAME, EMAIL))
 	msg.attach(MIMEText(body_text, "plain", "utf-8"))
 
 	rpath = resume_path or RESUME_PATH

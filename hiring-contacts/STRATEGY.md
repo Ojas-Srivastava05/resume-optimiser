@@ -7,9 +7,11 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 | Principle | Implementation |
 |-----------|----------------|
 | **Quality > volume** | Default **10 emails/day** cap, 45s between sends |
-| **Short body** | Templates ~100 words; one binary ask |
-| **Specific ask** | Request **Summer 2027 intern portal / OA link / campus recruiter** |
-| **Proof in one line** | LogiFlow Top 100 + IFFCO + DSA stats |
+| **Short body** | Bullet layout; direct opener; one clear ask |
+| **Specific ask** | 10-min call or campus recruiting / referral pointer |
+| **Proof in bullets** | School, LogiFlow, IFFCO, CP stats, stack — not dense paragraphs |
+| **Plain text only** | No HTML (better Gmail deliverability for 1:1 cold outreach) |
+| **Subject** | `Summer 2027 Intern SWE — {Company}` |
 | **Tiered contacts** | Named recruiters & public HR first; skip `generic_inferred` unless `--include-generic` |
 | **One follow-up** | Auto after **5 days**, max 1 follow-up per contact |
 | **Resume attached** | `ojas_srivastava_resume.pdf` (generic filename, company-agnostic) |
