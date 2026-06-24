@@ -1,8 +1,8 @@
-name: Daily OA Drill
+name: OA Daily Drill
 
 on:
   schedule:
-    # 7:30 AM IST (2:00 AM UTC) — before internship scout
+    # 7:30 AM IST = 2:00 AM UTC
     - cron: "0 2 * * *"
   workflow_dispatch:
     inputs:
@@ -12,16 +12,25 @@ on:
         default: "false"
         type: boolean
       company:
-        description: "Optional company slug override (e.g. microsoft)"
+        description: "Optional company slug (e.g. microsoft)"
         required: false
         default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: oa-daily-drill
+  cancel-in-progress: false
+
+defaults:
+  run:
+    working-directory: internship-scout
 
 jobs:
   oa-drill:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    permissions:
-      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -29,19 +38,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"
+          cache: pip
           cache-dependency-path: internship-scout/requirements.txt
 
       - name: Install dependencies
-        working-directory: internship-scout
         run: pip install -r requirements.txt
 
       - name: Run OA drill
-        working-directory: internship-scout
         env:
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
           SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
           SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           FLAGS=""
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
@@ -54,6 +62,7 @@ jobs:
 
       - name: Commit rotation state
         if: github.event.inputs.dry_run != 'true'
+        working-directory: .
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
