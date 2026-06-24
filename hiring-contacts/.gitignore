@@ -1,0 +1,7 @@
+sources/github/
+sources/web/*.html
+logs/
+data/drafts/
+data/raw/google_sheet_tabs/
+__pycache__/
+*.pyc

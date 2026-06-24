@@ -1,0 +1,62 @@
+name: Hiring Contacts Discover
+
+on:
+  schedule:
+    # Mon/Wed/Fri/Sat 6:30 AM IST = 1:00 AM UTC — grow HQ pool between outreach days
+    - cron: "0 1 * * 1,3,5,6"
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: "Companies to probe this run"
+        required: false
+        default: "50"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hiring-contacts-discover
+  cancel-in-progress: false
+
+defaults:
+  run:
+    working-directory: hiring-contacts
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install git
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq git
+
+      - name: Ensure base contact DB
+        run: |
+          if [ ! -f data/merged/master_contacts.csv ]; then
+            python3 scripts/refresh_all.py
+          fi
+
+      - name: Incremental HQ discovery
+        run: python3 scripts/discover_contacts.py --batch-size ${{ github.event.inputs.batch_size || '50' }}
+
+      - name: Commit discovery + contact growth
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add hiring-contacts/data/merged/ \
+                  hiring-contacts/data/discovery_state.json \
+                  hiring-contacts/data/raw/incremental_hq_contacts.csv || true
+          if git diff --staged --quiet; then
+            echo "No new contacts discovered"
+          else
+            git commit -m "chore(hiring-contacts): incremental HQ discovery"
+            git push || true
+          fi

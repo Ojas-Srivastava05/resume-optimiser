@@ -1,0 +1,91 @@
+name: Cold Outreach (Summer 2027)
+
+on:
+  schedule:
+    # Tue/Wed/Thu 9:00 AM IST = 3:30 AM UTC
+    - cron: "30 3 * * 2,3,4"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (compose only, no SMTP)"
+        required: false
+        default: "true"
+        type: boolean
+      limit:
+        description: "Max emails this run"
+        required: false
+        default: "10"
+      followups_only:
+        description: "Send follow-ups only"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cold-outreach
+  cancel-in-progress: false
+
+defaults:
+  run:
+    working-directory: hiring-contacts
+
+jobs:
+  outreach:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: hiring-contacts/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Ensure contact DB exists
+        run: |
+          if [ ! -f data/merged/master_contacts.csv ]; then
+            python3 scripts/refresh_all.py --skip-clone
+          fi
+
+      - name: Run cold outreach
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          COLD_EMAIL_DAILY_CAP: ${{ github.event.inputs.limit || '10' }}
+          COLD_EMAIL_MAX_PER_COMPANY_PER_DAY: "1"
+        run: |
+          FLAGS="--save-drafts --limit ${{ github.event.inputs.limit || '10' }}"
+          # Manual dispatch defaults to dry-run; scheduled Tue–Thu runs live (cap 10/day)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            FLAGS="$FLAGS --dry-run"
+          fi
+          if [ "${{ github.event.inputs.followups_only }}" = "true" ]; then
+            FLAGS="$FLAGS --followups"
+          fi
+          python3 cold_outreach.py $FLAGS
+
+      - name: Commit outreach state
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != 'true'
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add hiring-contacts/data/outreach_state.json || true
+          git diff --staged --quiet || git commit -m "chore(cold-outreach): update send state"
+          git push || true
+
+      - name: Upload drafts artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cold-email-drafts
+          path: hiring-contacts/data/drafts/
+          if-no-files-found: ignore

@@ -1,0 +1,2 @@
+# No third-party deps for refresh; cold outreach uses stdlib + optional python-dotenv
+python-dotenv>=1.0.0

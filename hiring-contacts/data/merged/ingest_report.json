@@ -1,0 +1,42 @@
+{
+  "fetched_at": "2026-06-24T12:50:51+00:00",
+  "target_internship_year": 2027,
+  "target_season": "Summer 2027",
+  "scout_company_count": 964,
+  "total_unique_emails": 5209,
+  "by_confidence": {
+    "scraped_personal": 9,
+    "scraped": 141,
+    "public_listed": 159,
+    "inferred_pattern": 332,
+    "generic_inferred": 4558,
+    "generic": 10
+  },
+  "by_contact_type": {
+    "unknown": 150,
+    "hr_inbox": 159,
+    "recruiter": 332,
+    "careers_inbox": 4568
+  },
+  "scout_overlap_emails": 4916,
+  "sources": {
+    "github_clone": [
+      "skip clone careerLauncher",
+      "skip clone recruiter-emailing-script",
+      "skip clone List-of-companies",
+      "skip clone placement-data-2025",
+      "skip clone new-grad-tech-roles--india",
+      "skip clone Global-Internship-List",
+      "skip clone 250CompanyList",
+      "skip clone 2026-SWE-College-Jobs",
+      "skip clone Summer2026-Internships",
+      "skip clone Global-Internship-List-upstream"
+    ],
+    "web_fetch": [
+      "ok substack_atoz_50_hr",
+      "ok devblogger_hr_500",
+      "ok github_raw_career_launcher"
+    ],
+    "google_sheet_tabs": 0
+  }
+}

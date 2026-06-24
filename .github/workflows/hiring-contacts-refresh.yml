@@ -1,0 +1,59 @@
+name: Hiring Contacts Refresh
+
+on:
+  schedule:
+    # Sunday 8:00 AM IST = 2:30 AM UTC
+    - cron: "30 2 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hiring-contacts-refresh
+  cancel-in-progress: false
+
+defaults:
+  run:
+    working-directory: hiring-contacts
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install git (for shallow clones)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq git
+
+      - name: Refresh contact database
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/refresh_all.py
+
+      - name: Commit merged contact data
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add hiring-contacts/data/merged/ \
+                  hiring-contacts/data/raw/scout_companies_snapshot.csv \
+                  hiring-contacts/data/sources.json || true
+          if git diff --staged --quiet; then
+            echo "No contact data changes to commit"
+          else
+            git commit -m "chore(hiring-contacts): refresh contact database"
+            git push || true
+          fi
+
+      - name: Upload ingest report
+        uses: actions/upload-artifact@v4
+        with:
+          name: hiring-contacts-ingest-report
+          path: hiring-contacts/data/merged/ingest_report.json

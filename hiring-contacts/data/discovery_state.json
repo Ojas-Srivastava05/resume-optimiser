@@ -1,0 +1,18 @@
+{
+  "rotation_index": 5,
+  "probed": {
+    "1mg": "2026-06-24T13:05:14+00:00",
+    "1password": "2026-06-24T13:05:14+00:00",
+    "2kgames": "2026-06-24T13:05:14+00:00",
+    "343industries": "2026-06-24T13:05:14+00:00",
+    "3iinfotech": "2026-06-24T13:05:14+00:00"
+  },
+  "stats": {
+    "total_runs": 1,
+    "total_discovered": 0,
+    "last_run_at": "2026-06-24T13:05:14+00:00",
+    "last_batch_discovered": 0,
+    "hq_total": 641,
+    "total_contacts": 5209
+  }
+}

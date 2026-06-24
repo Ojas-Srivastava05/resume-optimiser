@@ -1,0 +1,6 @@
+{
+  "description": "Catalog of hiring-contact data sources. Edit config.py GITHUB_REPOS / WEB_SOURCES to extend.",
+  "target_internship_year": 2027,
+  "target_season": "Summer 2027",
+  "last_refresh": null
+}
