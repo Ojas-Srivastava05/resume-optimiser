@@ -1,0 +1,34 @@
+{
+  "sent": {
+    "himanshubarak@gmail.com": {
+      "email": "himanshubarak@gmail.com",
+      "company": "Meesho",
+      "name": "",
+      "role_title": "",
+      "contact_type": "unknown",
+      "confidence": "scraped_personal",
+      "in_scout_list": true,
+      "source_id": "web:substack_atoz_50_hr",
+      "career_portal": "Meesho Jobs | Meesho Careers, Best Startup Jobs in India",
+      "subject": "Summer 2027 intern \u2014 SVNIT SWE \u00b7 Meesho",
+      "dry_run": false,
+      "sent_at": "2026-06-24T13:16:19.018225+00:00",
+      "followup_sent": false,
+      "followup_count": 0
+    }
+  },
+  "stats": {
+    "total_sent": 1,
+    "total_followups": 0
+  },
+  "daily_log": {
+    "2026-06-24": {
+      "emails": [
+        "himanshubarak@gmail.com"
+      ],
+      "companies": [
+        "meesho"
+      ]
+    }
+  }
+}
