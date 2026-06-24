@@ -2,8 +2,8 @@ name: Cold Outreach (Summer 2027)
 
 on:
   schedule:
-    # Tue/Wed/Thu 9:00 AM IST = 3:30 AM UTC
-    - cron: "30 3 * * 2,3,4"
+    # Mon–Fri 9:00 AM IST = 3:30 AM UTC (weekdays only, no weekends)
+    - cron: "30 3 * * 1-5"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -64,7 +64,7 @@ jobs:
           COLD_EMAIL_MAX_PER_COMPANY_PER_DAY: "1"
         run: |
           FLAGS="--save-drafts --limit ${{ github.event.inputs.limit || '10' }}"
-          # Manual dispatch defaults to dry-run; scheduled Tue–Thu runs live (cap 10/day)
+          # Manual dispatch defaults to dry-run; scheduled weekday runs live (cap 10/day)
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             FLAGS="$FLAGS --dry-run"
           fi

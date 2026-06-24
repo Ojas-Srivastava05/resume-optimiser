@@ -14,7 +14,7 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 | **One follow-up** | Auto after **5 days**, max 1 follow-up per contact |
 | **Resume attached** | `ojas_srivastava_resume.pdf` (generic filename, company-agnostic) |
 | **Links block** | Portfolio, GitHub, LinkedIn, LeetCode, Codeforces, LogiFlow live + repo |
-| **Tue–Thu sends** | GitHub Action schedule (9 AM IST) |
+| **Weekday sends** | GitHub Action schedule (Mon–Fri 9 AM IST) |
 
 ## What does NOT work
 
@@ -26,7 +26,7 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 ## Recommended weekly rhythm
 
 1. **Sun** — `refresh_all.py` updates contact DB (GitHub Action)
-2. **Tue/Wed/Thu** — 10 cold emails/day (named + public HR tier)
+2. **Mon–Fri** — 10 cold emails/day (named + public HR tier)
 3. **Same day** — LinkedIn connection note to same person (manual, not automated yet)
 4. **Day 5+** — follow-up queue picks up non-replies automatically
 
