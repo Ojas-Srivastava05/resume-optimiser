@@ -12,7 +12,7 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 | **Proof in one line** | LogiFlow Top 100 + IFFCO + DSA stats |
 | **Tiered contacts** | Named recruiters & public HR first; skip `generic_inferred` unless `--include-generic` |
 | **One follow-up** | Auto after **5 days**, max 1 follow-up per contact |
-| **Resume attached** | `ojas_srivastava_google_swe_intern_2027.pdf` |
+| **Resume attached** | `ojas_srivastava_resume.pdf` (generic filename, company-agnostic) |
 | **Links block** | Portfolio, GitHub, LinkedIn, LeetCode, Codeforces, LogiFlow live + repo |
 | **Tue–Thu sends** | GitHub Action schedule (9 AM IST) |
 

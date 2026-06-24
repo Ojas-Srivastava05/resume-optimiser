@@ -54,5 +54,3 @@ STACK_LINE = os.getenv(
 	"OUTREACH_STACK",
 	"C++ · Python · TypeScript · Node.js · SQL · system design & DSA",
 )
-
-RESUME_NOTE = os.getenv("OUTREACH_RESUME_NOTE", "Resume attached (PDF).")

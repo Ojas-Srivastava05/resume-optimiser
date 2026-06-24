@@ -49,9 +49,11 @@ DEFAULT_TIERS = (
 	"inferred_pattern",
 )
 
+RESUME_ATTACHMENT_NAME = os.getenv("COLD_EMAIL_RESUME_FILENAME", "ojas_srivastava_resume.pdf")
+RESUME_SOURCE = REPO_ROOT / "Resume Collection" / "ojas_srivastava_google_swe_intern_2027.pdf"
 RESUME_PATH = Path(
 	os.getenv(
 		"COLD_EMAIL_RESUME_PATH",
-		str(REPO_ROOT / "Resume Collection" / "ojas_srivastava_google_swe_intern_2027.pdf"),
+		str(REPO_ROOT / "Resume Collection" / "ojas_srivastava_resume.pdf"),
 	)
 )

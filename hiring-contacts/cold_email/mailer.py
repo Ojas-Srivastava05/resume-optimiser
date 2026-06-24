@@ -11,6 +11,7 @@ from pathlib import Path
 
 from cold_email.config import (
 	MIN_SECONDS_BETWEEN_SENDS,
+	RESUME_ATTACHMENT_NAME,
 	RESUME_PATH,
 	SMTP_APP_PASSWORD,
 	SMTP_EMAIL,
@@ -44,8 +45,8 @@ def send_email(
 	rpath = resume_path or RESUME_PATH
 	if rpath.exists():
 		with rpath.open("rb") as f:
-			part = MIMEApplication(f.read(), Name=rpath.name)
-		part["Content-Disposition"] = f'attachment; filename="{rpath.name}"'
+			part = MIMEApplication(f.read(), Name=RESUME_ATTACHMENT_NAME)
+		part["Content-Disposition"] = f'attachment; filename="{RESUME_ATTACHMENT_NAME}"'
 		msg.attach(part)
 
 	with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as server:
