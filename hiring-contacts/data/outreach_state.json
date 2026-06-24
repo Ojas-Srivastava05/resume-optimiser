@@ -31,21 +31,39 @@
       "sent_at": "2026-06-24T13:23:46.018311+00:00",
       "followup_sent": false,
       "followup_count": 0
+    },
+    "swapnil.mishra@cars24.com": {
+      "email": "swapnil.mishra@cars24.com",
+      "company": "Cars24",
+      "name": "",
+      "role_title": "",
+      "contact_type": "hr_inbox",
+      "confidence": "public_listed",
+      "in_scout_list": true,
+      "source_id": "web:substack_atoz_50_hr",
+      "career_portal": "https://www.instahyre.com/jobs-at-cars24/",
+      "subject": "Summer 2027 Intern SWE \u2014 Cars24",
+      "dry_run": false,
+      "sent_at": "2026-06-24T13:31:13.553493+00:00",
+      "followup_sent": false,
+      "followup_count": 0
     }
   },
   "stats": {
-    "total_sent": 2,
+    "total_sent": 3,
     "total_followups": 0
   },
   "daily_log": {
     "2026-06-24": {
       "emails": [
         "himanshubarak@gmail.com",
-        "r.chandrasi1996@gmail.com"
+        "r.chandrasi1996@gmail.com",
+        "swapnil.mishra@cars24.com"
       ],
       "companies": [
         "meesho",
-        "paypal"
+        "paypal",
+        "cars24"
       ]
     }
   }
