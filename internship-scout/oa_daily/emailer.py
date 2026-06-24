@@ -47,7 +47,7 @@ def build_html(plan: OADayPlan) -> str:
 <html><body style="font-family:Inter,Arial,sans-serif;background:#0b0b0f;color:#eee;padding:16px;">
 <h2 style="color:#00e5ff;">OA Drill — {ist.strftime('%d %b %Y')}</h2>
 <p><strong>Company:</strong> {_escape(plan.company_name)}</p>
-<p><strong>Simulation:</strong> 2-question OA set (frequency-weighted from company-wise repos)</p>
+<p><strong>Simulation:</strong> 2-question OA set (weighted-random from top-10 company frequency pool)</p>
 <p style="color:#888;font-size:12px;">Rotation {plan.queue_position + 1}/{plan.queue_total} · visit #{plan.visit_number}</p>
 <hr style="border-color:#333;"/>
 {qs}

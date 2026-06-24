@@ -6,7 +6,7 @@ Daily **2-question OA simulation** email — separate from Internship Scout.
 
 - **660 companies** from [snehasishroy/leetcode-companywise-interview-questions](https://github.com/snehasishroy/leetcode-companywise-interview-questions) (+ [rameshgitter/OA-Questions](https://github.com/rameshgitter/OA-Questions))
 - **1 company per day**, fair rotation (full cycle before repeats)
-- **2 questions** picked by recent LeetCode frequency (`six-months.csv` → `three-months.csv` fallback)
+- **2 questions** — weighted-random pair from **top 10** by recent frequency (classics like Two Sum can still appear, but not every day)
 - Curated **campus OA problems** used when available (Google, Wells Fargo, BNY Mellon, etc.)
 - Fetches problem statement + sample test cases from LeetCode GraphQL
 - Email subject: `OA Drill: {Company} — 2 questions — {date}`

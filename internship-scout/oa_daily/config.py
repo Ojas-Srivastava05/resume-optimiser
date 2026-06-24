@@ -17,4 +17,6 @@ RAMESH_BRANCH = "main"
 FREQ_CSV_PRIORITY = ("six-months.csv", "three-months.csv", "thirty-days.csv", "all.csv")
 
 QUESTIONS_PER_OA = 2
-TOP_POOL_SIZE = 24  # draw pairs from top-N by frequency
+TOP_OA_POOL = 10  # random pair drawn from top-N by frequency
+TOP_POOL_SIZE = 24  # used for availability checks / fallbacks
+PAIR_PICK_ATTEMPTS = 40

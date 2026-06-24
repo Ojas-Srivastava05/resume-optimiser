@@ -2,18 +2,18 @@
 
 import csv
 import io
-import re
+import random
 from urllib.parse import urlparse
 
 import requests
 
-from oa_daily.companies import slug_to_name
 from oa_daily.config import (
 	FREQ_CSV_PRIORITY,
+	PAIR_PICK_ATTEMPTS,
 	QUESTIONS_PER_OA,
 	SNEHASISHROY_BRANCH,
 	SNEHASISHROY_REPO,
-	TOP_POOL_SIZE,
+	TOP_OA_POOL,
 )
 from oa_daily.leetcode import fetch_leetcode_question
 from oa_daily.models import OAQuestion
@@ -54,7 +54,7 @@ def _load_frequency_rows(company_slug: str) -> list[dict]:
 					"slug": slug,
 					"title": row.get("Title", slug),
 					"difficulty": row.get("Difficulty", ""),
-					"frequency": freq,
+					"frequency": max(freq, 1.0),
 					"url": url_val,
 				}
 			)
@@ -64,29 +64,55 @@ def _load_frequency_rows(company_slug: str) -> list[dict]:
 	return []
 
 
-def _slug_from_url(url: str) -> str:
-	path = urlparse(url).path.strip("/")
-	return path.split("/")[-1] if path else ""
+def _weighted_sample(pool: list[dict], count: int, rng: random.Random) -> list[dict]:
+	remaining = pool[:]
+	picked: list[dict] = []
+	for _ in range(count):
+		if not remaining:
+			break
+		total = sum(item["frequency"] for item in remaining)
+		roll = rng.uniform(0, total)
+		cursor = 0.0
+		for idx, item in enumerate(remaining):
+			cursor += item["frequency"]
+			if roll <= cursor:
+				picked.append(remaining.pop(idx))
+				break
+	return picked
 
 
 def _pick_leetcode_slugs(rows: list[dict], visit: int, sent_pairs: set[str]) -> list[dict]:
-	pool = rows[:TOP_POOL_SIZE]
+	pool = rows[:TOP_OA_POOL]
 	if len(pool) < QUESTIONS_PER_OA:
 		return pool[:QUESTIONS_PER_OA]
 
-	# Simulate OA: pair from high-frequency pool; rotate offset each revisit
-	start = (max(visit, 1) - 1) * QUESTIONS_PER_OA
-	for offset in range(0, len(pool) - 1, QUESTIONS_PER_OA):
-		i = (start + offset) % max(1, len(pool) - 1)
-		pair = pool[i : i + QUESTIONS_PER_OA]
+	# Unpredictable but realistic: weighted random pair from top 10.
+	# High-frequency classics (Two Sum, etc.) stay likely — not guaranteed every day.
+	rng = random.SystemRandom()
+	candidates = pool[:]
+
+	for attempt in range(PAIR_PICK_ATTEMPTS):
+		# Slight shuffle noise so visit #2+ doesn't collide with visit #1 patterns
+		if attempt > 0 and attempt % 7 == 0:
+			rng.shuffle(candidates)
+
+		pair = _weighted_sample(candidates, QUESTIONS_PER_OA, rng)
 		if len(pair) < QUESTIONS_PER_OA:
-			pair = [pool[i], pool[0]]
+			break
 		key = "|".join(p["slug"] for p in pair)
 		if key not in sent_pairs:
 			return pair
 
-	# Fallback: top two by frequency
-	return pool[:QUESTIONS_PER_OA]
+	# Expand search: any unused pair in top pool, still prefer higher frequency
+	for i in range(len(pool)):
+		for j in range(i + 1, len(pool)):
+			pair = [pool[i], pool[j]]
+			key = "|".join(p["slug"] for p in pair)
+			if key not in sent_pairs:
+				return pair
+
+	# Last resort: weighted random (may repeat a prior pair after many visits)
+	return _weighted_sample(pool, QUESTIONS_PER_OA, rng)
 
 
 def company_has_questions(company_slug: str) -> bool:
@@ -100,20 +126,30 @@ def company_has_questions(company_slug: str) -> bool:
 	return False
 
 
+def _pick_ramesh_questions(ramesh: list[OAQuestion], visit: int, sent_pairs: set[str]) -> list[OAQuestion]:
+	if len(ramesh) < QUESTIONS_PER_OA:
+		return ramesh
+
+	rng = random.SystemRandom()
+	for _ in range(PAIR_PICK_ATTEMPTS):
+		pair = rng.sample(ramesh, QUESTIONS_PER_OA)
+		key = "|".join(q.slug for q in pair)
+		if key not in sent_pairs:
+			return pair
+
+	start = ((visit - 1) * QUESTIONS_PER_OA) % len(ramesh)
+	return [ramesh[(start + i) % len(ramesh)] for i in range(QUESTIONS_PER_OA)]
+
+
 def build_oa_questions(
 	company_slug: str,
 	*,
 	visit: int,
 	sent_pairs: set[str],
 ) -> list[OAQuestion]:
-	# Prefer curated OA repo when available (real campus OA problems)
 	ramesh = load_ramesh_questions(company_slug)
 	if len(ramesh) >= QUESTIONS_PER_OA:
-		start = ((visit - 1) * QUESTIONS_PER_OA) % len(ramesh)
-		chosen = []
-		for i in range(QUESTIONS_PER_OA):
-			chosen.append(ramesh[(start + i) % len(ramesh)])
-		return chosen
+		return _pick_ramesh_questions(ramesh, visit, sent_pairs)
 
 	rows = _load_frequency_rows(company_slug)
 	if not rows:
@@ -134,10 +170,8 @@ def build_oa_questions(
 
 
 def remember_pair(state_sent: dict, company_slug: str, questions: list[OAQuestion]) -> None:
-	key = company_slug
 	pair_key = "|".join(q.slug for q in questions)
-	bucket = state_sent.setdefault(key, [])
+	bucket = state_sent.setdefault(company_slug, [])
 	if pair_key not in bucket:
 		bucket.append(pair_key)
-	# cap history
-	state_sent[key] = bucket[-20:]
+	state_sent[company_slug] = bucket[-30:]
