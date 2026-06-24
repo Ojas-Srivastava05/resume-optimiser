@@ -58,7 +58,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		if (dbTests.length === 0) {
 			return res.status(500).json({ error: "No tests configured for this C++ problem" });
 		}
-		const result = await runCppWithPiston(slug, code, dbTests);
+		const result = await executeCpp(slug, code, dbTests);
 		return res.status(200).json(result);
 	} catch (error: unknown) {
 		const message = error instanceof Error ? error.message : "Runtime error";
@@ -71,6 +71,99 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	}
 }
 
+async function executeCpp(
+	slug: string,
+	code: string,
+	tests: { input_text: string; expected_output: string }[]
+) {
+	if (process.env.JUDGE_MODE === "local") {
+		const source = buildCppHarness(slug, code, tests);
+		return runCppLocally(source, tests.length);
+	}
+	return runCppWithRemoteJudge(slug, code, tests);
+}
+
+async function runCppWithRemoteJudge(
+	slug: string,
+	code: string,
+	tests: { input_text: string; expected_output: string }[]
+) {
+	if (process.env.PISTON_API_URL) {
+		return runCppWithPiston(slug, code, tests);
+	}
+	return runCppWithWandbox(slug, code, tests);
+}
+
+async function runCppWithWandbox(
+	slug: string,
+	code: string,
+	tests: { input_text: string; expected_output: string }[]
+) {
+	const source = buildCppHarness(slug, code, tests);
+	try {
+		const response = await fetch("https://wandbox.org/api/compile.json", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+				compiler: "gcc-head",
+				code: source,
+				options: "-O3,-std=c++17",
+			}),
+		});
+
+		if (response.ok) {
+			const payload = await response.json();
+			const status = Number(payload.status || "0");
+			const compilerError = payload.compiler_error || payload.compiler_message || "";
+			const programError = payload.program_error || payload.program_message || "";
+			const programOutput = payload.program_output || "";
+
+			if (status !== 0) {
+				if (compilerError) {
+					let msg = compilerError;
+					if (compilerError.includes("OCI runtime error") || compilerError.includes("clone: Resource temporarily unavailable")) {
+						msg = `Wandbox public compilation service is currently overloaded or experiencing sandbox restrictions. To resolve this:\n1. If running locally, set JUDGE_MODE=local in .env.local to compile with your local g++ compiler.\n2. For deployed versions, deploy your own Piston instance and set PISTON_API_URL in your environment variables.`;
+					}
+					return {
+						passed: false,
+						verdict: "Compile Error",
+						message: msg,
+					};
+				}
+				let runMsg = programError || `Execution failed with status ${status} / signal ${payload.signal}`;
+				if (runMsg.includes("OCI runtime error") || runMsg.includes("clone: Resource temporarily unavailable")) {
+					runMsg = `Wandbox public compilation service is currently overloaded or experiencing sandbox restrictions. To resolve this:\n1. If running locally, set JUDGE_MODE=local in .env.local to compile with your local g++ compiler.\n2. For deployed versions, deploy your own Piston instance and set PISTON_API_URL in your environment variables.`;
+				}
+				return {
+					passed: false,
+					verdict: "Runtime Error",
+					message: runMsg,
+				};
+			}
+
+			const output = String(programOutput).trim();
+			return {
+				passed: output.endsWith("AC"),
+				verdict: output.endsWith("AC") ? "Accepted" : "Wrong Answer",
+				message: output,
+				testsRun: tests.length,
+			};
+		} else {
+			return {
+				passed: false,
+				verdict: "Remote Judge Error",
+				message: `Wandbox service returned status ${response.status}. To resolve this:\n1. If running locally, set JUDGE_MODE=local in .env.local to compile with your local g++ compiler.\n2. For deployed versions, deploy your own Piston instance and set PISTON_API_URL in your environment variables.`,
+			};
+		}
+	} catch (error: any) {
+		return {
+			passed: false,
+			verdict: "Remote Judge Error",
+			message: `Failed to connect to the remote compilation service: ${error.message || error}.\nTo resolve this, set JUDGE_MODE=local in .env.local if running locally.`,
+		};
+	}
+}
+
 async function runCppWithPiston(
 	slug: string,
 	code: string,
@@ -78,52 +171,52 @@ async function runCppWithPiston(
 ) {
 	const source = buildCppHarness(slug, code, tests);
 	const endpoint = process.env.PISTON_API_URL || "https://emkc.org/api/v2/piston/execute";
-	if (process.env.JUDGE_MODE !== "local") {
-		try {
-			const response = await fetch(endpoint, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({
-					language: "c++",
-					version: "10.2.0",
-					files: [{ name: "main.cpp", content: source }],
-				}),
-			});
+	try {
+		const response = await fetch(endpoint, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+				language: "c++",
+				version: "10.2.0",
+				files: [{ name: "main.cpp", content: source }],
+			}),
+		});
 
-			if (response.ok) {
-				const payload = await response.json();
-				const compile = payload.compile;
-				const run = payload.run;
-				if (compile?.code && compile.code !== 0) {
-					return { passed: false, verdict: "Compile Error", message: compile.stderr || compile.output };
-				}
-				if (!run || run.code !== 0) {
-					return { passed: false, verdict: "Wrong Answer", message: run?.stderr || run?.output || "Execution failed" };
-				}
-				const output = String(run.output || "").trim();
-				return {
-					passed: output.endsWith("AC"),
-					verdict: output.endsWith("AC") ? "Accepted" : "Wrong Answer",
-					message: output,
-					testsRun: tests.length,
-				};
-			} else {
-				return {
-					passed: false,
-					verdict: "Remote Judge Error",
-					message: `Remote compilation service returned status ${response.status}. Please try again shortly.`,
-				};
+		if (response.ok) {
+			const payload = await response.json();
+			const compile = payload.compile;
+			const run = payload.run;
+			if (compile?.code && compile.code !== 0) {
+				return { passed: false, verdict: "Compile Error", message: compile.stderr || compile.output };
 			}
-		} catch (error: any) {
+			if (!run || run.code !== 0) {
+				return { passed: false, verdict: "Wrong Answer", message: run?.stderr || run?.output || "Execution failed" };
+			}
+			const output = String(run.output || "").trim();
+			return {
+				passed: output.endsWith("AC"),
+				verdict: output.endsWith("AC") ? "Accepted" : "Wrong Answer",
+				message: output,
+				testsRun: tests.length,
+			};
+		} else {
+			let message = `Remote compilation service returned status ${response.status}.`;
+			if (response.status === 401) {
+				message = `Remote compilation service returned status 401 (Unauthorized). The public Piston API is now restricted. To resolve this:\n1. If running locally, set JUDGE_MODE=local in .env.local to compile with your local g++ compiler.\n2. For deployed versions, host your own Piston instance and configure PISTON_API_URL in your environment variables.`;
+			}
 			return {
 				passed: false,
 				verdict: "Remote Judge Error",
-				message: `Failed to connect to the remote compilation service: ${error.message || error}`,
+				message: message,
 			};
 		}
+	} catch (error: any) {
+		return {
+			passed: false,
+			verdict: "Remote Judge Error",
+			message: `Failed to connect to the remote compilation service: ${error.message || error}.\nTo resolve this, set JUDGE_MODE=local in .env.local if running locally.`,
+		};
 	}
-
-	return runCppLocally(source, tests.length);
 }
 
 async function runCppLocally(source: string, testsRun: number) {
