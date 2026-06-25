@@ -367,10 +367,26 @@
       "sent_at": "2026-06-25T07:08:18.713499+00:00",
       "followup_sent": false,
       "followup_count": 0
+    },
+    "ashley.womack@alation.com": {
+      "email": "ashley.womack@alation.com",
+      "company": "Alation",
+      "name": "",
+      "role_title": "",
+      "contact_type": "recruiter",
+      "confidence": "scraped_personal",
+      "in_scout_list": true,
+      "source_id": "discover:career_portal",
+      "career_portal": "https://www.alation.com/careers",
+      "subject": "Summer 2027 Intern SWE \u2014 Alation",
+      "dry_run": false,
+      "sent_at": "2026-06-25T11:57:22.717606+00:00",
+      "followup_sent": false,
+      "followup_count": 0
     }
   },
   "stats": {
-    "total_sent": 23,
+    "total_sent": 24,
     "total_followups": 0
   },
   "daily_log": {
@@ -407,7 +423,8 @@
         "tateam@practo.com",
         "priyanka.deshmukh@zeptonow.com",
         "batesj@amazon.com",
-        "abatchelor@atlassian.com"
+        "abatchelor@atlassian.com",
+        "ashley.womack@alation.com"
       ],
       "companies": [
         "juspay",
@@ -429,7 +446,8 @@
         "practo",
         "zepto",
         "amazon",
-        "atlassian"
+        "atlassian",
+        "alation"
       ]
     }
   }
