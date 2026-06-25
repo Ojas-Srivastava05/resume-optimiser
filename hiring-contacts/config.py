@@ -86,6 +86,7 @@ COMPANY_DOMAIN_OVERRIDES = {
 	"ibm": "ibm.com",
 	"intel": "intel.com",
 	"nvidia": "nvidia.com",
+	"cerebras": "cerebras.ai",
 }
 
 EMAIL_FORMATS_BY_COMPANY = {

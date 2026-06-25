@@ -34,10 +34,34 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 
 ## Contact priority order
 
-1. `tier_personal_scraped.csv` — named India recruiters (Flipkart, PhonePe, …)
-2. `tier_verified_and_public.csv` — official careers/talent inboxes
-3. `inferred_pattern` — verify on LinkedIn before enabling at scale
-4. `generic_inferred` — only with `--include-generic` (careers@ mailboxes)
+1. **`discover:career_portal`** — live-scraped career pages + domain fallbacks (freshest)
+2. **`manual:verified`** — bounce redirects / manually confirmed inboxes
+3. `scraped_personal` — named recruiters **only if not from stale bulk lists**
+4. ~~`github:careerLauncher` / Substack / devblogger lists~~ — **blocked** (high bounce rate)
+5. `generic_inferred` — only with `--include-generic` (careers@ mailboxes)
+
+Stale contacts (>45 days) from bulk scrapes are skipped automatically. Record bounces:
+
+```bash
+python cold_outreach.py --record-bounce tom@cerebras.net --bounce-reason "contact kaitlynn@cerebras.net"
+python scripts/import_verified.py --from-blocklist
+```
+
+## Bulk internet harvest
+
+```bash
+# All ~964 scout companies — career page scrape + MX-validated inboxes
+python scripts/bulk_discover.py --delay 0.2
+python scripts/bulk_discover.py --resume   # continue if interrupted
+
+# MX-verified named HR from public directories (scout overlap)
+python scripts/harvest_web_verified.py
+
+# Local HR email dumps (HREmailData.csv + HREmails.csv) — scout domain match + MX
+python scripts/import_hr_csv.py
+```
+
+Emails are only added when the domain has **MX records** (can receive mail). Stale `careerLauncher` / raw Substack rows stay blocked.
 
 ## CLI
 

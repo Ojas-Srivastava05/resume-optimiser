@@ -10,6 +10,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from cold_email.blocklist import is_outreach_eligible
 from cold_email.config import (
 	DEFAULT_TIERS,
 	FOLLOWUP_DAYS,
@@ -97,9 +98,14 @@ def load_contacts() -> list[dict]:
 		return list(csv.DictReader(f))
 
 
-def _tier_rank(confidence: str) -> int:
+def _tier_rank(row: dict) -> int:
+	confidence = row.get("confidence") or ""
 	order = {t: i for i, t in enumerate(DEFAULT_TIERS)}
-	return order.get(confidence, 99)
+	base = order.get(confidence, 99)
+	# Prefer live-discovered contacts over anything else.
+	if (row.get("source_id") or "") == "discover:career_portal":
+		base -= 10
+	return base
 
 
 def pick_batch(
@@ -183,6 +189,9 @@ def pick_batch(
 		email = (row.get("email") or "").strip().lower()
 		if not email or email in sent_emails:
 			continue
+		ok, _reason = is_outreach_eligible(row)
+		if not ok:
+			continue
 		if email in emails_today:
 			continue
 		if company_blocked(row.get("company") or ""):
@@ -193,8 +202,14 @@ def pick_batch(
 
 	candidates.sort(
 		key=lambda r: (
+			0 if (r.get("source_id") or "") == "manual:verified" else 1,
+			0 if (r.get("notes") or "") == "career_portal_scrape" else 1,
+			0 if (r.get("source_id") or "") in {"web:devblogger_verified", "web:substack_verified", "local:hr_email_csv"} else 1,
+			0 if (r.get("source_id") or "") == "discover:career_portal" and r.get("confidence") == "scraped_personal" else 1,
 			0 if str(r.get("in_scout_list")).lower() == "true" else 1,
-			_tier_rank(r.get("confidence") or ""),
+			_tier_rank(r),
+			0 if (r.get("name") or "").strip() else 1,
+			1 if "domain_fallback" in (r.get("notes") or "") else 0,
 			r.get("company") or "",
 		)
 	)

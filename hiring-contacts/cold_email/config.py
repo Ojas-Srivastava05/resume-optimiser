@@ -20,6 +20,7 @@ except ImportError:
 DATA = ROOT / "data"
 MERGED = DATA / "merged"
 STATE_PATH = DATA / "outreach_state.json"
+BLOCKLIST_PATH = DATA / "blocklist.json"
 DRAFTS_DIR = DATA / "drafts"
 
 MASTER_CSV = MERGED / "master_contacts.csv"
@@ -41,13 +42,40 @@ MAX_FOLLOWUPS = 1
 # Never email the same address or company twice in one IST day
 MAX_PER_COMPANY_PER_DAY = int(os.getenv("COLD_EMAIL_MAX_PER_COMPANY_PER_DAY", "1"))
 
-# Confidence tiers to contact (best first). generic_inferred off by default.
+# Confidence tiers to contact (best first). Stale bulk scrapes excluded in queue.
 DEFAULT_TIERS = (
+	"verified",
 	"scraped_personal",
 	"public_listed",
-	"scraped",
-	"inferred_pattern",
 )
+
+# Bulk lists with high bounce/stale rates — never cold-email without live re-discovery.
+STALE_SOURCE_IDS = frozenset(
+	{
+		"github:careerLauncher",
+		"web:substack_atoz_50_hr",
+		"web:devblogger_hr_500",
+		"inferred:recruiter-emailing-script",
+	}
+)
+
+# Local-parts that are not recruiting inboxes (accessibility, vendor support, etc.).
+BLOCKED_LOCAL_PARTS = frozenset(
+	{
+		"accessibility",
+		"accessiblecareers",
+		"yourresourcingsupport",
+		"info",
+		"support",
+		"help",
+		"noreply",
+		"no-reply",
+		"hrwebrequest",
+	}
+)
+
+# Contacts older than this are skipped unless source is discover:career_portal.
+MAX_CONTACT_AGE_DAYS = int(os.getenv("COLD_EMAIL_MAX_CONTACT_AGE_DAYS", "45"))
 
 RESUME_ATTACHMENT_NAME = os.getenv("COLD_EMAIL_RESUME_FILENAME", "ojas_srivastava_resume.pdf")
 RESUME_SOURCE = REPO_ROOT / "Resume Collection" / "ojas_srivastava_google_swe_intern_2027.pdf"

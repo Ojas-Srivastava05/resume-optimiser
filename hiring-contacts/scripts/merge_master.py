@@ -30,7 +30,7 @@ FIELDS = [
 ]
 
 CONF_RANK = {
-	"verified": 5,
+	"verified": 6,
 	"public_listed": 4,
 	"google_sheet": 4,
 	"scraped_personal": 4,
@@ -38,6 +38,18 @@ CONF_RANK = {
 	"inferred_pattern": 2,
 	"generic": 1,
 	"generic_inferred": 0,
+}
+
+SOURCE_RANK = {
+	"discover:career_portal": 5,
+	"manual:verified": 5,
+	"web:devblogger_verified": 4,
+	"web:substack_verified": 4,
+	"local:hr_email_csv": 3,
+	"github:careerLauncher": 1,
+	"web:substack_atoz_50_hr": 1,
+	"web:devblogger_hr_500": 1,
+	"inferred:recruiter-emailing-script": 0,
 }
 
 HQ_CONFIDENCE = frozenset(
@@ -72,10 +84,16 @@ def merge_master(*, extra_rows: list[dict] | None = None) -> tuple[int, int]:
 			by_email[email] = row
 			continue
 		old = by_email[email]
-		if CONF_RANK.get(row.get("confidence", ""), 0) > CONF_RANK.get(old.get("confidence", ""), 0):
+		new_rank = CONF_RANK.get(row.get("confidence", ""), 0)
+		old_rank = CONF_RANK.get(old.get("confidence", ""), 0)
+		new_src = SOURCE_RANK.get(row.get("source_id", ""), 2)
+		old_src = SOURCE_RANK.get(old.get("source_id", ""), 2)
+		if new_rank > old_rank or (new_rank == old_rank and new_src > old_src):
 			by_email[email] = row
-		elif CONF_RANK.get(row.get("confidence", ""), 0) == CONF_RANK.get(old.get("confidence", ""), 0):
+		elif new_rank == old_rank and new_src == old_src:
 			if not old.get("company") and row.get("company"):
+				by_email[email] = row
+			elif (row.get("fetched_at") or "") > (old.get("fetched_at") or ""):
 				by_email[email] = row
 
 	rows = sorted(by_email.values(), key=lambda r: (r.get("confidence", ""), r.get("company", ""), r.get("email", "")))

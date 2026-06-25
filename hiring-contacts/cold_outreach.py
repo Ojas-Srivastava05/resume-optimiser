@@ -19,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
+from cold_email.blocklist import record_bounce, record_bounce_from_message  # noqa: E402
 from cold_email.config import DEFAULT_DAILY_CAP, DRAFTS_DIR  # noqa: E402
 from cold_email.mailer import send_email  # noqa: E402
 from cold_email.queue import mark_sent, pick_batch  # noqa: E402
@@ -33,7 +34,19 @@ def main() -> int:
 	parser.add_argument("--followups", action="store_true", help="Send follow-ups only")
 	parser.add_argument("--company", default="", help="Filter to one company (normalized match)")
 	parser.add_argument("--save-drafts", action="store_true", help="Write drafts to data/drafts/")
+	parser.add_argument("--record-bounce", metavar="EMAIL", help="Block an email after bounce/rejection")
+	parser.add_argument("--bounce-reason", default="", help="Reason text (auto-extracts replacement emails)")
 	args = parser.parse_args()
+
+	if args.record_bounce:
+		email = args.record_bounce.strip().lower()
+		if args.bounce_reason:
+			replacements = record_bounce_from_message(email, args.bounce_reason)
+			print(f"Blocked {email}; replacements found: {replacements or 'none'}")
+		else:
+			record_bounce(email, reason="manual")
+			print(f"Blocked {email}")
+		return 0
 
 	targets = pick_batch(
 		limit=args.limit,

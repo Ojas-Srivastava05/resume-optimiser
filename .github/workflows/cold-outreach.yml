@@ -58,6 +58,9 @@ jobs:
             python3 scripts/refresh_all.py --skip-clone
           fi
 
+      - name: Discover fresh HQ contacts
+        run: python3 scripts/discover_contacts.py --batch-size 30
+
       - name: Run cold outreach
         env:
           SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
@@ -82,7 +85,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add hiring-contacts/data/outreach_state.json || true
+          git add hiring-contacts/data/outreach_state.json \
+                  hiring-contacts/data/blocklist.json \
+                  hiring-contacts/data/discovery_state.json \
+                  hiring-contacts/data/merged/master_contacts.csv \
+                  hiring-contacts/data/raw/incremental_hq_contacts.csv || true
           git diff --staged --quiet || git commit -m "chore(cold-outreach): update send state"
           git push || true
 

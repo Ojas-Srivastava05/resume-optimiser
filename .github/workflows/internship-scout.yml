@@ -15,12 +15,11 @@ concurrency:
   group: internship-scout-daily
   cancel-in-progress: false
 
-defaults:
-  run:
-    working-directory: internship-scout
-
 jobs:
   scout:
+    defaults:
+      run:
+        working-directory: internship-scout
     runs-on: ubuntu-latest
     timeout-minutes: 12
 
@@ -78,6 +77,9 @@ jobs:
     timeout-minutes: 5
     permissions:
       actions: write
+    defaults:
+      run:
+        working-directory: .
 
     steps:
       - name: Weekday morning gate (IST)

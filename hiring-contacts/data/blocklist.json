@@ -1,0 +1,30 @@
+{
+  "blocked": {
+    "tom@cerebras.net": {
+      "reason": "This user is no longer with Cerebras. Please contact kaitlynn@cerebras.net or shane.sabaiz-birdsill@cerebras.net",
+      "recorded_at": "2026-06-25T07:29:28.222020+00:00"
+    },
+    "careers@palantir.com": {
+      "reason": "550 Access denied \u2014 external mail rejected",
+      "recorded_at": "2026-06-25T12:00:00+00:00"
+    },
+    "accessiblecareers@splunk.com": {
+      "reason": "Accessibility inbox, not recruiting",
+      "recorded_at": "2026-06-25T12:00:00+00:00"
+    },
+    "accessibility@autodesk.com": {
+      "reason": "Accessibility inbox, not recruiting",
+      "recorded_at": "2026-06-25T12:00:00+00:00"
+    },
+    "yourresourcingsupport@barclays.com": {
+      "reason": "Vendor/resourcing support, not campus recruiting",
+      "recorded_at": "2026-06-25T12:00:00+00:00"
+    }
+  },
+  "replacements": {
+    "tom@cerebras.net": [
+      "kaitlynn@cerebras.net",
+      "shane.sabaiz-birdsill@cerebras.net"
+    ]
+  }
+}
