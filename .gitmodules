@@ -1,0 +1,9 @@
+[submodule "OA-Forge/scratch/git-repos/company-wise-dsa"]
+	path = OA-Forge/scratch/git-repos/company-wise-dsa
+	url = https://github.com/nishant-Tiwari24/company-wise-dsa.git
+[submodule "OA-Forge/scratch/git-repos/leetcode"]
+	path = OA-Forge/scratch/git-repos/leetcode
+	url = https://github.com/doocs/leetcode.git
+[submodule "OA-Forge/scratch/git-repos/leetcode-companywise-interview-questions"]
+	path = OA-Forge/scratch/git-repos/leetcode-companywise-interview-questions
+	url = https://github.com/snehasishroy/leetcode-companywise-interview-questions.git

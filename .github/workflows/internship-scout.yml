@@ -25,6 +25,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: false
 
       - name: Restore seen-jobs cache
         uses: actions/cache@v4
@@ -77,9 +79,6 @@ jobs:
     timeout-minutes: 5
     permissions:
       actions: write
-    defaults:
-      run:
-        working-directory: .
 
     steps:
       - name: Weekday morning gate (IST)
