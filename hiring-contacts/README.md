@@ -48,7 +48,7 @@ Add a repo: append to `GITHUB_REPOS` in `config.py`, re-run `refresh_all.py`.
 |----------|----------|--------------|
 | `hiring-contacts-refresh.yml` | Sun 8 AM IST | Full re-clone + rebuild from all public sources |
 | `hiring-contacts-discover.yml` | Mon/Wed/Fri/Sat 6:30 AM IST | **Incremental** HQ discovery (~50 companies/run, career portal probe) |
-| `cold-outreach.yml` | Mon–Fri 9 AM IST | Sends up to **10** emails/day; **1 per contact & 1 per company per IST day** |
+| `cold-outreach.yml` | Mon–Fri ~9 AM IST (3 backup cron slots) + **auto-trigger after morning Internship Scout** | Sends up to **10** emails/day; **1 per contact & 1 per company per IST day** |
 
 **Anti-spam guards** (in `cold_email/queue.py`):
 - Max **10 emails/day** (configurable)
