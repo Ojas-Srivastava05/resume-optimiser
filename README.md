@@ -33,35 +33,35 @@
 
 ```mermaid
 flowchart TB
-    subgraph 🌐 Sources
-        BOARDS[Job boards & ATS<br/>Greenhouse · Lever · Ashby · LinkedIn]
-        SHEET[Google Referral Sheet]
-        GH[GitHub contact repos]
-        WEB[HR directories & career portals]
-        LC[LeetCode companywise repos]
+    subgraph Sources["External Sources"]
+        BOARDS["Job boards and ATS"]
+        SHEET["Google Referral Sheet"]
+        GH["GitHub contact repos"]
+        WEB["HR directories"]
+        LC["LeetCode company repos"]
     end
 
-    subgraph 🔭 internship-scout
-        CSV[(all_companies.csv<br/>~965 companies)]
-        SCOUT[scout.py<br/>daily digest]
-        OA[oa_scout.py<br/>2 Q/day drill]
+    subgraph Scout["internship-scout"]
+        CSV[("all_companies.csv")]
+        SCOUT["scout.py daily digest"]
+        OA["oa_scout.py 2Q drill"]
     end
 
-    subgraph 📬 hiring-contacts
-        HARVEST[refresh · discover · bulk_discover]
-        MASTER[(master_contacts.csv)]
-        COLD[cold_outreach.py<br/>10/day cap]
+    subgraph Contacts["hiring-contacts"]
+        HARVEST["refresh discover bulk"]
+        MASTER[("master_contacts.csv")]
+        COLD["cold_outreach.py"]
     end
 
-    subgraph ⚔️ OA-Forge
-        BANK[Evidence-tier question bank]
-        APP[Next.js mock OA app]
-        VERCEL[Vercel]
+    subgraph OAForge["OA-Forge"]
+        BANK["Question bank"]
+        APP["Next.js mock OA"]
+        VERCEL["Vercel"]
     end
 
-    subgraph ✉️ Delivery
-        SMTP[Gmail SMTP]
-        INBOX[Your inbox]
+    subgraph Delivery["Email Delivery"]
+        SMTP["Gmail SMTP"]
+        INBOX["Your inbox"]
     end
 
     SHEET --> CSV
@@ -72,13 +72,10 @@ flowchart TB
     GH --> HARVEST
     WEB --> HARVEST
     LC --> OA
-
     SCOUT --> SMTP --> INBOX
     OA --> SMTP
-
     HARVEST --> MASTER --> COLD --> SMTP
-
-  BANK --> APP --> VERCEL
+    BANK --> APP --> VERCEL
 ```
 
 > **Hub file:** `internship-scout/data/all_companies.csv` feeds the scout, contact harvester, and OA question scraper.
@@ -140,15 +137,13 @@ Contact harvester + cold outreach engine.
 
 ```mermaid
 gantt
-    title Daily & weekly automations
+    title Daily and weekly automations
     dateFormat HH:mm
     axisFormat %H:%M
-
     section Every day
     OA Daily Drill           :active, 07:30, 20m
     Internship Scout digest  :active, 08:00, 30m
-    Cold outreach (Mon–Fri)  :crit, 09:00, 60m
-
+    Cold outreach weekdays   :crit, 09:00, 60m
     section Weekly
     Contact discover         :06:30, 30m
     Full contact refresh     :08:00, 60m
@@ -170,18 +165,18 @@ All workflows support **manual dispatch** from the Actions tab.
 
 ```mermaid
 flowchart LR
-    A[Career portals<br/>964 companies probed] --> B{Live scrape?}
-    B -->|Yes| C[scraped_personal<br/>345 emails]
-    B -->|No| D[MX-validated<br/>campus@ / talent@]
-    E[HR CSVs<br/>79k rows] --> F[Scout domain match<br/>502 imported]
-    G[Web directories<br/>MX verified] --> H[39 named HR]
-    C --> I[master_contacts.csv]
+    A["Career portals"] --> B{Live scrape?}
+    B -- Yes --> C["Named recruiters"]
+    B -- No --> D["MX-validated inboxes"]
+    E["HR CSV imports"] --> F["Domain matched"]
+    G["Web directories"] --> H["Verified HR"]
+    C --> I[("master_contacts.csv")]
     D --> I
     F --> I
     H --> I
-    I --> J[Queue ranker<br/>blocklist · tiers]
-    J --> K[10 emails/day<br/>45s apart]
-    K --> L[Gmail SMTP]
+    I --> J["Queue and blocklist"]
+    J --> K["10 emails per day"]
+    K --> L["Gmail SMTP"]
 ```
 
 **Quality gates:** stale `careerLauncher` / Substack bulk lists blocked · bounce tracking · 1 company/day · mega-corp `careers@` rejected · follow-up after 5 days.
@@ -256,18 +251,18 @@ cd OA-Forge && npm install && npm run dev
 
 ```mermaid
 sequenceDiagram
-    participant Cron as ⏰ GitHub Cron
-    participant Scout as 🔭 Internship Scout
-    participant Cold as 📬 Cold Outreach
-    participant Gmail as ✉️ Gmail
+    participant Cron as GitHub Cron
+    participant Scout as Internship Scout
+    participant Cold as Cold Outreach
+    participant Gmail as Gmail SMTP
 
-    Cron->>Scout: 8:00 AM IST daily
+    Cron->>Scout: 8 AM IST daily
     Scout->>Gmail: Job digest email
-    Scout->>Cold: Dispatch (weekday 8–12 IST)
-    Cron->>Cold: 9:00 AM IST Mon–Fri
-    Cold->>Cold: discover_contacts (30 cos)
-    Cold->>Gmail: Up to 10 cold emails
-    Cold->>Cold: Commit outreach_state.json
+    Scout->>Cold: Dispatch weekday mornings
+    Cron->>Cold: 9 AM IST Mon to Fri
+    Cold->>Cold: discover 30 companies
+    Cold->>Gmail: Send up to 10 emails
+    Cold->>Cold: Commit outreach state
 ```
 
 ---
