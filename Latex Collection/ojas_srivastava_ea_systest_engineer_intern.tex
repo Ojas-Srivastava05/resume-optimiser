@@ -1,0 +1,151 @@
+%-------------------------
+% Resume - Electronic Arts | Software Engineer Intern (Systest Engineer)
+% Role ID 214959 | EADP | Hyderabad | Ojas Srivastava
+% One-page | ATS-optimized
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+\pagestyle{empty}
+\geometry{left=1.25cm, top=0.55cm, right=1.25cm, bottom=0.55cm}
+
+\urlstyle{same}
+\RaggedRight
+\setlength{\tabcolsep}{0in}
+\setlength{\emergencystretch}{2em}
+
+\newcolumntype{L}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{R}{>{\RaggedLeft\arraybackslash}p{3.2cm}}
+
+\titleformat{\section}{
+  \large\bfseries\RaggedRight
+}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\newcommand{\resumeDate}[1]{\mbox{\small\textit{#1}}}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{1mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & \resumeDate{#2} \\
+    \small\textit{#3} & \small #4 \\
+  \end{tabularx}
+  \vspace{-0.5mm}
+}
+
+\newcommand{\resumeProject}[4]{
+  \vspace{1.5mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & \resumeDate{#3} \\
+    \small\textit{#2} & \small #4 \\
+  \end{tabularx}
+  \vspace{0.5mm}
+}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, topsep=2pt, itemsep=1.5pt, parsep=0pt, partopsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0.5mm}}
+
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=1.5pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[2mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \\[1mm]
+  \href{https://linkedin.com/in/ojas-srivastava05}{linkedin.com/in/ojas-srivastava05} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{github.com/Ojas-Srivastava05} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{ojas-srivastava.vercel.app} \\[2mm]
+  \textbf{Software Engineer Intern (Systest Engineer)} \\[0.5mm]
+  B.Tech Artificial Intelligence, SVNIT Surat (CGPA 9.20/10) \textbar{} Open to hybrid internship in Hyderabad
+\end{center}
+
+\vspace{1mm}
+
+\section{Summary}
+\small
+Penultimate-year \textbf{B.Tech Artificial Intelligence} student at \textbf{SVNIT Surat} (CGPA \textbf{9.20/10}), a related \textbf{Computer Science} field. Engineer with \textbf{2+ years} in \textbf{C++}, \textbf{Python}, and backend systems who builds \textbf{multi-pipeline automation} and \textbf{troubleshoots performance} in distributed, cloud-backed environments. Strong \textbf{data structures and algorithms} (LeetCode Knight \textbf{2048}, \textbf{637} solved; Codeforces Specialist \textbf{1457}).
+
+\section{Education}
+\small
+\resumeSubheading
+  {Bachelor of Technology in Artificial Intelligence}{Aug 2024 -- May 2028}
+  {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat, India}{CGPA: 9.20/10}
+\resumeItemListStart
+  \item \textbf{Relevant Coursework:} Data Structures and Algorithms, Operating Systems, Computer Networks, DBMS, Distributed Systems, Software Design, Machine Learning
+\resumeItemListEnd
+
+\section{Experience}
+\small
+\resumeSubheading
+  {Software Engineering Intern}{Jun 2025 -- Jul 2025}
+  {IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj, India}{}
+\resumeItemListStart
+  \item Built production automation tooling (\textbf{Node.js}, \textbf{Express.js}, \textbf{MySQL}) for \textbf{50+ daily} workflows; designed \textbf{10+ RESTful APIs} with optimized SQL, indexing, and joins.
+  \item Executed \textbf{unit/integration testing}, \textbf{root-cause analysis}, and peer \textbf{code review}; shipped via \textbf{Docker} and \textbf{CI/CD} in a cooperative team.
+\resumeItemListEnd
+
+\section{Projects}
+\small
+
+\resumeProject
+  {Career Automation Stack}
+  {Python, C++, TypeScript, Next.js, PostgreSQL, Supabase, GitHub Actions}
+  {Jun 2026 -- Present}
+  {\href{https://github.com/Ojas-Srivastava05/resume-optimiser}{GitHub}}
+\resumeItemListStart
+  \item \textbf{Internship Scout} --- Daily multi-source job aggregator over \textbf{965+} companies (Greenhouse, Lever, Ashby, LinkedIn, Unstop, Naukri, Indeed); \textbf{GitHub Actions} + launchd scheduling, dedup, HTML digest emails.
+  \item \textbf{Hackathon Scout} --- Elite MNC hackathon discovery (Unstop, Devfolio, company pages) with PPI/stipend filters; integrated into the daily scout pipeline.
+  \item \textbf{Hiring Scout} --- Public-source contact harvester with \textbf{5K+} tiered recruiting emails; scheduled career-portal discovery and rate-limited SMTP cold outreach.
+  \item \textbf{OA Forge} --- Company-specific OA practice: CSV-to-Supabase bank (\textbf{14K+} occurrences, \textbf{5.5K+} test cases), hybrid \textbf{C++ judge}, timed mock-session simulation, automated scrapers.
+\resumeItemListEnd
+
+\resumeProject
+  {LogiFlow (Google Solution Challenge 2026, Top 100)}
+  {Python, FastAPI, TypeScript, Redis, MySQL, GCP Cloud Run, pytest}
+  {Apr 2026 -- Present}
+  {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app/}{Live}}
+\resumeItemListStart
+  \item Co-led backend on \textbf{GCP Cloud Run} with \textbf{Redis} caching; profiled hot paths to \textbf{100--400 ms} latency and authored \textbf{pytest} regression suite (\textbf{100/100} business-rule checks).
+\resumeItemListEnd
+
+\resumeProject
+  {AirHelp --- AI Airport Companion (PowerMind Hackathon 2026)}
+  {Python, FastAPI, React, WebSockets, ChromaDB, RAG}
+  {2026}
+  {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\resumeItemListStart
+  \item Stress-tested concurrent WebSocket sessions for \textbf{50--100 users}; troubleshot latency to \textbf{1--3s} via FastAPI lifecycle tuning and connection-state analysis.
+\resumeItemListEnd
+
+\section{Technical Skills}
+\small
+\begin{itemize}[label={}, topsep=2pt, itemsep=1.5pt]
+  \item \textbf{Languages:} C++, Python, C, JavaScript, TypeScript, SQL
+  \item \textbf{Testing \& Automation:} Test design, pytest, unit/integration testing, CI/CD, debugging, root-cause analysis, performance profiling
+  \item \textbf{Platform \& Cloud:} Distributed systems, REST APIs, WebSockets, Redis, Docker, Linux, GCP Cloud Run, AWS familiarity
+  \item \textbf{Databases \& Observability:} MySQL, PostgreSQL, MongoDB, Supabase; metrics, logging, and monitoring
+\end{itemize}
+
+\section{Achievements and Leadership}
+\small
+\resumeItemListStart
+  \item \textbf{LeetCode Knight:} Rating \textbf{2048}, \textbf{637} solved, 32 contests (\href{https://leetcode.com/Oju_Srivastava}{leetcode.com/Oju\_Srivastava})
+  \item \textbf{Codeforces Specialist:} Rating \textbf{1457}, \textbf{207} solved (\href{https://codeforces.com/profile/Oju}{codeforces.com/profile/Oju})
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 100} (LogiFlow); Technical Co-Lead
+  \item \textbf{Executive Member, ACM SVNIT} \& \textbf{Mentor, Nexus SVNIT} (2024--Present): DSA workshops, contests, mentoring
+\resumeItemListEnd
+
+\end{document}
