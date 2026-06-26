@@ -12,11 +12,13 @@ from zoneinfo import ZoneInfo
 
 from cold_email.blocklist import is_outreach_eligible
 from cold_email.config import (
+	DEFAULT_DAILY_CAP,
 	DEFAULT_TIERS,
 	FOLLOWUP_DAYS,
 	MASTER_CSV,
 	MAX_FOLLOWUPS,
 	MAX_PER_COMPANY_PER_DAY,
+	MIN_SECONDS_BETWEEN_SENDS,
 	SCOUT_CSV,
 	STATE_PATH,
 )
@@ -91,6 +93,31 @@ def _daily_usage(state: dict) -> tuple[set[str], set[str]]:
 	return emails, companies
 
 
+def daily_sent_count(state: dict | None = None) -> int:
+	state = state or load_state()
+	emails_today, _ = _daily_usage(state)
+	return len(emails_today)
+
+
+def daily_remaining_quota(state: dict | None = None) -> int:
+	state = state or load_state()
+	return max(0, DEFAULT_DAILY_CAP - daily_sent_count(state))
+
+
+def seconds_until_next_send_allowed(state: dict | None = None) -> int:
+	"""Seconds to wait before another SMTP send (0 = OK now)."""
+	state = state or load_state()
+	last = state.get("last_live_send_at")
+	if not last:
+		return 0
+	try:
+		last_dt = datetime.fromisoformat(last)
+	except ValueError:
+		return 0
+	elapsed = (_now() - last_dt).total_seconds()
+	return max(0, int(MIN_SECONDS_BETWEEN_SENDS - elapsed))
+
+
 def load_contacts() -> list[dict]:
 	if not MASTER_CSV.exists():
 		raise FileNotFoundError(f"Missing {MASTER_CSV} — run scripts/refresh_all.py first")
@@ -114,8 +141,16 @@ def pick_batch(
 	include_generic: bool = False,
 	followups_only: bool = False,
 	company_filter: str = "",
+	enforce_interval: bool = True,
 ) -> list[ContactTarget]:
 	state = load_state()
+	remaining_today = daily_remaining_quota(state)
+	if remaining_today <= 0:
+		return []
+	if enforce_interval and seconds_until_next_send_allowed(state) > 0:
+		return []
+
+	effective_limit = min(limit, remaining_today)
 	portals = load_scout_portals()
 	rows = load_contacts()
 	allowed = set(DEFAULT_TIERS)
@@ -160,7 +195,7 @@ def pick_batch(
 		companies_in_batch.add(norm_company(meta.get("company", "")))
 
 	for email, meta in state.get("sent", {}).items():
-		if len(targets) >= limit:
+		if len(targets) >= effective_limit:
 			break
 		if meta.get("followup_sent") or meta.get("followup_count", 0) >= MAX_FOLLOWUPS:
 			continue
@@ -178,7 +213,7 @@ def pick_batch(
 		add_followup(meta, email)
 
 	if followups_only:
-		return targets[:limit]
+		return targets[:effective_limit]
 
 	sent_emails = set(state.get("sent", {}).keys())
 	candidates: list[dict] = []
@@ -215,7 +250,7 @@ def pick_batch(
 	)
 
 	for row in candidates:
-		if len(targets) >= limit:
+		if len(targets) >= effective_limit:
 			break
 		company = row.get("company") or ""
 		if company_blocked(company):
@@ -236,7 +271,7 @@ def pick_batch(
 		)
 		companies_in_batch.add(cn)
 
-	return targets[:limit]
+	return targets[:effective_limit]
 
 
 def mark_sent(target: ContactTarget, *, subject: str, dry_run: bool) -> None:
@@ -265,6 +300,8 @@ def mark_sent(target: ContactTarget, *, subject: str, dry_run: bool) -> None:
 		"subject": subject,
 		"dry_run": dry_run,
 	}
+	if not dry_run:
+		state["last_live_send_at"] = _now().isoformat()
 	if target.is_followup:
 		prev = state["sent"].get(key, {})
 		prev["followup_sent"] = True

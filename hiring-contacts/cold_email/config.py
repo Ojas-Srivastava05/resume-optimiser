@@ -50,9 +50,11 @@ SMTP_EMAIL = os.getenv("SMTP_EMAIL", os.getenv("RECIPIENT_EMAIL", "srivastavaoja
 SMTP_APP_PASSWORD = os.getenv("SMTP_APP_PASSWORD", "").replace(" ", "")
 RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL", SMTP_EMAIL)  # dry-run preview recipient
 
-# Sending guardrails (research-backed: quality > volume)
-DEFAULT_DAILY_CAP = int(os.getenv("COLD_EMAIL_DAILY_CAP", "10"))
-MIN_SECONDS_BETWEEN_SENDS = int(os.getenv("COLD_EMAIL_MIN_INTERVAL_SEC", "45"))
+# Sending guardrails — Gmail abuse detection is strict on burst SMTP from personal accounts.
+# Default: max 3 cold emails per IST day, 1 per scheduled run, ≥1 hour apart.
+DEFAULT_DAILY_CAP = int(os.getenv("COLD_EMAIL_DAILY_CAP", "3"))
+MAX_PER_RUN = int(os.getenv("COLD_EMAIL_MAX_PER_RUN", "1"))
+MIN_SECONDS_BETWEEN_SENDS = int(os.getenv("COLD_EMAIL_MIN_INTERVAL_SEC", "3600"))
 FOLLOWUP_DAYS = int(os.getenv("COLD_EMAIL_FOLLOWUP_DAYS", "5"))
 MAX_FOLLOWUPS = 1
 # Never email the same address or company twice in one IST day

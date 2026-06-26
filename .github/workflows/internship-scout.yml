@@ -69,38 +69,3 @@ jobs:
           name: seen-jobs
           path: internship-scout/seen_jobs.json
           if-no-files-found: ignore
-
-  # Belt-and-suspenders: GitHub cron often skips new/infrequent workflows on private repos.
-  # After the morning scout succeeds, trigger cold outreach on weekday mornings (IST).
-  trigger-cold-outreach:
-    needs: scout
-    if: needs.scout.result == 'success'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      actions: write
-
-    steps:
-      - name: Weekday morning gate (IST)
-        id: gate
-        run: |
-          DOW=$(TZ=Asia/Kolkata date +%u)
-          HOUR=$(TZ=Asia/Kolkata date +%H)
-          if [ "$DOW" -le 5 ] && [ "$HOUR" -ge 8 ] && [ "$HOUR" -lt 12 ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "Weekday morning IST — will trigger cold outreach"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Outside weekday 8–12 AM IST window — skipping cold outreach"
-          fi
-
-      - name: Trigger cold outreach workflow
-        if: steps.gate.outputs.run == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh workflow run "Cold Outreach (Summer 2027)" --ref main \
-            -f dry_run=false \
-            -f limit=10 \
-            -f followups_only=false
-          echo "Cold outreach workflow dispatched"

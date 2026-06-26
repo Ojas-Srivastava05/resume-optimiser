@@ -6,7 +6,7 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 
 | Principle | Implementation |
 |-----------|----------------|
-| **Quality > volume** | Default **10 emails/day** cap, 45s between sends |
+| **Quality > volume** | Default **3 emails/day**, **1 per run**, ≥1h apart (1 PM / 2 PM / 3 PM IST cron) |
 | **Short body** | Bullet layout; direct opener; one clear ask |
 | **Specific ask** | 10-min call or campus recruiting / referral pointer |
 | **Proof in bullets** | School, LogiFlow, IFFCO, CP stats, stack — not dense paragraphs |
@@ -16,7 +16,7 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 | **One follow-up** | Auto after **5 days**, max 1 follow-up per contact |
 | **Resume attached** | `ojas_srivastava_resume.pdf` (generic filename, company-agnostic) |
 | **Links block** | Portfolio, GitHub, LinkedIn, LeetCode, Codeforces, LogiFlow live + repo |
-| **Weekday sends** | GitHub Action schedule (Mon–Fri 9 AM IST) |
+| **Weekday sends** | GitHub Action schedule (Mon–Fri 1 PM / 2 PM / 3 PM IST, 1 email each) |
 
 ## What does NOT work
 
@@ -28,7 +28,7 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 ## Recommended weekly rhythm
 
 1. **Sun** — `refresh_all.py` updates contact DB (GitHub Action)
-2. **Mon–Fri** — 10 cold emails/day (named + public HR tier)
+2. **Mon–Fri** — up to 3 cold emails/day (one per hour slot: 1 PM, 2 PM, 3 PM IST)
 3. **Same day** — LinkedIn connection note to same person (manual, not automated yet)
 4. **Day 5+** — follow-up queue picks up non-replies automatically
 
@@ -69,17 +69,17 @@ Emails are only added when the domain has **MX records** (can receive mail). Sta
 cd hiring-contacts
 pip install -r requirements.txt
 
-# Preview next 10 emails (no send)
+# Preview next email (no send)
 python cold_outreach.py --dry-run --save-drafts
 
 # Live send (local — needs internship-scout/.env SMTP)
-python cold_outreach.py --limit 10
+python cold_outreach.py --limit 1
 
 # One company test
 python cold_outreach.py --company PhonePe --dry-run
 
 # Follow-ups only
-python cold_outreach.py --followups --limit 5
+python cold_outreach.py --followups --limit 1
 ```
 
 ## Env (reuse Internship Scout)
@@ -87,7 +87,9 @@ python cold_outreach.py --followups --limit 5
 ```
 SMTP_EMAIL=
 SMTP_APP_PASSWORD=
-COLD_EMAIL_DAILY_CAP=10
+COLD_EMAIL_DAILY_CAP=3
+COLD_EMAIL_MAX_PER_RUN=1
+COLD_EMAIL_MIN_INTERVAL_SEC=3600
 COLD_EMAIL_RESUME_PATH=/path/to/resume.pdf
 ```
 

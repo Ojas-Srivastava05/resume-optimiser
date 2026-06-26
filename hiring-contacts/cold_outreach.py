@@ -20,16 +20,27 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
 from cold_email.blocklist import record_bounce, record_bounce_from_message  # noqa: E402
-from cold_email.config import DEFAULT_DAILY_CAP, DRAFTS_DIR  # noqa: E402
+from cold_email.config import DEFAULT_DAILY_CAP, DRAFTS_DIR, MAX_PER_RUN, MIN_SECONDS_BETWEEN_SENDS  # noqa: E402
 from cold_email.mailer import send_email  # noqa: E402
-from cold_email.queue import mark_sent, pick_batch  # noqa: E402
+from cold_email.queue import (  # noqa: E402
+	daily_remaining_quota,
+	daily_sent_count,
+	mark_sent,
+	pick_batch,
+	seconds_until_next_send_allowed,
+)
 from cold_email.templates import body_followup, body_initial, subject_line  # noqa: E402
 
 
 def main() -> int:
 	parser = argparse.ArgumentParser(description="Summer 2027 internship cold outreach")
 	parser.add_argument("--dry-run", action="store_true", help="Compose only, do not send")
-	parser.add_argument("--limit", type=int, default=DEFAULT_DAILY_CAP, help="Max emails this run")
+	parser.add_argument(
+		"--limit",
+		type=int,
+		default=min(MAX_PER_RUN, DEFAULT_DAILY_CAP),
+		help=f"Max emails this run (hard-capped at {DEFAULT_DAILY_CAP}/day, {MAX_PER_RUN}/run)",
+	)
 	parser.add_argument("--include-generic", action="store_true", help="Include careers@ generated inboxes")
 	parser.add_argument("--followups", action="store_true", help="Send follow-ups only")
 	parser.add_argument("--company", default="", help="Filter to one company (normalized match)")
@@ -48,18 +59,47 @@ def main() -> int:
 			print(f"Blocked {email}")
 		return 0
 
+	run_limit = max(1, min(args.limit, MAX_PER_RUN, DEFAULT_DAILY_CAP))
+	remaining = daily_remaining_quota()
+	if remaining <= 0 and not args.dry_run:
+		print(
+			f"Daily cap reached ({daily_sent_count()}/{DEFAULT_DAILY_CAP} sent today IST). "
+			"No more live sends until tomorrow."
+		)
+		return 0
+	run_limit = min(run_limit, remaining) if not args.dry_run else run_limit
+
+	if not args.dry_run:
+		wait_sec = seconds_until_next_send_allowed()
+		if wait_sec > 0:
+			print(
+				f"Rate limit: last send was <1 hour ago. Wait {wait_sec // 60}m {wait_sec % 60}s "
+				f"(min interval {MIN_SECONDS_BETWEEN_SENDS}s). No email sent."
+			)
+			return 0
+
 	targets = pick_batch(
-		limit=args.limit,
+		limit=run_limit,
 		include_generic=args.include_generic,
 		followups_only=args.followups,
 		company_filter=args.company,
+		enforce_interval=not args.dry_run,
 	)
 
 	if not targets:
-		print("No targets in queue (all caught up or empty contact DB).")
+		if not args.dry_run:
+			wait = seconds_until_next_send_allowed()
+			if wait > 0:
+				mins = (wait + 59) // 60
+				print(f"Rate limit: next live send allowed in ~{mins} min (min 1 hour between sends).")
+				return 0
+		print("No targets in queue (all caught up, daily cap hit, or empty contact DB).")
 		return 0
 
-	print(f"Queue: {len(targets)} email(s) | dry_run={args.dry_run} | followups={args.followups}")
+	print(
+		f"Queue: {len(targets)} email(s) | dry_run={args.dry_run} | followups={args.followups} | "
+		f"daily={daily_sent_count()}/{DEFAULT_DAILY_CAP} sent (IST)"
+	)
 
 	if args.save_drafts or args.dry_run:
 		DRAFTS_DIR.mkdir(parents=True, exist_ok=True)

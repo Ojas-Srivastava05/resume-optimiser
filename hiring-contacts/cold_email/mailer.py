@@ -1,12 +1,12 @@
 """SMTP mailer with resume attachment.
 
 Plain text only — multipart HTML raises spam risk for 1:1 personal Gmail cold outreach.
+Rate limiting is enforced in queue.py / cold_outreach.py (not here) so CI runs exit promptly.
 """
 
 from __future__ import annotations
 
 import smtplib
-import time
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -14,7 +14,6 @@ from email.utils import formataddr
 from pathlib import Path
 
 from cold_email.config import (
-	MIN_SECONDS_BETWEEN_SENDS,
 	RESUME_ATTACHMENT_NAME,
 	RESUME_PATH,
 	SMTP_APP_PASSWORD,
@@ -57,5 +56,3 @@ def send_email(
 	with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as server:
 		server.login(SMTP_EMAIL, SMTP_APP_PASSWORD)
 		server.sendmail(SMTP_EMAIL, [to_addr], msg.as_string())
-
-	time.sleep(MIN_SECONDS_BETWEEN_SENDS)

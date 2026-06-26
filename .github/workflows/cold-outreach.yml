@@ -2,22 +2,21 @@ name: Cold Outreach (Summer 2027)
 
 on:
   schedule:
-    # Mon–Fri 9:00 AM IST = 3:30 AM UTC (primary)
-    - cron: "30 3 * * 1-5"
-    # Backup slots — GitHub schedule is often delayed/skipped on private repos
-    - cron: "0 4 * * 1-5"   # 9:30 AM IST
-    - cron: "30 4 * * 1-5"  # 10:00 AM IST
+    # Mon–Fri: 1 email per hour at 13:00 / 14:00 / 15:00 IST (max 3/day)
+    - cron: "30 7 * * 1-5"   # 13:00 IST
+    - cron: "30 8 * * 1-5"   # 14:00 IST
+    - cron: "30 9 * * 1-5"   # 15:00 IST
   workflow_dispatch:
     inputs:
       dry_run:
-        description: "Dry run (compose only, no SMTP)"
+        description: "Dry run (compose only, no SMTP) — keep true unless you intend to send"
         required: false
         default: "true"
         type: boolean
       limit:
-        description: "Max emails this run"
+        description: "Max emails this run (hard cap 1 per run, 3/day)"
         required: false
-        default: "10"
+        default: "1"
       followups_only:
         description: "Send follow-ups only"
         required: false
@@ -61,18 +60,21 @@ jobs:
           fi
 
       - name: Discover fresh HQ contacts
-        run: python3 scripts/discover_contacts.py --batch-size 30
+        run: python3 scripts/discover_contacts.py --batch-size 15
 
-      - name: Run cold outreach
+      - name: Run cold outreach (max 1 email this run)
         env:
           SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
           SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
-          COLD_EMAIL_DAILY_CAP: ${{ github.event.inputs.limit || '10' }}
+          COLD_EMAIL_DAILY_CAP: "3"
+          COLD_EMAIL_MAX_PER_RUN: "1"
+          COLD_EMAIL_MIN_INTERVAL_SEC: "3600"
           COLD_EMAIL_MAX_PER_COMPANY_PER_DAY: "1"
         run: |
-          FLAGS="--save-drafts --limit ${{ github.event.inputs.limit || '10' }}"
-          # Manual dispatch defaults to dry-run; scheduled weekday runs live (cap 10/day)
+          RUN_LIMIT="${{ github.event.inputs.limit || '1' }}"
+          FLAGS="--save-drafts --limit $RUN_LIMIT"
+          # Scheduled runs always live (1/hour). Manual dispatch defaults to dry-run.
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             FLAGS="$FLAGS --dry-run"
           fi

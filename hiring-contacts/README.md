@@ -48,13 +48,14 @@ Add a repo: append to `GITHUB_REPOS` in `config.py`, re-run `refresh_all.py`.
 |----------|----------|--------------|
 | `hiring-contacts-refresh.yml` | Sun 8 AM IST | Full re-clone + rebuild from all public sources |
 | `hiring-contacts-discover.yml` | Mon/Wed/Fri/Sat 6:30 AM IST | **Incremental** HQ discovery (~50 companies/run, career portal probe) |
-| `cold-outreach.yml` | Mon–Fri ~9 AM IST (3 backup cron slots) + **auto-trigger after morning Internship Scout** | Sends up to **10** emails/day; **1 per contact & 1 per company per IST day** |
+| `cold-outreach.yml` | Mon–Fri **1 PM, 2 PM, 3 PM IST** (1 email/run) | Sends max **3** emails/day; **1 per company per IST day** |
 
 **Anti-spam guards** (in `cold_email/queue.py`):
-- Max **10 emails/day** (configurable)
+- Max **3 emails/day** (hard cap across all runs)
+- **1 email per workflow run** (no burst SMTP)
+- **≥1 hour** between live sends (`last_live_send_at` + scheduled cron slots)
 - **Never** email the same address twice in one IST day
 - **Max 1 email per company per day** (no double-tapping Flipkart in one run)
-- **45s** between SMTP sends
 - Follow-ups only after **5 days**, max **1** follow-up per contact
 
 **Contact growth over time:** Discover rotates through your 964 scout companies, probes career portals, merges new hiring emails into `master_contacts.csv`. Companies already with 2+ HQ contacts are skipped; re-probe cooldown is 21 days.
@@ -70,8 +71,8 @@ Full strategy: **`STRATEGY.md`**
 ```bash
 pip install -r requirements.txt
 python3 cold_outreach.py --dry-run --save-drafts   # preview next batch
-python3 cold_outreach.py --limit 10                # send (needs SMTP in internship-scout/.env)
-python3 cold_outreach.py --followups --limit 5     # 5-day follow-ups
+python3 cold_outreach.py --limit 1                 # send (needs SMTP in internship-scout/.env)
+python3 cold_outreach.py --followups --limit 1     # 5-day follow-ups
 ```
 
 ## Reality check

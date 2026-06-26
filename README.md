@@ -24,7 +24,7 @@
 | **~965** | companies in the scout universe |
 | **10,700+** | harvested hiring contacts |
 | **8,700+** | outreach-eligible emails (MX-verified, tiered) |
-| **10/day** | cold emails (quality-capped, weekday auto-send) |
+| **3/day** | cold emails max (1 per hour: 1–3 PM IST weekdays) |
 | **6** | GitHub Actions workflows — zero manual triggers needed |
 
 ---
@@ -143,7 +143,7 @@ gantt
     section Every day
     OA Daily Drill           :active, 07:30, 20m
     Internship Scout digest  :active, 08:00, 30m
-    Cold outreach weekdays   :crit, 09:00, 60m
+    Cold outreach weekdays   :crit, 13:00, 180m
     section Weekly
     Contact discover         :06:30, 30m
     Full contact refresh     :08:00, 60m
@@ -152,8 +152,8 @@ gantt
 | Workflow | When | What it does |
 |----------|------|----------------|
 | [**OA Daily Drill**](.github/workflows/daily-oa.yml) | Daily **7:30 AM** | 2 LeetCode-style questions from rotating company pools |
-| [**Internship Scout**](.github/workflows/internship-scout.yml) | Daily **8:00 AM** | Job digest email → on success, **chains** cold outreach on weekday mornings |
-| [**Cold Outreach**](.github/workflows/cold-outreach.yml) | Mon–Fri **9:00 / 9:30 / 10:00 AM** | Discover 30 companies + send up to **10** cold emails |
+| [**Internship Scout**](.github/workflows/internship-scout.yml) | Daily **8:00 AM** | Job digest email (no chained cold outreach) |
+| [**Cold Outreach**](.github/workflows/cold-outreach.yml) | Mon–Fri **1:00 / 2:00 / 3:00 PM** | Discover contacts + send **1** email per run (**3/day max**) |
 | [**Contact Discover**](.github/workflows/hiring-contacts-discover.yml) | Mon/Wed/Fri/Sat **6:30 AM** | Incremental career-portal probing |
 | [**Contact Refresh**](.github/workflows/hiring-contacts-refresh.yml) | Sunday **8:00 AM** | Full re-ingest from GitHub repos + web directories |
 
@@ -175,7 +175,7 @@ flowchart LR
     F --> I
     H --> I
     I --> J["Queue and blocklist"]
-    J --> K["10 emails per day"]
+    J --> K["3 emails per day max"]
     K --> L["Gmail SMTP"]
 ```
 
@@ -237,7 +237,7 @@ python scout.py --fast
 
 # Cold outreach (preview)
 cd hiring-contacts && pip install -r requirements.txt
-python cold_outreach.py --dry-run --limit 5
+python cold_outreach.py --dry-run --limit 1
 
 # OA Forge (dev)
 cd OA-Forge && npm install && npm run dev
@@ -258,10 +258,9 @@ sequenceDiagram
 
     Cron->>Scout: 8 AM IST daily
     Scout->>Gmail: Job digest email
-    Scout->>Cold: Dispatch weekday mornings
-    Cron->>Cold: 9 AM IST Mon to Fri
+    Cron->>Cold: 1 PM / 2 PM / 3 PM IST Mon to Fri
     Cold->>Cold: discover 30 companies
-    Cold->>Gmail: Send up to 10 emails
+    Cold->>Gmail: Send 1 email per run (max 3/day)
     Cold->>Cold: Commit outreach state
 ```
 
@@ -279,6 +278,6 @@ sequenceDiagram
 
 <div align="center">
 
-*Built to run while you sleep — scout in the morning, practice at lunch, outreach by 9.*
+*Built to run while you sleep — scout in the morning, practice at lunch, outreach at 1–3 PM (max 3/day).*
 
 </div>
