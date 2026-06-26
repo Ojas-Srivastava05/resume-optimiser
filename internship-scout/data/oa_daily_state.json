@@ -662,11 +662,12 @@
     "info-edge",
     "sofi"
   ],
-  "queue_index": 1,
+  "queue_index": 2,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
-    "cred": 1
+    "cred": 1,
+    "dailyhunt": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -674,7 +675,10 @@
     ],
     "cred": [
       "longest-repeating-character-replacement|count-elements-with-maximum-frequency"
+    ],
+    "dailyhunt": [
+      "minimum-recolors-to-get-k-consecutive-black-blocks"
     ]
   },
-  "last_run": "2026-06-25T06:14:46.278158+00:00"
+  "last_run": "2026-06-26T06:17:05.755013+00:00"
 }
