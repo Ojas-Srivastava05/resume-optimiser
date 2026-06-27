@@ -62,6 +62,9 @@ def save_state(state: dict) -> None:
 
 def load_scout_companies() -> list[dict]:
 	rows: list[dict] = []
+	if not SCOUT_COMPANIES_CSV.exists():
+		print(f"Scout company list missing ({SCOUT_COMPANIES_CSV}); skipping discovery.")
+		return rows
 	with SCOUT_COMPANIES_CSV.open(encoding="utf-8") as f:
 		for row in csv.DictReader(f):
 			name = (row.get("Company") or "").strip()
@@ -115,8 +118,8 @@ def main() -> int:
 	probed = state.get("probed", {})
 
 	if not companies:
-		print("No scout companies found.")
-		return 1
+		print("No scout companies found; nothing to discover.")
+		return 0
 
 	cooldown_before = datetime.now(timezone.utc) - timedelta(days=PROBE_COOLDOWN_DAYS)
 	idx = int(state.get("rotation_index", 0)) % len(companies)
@@ -146,7 +149,11 @@ def main() -> int:
 
 		probed_this_run += 1
 		print(f"  probe [{probed_this_run}/{args.batch_size}] {name}")
-		rows = discover_company(name, co["portal"], fetched_at)
+		try:
+			rows = discover_company(name, co["portal"], fetched_at)
+		except Exception as exc:
+			print(f"  warn: probe failed for {name}: {exc}")
+			rows = []
 		probed[key] = fetched_at
 		if rows:
 			discovered_rows.extend(rows)

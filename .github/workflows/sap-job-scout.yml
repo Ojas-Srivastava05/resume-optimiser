@@ -1,0 +1,87 @@
+name: SAP Job Scout Daily
+
+on:
+  schedule:
+    # 8:00 AM IST = 2:30 AM UTC
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (fetch + preview, no SMTP)"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sap-job-scout-daily
+  cancel-in-progress: false
+
+jobs:
+  sap-scout:
+    defaults:
+      run:
+        working-directory: internship-scout
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          token: ${{ github.token }}
+
+      - name: Restore SAP scout state cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            internship-scout/data/sap_job_scout_seen.json
+            internship-scout/data/sap_company_rotation.json
+          key: sap-job-scout-state-v1
+          restore-keys: |
+            sap-job-scout-state-v1-
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: internship-scout/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run SAP job scout
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          SAP_RECIPIENT_EMAIL: ${{ secrets.SAP_RECIPIENT_EMAIL }}
+          SAP_MONITOR_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == true }}
+        run: |
+          echo "Trigger: ${{ github.event_name }} at $(date -u)"
+          FLAGS=""
+          if [ "$DRY_RUN" = "true" ]; then
+            FLAGS="--dry-run"
+          fi
+          python sap_scout.py $FLAGS
+
+      - name: Commit SAP scout state
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true }}
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add internship-scout/data/sap_job_scout_seen.json \
+                  internship-scout/data/sap_company_rotation.json || true
+          if git diff --staged --quiet; then
+            echo "No SAP scout state changes to commit"
+          else
+            git commit -m "chore(sap-scout): update send state"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi

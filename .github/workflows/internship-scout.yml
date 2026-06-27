@@ -2,11 +2,20 @@ name: Internship Scout Daily
 
 on:
   schedule:
-    # 8:00 AM IST = 2:30 AM UTC (primary)
+    # 8:00 AM IST = 2:30 AM UTC
     - cron: "30 2 * * *"
-    # Backup slot 8:30 AM IST — GitHub cron can be delayed/skipped on private repos
-    - cron: "0 3 * * *"
   workflow_dispatch:
+    inputs:
+      full_scan:
+        description: "Full scan (ignore send-count limit)"
+        required: false
+        default: "false"
+        type: boolean
+      no_hackathons:
+        description: "Skip hackathon scouting"
+        required: false
+        default: "false"
+        type: boolean
 
 permissions:
   contents: read
@@ -33,6 +42,8 @@ jobs:
         with:
           path: internship-scout/seen_jobs.json
           key: internship-scout-seen-jobs-v1
+          restore-keys: |
+            internship-scout-seen-jobs-
 
       - uses: actions/setup-python@v5
         with:
@@ -61,7 +72,14 @@ jobs:
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
         run: |
           echo "Trigger: ${{ github.event_name }} at $(date -u)"
-          python scout.py --fast --no-sync
+          FLAGS="--fast --no-sync"
+          if [ "${{ github.event.inputs.full_scan }}" = "true" ]; then
+            FLAGS="$FLAGS --full"
+          fi
+          if [ "${{ github.event.inputs.no_hackathons }}" = "true" ]; then
+            FLAGS="$FLAGS --no-hackathons"
+          fi
+          python scout.py $FLAGS
 
       - name: Upload seen jobs cache
         uses: actions/upload-artifact@v4

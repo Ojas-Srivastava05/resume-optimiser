@@ -11,7 +11,7 @@ on:
       dry_run:
         description: "Dry run (compose only, no SMTP) — keep true unless you intend to send"
         required: false
-        default: "true"
+        default: true
         type: boolean
       limit:
         description: "Max emails this run (hard cap 1 per run, 3/day)"
@@ -20,7 +20,7 @@ on:
       followups_only:
         description: "Send follow-ups only"
         required: false
-        default: "false"
+        default: false
         type: boolean
 
 permissions:
@@ -43,6 +43,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: false
+          persist-credentials: true
 
       - uses: actions/setup-python@v5
         with:
@@ -51,7 +52,9 @@ jobs:
           cache-dependency-path: hiring-contacts/requirements.txt
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
       - name: Ensure contact DB exists
         run: |
@@ -60,6 +63,7 @@ jobs:
           fi
 
       - name: Discover fresh HQ contacts
+        continue-on-error: true
         run: python3 scripts/discover_contacts.py --batch-size 15
 
       - name: Run cold outreach (max 1 email this run)
@@ -71,20 +75,22 @@ jobs:
           COLD_EMAIL_MAX_PER_RUN: "1"
           COLD_EMAIL_MIN_INTERVAL_SEC: "3600"
           COLD_EMAIL_MAX_PER_COMPANY_PER_DAY: "1"
+          # Scheduled runs always live. Manual dispatch uses dry_run input (boolean).
+          OUTREACH_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run }}
+          OUTREACH_FOLLOWUPS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.followups_only }}
         run: |
           RUN_LIMIT="${{ github.event.inputs.limit || '1' }}"
           FLAGS="--save-drafts --limit $RUN_LIMIT"
-          # Scheduled runs always live (1/hour). Manual dispatch defaults to dry-run.
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          if [ "$OUTREACH_DRY_RUN" = "true" ]; then
             FLAGS="$FLAGS --dry-run"
           fi
-          if [ "${{ github.event.inputs.followups_only }}" = "true" ]; then
+          if [ "$OUTREACH_FOLLOWUPS" = "true" ]; then
             FLAGS="$FLAGS --followups"
           fi
           python3 cold_outreach.py $FLAGS
 
       - name: Commit outreach state
-        if: github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != 'true'
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true
         working-directory: .
         run: |
           git config user.name "github-actions[bot]"
@@ -94,8 +100,13 @@ jobs:
                   hiring-contacts/data/discovery_state.json \
                   hiring-contacts/data/merged/master_contacts.csv \
                   hiring-contacts/data/raw/incremental_hq_contacts.csv || true
-          git diff --staged --quiet || git commit -m "chore(cold-outreach): update send state"
-          git push || true
+          if git diff --staged --quiet; then
+            echo "No outreach state changes to commit."
+          else
+            git commit -m "chore(cold-outreach): update send state"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
 
       - name: Upload drafts artifact
         uses: actions/upload-artifact@v4

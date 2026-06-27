@@ -3,6 +3,8 @@
 
 import os
 import sys
+
+import requests
 from datetime import datetime
 
 os.environ.setdefault("FAST_MODE", "1")
@@ -34,6 +36,10 @@ def _fail(name: str, detail: str) -> dict:
     return {"source": name, "status": "FAIL", "detail": detail}
 
 
+def _warn(name: str, detail: str) -> dict:
+    return {"source": name, "status": "WARN", "detail": detail}
+
+
 def main() -> int:
     print(f"Fast source health check @ {datetime.now().isoformat()}\n")
     results = []
@@ -62,7 +68,7 @@ def main() -> int:
         except Exception as exc:
             results.append(_fail(name, str(exc)))
 
-    # LinkedIn (special — test search + full fetch)
+    # LinkedIn (special — test search + full fetch; 429 is common from CI IPs)
     try:
         html = _search("SDE intern India")
         cards = _parse_cards(html)
@@ -71,8 +77,17 @@ def main() -> int:
         else:
             n = len(fetch_linkedin_jobs())
             results.append(_ok("LinkedIn Guest API", f"parsed {len(cards)} cards, {n} matches"))
+    except requests.HTTPError as exc:
+        if exc.response is not None and exc.response.status_code == 429:
+            results.append(_warn("LinkedIn Guest API", "rate limited (429); scout will still try"))
+        else:
+            results.append(_fail("LinkedIn Guest API", str(exc)))
     except Exception as exc:
-        results.append(_fail("LinkedIn Guest API", str(exc)))
+        msg = str(exc)
+        if "429" in msg and "Too Many Requests" in msg:
+            results.append(_warn("LinkedIn Guest API", "rate limited (429); scout will still try"))
+        else:
+            results.append(_fail("LinkedIn Guest API", msg))
 
     # --- Hackathon Sources ---
     try:
@@ -84,7 +99,7 @@ def main() -> int:
     failed = sum(1 for r in results if r["status"] == "FAIL")
     print("\n" + "=" * 60)
     for r in results:
-        icon = "✓" if r["status"] == "OK" else "✗"
+        icon = "✓" if r["status"] == "OK" else ("!" if r["status"] == "WARN" else "✗")
         print(f"{icon} {r['source']}: {r['detail']}")
     print(f"\n{len(results) - failed}/{len(results)} sources healthy")
     return 1 if failed else 0

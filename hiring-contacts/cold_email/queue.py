@@ -276,6 +276,10 @@ def pick_batch(
 
 def mark_sent(target: ContactTarget, *, subject: str, dry_run: bool) -> None:
 	state = load_state()
+	if not dry_run and daily_remaining_quota(state) <= 0:
+		raise RuntimeError(
+			f"Daily cap reached ({daily_sent_count(state)}/{DEFAULT_DAILY_CAP} sent today IST)"
+		)
 	key = target.email.lower()
 	today = _today_ist()
 	daily = state.setdefault("daily_log", {})

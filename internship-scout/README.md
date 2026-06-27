@@ -271,17 +271,24 @@ SMTP_APP_PASSWORD=xxxx xxxx xxxx xxxx
 
 #### GitHub Actions (Recommended)
 
+**Workflow file** (repo root only — nested `internship-scout/.github/workflows/*.yml` is not executed by GitHub):
+
+`/.github/workflows/internship-scout.yml`
+
+> **Note:** See `internship-scout/.github/workflows/README.md` — GitHub only runs workflows from the repo root `.github/workflows/`.
+
 **Setup**:
 1. Add repository secrets:
    - `RECIPIENT_EMAIL`
    - `SMTP_EMAIL`
    - `SMTP_APP_PASSWORD`
+   - (Optional) `SUPABASE_URL`, `SUPABASE_KEY` — shared send dedup across runners
    - (Optional) `ADZUNA_APP_ID`, `ADZUNA_APP_KEY`
 
-2. Workflow runs daily at 8 AM IST
+2. Scheduled run: **8:00 AM IST** daily (`cron: 30 2 * * *` UTC)
 
 **Manual Trigger**:
-- Go to Actions → Internship Scout Daily → Run workflow
+- Go to Actions → Internship Scout Daily → Run workflow (optional: full scan, skip hackathons)
 
 #### Local macOS (Alternative)
 
@@ -679,6 +686,27 @@ MIT License - See parent repository LICENSE file
 - **Unstop**: Campus recruitment
 - **Adzuna**: Job board API
 - **Gmail**: SMTP service
+
+---
+
+## SAP Job Scout (Ananya — SAP UI5 / Fiori)
+
+Separate daily digest for SAP UI5, Fiori, BTP, CAP, OData, and ABAP roles in India. **Does not share state or filters with the internship scout.**
+
+| Item | Value |
+|------|--------|
+| Entry | `python sap_scout.py` |
+| Schedule | GitHub Action `sap-job-scout.yml` — **8 AM IST** daily |
+| Primary inbox | `SAP_RECIPIENT_EMAIL` → `ananyasrivas34@gmail.com` |
+| Monitor copy | `SAP_MONITOR_EMAIL` → your `RECIPIENT_EMAIL` |
+| Company list | `data/sap_companies.csv` (269 SAP ecosystem firms, rotated 50/day) |
+| Sources | LinkedIn + Naukri + Indeed + Adzuna (SAP-specific queries) |
+| State | `data/sap_job_scout_seen.json` (isolated from `seen_jobs.json`) |
+
+```bash
+python sap_scout.py --dry-run   # preview digest, no SMTP
+python sap_scout.py             # send to Ananya + monitor copy
+```
 
 ---
 
