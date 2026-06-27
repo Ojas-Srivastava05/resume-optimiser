@@ -82,6 +82,6 @@ jobs:
             echo "No SAP scout state changes to commit"
           else
             git commit -m "chore(sap-scout): update send state"
-            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi

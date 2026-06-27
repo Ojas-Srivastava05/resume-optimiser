@@ -73,6 +73,6 @@ jobs:
             echo "No new contacts discovered"
           else
             git commit -m "chore(hiring-contacts): incremental HQ discovery"
-            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi

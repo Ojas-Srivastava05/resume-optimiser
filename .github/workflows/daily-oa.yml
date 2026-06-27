@@ -76,6 +76,6 @@ jobs:
             echo "No OA state changes to commit"
           else
             git commit -m "chore(oa-daily): update rotation state"
-            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
