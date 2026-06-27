@@ -74,14 +74,6 @@ jobs:
         if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true }}
         working-directory: .
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add internship-scout/data/sap_job_scout_seen.json \
-                  internship-scout/data/sap_company_rotation.json || true
-          if git diff --staged --quiet; then
-            echo "No SAP scout state changes to commit"
-          else
-            git commit -m "chore(sap-scout): update send state"
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
-          fi
+          bash .github/scripts/git-push-state.sh "chore(sap-scout): update send state" \
+            internship-scout/data/sap_job_scout_seen.json \
+            internship-scout/data/sap_company_rotation.json

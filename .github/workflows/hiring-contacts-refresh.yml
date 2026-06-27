@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: hiring-contacts-refresh
+  group: hiring-contacts-git-state
   cancel-in-progress: false
 
 defaults:
@@ -44,20 +44,11 @@ jobs:
 
       - name: Commit merged contact data
         working-directory: .
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add hiring-contacts/data/merged/ \
-                  hiring-contacts/data/raw/scout_companies_snapshot.csv \
-                  hiring-contacts/data/sources.json || true
-          if git diff --staged --quiet; then
-            echo "No contact data changes to commit"
-          else
-            git commit -m "chore(hiring-contacts): refresh contact database"
-            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"
-          fi
+          bash .github/scripts/git-push-state.sh "chore(hiring-contacts): refresh contact database" \
+            hiring-contacts/data/merged/ \
+            hiring-contacts/data/raw/scout_companies_snapshot.csv \
+            hiring-contacts/data/sources.json
 
       - name: Upload ingest report
         if: success() || failure()

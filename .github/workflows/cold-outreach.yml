@@ -27,7 +27,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cold-outreach
+  group: hiring-contacts-git-state
   cancel-in-progress: false
 
 defaults:
@@ -94,20 +94,9 @@ jobs:
         if: github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true
         working-directory: .
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add hiring-contacts/data/outreach_state.json \
-                  hiring-contacts/data/blocklist.json \
-                  hiring-contacts/data/discovery_state.json \
-                  hiring-contacts/data/merged/master_contacts.csv \
-                  hiring-contacts/data/raw/incremental_hq_contacts.csv || true
-          if git diff --staged --quiet; then
-            echo "No outreach state changes to commit."
-          else
-            git commit -m "chore(cold-outreach): update send state"
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
-          fi
+          bash .github/scripts/git-push-state.sh "chore(cold-outreach): update send state" \
+            hiring-contacts/data/outreach_state.json \
+            hiring-contacts/data/blocklist.json
 
       - name: Upload drafts artifact
         uses: actions/upload-artifact@v4

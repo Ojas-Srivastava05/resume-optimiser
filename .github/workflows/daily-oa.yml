@@ -68,14 +68,6 @@ jobs:
         if: github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != 'true'
         working-directory: .
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add internship-scout/data/oa_daily_state.json \
-                  internship-scout/data/oa_companies_cache.json || true
-          if git diff --staged --quiet; then
-            echo "No OA state changes to commit"
-          else
-            git commit -m "chore(oa-daily): update rotation state"
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
-          fi
+          bash .github/scripts/git-push-state.sh "chore(oa-daily): update rotation state" \
+            internship-scout/data/oa_daily_state.json \
+            internship-scout/data/oa_companies_cache.json
