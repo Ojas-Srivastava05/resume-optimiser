@@ -13,8 +13,9 @@
       "subject": "Summer 2027 intern \u2014 SVNIT SWE \u00b7 Meesho",
       "dry_run": false,
       "sent_at": "2026-06-24T13:16:19.018225+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-06-29T13:51:36.889504+00:00"
     },
     "r.chandrasi1996@gmail.com": {
       "email": "r.chandrasi1996@gmail.com",
@@ -851,7 +852,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 0
+    "total_followups": 1
   },
   "daily_log": {
     "2026-06-24": {
@@ -978,12 +979,14 @@
     },
     "2026-06-29": {
       "emails": [
-        "shane.sabaiz-birdsill@cerebras.net"
+        "shane.sabaiz-birdsill@cerebras.net",
+        "himanshubarak@gmail.com"
       ],
       "companies": [
-        "cerebras"
+        "cerebras",
+        "meesho"
       ]
     }
   },
-  "last_live_send_at": "2026-06-29T12:14:26.621263+00:00"
+  "last_live_send_at": "2026-06-29T13:51:36.889492+00:00"
 }
