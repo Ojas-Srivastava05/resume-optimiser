@@ -20,6 +20,7 @@ MAIN_GID = 285269648
 SKIP_RE = re.compile(r"^sample\s*-|^company$", re.I)
 GH_RE = re.compile(r"greenhouse\.io/([^/?\s]+)", re.I)
 LEVER_RE = re.compile(r"jobs\.lever\.co/([^/?\s]+)", re.I)
+ASHBY_RE = re.compile(r"ashbyhq\.com/([^/?\s]+)", re.I)
 
 
 def _norm_key(name: str) -> str:
@@ -42,6 +43,7 @@ def _merge_row(merged: dict, row: dict) -> None:
             "sector": sector,
             "gh_slug": None,
             "lever_slug": None,
+            "ashby_slug": None,
         },
     )
     if portal and len(portal) > len(entry.get("portal") or ""):
@@ -55,6 +57,9 @@ def _merge_row(merged: dict, row: dict) -> None:
     lev = LEVER_RE.search(portal)
     if lev:
         entry["lever_slug"] = lev.group(1)
+    ash = ASHBY_RE.search(portal)
+    if ash:
+        entry["ashby_slug"] = ash.group(1)
 
 
 def _from_cached_csvs() -> dict[str, dict]:

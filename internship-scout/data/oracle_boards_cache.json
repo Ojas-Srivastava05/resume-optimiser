@@ -1,0 +1,20 @@
+{
+  "https://fa-extu-saasfaprod1.fa.ocs.oraclecloud.com:443|CX_1": {
+    "company": "Akamai",
+    "api_base": "https://fa-extu-saasfaprod1.fa.ocs.oraclecloud.com:443",
+    "site_number": "CX_1",
+    "vanity_base": "https://jobs.akamai.com"
+  },
+  "https://egug.fa.us2.oraclecloud.com:443|CX_1": {
+    "company": "American Express",
+    "api_base": "https://egug.fa.us2.oraclecloud.com:443",
+    "site_number": "CX_1",
+    "vanity_base": "https://careers.americanexpress.com"
+  },
+  "https://eofe.fa.us2.oraclecloud.com:443|CX_1001": {
+    "company": "BNY Mellon",
+    "api_base": "https://eofe.fa.us2.oraclecloud.com:443",
+    "site_number": "CX_1001",
+    "vanity_base": "https://eofe.fa.us2.oraclecloud.com"
+  }
+}

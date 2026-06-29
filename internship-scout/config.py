@@ -31,7 +31,13 @@ COMPANY_BATCH_SIZE = int(os.getenv("COMPANY_BATCH_SIZE", "120"))
 FETCH_WORKERS = int(os.getenv("FETCH_WORKERS", "16"))
 UNSTOP_MAX_COMPANIES = int(os.getenv("UNSTOP_MAX_COMPANIES", "80"))
 LINKEDIN_MAX_COMPANIES = int(os.getenv("LINKEDIN_MAX_COMPANIES", "80"))
-CAREERS_MAX_SCRAPES = int(os.getenv("CAREERS_MAX_SCRAPES", "30"))
+CAREERS_MAX_SCRAPES = int(os.getenv("CAREERS_MAX_SCRAPES", "120"))
+CAREERS_INFER_PLACEHOLDERS = os.getenv("CAREERS_INFER_PLACEHOLDERS", "1").lower() in {
+    "1",
+    "true",
+    "yes",
+}
+ORACLE_PROBE_PER_RUN = int(os.getenv("ORACLE_PROBE_PER_RUN", "40"))
 ATS_PROBE_PER_RUN = int(os.getenv("ATS_PROBE_PER_RUN", "20"))
 FAST_MODE = os.getenv("FAST_MODE", "").lower() in {"1", "true", "yes"}
 

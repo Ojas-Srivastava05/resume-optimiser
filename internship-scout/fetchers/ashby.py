@@ -5,7 +5,7 @@ from pathlib import Path
 
 import requests
 
-from companies import load_companies, match_priority_company
+from companies import load_companies
 from config import ROOT
 from filters import Job, make_job
 
@@ -26,27 +26,30 @@ def _slugs() -> dict[str, str]:
     return slugs
 
 
+def fetch_ashby_jobs_for_slug(company: str, slug: str) -> list[Job]:
+    jobs: list[Job] = []
+    try:
+        resp = requests.get(API.format(slug=slug), headers=HEADERS, timeout=20)
+        if resp.status_code != 200:
+            return jobs
+        payload = resp.json()
+    except (requests.RequestException, json.JSONDecodeError):
+        return jobs
+
+    for item in payload.get("jobs", []):
+        title = item.get("title", "")
+        loc = item.get("location") or ""
+        if isinstance(loc, dict):
+            loc = loc.get("name", "")
+        url = item.get("jobUrl") or item.get("applyUrl") or ""
+        job = make_job(title, company, str(loc), url, "Careers→Ashby", board_company=company)
+        if job:
+            jobs.append(job)
+    return jobs
+
+
 def fetch_ashby_jobs() -> list[Job]:
     jobs: list[Job] = []
     for slug, company in _slugs().items():
-        try:
-            resp = requests.get(API.format(slug=slug), headers=HEADERS, timeout=25)
-            if resp.status_code != 200:
-                continue
-            payload = resp.json()
-        except (requests.RequestException, json.JSONDecodeError):
-            continue
-
-        for item in payload.get("jobs", []):
-            title = item.get("title", "")
-            loc = (item.get("location") or "")
-            if isinstance(loc, dict):
-                loc = loc.get("name", "")
-            url = item.get("jobUrl") or item.get("applyUrl") or ""
-            if not match_priority_company(company):
-                continue
-            job = make_job(title, company, str(loc), url, "Ashby", board_company=company)
-            if job:
-                jobs.append(job)
-
+        jobs.extend(fetch_ashby_jobs_for_slug(company, slug))
     return jobs

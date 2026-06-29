@@ -22,7 +22,10 @@ from fetchers import (
     fetch_lever_jobs,
     fetch_linkedin_jobs,
     fetch_naukri_jobs,
+    fetch_oracle_cx_jobs,
+    fetch_smartrecruiters_jobs,
     fetch_unstop_jobs,
+    fetch_workday_jobs,
 )
 from filters import Job, dedupe_jobs
 from logger import log, log_section, log_warn
@@ -40,7 +43,7 @@ def log_coverage_plan() -> None:
     log(f"Master company list: {n} firms")
     log(f"FULL SCAN every run (no openings missed on these boards):")
     log(f"  • Greenhouse: {gh} ATS boards — all intern roles polled")
-    log(f"  • Lever + Ashby: all known boards")
+    log(f"  • Lever + Ashby + Workday + SmartRecruiters: all known career portals")
     log(f"  • LinkedIn: 23 broad India intern queries (all priority companies)")
     log(f"  • Unstop: 14 broad sector queries (all priority companies)")
     log(f"  • Internshala: 13 tech intern categories (priority + ₹40k+ stipend)")
@@ -48,7 +51,8 @@ def log_coverage_plan() -> None:
     log(f"  • Indeed India: 8 broad queries")
     log(f"  • Hackathons: Unstop + Devfolio + 19 direct MNC pages")
     log(f"ROTATED daily ({batch} companies/day, full cycle ~{days} days):")
-    log(f"  • LinkedIn per-company + Unstop per-company + Naukri per-company + career portals")
+    log(f"  • LinkedIn per-company + Unstop per-company + Naukri per-company")
+    log(f"  • Career portals (HTML/JSON-LD + embedded ATS), infer placeholders when enabled")
     log(f"  → New postings on ATS/broad sources appear same day; company-specific")
     log(f"    sources rotate but broad queries catch the same live postings.")
     log(f"Email dedup: max {MAX_EMAIL_SENDS} sends per opening, then suppressed")
@@ -59,6 +63,9 @@ def collect_jobs() -> list[Job]:
         ("Greenhouse", fetch_greenhouse_jobs, "full"),
         ("Lever", fetch_lever_jobs, "full"),
         ("Ashby", fetch_ashby_jobs, "full"),
+        ("Workday", fetch_workday_jobs, "full"),
+        ("SmartRecruiters", fetch_smartrecruiters_jobs, "full"),
+        ("Oracle CX", fetch_oracle_cx_jobs, "full"),
         ("LinkedIn", fetch_linkedin_jobs, "broad+rotation"),
         ("Careers Web", fetch_careers_jobs, "rotation"),
         ("Unstop", fetch_unstop_jobs, "broad+rotation"),

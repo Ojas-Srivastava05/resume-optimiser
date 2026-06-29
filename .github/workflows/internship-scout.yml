@@ -30,7 +30,7 @@ jobs:
       run:
         working-directory: internship-scout
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
@@ -55,12 +55,19 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Quick source health check
+        env:
+          FAST_MODE: "1"
+          ORACLE_PROBE_PER_RUN: "0"
+          CAREERS_MAX_SCRAPES: "3"
+          COMPANY_BATCH_SIZE: "5"
         run: python test_sources.py
 
       - name: Run internship scout (fast)
         env:
           FAST_MODE: "1"
           COMPANY_BATCH_SIZE: "120"
+          CAREERS_MAX_SCRAPES: "120"
+          ORACLE_PROBE_PER_RUN: "10"
           MAX_EMAIL_SENDS: "2"
           FETCH_WORKERS: "16"
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}

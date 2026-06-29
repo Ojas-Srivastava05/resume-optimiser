@@ -13,6 +13,7 @@ os.environ.setdefault("UNSTOP_MAX_COMPANIES", "5")
 os.environ.setdefault("LINKEDIN_MAX_COMPANIES", "5")
 os.environ.setdefault("CAREERS_MAX_SCRAPES", "3")
 os.environ.setdefault("ATS_PROBE_PER_RUN", "0")
+os.environ.setdefault("ORACLE_PROBE_PER_RUN", "0")
 
 from expand_companies import expand as expand_companies
 from fetchers.adzuna import fetch_adzuna_jobs
@@ -25,7 +26,9 @@ from fetchers.internshala import fetch_internshala_jobs
 from fetchers.lever import fetch_lever_jobs
 from fetchers.linkedin import _parse_cards, _search, fetch_linkedin_jobs
 from fetchers.naukri import fetch_naukri_jobs
+from fetchers.smartrecruiters import fetch_smartrecruiters_jobs
 from fetchers.unstop import fetch_unstop_jobs
+from fetchers.workday import fetch_workday_jobs
 
 
 def _ok(name: str, detail: str) -> dict:
@@ -55,6 +58,8 @@ def main() -> int:
         ("Greenhouse API", fetch_greenhouse_jobs),
         ("Lever API", fetch_lever_jobs),
         ("Ashby API", fetch_ashby_jobs),
+        ("Workday API", fetch_workday_jobs),
+        ("SmartRecruiters API", fetch_smartrecruiters_jobs),
         ("Unstop API", fetch_unstop_jobs),
         ("Careers Scraper", fetch_careers_jobs),
         ("Adzuna API", fetch_adzuna_jobs),

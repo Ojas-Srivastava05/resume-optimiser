@@ -114,8 +114,8 @@ Internship Scout is an **automated job aggregation system** that delivers daily 
 
 ### Multi-Source Aggregation
 - **LinkedIn**: Job search API with keyword filters
-- **Career Pages**: Direct scraping of 965+ company career sites
-- **ATS Platforms**: Greenhouse, Lever, Ashby API integration
+- **Career Pages**: Rotated scraping across 964 companies (HTML, JSON-LD, embedded ATS)
+- **ATS Platforms**: Greenhouse, Lever, Ashby, Workday, SmartRecruiters APIs
 - **Unstop**: Campus recruitment platform
 - **Adzuna**: Job board API (optional)
 
