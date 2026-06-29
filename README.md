@@ -93,9 +93,10 @@ flowchart TB
 
 Multi-source job + hackathon aggregator.
 
-- Scrapes **15+ sources** (ATS APIs, careers pages, Unstop, Adzuna…)
+- Scrapes **15+ sources** (ATS APIs, career portals, Unstop, Adzuna…)
+- **100 career portals/day** — full 964-company cycle in ~10 days (benchmarked; 964/run ≈ 64 min)
 - Filters for **batch 2028**, India, SWE/ML/AI roles
-- **Daily HTML digest** to your inbox
+- **Daily HTML digest** to your inbox (~11 min GitHub Actions run)
 - Dedup via local JSON + **Supabase**
 - **launchd** fallback on macOS
 
@@ -142,7 +143,7 @@ gantt
     axisFormat %H:%M
     section Every day
     OA Daily Drill           :active, 07:30, 20m
-    Internship Scout digest  :active, 08:00, 30m
+    Internship Scout digest  :active, 08:00, 15m
     Cold outreach weekdays   :crit, 13:00, 180m
     section Weekly
     Contact discover         :06:30, 30m
