@@ -662,7 +662,7 @@
     "info-edge",
     "sofi"
   ],
-  "queue_index": 5,
+  "queue_index": 6,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -670,7 +670,8 @@
     "dailyhunt": 1,
     "browserstack": 1,
     "altimetrik": 1,
-    "oppo": 1
+    "oppo": 1,
+    "nordstrom": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -690,7 +691,10 @@
     ],
     "oppo": [
       "maximal-square|maximum-average-subarray-i"
+    ],
+    "nordstrom": [
+      "display-table-of-food-orders-in-a-restaurant|course-schedule"
     ]
   },
-  "last_run": "2026-06-28T06:26:09.443769+00:00"
+  "last_run": "2026-06-29T06:57:09.778556+00:00"
 }
