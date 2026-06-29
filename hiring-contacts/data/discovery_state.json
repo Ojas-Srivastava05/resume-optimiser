@@ -967,11 +967,11 @@
     "zynga": "2026-06-27T17:55:54+00:00"
   },
   "stats": {
-    "total_runs": 12,
-    "total_discovered": 44,
-    "last_run_at": "2026-06-27T17:58:48+00:00",
+    "total_runs": 13,
+    "total_discovered": 5607,
+    "last_run_at": "2026-06-29T05:51:57+00:00",
     "last_batch_discovered": 0,
-    "hq_total": 9419,
-    "total_contacts": 10763
+    "hq_total": 9367,
+    "total_contacts": 10702
   }
 }
