@@ -8,7 +8,7 @@ from zoneinfo import ZoneInfo
 
 from ats_resolver import resolve_slugs
 from companies import greenhouse_slugs, load_companies
-from config import ATS_PROBE_PER_RUN, COMPANY_BATCH_SIZE, FAST_MODE, MAX_EMAIL_SENDS
+from config import ATS_PROBE_PER_RUN, CAREERS_MAX_SCRAPES, COMPANY_BATCH_SIZE, FAST_MODE, MAX_EMAIL_SENDS
 from emailer import send_digest
 from expand_companies import expand as expand_companies
 from fetchers import (
@@ -50,9 +50,10 @@ def log_coverage_plan() -> None:
     log(f"  • Naukri: 10 broad + company rotation")
     log(f"  • Indeed India: 8 broad queries")
     log(f"  • Hackathons: Unstop + Devfolio + 19 direct MNC pages")
-    log(f"ROTATED daily ({batch} companies/day):")
+    days = (n + CAREERS_MAX_SCRAPES - 1) // CAREERS_MAX_SCRAPES if CAREERS_MAX_SCRAPES else 0
+    log(f"ROTATED daily ({batch} companies/day for LinkedIn/Unstop/Naukri; career portals {CAREERS_MAX_SCRAPES}/day, ~{days} days full cycle):")
     log(f"  • LinkedIn per-company + Unstop per-company + Naukri per-company")
-    log(f"  • Career portals: all {n} companies scraped every run (HTML/JSON-LD/embedded ATS)")
+    log(f"  • Career portals (HTML/JSON-LD/embedded ATS), infer placeholders when enabled")
     log(f"  → New postings on ATS/broad sources appear same day; company-specific")
     log(f"    sources rotate but broad queries catch the same live postings.")
     log(f"Email dedup: max {MAX_EMAIL_SENDS} sends per opening, then suppressed")
@@ -67,7 +68,7 @@ def collect_jobs() -> list[Job]:
         ("SmartRecruiters", fetch_smartrecruiters_jobs, "full"),
         ("Oracle CX", fetch_oracle_cx_jobs, "full"),
         ("LinkedIn", fetch_linkedin_jobs, "broad+rotation"),
-        ("Careers Web", fetch_careers_jobs, "rotation"),
+        ("Careers Web", fetch_careers_jobs, "rotation (100/day)"),
         ("Unstop", fetch_unstop_jobs, "broad+rotation"),
         ("Adzuna", fetch_adzuna_jobs, "full"),
         ("Internshala", fetch_internshala_jobs, "full"),

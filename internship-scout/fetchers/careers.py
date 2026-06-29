@@ -264,6 +264,6 @@ def _scrape_company(name: str) -> list[Job]:
 
 
 def fetch_careers_jobs() -> list[Job]:
-    """Scrape career portals for every company in the priority list."""
+    """Rotate career portal scraping — CAREERS_MAX_SCRAPES companies per run."""
     names = rotated_names(CAREERS_MAX_SCRAPES)
     return map_parallel(names, _scrape_company, label="careers")

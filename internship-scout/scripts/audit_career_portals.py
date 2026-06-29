@@ -140,7 +140,7 @@ def main() -> int:
         print("⚠ Portal reachability is below 50% — many inferred URLs are wrong.")
     else:
         print(f"✓ {reach['ok']} career portals are reachable and monitored.")
-    print("✓ Rotation covers all 964 companies in ~8 days (120/day).")
+    print("✓ Rotation covers all 964 companies in ~10 days (100 career portals/day).")
     print("✓ When a company posts an intern role on their portal, scout can pick it up.")
     if amex_board:
         print("✓ American Express portal is connected (0 intern roles live today).")

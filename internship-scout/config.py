@@ -25,13 +25,14 @@ PRIORITY_SHEET_ID = os.getenv(
 
 MAX_EMAIL_SENDS = int(os.getenv("MAX_EMAIL_SENDS", "2"))
 
-# Rotated sources: LinkedIn/Unstop/Naukri use COMPANY_BATCH_SIZE; careers scrape all firms
+# Rotated sources: career portals scrape CAREERS_MAX_SCRAPES firms/day (~10-day full cycle)
+# Full-scan sources (every run): Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Oracle CX, LinkedIn broad, Unstop broad
 COMPANY_BATCH_SIZE = int(os.getenv("COMPANY_BATCH_SIZE", "120"))
 FETCH_WORKERS = int(os.getenv("FETCH_WORKERS", "16"))
 UNSTOP_MAX_COMPANIES = int(os.getenv("UNSTOP_MAX_COMPANIES", "80"))
 LINKEDIN_MAX_COMPANIES = int(os.getenv("LINKEDIN_MAX_COMPANIES", "80"))
-# Career portals: scrape entire company list each run (964 firms)
-CAREERS_MAX_SCRAPES = int(os.getenv("CAREERS_MAX_SCRAPES", "964"))
+# Career portals: 100 companies/day → full 964-company cycle in ~10 days
+CAREERS_MAX_SCRAPES = int(os.getenv("CAREERS_MAX_SCRAPES", "100"))
 CAREERS_INFER_PLACEHOLDERS = os.getenv("CAREERS_INFER_PLACEHOLDERS", "1").lower() in {
     "1",
     "true",

@@ -30,7 +30,7 @@ jobs:
       run:
         working-directory: internship-scout
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
@@ -66,10 +66,10 @@ jobs:
         env:
           FAST_MODE: "1"
           COMPANY_BATCH_SIZE: "120"
-          CAREERS_MAX_SCRAPES: "964"
-          ORACLE_PROBE_PER_RUN: "25"
+          CAREERS_MAX_SCRAPES: "100"
+          ORACLE_PROBE_PER_RUN: "10"
           MAX_EMAIL_SENDS: "2"
-          FETCH_WORKERS: "24"
+          FETCH_WORKERS: "16"
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
           SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
           SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
