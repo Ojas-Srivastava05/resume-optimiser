@@ -831,10 +831,26 @@
       "sent_at": "2026-06-26T08:15:53.350525+00:00",
       "followup_sent": false,
       "followup_count": 0
+    },
+    "shane.sabaiz-birdsill@cerebras.net": {
+      "email": "shane.sabaiz-birdsill@cerebras.net",
+      "company": "Cerebras",
+      "name": "",
+      "role_title": "Recruiting (bounce redirect)",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "manual:verified",
+      "career_portal": "https://www.cerebras.net/careers/",
+      "subject": "Summer 2027 Intern SWE \u2014 Cerebras",
+      "dry_run": false,
+      "sent_at": "2026-06-29T12:14:26.621277+00:00",
+      "followup_sent": false,
+      "followup_count": 0
     }
   },
   "stats": {
-    "total_sent": 52,
+    "total_sent": 53,
     "total_followups": 0
   },
   "daily_log": {
@@ -959,6 +975,15 @@
         "byjus",
         "capitalone"
       ]
+    },
+    "2026-06-29": {
+      "emails": [
+        "shane.sabaiz-birdsill@cerebras.net"
+      ],
+      "companies": [
+        "cerebras"
+      ]
     }
-  }
+  },
+  "last_live_send_at": "2026-06-29T12:14:26.621263+00:00"
 }
