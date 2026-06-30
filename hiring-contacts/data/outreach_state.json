@@ -30,8 +30,9 @@
       "subject": "SVNIT AI student \u2014 Paypal intern question",
       "dry_run": false,
       "sent_at": "2026-06-24T13:23:46.018311+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-06-30T10:42:07.869474+00:00"
     },
     "swapnil.mishra@cars24.com": {
       "email": "swapnil.mishra@cars24.com",
@@ -852,7 +853,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 1
+    "total_followups": 2
   },
   "daily_log": {
     "2026-06-24": {
@@ -986,7 +987,15 @@
         "cerebras",
         "meesho"
       ]
+    },
+    "2026-06-30": {
+      "emails": [
+        "r.chandrasi1996@gmail.com"
+      ],
+      "companies": [
+        "paypal"
+      ]
     }
   },
-  "last_live_send_at": "2026-06-29T13:51:36.889492+00:00"
+  "last_live_send_at": "2026-06-30T10:42:07.869459+00:00"
 }
