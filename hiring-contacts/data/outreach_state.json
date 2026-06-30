@@ -47,8 +47,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Cars24",
       "dry_run": false,
       "sent_at": "2026-06-24T13:31:13.553493+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-06-30T11:58:28.478735+00:00"
     },
     "miskin.shravani@juspay.in": {
       "email": "miskin.shravani@juspay.in",
@@ -853,7 +854,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 2
+    "total_followups": 3
   },
   "daily_log": {
     "2026-06-24": {
@@ -990,12 +991,14 @@
     },
     "2026-06-30": {
       "emails": [
-        "r.chandrasi1996@gmail.com"
+        "r.chandrasi1996@gmail.com",
+        "swapnil.mishra@cars24.com"
       ],
       "companies": [
-        "paypal"
+        "paypal",
+        "cars24"
       ]
     }
   },
-  "last_live_send_at": "2026-06-30T10:42:07.869459+00:00"
+  "last_live_send_at": "2026-06-30T11:58:28.478722+00:00"
 }
