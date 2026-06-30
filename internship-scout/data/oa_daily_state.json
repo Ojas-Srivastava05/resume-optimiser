@@ -662,7 +662,7 @@
     "info-edge",
     "sofi"
   ],
-  "queue_index": 7,
+  "queue_index": 8,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -672,7 +672,8 @@
     "altimetrik": 1,
     "oppo": 1,
     "nordstrom": 1,
-    "jd": 1
+    "jd": 1,
+    "yandex": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -698,7 +699,10 @@
     ],
     "jd": [
       "count-the-number-of-powerful-integers"
+    ],
+    "yandex": [
+      "find-k-closest-elements|longest-subarray-of-1s-after-deleting-one-element"
     ]
   },
-  "last_run": "2026-06-29T14:03:35.336351+00:00"
+  "last_run": "2026-06-30T06:19:36.653341+00:00"
 }
