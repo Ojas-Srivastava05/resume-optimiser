@@ -64,8 +64,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Juspay",
       "dry_run": false,
       "sent_at": "2026-06-25T05:23:11.416999+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-01T10:51:55.063214+00:00"
     },
     "careers@palantir.com": {
       "email": "careers@palantir.com",
@@ -854,7 +855,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 3
+    "total_followups": 4
   },
   "daily_log": {
     "2026-06-24": {
@@ -998,7 +999,15 @@
         "paypal",
         "cars24"
       ]
+    },
+    "2026-07-01": {
+      "emails": [
+        "miskin.shravani@juspay.in"
+      ],
+      "companies": [
+        "juspay"
+      ]
     }
   },
-  "last_live_send_at": "2026-06-30T11:58:28.478722+00:00"
+  "last_live_send_at": "2026-07-01T10:51:55.063200+00:00"
 }
