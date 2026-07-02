@@ -115,8 +115,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 PhonePe",
       "dry_run": false,
       "sent_at": "2026-06-25T05:25:30.303565+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-02T11:52:57.041447+00:00"
     },
     "emergingtalent@samsung.com": {
       "email": "emergingtalent@samsung.com",
@@ -857,7 +858,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 6
+    "total_followups": 7
   },
   "daily_log": {
     "2026-06-24": {
@@ -1014,12 +1015,14 @@
     },
     "2026-07-02": {
       "emails": [
-        "hr@paytm.com"
+        "hr@paytm.com",
+        "shivani.sahraot@phonepe.com"
       ],
       "companies": [
-        "paytm"
+        "paytm",
+        "phonepe"
       ]
     }
   },
-  "last_live_send_at": "2026-07-02T10:17:18.564103+00:00"
+  "last_live_send_at": "2026-07-02T11:52:57.041435+00:00"
 }
