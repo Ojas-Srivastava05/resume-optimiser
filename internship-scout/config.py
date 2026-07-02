@@ -33,6 +33,10 @@ UNSTOP_MAX_COMPANIES = int(os.getenv("UNSTOP_MAX_COMPANIES", "80"))
 LINKEDIN_MAX_COMPANIES = int(os.getenv("LINKEDIN_MAX_COMPANIES", "80"))
 # Career portals: 100 companies/day → full 964-company cycle in ~10 days
 CAREERS_MAX_SCRAPES = int(os.getenv("CAREERS_MAX_SCRAPES", "100"))
+# CI guardrails — cap wall time and probes so email still sends on slow portal days
+CAREERS_TIME_BUDGET_SEC = int(os.getenv("CAREERS_TIME_BUDGET_SEC", "0"))
+CAREERS_MAX_URLS_PER_COMPANY = int(os.getenv("CAREERS_MAX_URLS_PER_COMPANY", "0"))
+CAREERS_HTTP_TIMEOUT = int(os.getenv("CAREERS_HTTP_TIMEOUT", "12"))
 CAREERS_INFER_PLACEHOLDERS = os.getenv("CAREERS_INFER_PLACEHOLDERS", "1").lower() in {
     "1",
     "true",

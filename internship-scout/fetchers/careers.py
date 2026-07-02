@@ -10,7 +10,14 @@ import requests
 from bs4 import BeautifulSoup
 
 from companies import match_priority_company
-from config import CAREERS_INFER_PLACEHOLDERS, CAREERS_MAX_SCRAPES
+from config import (
+    CAREERS_HTTP_TIMEOUT,
+    CAREERS_INFER_PLACEHOLDERS,
+    CAREERS_MAX_SCRAPES,
+    CAREERS_MAX_URLS_PER_COMPANY,
+    CAREERS_TIME_BUDGET_SEC,
+    FAST_MODE,
+)
 from fetchers.ashby import fetch_ashby_jobs_for_slug
 from fetchers.oracle_cx import fetch_oracle_from_html
 from fetchers.parallel import map_parallel
@@ -191,10 +198,22 @@ def _generic_link_scrape(company: str, soup: BeautifulSoup, base_url: str) -> li
     return jobs
 
 
+def _careers_http_timeout() -> int:
+    if CAREERS_HTTP_TIMEOUT:
+        return CAREERS_HTTP_TIMEOUT
+    return 8 if FAST_MODE else 12
+
+
+def _max_urls_per_company() -> int:
+    if CAREERS_MAX_URLS_PER_COMPANY > 0:
+        return CAREERS_MAX_URLS_PER_COMPANY
+    return 1 if FAST_MODE else 4
+
+
 def _scrape_html_portal(company: str, portal: str) -> list[Job]:
     jobs: list[Job] = []
     try:
-        resp = SESSION.get(portal, timeout=12, allow_redirects=True)
+        resp = SESSION.get(portal, timeout=_careers_http_timeout(), allow_redirects=True)
         if resp.status_code != 200:
             return jobs
         html = resp.text
@@ -205,8 +224,14 @@ def _scrape_html_portal(company: str, portal: str) -> list[Job]:
     jobs.extend(fetch_oracle_from_html(company, resp.url, html))
     jobs.extend(_from_json_ld(company, soup, resp.url))
     jobs.extend(_generic_link_scrape(company, soup, resp.url))
-    jobs.extend(fetch_workday_from_html(company, html))
-    jobs.extend(fetch_smartrecruiters_from_html(company, html))
+    if not FAST_MODE:
+        jobs.extend(fetch_workday_from_html(company, html))
+        jobs.extend(fetch_smartrecruiters_from_html(company, html))
+    else:
+        if "myworkdayjobs.com" in html:
+            jobs.extend(fetch_workday_from_html(company, html))
+        if "smartrecruiters.com" in html:
+            jobs.extend(fetch_smartrecruiters_from_html(company, html))
 
     for m in re.finditer(
         r"https?://(?:boards\.greenhouse\.io|job-boards\.greenhouse\.io)/([^/\"'\s]+)",
@@ -244,7 +269,8 @@ def _route_portal(company: str, portal: str) -> list[Job]:
 def _scrape_company_entry(entry: dict) -> list[Job]:
     company = entry["name"]
     jobs: list[Job] = []
-    for url in portal_candidates(entry, infer_placeholders=CAREERS_INFER_PLACEHOLDERS):
+    urls = portal_candidates(entry, infer_placeholders=CAREERS_INFER_PLACEHOLDERS)
+    for url in urls[: _max_urls_per_company()]:
         if skip_portal(url):
             continue
         jobs.extend(_route_portal(company, url))
@@ -266,4 +292,10 @@ def _scrape_company(name: str) -> list[Job]:
 def fetch_careers_jobs() -> list[Job]:
     """Rotate career portal scraping — CAREERS_MAX_SCRAPES companies per run."""
     names = rotated_names(CAREERS_MAX_SCRAPES)
-    return map_parallel(names, _scrape_company, label="careers")
+    budget = CAREERS_TIME_BUDGET_SEC if CAREERS_TIME_BUDGET_SEC > 0 else None
+    return map_parallel(
+        names,
+        _scrape_company,
+        label="careers",
+        deadline_sec=budget,
+    )

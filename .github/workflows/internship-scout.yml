@@ -2,8 +2,10 @@ name: Internship Scout Daily
 
 on:
   schedule:
-    # 8:00 AM IST = 2:30 AM UTC
+    # 8:00 AM IST = 2:30 AM UTC (primary)
     - cron: "30 2 * * *"
+    # 12:30 PM IST = 7:00 AM UTC (backup if morning run times out)
+    - cron: "0 7 * * *"
   workflow_dispatch:
     inputs:
       full_scan:
@@ -30,7 +32,7 @@ jobs:
       run:
         working-directory: internship-scout
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
 
     steps:
       - uses: actions/checkout@v4
@@ -54,19 +56,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Quick source health check
-        env:
-          FAST_MODE: "1"
-          ORACLE_PROBE_PER_RUN: "0"
-          CAREERS_MAX_SCRAPES: "3"
-          COMPANY_BATCH_SIZE: "5"
-        run: python test_sources.py
-
       - name: Run internship scout (fast)
         env:
           FAST_MODE: "1"
           COMPANY_BATCH_SIZE: "120"
           CAREERS_MAX_SCRAPES: "100"
+          CAREERS_TIME_BUDGET_SEC: "240"
+          CAREERS_MAX_URLS_PER_COMPANY: "1"
+          CAREERS_HTTP_TIMEOUT: "8"
           ORACLE_PROBE_PER_RUN: "10"
           MAX_EMAIL_SENDS: "2"
           FETCH_WORKERS: "16"

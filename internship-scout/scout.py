@@ -68,12 +68,13 @@ def collect_jobs() -> list[Job]:
         ("SmartRecruiters", fetch_smartrecruiters_jobs, "full"),
         ("Oracle CX", fetch_oracle_cx_jobs, "full"),
         ("LinkedIn", fetch_linkedin_jobs, "broad+rotation"),
-        ("Careers Web", fetch_careers_jobs, f"rotation ({CAREERS_MAX_SCRAPES}/day)"),
         ("Unstop", fetch_unstop_jobs, "broad+rotation"),
         ("Adzuna", fetch_adzuna_jobs, "full"),
         ("Internshala", fetch_internshala_jobs, "full"),
         ("Naukri", fetch_naukri_jobs, "broad+rotation"),
         ("Indeed", fetch_indeed_jobs, "broad"),
+        # Careers last — slowest source; time-budgeted in CI so email still sends
+        ("Careers Web", fetch_careers_jobs, f"rotation ({CAREERS_MAX_SCRAPES}/day)"),
     ]
     all_jobs: list[Job] = []
     for name, fn, mode in collectors:
