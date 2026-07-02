@@ -98,8 +98,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Paytm",
       "dry_run": false,
       "sent_at": "2026-06-25T05:24:44.075100+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-02T10:17:18.564115+00:00"
     },
     "shivani.sahraot@phonepe.com": {
       "email": "shivani.sahraot@phonepe.com",
@@ -856,7 +857,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 5
+    "total_followups": 6
   },
   "daily_log": {
     "2026-06-24": {
@@ -1010,7 +1011,15 @@
         "juspay",
         "palantir"
       ]
+    },
+    "2026-07-02": {
+      "emails": [
+        "hr@paytm.com"
+      ],
+      "companies": [
+        "paytm"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-01T12:19:57.079702+00:00"
+  "last_live_send_at": "2026-07-02T10:17:18.564103+00:00"
 }
