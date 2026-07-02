@@ -242,7 +242,6 @@
     "avalara",
     "shopback",
     "tesco",
-    ".git",
     "drawbridge",
     "zillow",
     "jtg",
@@ -660,9 +659,40 @@
     "capital-one",
     "microsoft",
     "info-edge",
-    "sofi"
+    "sofi",
+    "accordion",
+    "aira-matrix",
+    "ami",
+    "bandhan-bank",
+    "delloite",
+    "dristee-foundation",
+    "easy-clinic",
+    "eil",
+    "epam",
+    "future-first",
+    "icici",
+    "idfc-first-bank",
+    "indiamart",
+    "indian-mines-planner",
+    "jk-tech",
+    "media-net-sre",
+    "mjunction",
+    "off-campus-adobe",
+    "off-campus-hackerearth",
+    "off-campus-npci",
+    "off-campus-skysecure-ai",
+    "off-campus-speedopus",
+    "off-campus-zorvyn",
+    "openlm",
+    "polestar-analytics",
+    "shree-cement",
+    "tcs-ine",
+    "tcs-nqt",
+    "trinamix-inc",
+    "videonetics",
+    "wtw"
   ],
-  "queue_index": 7,
+  "queue_index": 10,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -672,7 +702,10 @@
     "altimetrik": 1,
     "oppo": 1,
     "nordstrom": 1,
-    "jd": 1
+    "jd": 1,
+    "yandex": 1,
+    "cloudflare": 1,
+    "liveramp": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -698,7 +731,16 @@
     ],
     "jd": [
       "count-the-number-of-powerful-integers"
+    ],
+    "yandex": [
+      "find-k-closest-elements|longest-subarray-of-1s-after-deleting-one-element"
+    ],
+    "cloudflare": [
+      "design-circular-queue|design-a-stack-with-increment-operation"
+    ],
+    "liveramp": [
+      "shortest-unsorted-continuous-subarray|longest-harmonious-subsequence"
     ]
   },
-  "last_run": "2026-06-29T14:03:35.336351+00:00"
+  "last_run": "2026-07-02T06:05:55.930149+00:00"
 }

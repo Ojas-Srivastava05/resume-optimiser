@@ -30,8 +30,9 @@
       "subject": "SVNIT AI student \u2014 Paypal intern question",
       "dry_run": false,
       "sent_at": "2026-06-24T13:23:46.018311+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-06-30T10:42:07.869474+00:00"
     },
     "swapnil.mishra@cars24.com": {
       "email": "swapnil.mishra@cars24.com",
@@ -46,8 +47,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Cars24",
       "dry_run": false,
       "sent_at": "2026-06-24T13:31:13.553493+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-06-30T11:58:28.478735+00:00"
     },
     "miskin.shravani@juspay.in": {
       "email": "miskin.shravani@juspay.in",
@@ -62,8 +64,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Juspay",
       "dry_run": false,
       "sent_at": "2026-06-25T05:23:11.416999+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-01T10:51:55.063214+00:00"
     },
     "careers@palantir.com": {
       "email": "careers@palantir.com",
@@ -78,8 +81,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Palantir",
       "dry_run": false,
       "sent_at": "2026-06-25T05:23:57.765855+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-01T12:19:57.079717+00:00"
     },
     "hr@paytm.com": {
       "email": "hr@paytm.com",
@@ -94,8 +98,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Paytm",
       "dry_run": false,
       "sent_at": "2026-06-25T05:24:44.075100+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-02T10:17:18.564115+00:00"
     },
     "shivani.sahraot@phonepe.com": {
       "email": "shivani.sahraot@phonepe.com",
@@ -852,7 +857,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 1
+    "total_followups": 6
   },
   "daily_log": {
     "2026-06-24": {
@@ -986,7 +991,35 @@
         "cerebras",
         "meesho"
       ]
+    },
+    "2026-06-30": {
+      "emails": [
+        "r.chandrasi1996@gmail.com",
+        "swapnil.mishra@cars24.com"
+      ],
+      "companies": [
+        "paypal",
+        "cars24"
+      ]
+    },
+    "2026-07-01": {
+      "emails": [
+        "miskin.shravani@juspay.in",
+        "careers@palantir.com"
+      ],
+      "companies": [
+        "juspay",
+        "palantir"
+      ]
+    },
+    "2026-07-02": {
+      "emails": [
+        "hr@paytm.com"
+      ],
+      "companies": [
+        "paytm"
+      ]
     }
   },
-  "last_live_send_at": "2026-06-29T13:51:36.889492+00:00"
+  "last_live_send_at": "2026-07-02T10:17:18.564103+00:00"
 }
