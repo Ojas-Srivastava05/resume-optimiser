@@ -692,7 +692,7 @@
     "videonetics",
     "wtw"
   ],
-  "queue_index": 9,
+  "queue_index": 10,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -704,7 +704,8 @@
     "nordstrom": 1,
     "jd": 1,
     "yandex": 1,
-    "cloudflare": 1
+    "cloudflare": 1,
+    "liveramp": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -736,7 +737,10 @@
     ],
     "cloudflare": [
       "design-circular-queue|design-a-stack-with-increment-operation"
+    ],
+    "liveramp": [
+      "shortest-unsorted-continuous-subarray|longest-harmonious-subsequence"
     ]
   },
-  "last_run": "2026-07-01T06:39:27.094026+00:00"
+  "last_run": "2026-07-02T06:05:55.930149+00:00"
 }
