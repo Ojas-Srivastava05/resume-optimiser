@@ -132,8 +132,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Samsung",
       "dry_run": false,
       "sent_at": "2026-06-25T05:26:16.552247+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-03T10:12:55.293026+00:00"
     },
     "talenthelp@am.sony.com": {
       "email": "talenthelp@am.sony.com",
@@ -858,7 +859,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 7
+    "total_followups": 8
   },
   "daily_log": {
     "2026-06-24": {
@@ -1022,7 +1023,15 @@
         "paytm",
         "phonepe"
       ]
+    },
+    "2026-07-03": {
+      "emails": [
+        "emergingtalent@samsung.com"
+      ],
+      "companies": [
+        "samsung"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-02T11:52:57.041435+00:00"
+  "last_live_send_at": "2026-07-03T10:12:55.293013+00:00"
 }
