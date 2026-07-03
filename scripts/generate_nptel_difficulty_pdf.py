@@ -11,8 +11,9 @@ from pathlib import Path
 from fpdf import FPDF
 
 ROOT = Path(__file__).resolve().parents[1]
-STATS_PATH = ROOT / "NPTEL-STATS-FULL.json"
-OUT = ROOT / "NPTEL-Course-Difficulty-Ranking-2026.pdf"
+NPTEL_DIR = ROOT / "Reference Collection" / "NPTEL"
+STATS_PATH = NPTEL_DIR / "NPTEL-STATS-FULL.json"
+OUT = NPTEL_DIR / "NPTEL-Course-Difficulty-Ranking-2026.pdf"
 
 ENROLLMENT = {
     "noc26_cs161": 13515, "noc26_cs157": 6188, "noc26_cs141": 4705, "noc26_cs160": 4387,
@@ -404,7 +405,7 @@ def build_pdf():
     pdf.portrait_margins()
     pdf.section("References")
     pdf.bullet("NPTEL Stats API: https://nptel.ac.in/api/stats/{nid}")
-    pdf.bullet("Raw JSON: NPTEL-STATS-FULL.json (repo root)")
+    pdf.bullet("Raw JSON: Reference Collection/NPTEL/NPTEL-STATS-FULL.json")
     pdf.bullet("Regenerate: python scripts/generate_nptel_difficulty_pdf.py")
     pdf.ln(6)
     pdf.para(

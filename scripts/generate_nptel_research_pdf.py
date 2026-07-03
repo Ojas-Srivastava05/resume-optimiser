@@ -5,7 +5,12 @@ from pathlib import Path
 
 from fpdf import FPDF
 
-OUT = Path(__file__).resolve().parents[1] / "NPTEL-MOOC-Research-SVNIT-NPTEL.pdf"
+OUT = (
+    Path(__file__).resolve().parents[1]
+    / "Reference Collection"
+    / "NPTEL"
+    / "NPTEL-MOOC-Research-SVNIT-NPTEL.pdf"
+)
 
 
 class Brief(FPDF):
