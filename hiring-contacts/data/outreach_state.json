@@ -149,8 +149,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Sony",
       "dry_run": false,
       "sent_at": "2026-06-25T05:27:03.111689+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-03T11:50:47.698668+00:00"
     },
     "accessiblecareers@splunk.com": {
       "email": "accessiblecareers@splunk.com",
@@ -859,7 +860,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 8
+    "total_followups": 9
   },
   "daily_log": {
     "2026-06-24": {
@@ -1026,12 +1027,14 @@
     },
     "2026-07-03": {
       "emails": [
-        "emergingtalent@samsung.com"
+        "emergingtalent@samsung.com",
+        "talenthelp@am.sony.com"
       ],
       "companies": [
-        "samsung"
+        "samsung",
+        "sony"
       ]
     }
   },
-  "last_live_send_at": "2026-07-03T10:12:55.293013+00:00"
+  "last_live_send_at": "2026-07-03T11:50:47.698654+00:00"
 }
