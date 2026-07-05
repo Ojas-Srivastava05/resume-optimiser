@@ -692,7 +692,7 @@
     "videonetics",
     "wtw"
   ],
-  "queue_index": 12,
+  "queue_index": 13,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -707,7 +707,8 @@
     "cloudflare": 1,
     "liveramp": 1,
     "grammarly": 1,
-    "discovery": 1
+    "discovery": 1,
+    "bt-group": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -748,7 +749,10 @@
     ],
     "discovery": [
       "merge-intervals"
+    ],
+    "bt-group": [
+      "minimum-number-game"
     ]
   },
-  "last_run": "2026-07-04T05:52:07.065307+00:00"
+  "last_run": "2026-07-05T06:11:45.276148+00:00"
 }
