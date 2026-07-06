@@ -88,6 +88,12 @@ def main() -> int:
 
 	if not targets:
 		if not args.dry_run:
+			if daily_remaining_quota() <= 0:
+				print(
+					f"Daily cap reached ({daily_sent_count()}/{DEFAULT_DAILY_CAP} sent today IST). "
+					"Next sends tomorrow."
+				)
+				return 0
 			wait = seconds_until_next_send_allowed()
 			if wait > 0:
 				mins = (wait + 59) // 60

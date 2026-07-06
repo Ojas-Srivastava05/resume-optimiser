@@ -2,10 +2,16 @@ name: Cold Outreach (Summer 2027)
 
 on:
   schedule:
-    # Mon–Fri: 1 email per hour at 13:00 / 14:00 / 15:00 IST (max 3/day)
-    - cron: "30 7 * * 1-5"   # 13:00 IST
-    - cron: "30 8 * * 1-5"   # 14:00 IST
-    - cron: "30 9 * * 1-5"   # 15:00 IST
+    # Mon–Fri hourly 13:00–17:00 IST (07:30–11:30 UTC). Script enforces 3/day + 1h gap.
+    - cron: "30 7-11 * * 1-5"
+    # Late catch-up if GitHub skips earlier slots (18:00 / 18:30 IST)
+    - cron: "30 12 * * 1-5"
+    - cron: "0 13 * * 1-5"
+  # Backup when morning Internship Scout finishes (weekdays only; gated in job)
+  workflow_run:
+    workflows: ["Internship Scout Daily"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
     inputs:
       dry_run:
@@ -35,7 +41,30 @@ defaults:
     working-directory: hiring-contacts
 
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.decide.outputs.should_run }}
+    steps:
+      - id: decide
+        run: |
+          SHOULD=true
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            if [ "${{ github.event.workflow_run.conclusion }}" != "success" ]; then
+              echo "Skip: Internship Scout did not succeed."
+              SHOULD=false
+            fi
+            DOW=$(TZ=Asia/Kolkata date +%u)
+            if [ "$DOW" -ge 6 ]; then
+              echo "Skip: weekend workflow_run backup."
+              SHOULD=false
+            fi
+          fi
+          echo "should_run=$SHOULD" >> "$GITHUB_OUTPUT"
+
   outreach:
+    needs: gate
+    if: needs.gate.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -76,7 +105,7 @@ jobs:
           COLD_EMAIL_MAX_PER_RUN: "1"
           COLD_EMAIL_MIN_INTERVAL_SEC: "3600"
           COLD_EMAIL_MAX_PER_COMPANY_PER_DAY: "1"
-          # Scheduled runs always live. Manual dispatch uses dry_run input (boolean).
+          # Scheduled + workflow_run runs are live. Manual dispatch uses dry_run input.
           OUTREACH_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run }}
           OUTREACH_FOLLOWUPS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.followups_only }}
         run: |
@@ -88,6 +117,7 @@ jobs:
           if [ "$OUTREACH_FOLLOWUPS" = "true" ]; then
             FLAGS="$FLAGS --followups"
           fi
+          echo "Trigger: ${{ github.event_name }} at $(TZ=Asia/Kolkata date '+%F %H:%M %Z')"
           python3 cold_outreach.py $FLAGS
 
       - name: Commit outreach state

@@ -24,7 +24,7 @@
 | **~965** | companies in the scout universe |
 | **10,700+** | harvested hiring contacts |
 | **8,700+** | outreach-eligible emails (MX-verified, tiered) |
-| **3/day** | cold emails max (1 per hour: 1–3 PM IST weekdays) |
+| **3/day** | cold emails max (hourly 1–5 PM IST weekdays + backups) |
 | **6** | GitHub Actions workflows — zero manual triggers needed |
 
 ---
@@ -269,7 +269,7 @@ sequenceDiagram
 
     Cron->>Scout: 8 AM IST daily
     Scout->>Gmail: Job digest email
-    Cron->>Cold: 1 PM / 2 PM / 3 PM IST Mon to Fri
+    Cron->>Cold: hourly 1–5 PM IST Mon–Fri (+ scout backup)
     Cold->>Cold: discover 30 companies
     Cold->>Gmail: Send 1 email per run (max 3/day)
     Cold->>Cold: Commit outreach state
@@ -289,6 +289,6 @@ sequenceDiagram
 
 <div align="center">
 
-*Built to run while you sleep — scout in the morning, practice at lunch, outreach at 1–3 PM (max 3/day).*
+*Built to run while you sleep — scout in the morning, practice at lunch, outreach hourly 1–5 PM (max 3/day).*
 
 </div>

@@ -82,6 +82,7 @@ def is_outreach_eligible(row: dict) -> tuple[bool, str]:
 	email = (row.get("email") or "").strip().lower()
 	if not email:
 		return False, "missing_email"
+	# Always enforce blocklist + local-part rules (even for discover:career_portal).
 	if is_blocked(email):
 		return False, "blocklist"
 	if _local_part_blocked(email):

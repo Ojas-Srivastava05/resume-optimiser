@@ -6,7 +6,7 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 
 | Principle | Implementation |
 |-----------|----------------|
-| **Quality > volume** | Default **3 emails/day**, **1 per run**, ≥1h apart (1 PM / 2 PM / 3 PM IST cron) |
+| **Quality > volume** | Default **3 emails/day**, **1 per run**, ≥1h apart (hourly 1–5 PM IST + backups) |
 | **Short body** | Bullet layout; direct opener; one clear ask |
 | **Specific ask** | 10-min call or campus recruiting / referral pointer |
 | **Proof in bullets** | School, LogiFlow, IFFCO, CP stats, stack — not dense paragraphs |
@@ -16,7 +16,7 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 | **One follow-up** | Auto after **5 days**, max 1 follow-up per contact |
 | **Resume attached** | `ojas_srivastava_resume.pdf` (generic filename, company-agnostic) |
 | **Links block** | Portfolio, GitHub, LinkedIn, LeetCode, Codeforces, LogiFlow live + repo |
-| **Weekday sends** | GitHub Action schedule (Mon–Fri 1 PM / 2 PM / 3 PM IST, 1 email each) |
+| **Weekday sends** | GitHub Action schedule (Mon–Fri hourly 1–5 PM IST + backup after Internship Scout, 1 email each) |
 
 ## What does NOT work
 
@@ -28,7 +28,7 @@ Derived from 2025–2026 internship cold-email research ([InterviewChamp](https:
 ## Recommended weekly rhythm
 
 1. **Sun** — `refresh_all.py` updates contact DB (GitHub Action)
-2. **Mon–Fri** — up to 3 cold emails/day (one per hour slot: 1 PM, 2 PM, 3 PM IST)
+2. **Mon–Fri** — up to 3 cold emails/day (hourly slots 1–5 PM IST; script enforces 1h gap)
 3. **Same day** — LinkedIn connection note to same person (manual, not automated yet)
 4. **Day 5+** — follow-up queue picks up non-replies automatically
 
