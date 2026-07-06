@@ -166,8 +166,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Splunk",
       "dry_run": false,
       "sent_at": "2026-06-25T05:27:49.489225+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-06T11:46:10.922612+00:00"
     },
     "ta-recruitment@tesla.com": {
       "email": "ta-recruitment@tesla.com",
@@ -860,7 +861,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 9
+    "total_followups": 10
   },
   "daily_log": {
     "2026-06-24": {
@@ -1034,7 +1035,15 @@
         "samsung",
         "sony"
       ]
+    },
+    "2026-07-06": {
+      "emails": [
+        "accessiblecareers@splunk.com"
+      ],
+      "companies": [
+        "splunk"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-03T11:50:47.698654+00:00"
+  "last_live_send_at": "2026-07-06T11:46:10.922599+00:00"
 }
