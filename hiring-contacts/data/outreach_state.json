@@ -183,8 +183,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Tesla",
       "dry_run": false,
       "sent_at": "2026-06-25T05:28:35.864036+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-06T13:04:12.421878+00:00"
     },
     "accessibility@autodesk.com": {
       "email": "accessibility@autodesk.com",
@@ -861,7 +862,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 10
+    "total_followups": 11
   },
   "daily_log": {
     "2026-06-24": {
@@ -1038,12 +1039,14 @@
     },
     "2026-07-06": {
       "emails": [
-        "accessiblecareers@splunk.com"
+        "accessiblecareers@splunk.com",
+        "ta-recruitment@tesla.com"
       ],
       "companies": [
-        "splunk"
+        "splunk",
+        "tesla"
       ]
     }
   },
-  "last_live_send_at": "2026-07-06T11:46:10.922599+00:00"
+  "last_live_send_at": "2026-07-06T13:04:12.421864+00:00"
 }
