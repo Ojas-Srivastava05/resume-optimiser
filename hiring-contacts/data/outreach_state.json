@@ -200,8 +200,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Autodesk",
       "dry_run": false,
       "sent_at": "2026-06-25T05:29:22.163565+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-06T16:01:42.259953+00:00"
     },
     "yourresourcingsupport@barclays.com": {
       "email": "yourresourcingsupport@barclays.com",
@@ -862,7 +863,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 11
+    "total_followups": 12
   },
   "daily_log": {
     "2026-06-24": {
@@ -1040,13 +1041,15 @@
     "2026-07-06": {
       "emails": [
         "accessiblecareers@splunk.com",
-        "ta-recruitment@tesla.com"
+        "ta-recruitment@tesla.com",
+        "accessibility@autodesk.com"
       ],
       "companies": [
         "splunk",
-        "tesla"
+        "tesla",
+        "autodesk"
       ]
     }
   },
-  "last_live_send_at": "2026-07-06T13:04:12.421864+00:00"
+  "last_live_send_at": "2026-07-06T16:01:42.259938+00:00"
 }
