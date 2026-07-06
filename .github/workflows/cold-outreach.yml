@@ -43,6 +43,9 @@ defaults:
 jobs:
   gate:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     outputs:
       should_run: ${{ steps.decide.outputs.should_run }}
     steps:
