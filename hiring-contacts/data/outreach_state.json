@@ -251,8 +251,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Cerebras",
       "dry_run": false,
       "sent_at": "2026-06-25T07:02:09.059165+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-07T10:31:24.265020+00:00"
     },
     "abhinavsingh.k@flipkart.com": {
       "email": "abhinavsingh.k@flipkart.com",
@@ -865,7 +866,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 14
+    "total_followups": 15
   },
   "daily_log": {
     "2026-06-24": {
@@ -1055,13 +1056,15 @@
     "2026-07-07": {
       "emails": [
         "yourresourcingsupport@barclays.com",
-        "gursharan.kaur@cars24.com"
+        "gursharan.kaur@cars24.com",
+        "tom@cerebras.net"
       ],
       "companies": [
         "barclays",
-        "cars24"
+        "cars24",
+        "cerebras"
       ]
     }
   },
-  "last_live_send_at": "2026-07-07T06:32:25.424112+00:00"
+  "last_live_send_at": "2026-07-07T10:31:24.264953+00:00"
 }
