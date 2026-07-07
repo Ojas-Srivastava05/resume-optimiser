@@ -1,0 +1,136 @@
+%-------------------------
+% Resume - AlphaGrep Securities | Software Development Intern (Core Engineering)
+% Ojas Srivastava | India | One page | ATS + HFT systems alignment
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{left=1.2cm, top=0.4cm, right=1.2cm, bottom=0.4cm}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.8cm}}
+
+\titleformat{\section}{
+  \large\bfseries\raggedright
+}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{5pt}{2pt}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{0.5mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & #4 \\
+    \textit{#3} & \textit{#2} \\
+  \end{tabularx}
+  \vspace{-0.5mm}
+}
+
+\newcommand{\resumeProject}[4]{
+  \vspace{0.5mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & \textit{#3} \\
+    \textit{#2} & #4 \\
+  \end{tabularx}
+  \vspace{-0.5mm}
+}
+
+\setlist[itemize]{leftmargin=*, topsep=0.5pt, itemsep=-0.5pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[1mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  Mumbai / Bengaluru, India \\[0.5mm]
+  \href{https://linkedin.com/in/ojas-srivastava05}{linkedin.com/in/ojas-srivastava05} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{github.com/Ojas-Srivastava05} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{ojas-srivastava.vercel.app}
+\end{center}
+
+\vspace{-1mm}
+
+\section{Education}
+\small
+\resumeSubheading
+  {Bachelor of Technology in Artificial Intelligence (Computer Science and Engineering)}{Expected May 2028}
+  {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat, India}{CGPA: 9.20/10}
+\begin{itemize}
+  \item \textbf{Relevant Coursework:} Data Structures and Algorithms, Object-Oriented Programming, Operating Systems, Computer Networks (TCP/IP), DBMS, Distributed Systems, Probability and Statistics, Linear Algebra, Machine Learning
+  \item \textbf{Target Role:} Software Development Intern, Core Engineering --- proprietary low-latency trading systems and simulation tooling
+\end{itemize}
+
+\section{Experience}
+\small
+\resumeSubheading
+  {Software Engineering Intern}{Jun 2025 -- Jul 2025}
+  {IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj, India}{}
+\begin{itemize}
+  \item Designed, developed, and tested production web services on \textbf{Linux} through full SDLC: requirements, object-oriented design, implementation, unit testing, and deployment (\textbf{Docker}, CI/CD).
+  \item Built \textbf{10+ RESTful APIs} with optimized \textbf{SQL} (indexing, joins) serving \textbf{50+ daily} workflows; debugged production issues and communicated trade-offs to cross-functional stakeholders.
+\end{itemize}
+
+\section{Projects}
+\small
+
+\resumeProject
+  {OA Forge -- C++ Online Assessment Judge and Practice Platform}
+  {C++17, Linux, g++, Next.js, PostgreSQL, Supabase, GitHub Actions}
+  {Jun 2026 -- Present}
+  {\href{https://github.com/Ojas-Srivastava05/resume-optimiser}{GitHub}}
+\begin{itemize}
+  \item Built hybrid \textbf{C++ code judge} with local \textbf{g++} compilation (\texttt{-std=c++17 -O2}), subprocess sandboxing, and remote fallback --- timed mock OA sessions over \textbf{14K+} evidence-tracked question occurrences and \textbf{5.5K+} test cases.
+  \item Implemented \textbf{object-oriented} test harness generation, STL-based I/O parsing, and automated verdict pipelines; primary language for contest-style implementation is \textbf{C++}.
+\end{itemize}
+
+\resumeProject
+  {LogiFlow -- Large-Scale Data and Simulation Platform (Google Solution Challenge 2026, Global Top 106)}
+  {C++, Python, FastAPI, Redis, SQL, GCP, pytest, Git}
+  {Apr 2026 -- Jun 2026}
+  {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app/}{Live}}
+\begin{itemize}
+  \item Engineered \textbf{latency-aware} read paths (\textbf{100--400 ms}) across \textbf{580+ corridors} and \textbf{9,526 stations} using Redis caching and modular service design --- separating hot data access from heavy compute.
+  \item Acquired and modeled \textbf{15,650 train-day} operational records; built Gradient Boosting delay simulator (MAE \textbf{22.7 min}) with \textbf{100/100} pytest regression validations for reproducible strategy-style experimentation.
+\end{itemize}
+
+\resumeProject
+  {AirHelp -- Real-Time Concurrent Services (PowerMind Hackathon 2026)}
+  {Python, FastAPI, WebSockets, NetworkX, ChromaDB, SQL}
+  {2026}
+  {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Shipped \textbf{real-time} alert and voice services over \textbf{WebSocket} streams with graph-based \textbf{A*} routing; profiled and tuned \textbf{1--3s} response latency under \textbf{50--100 concurrent} connections.
+\end{itemize}
+
+\section{Technical Skills}
+\small
+\begin{itemize}[label={}]
+  \item \textbf{Programming Languages:} C++ (STL, C++17), C, Python, SQL, JavaScript, TypeScript
+  \item \textbf{Software Engineering:} Object-oriented design, data structures, algorithms, debugging, code review, unit testing, Agile, clear technical communication
+  \item \textbf{Systems and Performance:} Linux/Unix, network programming (TCP/IP, WebSockets), multi-threaded and concurrent applications, real-time programming, distributed computation, low-latency design, Docker, Git, CI/CD
+  \item \textbf{Data and Tools:} Redis, MySQL, PostgreSQL, MongoDB, FastAPI, pytest, computational intelligence (ML, feature engineering)
+\end{itemize}
+
+\section{Problem Solving and Interests}
+\small
+\begin{itemize}
+  \item \textbf{LeetCode Knight} (rating \textbf{2048}, \textbf{637} problems, 32 contests) \textbar{} \textbf{Codeforces Specialist} (rating \textbf{1457}, \textbf{207} solved) --- primary implementation language \textbf{C++}; \href{https://leetcode.com/Oju_Srivastava}{LeetCode} \textbar{} \href{https://codeforces.com/profile/Oju}{Codeforces}
+  \item Google Solution Challenge 2026 Global Top 106; Executive Member, ACM SVNIT; Mentor, Nexus SVNIT (DSA and competitive programming)
+  \item Active interest in \textbf{financial markets}, systematic trading, and building robust, fast software for data-intensive domains
+\end{itemize}
+
+\end{document}
