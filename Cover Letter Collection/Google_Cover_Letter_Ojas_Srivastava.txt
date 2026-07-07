@@ -4,7 +4,7 @@ I am writing to express my strong interest in the Software Engineering Intern po
 
 My technical foundation is rooted in strong algorithmic problem-solving and systems design:
 
-Algorithms and Systems Foundations: I am a LeetCode Knight (Peak Rating: 2048, 636 problems solved) and a Codeforces Specialist. My coursework in Data Structures, Operating Systems, Computer Networks, and Distributed Systems has prepared me to tackle complex software engineering problems.
+Algorithms and Systems Foundations: I am a LeetCode Knight (Peak Rating: 2048, 636 problems solved) and a Codeforces Specialist (1419). My coursework in Data Structures, Operating Systems, Computer Networks, and Distributed Systems has prepared me to tackle complex software engineering problems.
 
 LogiFlow (Google Solution Challenge Top 100): I co-led the backend and deployment for this multi-modal logistics platform. To handle high traffic, I deployed the application to GCP Cloud Run with optimized memory/CPU limits and implemented dynamic runtime Google OAuth. To solve critical latency issues under serverless timeouts, I built progressive result streaming over HTTP and engineered a Supabase gzip-compressed caching layer, reducing hot read-path query times to 100-400 ms.
 

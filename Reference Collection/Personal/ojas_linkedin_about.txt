@@ -17,7 +17,7 @@ Recently, I've been building systems that hold up under real constraints:
 
 → RangRiti — Full-stack cultural marketplace I led as Technical Lead for a 4-person team: 40+ pages, booking/commerce flows, live on Render.
 
-I care about the fundamentals — DSA, OS, DBMS, networks, distributed systems — and back that up competitively: LeetCode Knight (2048), Codeforces Specialist (1457), and active problem-solving across platforms.
+I care about the fundamentals — DSA, OS, DBMS, networks, distributed systems — and back that up competitively: LeetCode Knight (2048), Codeforces Specialist (1419), and active problem-solving across platforms.
 
 On campus I'm an Executive Member at ACM SVNIT and Mentor at Nexus SVNIT, running DSA workshops, contests, and project mentoring.
 

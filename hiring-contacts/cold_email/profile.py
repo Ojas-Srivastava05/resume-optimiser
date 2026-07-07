@@ -22,7 +22,7 @@ PORTFOLIO = os.getenv("OUTREACH_PORTFOLIO", "https://ojas-srivastava.vercel.app"
 LEETCODE = os.getenv("OUTREACH_LEETCODE", "https://leetcode.com/Oju_Srivastava")
 CODEFORCES = os.getenv("OUTREACH_CODEFORCES", "https://codeforces.com/profile/Oju")
 LEETCODE_STAT = os.getenv("OUTREACH_LEETCODE_STAT", "Knight · Rating 2048 · 637+ solved · 32 contests")
-CODEFORCES_STAT = os.getenv("OUTREACH_CODEFORCES_STAT", "Specialist · Rating 1457 · 207+ solved")
+CODEFORCES_STAT = os.getenv("OUTREACH_CODEFORCES_STAT", "Specialist · Rating 1419 · 246+ solved")
 
 # Standout work (with live links where possible)
 LOGIFLOW_NAME = os.getenv("OUTREACH_LOGIFLOW_NAME", "LogiFlow")
