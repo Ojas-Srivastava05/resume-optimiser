@@ -217,8 +217,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Barclays",
       "dry_run": false,
       "sent_at": "2026-06-25T05:30:08.987159+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-07T02:34:06.220278+00:00"
     },
     "gursharan.kaur@cars24.com": {
       "email": "gursharan.kaur@cars24.com",
@@ -863,7 +864,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 12
+    "total_followups": 13
   },
   "daily_log": {
     "2026-06-24": {
@@ -1049,7 +1050,15 @@
         "tesla",
         "autodesk"
       ]
+    },
+    "2026-07-07": {
+      "emails": [
+        "yourresourcingsupport@barclays.com"
+      ],
+      "companies": [
+        "barclays"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-06T16:01:42.259938+00:00"
+  "last_live_send_at": "2026-07-07T02:34:06.220264+00:00"
 }
