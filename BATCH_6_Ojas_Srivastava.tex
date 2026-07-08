@@ -1,0 +1,173 @@
+%-------------------------
+% BATCH_6 — Ojas Srivastava | Skill Turtle batch format | Resume SOP
+% One page | ATS-friendly
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage{latexsym}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{left=1.1cm, top=0.35cm, right=1.1cm, bottom=0.35cm}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.6cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{4pt}{3pt}
+
+\newcommand{\sectionContentSpace}{\vspace{2mm}}
+
+\newcommand{\resumeEdu}[4]{%
+  \noindent\begin{tabularx}{\textwidth}[t]{L R}%
+    \textbf{#1} & \textit{\footnotesize #2} \\%
+    \textit{\footnotesize #3} & \textbf{\footnotesize #4} \\%
+  \end{tabularx}\vspace{-0.5mm}%
+}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.98\textwidth}[t]{L R}%
+    \textbf{#1} & \textit{\footnotesize #4} \\%
+    \textit{\footnotesize #3} & \footnotesize #2 \\%
+  \end{tabularx}\vspace{-2.5mm}%
+}
+
+\newcommand{\resumeProject}[3]{%
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.98\textwidth}[t]{L R}%
+    \textbf{#1} & \textit{\footnotesize #3} \\%
+    \textit{\footnotesize #2} & \\%
+  \end{tabularx}\vspace{1mm}%
+}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-1mm}}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[0.5mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.5mm]
+  \href{https://leetcode.com/Oju_Srivastava}{LeetCode} \textbar{}
+  \href{https://www.codechef.com/users/ojassrivastava}{CodeChef} \textbar{}
+  \href{https://codeforces.com/profile/Oju}{Codeforces}
+\end{center}
+
+\vspace{-2mm}
+
+\section{Summary}
+\begin{justify}\small
+B.Tech Artificial Intelligence undergraduate at SVNIT Surat (CGPA 9.20/10, graduating May 2028) with strong foundations in DSA, OOP, DBMS, OS, and full-stack development. Built production services during an IFFCO internship, Google Solution Challenge Global Top 106 (LogiFlow), and 8+ live projects. LeetCode Knight (2048); built \textbf{Career Automation Stack} (965+ company internship scout, OA Forge with 14K+ questions) on GitHub.
+\end{justify}
+
+\section{Education}
+\small
+\resumeEdu
+  {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat}
+  {2024 -- 2028}
+  {B.Tech, Artificial Intelligence (Engineering) --- Surat, India}
+  {CGPA: 9.20/10}
+\resumeEdu
+  {Shiv Jyoti Convent School, Kota}
+  {2024}
+  {Senior Secondary (Class XII), CBSE}
+  {Percentage: 95.80\%}
+\resumeEdu
+  {St. Joseph's College, Prayagraj}
+  {2022}
+  {Secondary Education (Class X), ICSE}
+  {Percentage: 97.20\%}
+
+\section{Work Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Software Engineering Intern}{Jun 2025 -- Jul 2025}
+    {IFFCO --- Phulpur Unit, Prayagraj, India}{}
+    \resumeItemListStart
+      \item Built production full-stack services (\textbf{Node.js}, \textbf{Express}, \textbf{MySQL}) automating \textbf{50+ daily} enterprise workflows with JWT auth, input validation, and structured error handling.
+      \item Developed \textbf{10+ RESTful APIs} with optimized SQL; shipped via unit/integration testing, peer code review, \textbf{Docker}, and \textbf{CI/CD} with cross-functional stakeholders.
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \resumeProject
+    {LogiFlow --- Google Solution Challenge 2026 (Global Top 106)}
+    {Python, FastAPI, Next.js, TypeScript, Redis, Supabase, GCP Cloud Run, Scikit-learn, pytest}
+    {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app/}{Live}}
+    \resumeItemListStart
+      \item Co-led backend and UI delivery; engineered \textbf{100--400 ms} read paths across \textbf{580+ corridors} and \textbf{9,526 stations} using Redis caching and modular services.
+      \item Trained Gradient Boosting delay model on \textbf{15,650 train-days} (MAE \textbf{22.7 min}); built \textbf{100/100} pytest business-rule regression suite and documented REST APIs.
+    \resumeItemListEnd
+
+  \resumeProject
+    {Community Hero --- Google for Developers Vibe2Ship 2026}
+    {React, TypeScript, Express, Firebase, Firestore, Gemini, Cloud Run, Google Maps}
+    {\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
+    \resumeItemListStart
+      \item Solo-built hyperlocal civic reporting PWA on \textbf{Cloud Run} with geo-tagged reports, Firebase Auth, admin analytics, map explorer, and Postman-tested REST APIs.
+      \item Shipped Gemini categorization, SLA routing, community verification, and Open311 export---all eight hackathon features deployed to production.
+    \resumeItemListEnd
+
+  \resumeProject
+    {AirHelp --- PowerMind Hackathon 2026}
+    {Python, FastAPI, React, WebSockets, ChromaDB, NetworkX, RAG}
+    {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+    \resumeItemListStart
+      \item Shipped AI-powered airport companion with intent orchestration, RAG semantic search, and \textbf{WebSocket} real-time flight alerts.
+      \item Built graph-based \textbf{A*} navigation and tuned \textbf{1--3s} response latency for \textbf{50--100 concurrent} users with \textbf{95\%+} navigation accuracy.
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Skills}
+\sectionContentSpace
+\begin{itemize}[leftmargin=0.05in, label={}, topsep=0pt, parsep=0pt, partopsep=0pt, itemsep=0pt]
+  \small{\item{
+    \textbf{Languages:} C, C++, Python, Java, JavaScript, TypeScript, SQL \\[2pt]
+    \textbf{Frameworks \& Libraries:} React, Next.js, Node.js, Express.js, FastAPI, Tailwind CSS \\[2pt]
+    \textbf{Infrastructure \& Tools:} Git, GitHub Actions, Docker, CI/CD, MySQL, PostgreSQL, MongoDB, Redis, Supabase, Firebase, GCP Cloud Run, REST APIs, WebSockets \\[2pt]
+    \textbf{Data Structures \& Algorithms:} Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Dynamic Programming, Greedy Algorithms, Recursion, STL \\[2pt]
+    \textbf{Database Management Systems (DBMS):} SQL, Indexing, Normalization, Joins, Transactions, ACID Properties, Primary \& Foreign Keys \\[2pt]
+    \textbf{Operating Systems (OS):} Processes \& Threads, CPU Scheduling, Synchronization, Deadlocks, Virtual Memory, Paging \\[2pt]
+    \textbf{Computer Networks (CN):} TCP/IP, UDP, DNS, HTTP/HTTPS, Socket Programming, Routing, REST APIs
+  }}
+\end{itemize}
+
+\section{Position of Responsibility}
+\sectionContentSpace
+\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep, topsep=4pt, parsep=0pt, partopsep=0pt, labelsep=1.2mm, itemsep=2pt]\small
+  \item \textbf{Executive Member | ACM SVNIT Surat} (2024 -- Present) --- Organized DSA workshops, coding contests, and technical events for campus programming culture.
+  \item \textbf{DSA Mentor \& Representative | Nexus SVNIT} (2024 -- Present) --- Mentor juniors in programming fundamentals, DSA, and competitive programming for campus technical initiatives.
+\end{itemize}
+
+\section{Achievements}
+\sectionContentSpace
+\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep, topsep=4pt, parsep=0pt, partopsep=0pt, labelsep=1.2mm, itemsep=2pt]\small
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 106} (LogiFlow); \textbf{Vibe2Ship 2026} (Community Hero); \textbf{PowerMind Hackathon 2026} (AirHelp); \textbf{McKinsey.org Forward Fellow} (2026).
+  \item \textbf{LeetCode Knight} --- peak rating \textbf{2048}, \textbf{637+} problems solved; \textbf{Codeforces Specialist} --- rating \textbf{1419}; \textbf{CodeChef 2\textsuperscript{$\star$}} --- rating \textbf{1536}; \textbf{Technical Lead}, RangRiti (Web Wonders 2025).
+\end{itemize}
+
+\end{document}

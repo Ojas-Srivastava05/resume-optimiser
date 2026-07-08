@@ -1,8 +1,10 @@
 %-------------------------
-% Resume - Wells Fargo Technology Program Intern 2027 | Ojas Srivastava
-% R-557386 | Workday ATS + WF early-careers format | One page
+% FINAL — Wells Fargo Technology Program Intern 2027 | Ojas Srivastava
+% R-557386 | BATCH_6 layout + WF ATS content | One page | Submit-ready
 %-------------------------
 \documentclass[a4paper,10pt]{article}
+\usepackage{latexsym}
+\usepackage{ragged2e}
 \usepackage[empty]{fullpage}
 \usepackage{tabularx}
 \usepackage{titlesec}
@@ -12,127 +14,154 @@
 \usepackage[T1]{fontenc}
 
 \pagestyle{empty}
-\geometry{left=1.2cm, top=0.4cm, right=1.2cm, bottom=0.4cm}
+\geometry{left=1.1cm, top=0.35cm, right=1.1cm, bottom=0.35cm}
 
 \urlstyle{same}
 \raggedright
 \setlength{\tabcolsep}{0in}
+\setlength{\parskip}{0pt}
 
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.8cm}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.6cm}}
 
-\titleformat{\section}{
-  \large\bfseries\raggedright
-}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{5pt}{2pt}
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{4pt}{3pt}
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{0.5mm}
-  \noindent
-  \begin{tabularx}{\textwidth}[t]{L R}
-    \textbf{#1} & #4 \\
-    \textit{#3} & \textit{#2} \\
-  \end{tabularx}
-  \vspace{-0.5mm}
+\newcommand{\sectionContentSpace}{\vspace{2mm}}
+
+\newcommand{\resumeEdu}[4]{%
+  \noindent\begin{tabularx}{\textwidth}[t]{L R}%
+    \textbf{#1} & \textit{\footnotesize #2} \\%
+    \textit{\footnotesize #3} & \textbf{\footnotesize #4} \\%
+  \end{tabularx}\vspace{-0.5mm}%
 }
 
-\newcommand{\resumeProject}[4]{
-  \vspace{0.5mm}
-  \noindent
-  \begin{tabularx}{\textwidth}[t]{L R}
-    \textbf{#1} & \textit{#3} \\
-    \textit{#2} & #4 \\
-  \end{tabularx}
-  \vspace{-0.5mm}
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.98\textwidth}[t]{L R}%
+    \textbf{#1} & \textit{\footnotesize #4} \\%
+    \textit{\footnotesize #3} & \footnotesize #2 \\%
+  \end{tabularx}\vspace{-2.5mm}%
 }
 
-\setlist[itemize]{leftmargin=*, topsep=0.5pt, itemsep=-0.5pt, parsep=0pt, partopsep=0pt}
+\newcommand{\resumeProject}[3]{%
+  \vspace{0.5mm}\item
+  \begin{tabularx}{0.98\textwidth}[t]{L R}%
+    \textbf{#1} & \textit{\footnotesize #3} \\%
+    \textit{\footnotesize #2} & \\%
+  \end{tabularx}\vspace{1mm}%
+}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-1mm}}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
 
 \begin{document}
 \fontfamily{cmr}\selectfont
 
 \begin{center}
-  {\LARGE \textbf{Ojas Srivastava}} \\[1mm]
+  {\LARGE \textbf{Ojas Srivastava}} \\[0.5mm]
+  \small\textit{Technology Program Intern 2027 \textbar{} Requisition R-557386} \\[0.5mm]
   \small
   +91-7424978046 \textbar{}
   \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
   Bengaluru / Hyderabad, India \\[0.5mm]
-  \href{https://linkedin.com/in/ojas-srivastava05}{linkedin.com/in/ojas-srivastava05} \textbar{}
-  \href{https://github.com/Ojas-Srivastava05}{github.com/Ojas-Srivastava05} \textbar{}
-  \href{https://ojas-srivastava.vercel.app}{ojas-srivastava.vercel.app}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \textbar{}
+  \href{https://leetcode.com/Oju_Srivastava}{LeetCode} \textbar{}
+  \href{https://codeforces.com/profile/Oju}{Codeforces}
 \end{center}
 
-\vspace{-1mm}
+\vspace{-2mm}
 
 \section{Education}
 \small
-\resumeSubheading
-  {Bachelor of Technology in Artificial Intelligence (Engineering)}{Expected May 2028}
-  {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat, India}{CGPA: 9.20/10}
-\begin{itemize}
+\resumeEdu
+  {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat}
+  {2024 -- 2028}
+  {B.Tech, Artificial Intelligence (Engineering) --- Bachelor's degree in Engineering, Surat, India}
+  {CGPA: 9.20/10}
+\resumeEdu
+  {Shiv Jyoti Convent School, Kota}
+  {2024}
+  {Senior Secondary (Class XII), CBSE}
+  {Percentage: 95.80\%}
+\resumeEdu
+  {St. Joseph's College, Prayagraj}
+  {2022}
+  {Secondary Education (Class X), ICSE}
+  {Percentage: 97.20\%}
+\vspace{1mm}
+\begin{itemize}[leftmargin=*, topsep=2pt, itemsep=0pt, parsep=0pt]
+  \item \textbf{Expected Graduation:} May 2028 (eligible window: March 2028 -- August 2028)
   \item \textbf{Relevant Coursework:} Data Structures and Algorithms, Object-Oriented Programming (Java), Software Engineering, DBMS, Operating Systems, Computer Networks
-  \item \textbf{Availability:} Summer 2027 Technology Program Internship (May 2027 -- August 2027) \textbar{} Requisition R-557386
+  \item \textbf{Availability:} Summer 2027 Technology Program Internship (May 2027 -- August 2027) \textbar{} \textbf{6+ months} equivalent software experience through production internship, coursework, and shipped projects
 \end{itemize}
 
 \section{Experience}
-\small
-\resumeSubheading
-  {Software Engineering Intern}{Jun 2025 -- Jul 2025}
-  {IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj, India}{}
-\begin{itemize}
-  \item Collaborated with cross-functional stakeholders through the software development life cycle (SDLC): requirements gathering, design, implementation, unit testing, and deployment of production web services (Python, Node.js, Express.js, MySQL, SQL).
-  \item Built 10+ RESTful APIs with optimized SQL (indexing, joins); automated 50+ daily workflows with input validation, authentication, and structured error handling.
-  \item Conducted debugging, peer code review, and CI/CD with Docker; communicated technical status to managers and internal users.
-\end{itemize}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Software Engineering Intern}{Jun 2025 -- Jul 2025}
+    {IFFCO (Indian Farmers Fertiliser Cooperative) --- Phulpur Unit, Prayagraj, India}{}
+    \resumeItemListStart
+      \item Delivered production enterprise web services through the full \textbf{Software Development Life Cycle (SDLC)} with cross-functional stakeholders: requirements gathering, design, implementation, \textbf{unit testing}, \textbf{integration testing}, and deployment (\textbf{Python}, \textbf{Node.js}, \textbf{MySQL}, \textbf{SQL}) on \textbf{Linux} with \textbf{Docker} and \textbf{CI/CD}.
+      \item Built \textbf{10+ RESTful APIs} with optimized \textbf{SQL} (indexing, joins); automated \textbf{50+ daily operational workflows} with \textbf{secure coding} (JWT authentication, input validation, structured error handling) for internal production users.
+      \item Conducted \textbf{debugging}, peer \textbf{code review}, and production issue triage; documented APIs and communicated technical concepts in \textbf{English} to managers and non-engineering stakeholders in an \textbf{Agile} delivery environment.
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
 
 \section{Projects}
-\small
+\resumeSubHeadingListStart
 
-\resumeProject
-  {LogiFlow -- Logistics Decision Platform (Google Solution Challenge 2026, Global Top 106)}
-  {Python, FastAPI, SQL, JavaScript, Next.js, Redis, GCP, pytest, Git}
-  {Apr 2026 -- Jun 2026}
-  {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app/}{Live}}
-\begin{itemize}
-  \item Co-led backend development on GCP Cloud Run; scaled read paths to 100--400 ms across 580+ corridors using Redis caching and reusable service modules.
-  \item Wrote pytest regression suite (100/100 business-rule validations); built ML delay model on 15,650 train-days with documented APIs for team delivery.
-\end{itemize}
+  \resumeProject
+    {LogiFlow --- Google Solution Challenge 2026 (Global Top 106)}
+    {Python, FastAPI, SQL, JavaScript, Next.js, Redis, GCP Cloud Run, pytest, Git}
+    {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app/}{Live}}
+    \resumeItemListStart
+      \item Co-led backend development on \textbf{GCP Cloud Run}; engineered \textbf{100--400 ms} read paths across \textbf{580+ corridors} and \textbf{9,526 stations} using \textbf{Redis} caching and reusable service modules.
+      \item Wrote \textbf{pytest} regression suite (\textbf{100/100} business-rule validations); trained ML delay model on \textbf{15,650 train-days} (MAE \textbf{22.7 min}) with documented \textbf{REST APIs} for team delivery.
+    \resumeItemListEnd
 
-\resumeProject
-  {Community Hero -- Civic PWA (Google for Developers Vibe2Ship 2026)}
-  {Python, TypeScript, React, Express, Firebase, Firestore, Gemini, Google AI Studio, Cloud Run}
-  {Jun 2026}
-  {\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
-\begin{itemize}
-  \item Architected React PWA + Express API on Cloud Run; built 6-agent Gemini pipeline (vision classify, dedup, SLA routing) with Firestore schema, Firebase Auth, and REST endpoints tested via Postman.
-  \item Prototyped in Google AI Studio; shipped geo-tagged civic reports, map explorer, Open311 export, hotspot analytics, and admin resolution workflows on Cloud Run (asia-south1).
-\end{itemize}
+  \resumeProject
+    {Community Hero --- Google for Developers Vibe2Ship 2026}
+    {TypeScript, React, Python, Express, Firebase, Cloud Run, REST APIs, Postman}
+    {\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
+    \resumeItemListStart
+      \item Solo-built React PWA and Express API on \textbf{Cloud Run} with \textbf{Firestore}, \textbf{Firebase Auth}, and \textbf{REST endpoints} validated via \textbf{Postman}; delivered geo-tagged reporting, admin workflows, and map-based triage.
+      \item Shipped Gemini-powered categorization, SLA routing, community verification, and Open311 export---all eight hackathon features deployed to production with structured error handling.
+    \resumeItemListEnd
 
-\resumeProject
-  {AirHelp -- AI Airport Companion (PowerMind Hackathon 2026)}
-  {Python, FastAPI, React, WebSockets, ChromaDB, RAG, NetworkX, SQL}
-  {2026}
-  {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
-\begin{itemize}
-  \item Built RAG pipeline (ChromaDB + Sentence Transformers) and graph-based A* navigation on custom airport walking graphs with turn-by-turn routing.
-  \item Shipped WebSocket real-time alerts and FastAPI voice services; achieved 1--3s response latency for 50--100 concurrent users through debugging and performance tuning.
-\end{itemize}
+  \resumeProject
+    {AirHelp --- PowerMind Hackathon 2026}
+    {Python, FastAPI, React, WebSockets, SQL, NetworkX, RAG}
+    {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+    \resumeItemListStart
+      \item Built FastAPI backend with \textbf{WebSocket} real-time alerts and graph-based \textbf{A*} navigation; tuned \textbf{1--3s} response latency for \textbf{50--100 concurrent} users with \textbf{95\%+} navigation accuracy.
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
 
 \section{Technical Skills}
-\small
-\begin{itemize}[label={}]
-  \item \textbf{Programming Languages:} Python, SQL, Java, C++, C, JavaScript, TypeScript
-  \item \textbf{Software Development Life Cycle (SDLC):} Requirements analysis, design, coding, unit and integration testing, debugging, code review, documentation, Agile
-  \item \textbf{Computer Science:} Data structures, algorithms, object-oriented programming, DBMS, operating systems, analytical and systematic problem-solving
-  \item \textbf{Tools and Platforms:} MySQL, PostgreSQL, MongoDB, Redis, Docker, Git, CI/CD, REST APIs, WebSockets, GCP Cloud Run, Firebase, Google AI Studio, Gemini, ChromaDB
+\sectionContentSpace
+\begin{itemize}[leftmargin=0.05in, label={}, topsep=0pt, parsep=0pt, partopsep=0pt, itemsep=0pt]
+  \small{\item{
+    \textbf{Programming \& Development:} Python, Java, SQL, JavaScript, TypeScript, C++, C, HTML, CSS \\[2pt]
+    \textbf{Databases \& Tools:} MySQL, PostgreSQL, MongoDB, Redis, Docker, Git, GitHub Actions, CI/CD, REST APIs, GCP Cloud Run, Linux \\[2pt]
+    \textbf{Software Development Life Cycle (SDLC):} Requirements analysis, design, coding, unit testing, integration testing, debugging, code review, documentation, Agile, reliable code, test coverage \\[2pt]
+    \textbf{Core Computer Science:} Data structures, algorithms, object-oriented programming, DBMS, operating systems, computer networks, logical and systematic problem-solving, analytical problem-solving
+  }}
 \end{itemize}
 
-\section{Leadership and Achievements}
-\small
-\begin{itemize}
-  \item LeetCode Knight (rating 2048, 637 problems solved); Codeforces Specialist (rating 1419) --- \href{https://leetcode.com/Oju_Srivastava}{LeetCode} \textbar{} \href{https://codeforces.com/profile/Oju}{Codeforces}
-  \item Google Solution Challenge 2026 Global Top 106; Google for Developers Vibe2Ship 2026; PowerMind Hackathon 2026; McKinsey.org Forward Fellow (2026)
-  \item Technical Lead, RangRiti (Web Wonders 2025); Executive Member, ACM SVNIT; Mentor, Nexus SVNIT
+\section{Achievements}
+\sectionContentSpace
+\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep, topsep=4pt, parsep=0pt, partopsep=0pt, labelsep=1.2mm, itemsep=2pt]\small
+  \item \textbf{LeetCode Knight} --- rating \textbf{2048}, \textbf{637+} problems solved; \textbf{Codeforces Specialist} --- rating \textbf{1419} \hfill \textit{Ongoing}
+  \item \textbf{Google Solution Challenge 2026} --- Global Top 106 (LogiFlow, Neural Foundry) \hfill \textit{Jun 2026}
+  \item \textbf{Google for Developers Vibe2Ship 2026}; PowerMind Hackathon 2026 (AirHelp); McKinsey.org Forward Fellow \hfill \textit{2026}
+  \item Executive Member, ACM SVNIT; \textbf{DSA Mentor \& Representative}, Nexus SVNIT; Technical Lead, RangRiti (Web Wonders 2025) \hfill \textit{2024--Present}
 \end{itemize}
 
 \end{document}
