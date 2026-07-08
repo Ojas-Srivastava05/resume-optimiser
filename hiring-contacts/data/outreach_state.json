@@ -302,8 +302,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Oyo",
       "dry_run": false,
       "sent_at": "2026-06-25T07:04:28.290030+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-08T09:33:12.010515+00:00"
     },
     "prakriti.goel@pw.live": {
       "email": "prakriti.goel@pw.live",
@@ -868,7 +869,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 17
+    "total_followups": 18
   },
   "daily_log": {
     "2026-06-24": {
@@ -1070,13 +1071,15 @@
     "2026-07-08": {
       "emails": [
         "abhinavsingh.k@flipkart.com",
-        "future@groww.in"
+        "future@groww.in",
+        "shubhi.verma@oyorooms.com"
       ],
       "companies": [
         "flipkart",
-        "groww"
+        "groww",
+        "oyo"
       ]
     }
   },
-  "last_live_send_at": "2026-07-08T05:42:08.088978+00:00"
+  "last_live_send_at": "2026-07-08T09:33:12.010500+00:00"
 }
