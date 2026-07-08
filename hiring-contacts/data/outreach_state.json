@@ -268,8 +268,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Flipkart",
       "dry_run": false,
       "sent_at": "2026-06-25T07:02:55.416443+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-08T02:36:41.603966+00:00"
     },
     "future@groww.in": {
       "email": "future@groww.in",
@@ -284,8 +285,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Groww",
       "dry_run": false,
       "sent_at": "2026-06-25T07:03:42.101014+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-08T05:42:08.088994+00:00"
     },
     "shubhi.verma@oyorooms.com": {
       "email": "shubhi.verma@oyorooms.com",
@@ -866,7 +868,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 15
+    "total_followups": 17
   },
   "daily_log": {
     "2026-06-24": {
@@ -1064,7 +1066,17 @@
         "cars24",
         "cerebras"
       ]
+    },
+    "2026-07-08": {
+      "emails": [
+        "abhinavsingh.k@flipkart.com",
+        "future@groww.in"
+      ],
+      "companies": [
+        "flipkart",
+        "groww"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-07T10:31:24.264953+00:00"
+  "last_live_send_at": "2026-07-08T05:42:08.088978+00:00"
 }
