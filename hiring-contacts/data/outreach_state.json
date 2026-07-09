@@ -336,8 +336,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Practo",
       "dry_run": false,
       "sent_at": "2026-06-25T07:06:00.440686+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-09T06:40:12.807700+00:00"
     },
     "priyanka.deshmukh@zeptonow.com": {
       "email": "priyanka.deshmukh@zeptonow.com",
@@ -870,7 +871,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 19
+    "total_followups": 20
   },
   "daily_log": {
     "2026-06-25": {
@@ -1071,12 +1072,14 @@
     },
     "2026-07-09": {
       "emails": [
-        "prakriti.goel@pw.live"
+        "prakriti.goel@pw.live",
+        "tateam@practo.com"
       ],
       "companies": [
-        "physicswallah"
+        "physicswallah",
+        "practo"
       ]
     }
   },
-  "last_live_send_at": "2026-07-09T02:37:04.988287+00:00"
+  "last_live_send_at": "2026-07-09T06:40:12.807686+00:00"
 }
