@@ -692,7 +692,7 @@
     "videonetics",
     "wtw"
   ],
-  "queue_index": 16,
+  "queue_index": 17,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -711,7 +711,8 @@
     "bt-group": 1,
     "druva": 1,
     "avito": 1,
-    "shopify": 1
+    "shopify": 1,
+    "citadel": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -764,7 +765,10 @@
     ],
     "shopify": [
       "walking-robot-simulation|design-a-text-editor"
+    ],
+    "citadel": [
+      "parallel-courses-iii|design-a-leaderboard"
     ]
   },
-  "last_run": "2026-07-08T05:27:47.128823+00:00"
+  "last_run": "2026-07-09T06:11:55.672487+00:00"
 }
