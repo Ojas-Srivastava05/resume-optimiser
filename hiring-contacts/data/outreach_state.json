@@ -319,8 +319,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Physics Wallah",
       "dry_run": false,
       "sent_at": "2026-06-25T07:05:14.349102+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-09T02:37:04.988302+00:00"
     },
     "tateam@practo.com": {
       "email": "tateam@practo.com",
@@ -869,21 +870,9 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 18
+    "total_followups": 19
   },
   "daily_log": {
-    "2026-06-24": {
-      "emails": [
-        "himanshubarak@gmail.com",
-        "r.chandrasi1996@gmail.com",
-        "swapnil.mishra@cars24.com"
-      ],
-      "companies": [
-        "meesho",
-        "paypal",
-        "cars24"
-      ]
-    },
     "2026-06-25": {
       "emails": [
         "miskin.shravani@juspay.in",
@@ -1079,7 +1068,15 @@
         "groww",
         "oyo"
       ]
+    },
+    "2026-07-09": {
+      "emails": [
+        "prakriti.goel@pw.live"
+      ],
+      "companies": [
+        "physicswallah"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-08T09:33:12.010500+00:00"
+  "last_live_send_at": "2026-07-09T02:37:04.988287+00:00"
 }
