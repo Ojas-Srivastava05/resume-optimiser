@@ -370,8 +370,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 amazon",
       "dry_run": false,
       "sent_at": "2026-06-25T07:07:32.542799+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-10T02:34:02.344641+00:00"
     },
     "abatchelor@atlassian.com": {
       "email": "abatchelor@atlassian.com",
@@ -872,57 +873,9 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 21
+    "total_followups": 22
   },
   "daily_log": {
-    "2026-06-25": {
-      "emails": [
-        "miskin.shravani@juspay.in",
-        "careers@palantir.com",
-        "hr@paytm.com",
-        "shivani.sahraot@phonepe.com",
-        "emergingtalent@samsung.com",
-        "talenthelp@am.sony.com",
-        "accessiblecareers@splunk.com",
-        "ta-recruitment@tesla.com",
-        "accessibility@autodesk.com",
-        "yourresourcingsupport@barclays.com",
-        "gursharan.kaur@cars24.com",
-        "tom@cerebras.net",
-        "abhinavsingh.k@flipkart.com",
-        "future@groww.in",
-        "shubhi.verma@oyorooms.com",
-        "prakriti.goel@pw.live",
-        "tateam@practo.com",
-        "priyanka.deshmukh@zeptonow.com",
-        "batesj@amazon.com",
-        "abatchelor@atlassian.com",
-        "ashley.womack@alation.com"
-      ],
-      "companies": [
-        "juspay",
-        "palantir",
-        "paytm",
-        "phonepe",
-        "samsung",
-        "sony",
-        "splunk",
-        "tesla",
-        "autodesk",
-        "barclays",
-        "cars24",
-        "cerebras",
-        "flipkart",
-        "groww",
-        "oyo",
-        "physicswallah",
-        "practo",
-        "zepto",
-        "amazon",
-        "atlassian",
-        "alation"
-      ]
-    },
     "2026-06-26": {
       "emails": [
         "kaitlynn@cerebras.net",
@@ -1082,7 +1035,15 @@
         "practo",
         "zepto"
       ]
+    },
+    "2026-07-10": {
+      "emails": [
+        "batesj@amazon.com"
+      ],
+      "companies": [
+        "amazon"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-09T10:57:05.032358+00:00"
+  "last_live_send_at": "2026-07-10T02:34:02.344629+00:00"
 }
