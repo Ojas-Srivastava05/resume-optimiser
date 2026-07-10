@@ -404,8 +404,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Alation",
       "dry_run": false,
       "sent_at": "2026-06-25T11:57:22.717606+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-10T10:29:34.615843+00:00"
     },
     "kaitlynn@cerebras.net": {
       "email": "kaitlynn@cerebras.net",
@@ -874,7 +875,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 23
+    "total_followups": 24
   },
   "daily_log": {
     "2026-06-26": {
@@ -1040,13 +1041,15 @@
     "2026-07-10": {
       "emails": [
         "batesj@amazon.com",
-        "abatchelor@atlassian.com"
+        "abatchelor@atlassian.com",
+        "ashley.womack@alation.com"
       ],
       "companies": [
         "amazon",
-        "atlassian"
+        "atlassian",
+        "alation"
       ]
     }
   },
-  "last_live_send_at": "2026-07-10T06:28:53.478899+00:00"
+  "last_live_send_at": "2026-07-10T10:29:34.615828+00:00"
 }
