@@ -4,9 +4,11 @@ I am writing to express my strong interest in the Software Engineering Intern po
 
 My technical foundation is rooted in strong algorithmic problem-solving and systems design:
 
-Algorithms and Systems Foundations: I am a LeetCode Knight (Peak Rating: 2048, 636 problems solved) and a Codeforces Specialist (1419). My coursework in Data Structures, Operating Systems, Computer Networks, and Distributed Systems has prepared me to tackle complex software engineering problems.
+Algorithms and Systems Foundations: I am a LeetCode Knight (Peak Rating: 2048, 711+ problems solved, 32 contests) and a Codeforces Specialist (1419, 252+ solved). My coursework in Data Structures, Operating Systems, Computer Networks, and Distributed Systems has prepared me to tackle complex software engineering problems.
 
-LogiFlow (Google Solution Challenge Top 100): I co-led the backend and deployment for this multi-modal logistics platform. To handle high traffic, I deployed the application to GCP Cloud Run with optimized memory/CPU limits and implemented dynamic runtime Google OAuth. To solve critical latency issues under serverless timeouts, I built progressive result streaming over HTTP and engineered a Supabase gzip-compressed caching layer, reducing hot read-path query times to 100-400 ms.
+LogiFlow (Google Solution Challenge Global Top 106): I co-led the backend and deployment for this multi-modal logistics platform. To handle high traffic, I deployed the application to GCP Cloud Run with optimized memory/CPU limits and implemented dynamic runtime Google OAuth. To solve critical latency issues under serverless timeouts, I built progressive result streaming over HTTP and engineered a Supabase gzip-compressed caching layer, reducing hot read-path query times to 100-400 ms.
+
+Community Hero (Google for Developers Vibe2Ship 2026 Global Top 20): I solo-built and deployed a civic reporting PWA on Cloud Run with Firebase, Gemini categorization, map-based visualization, and admin analytics---shipping all hackathon features to production under tight timelines.
 
 AirHelp (AI Airport Companion): I designed and implemented an indoor navigation system using graph-based A* routing on custom Terminal 2 layout walking networks, maintaining 1-3s latency for 50-100 concurrent users. I also automated the local integration of offline Text-to-Speech (Piper) and managed persistent WebSocket states using FastAPI lifespan hooks.
 

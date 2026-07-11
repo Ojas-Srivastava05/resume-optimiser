@@ -21,14 +21,14 @@ PORTFOLIO = os.getenv("OUTREACH_PORTFOLIO", "https://ojas-srivastava.vercel.app"
 # Coding platforms
 LEETCODE = os.getenv("OUTREACH_LEETCODE", "https://leetcode.com/Oju_Srivastava")
 CODEFORCES = os.getenv("OUTREACH_CODEFORCES", "https://codeforces.com/profile/Oju")
-LEETCODE_STAT = os.getenv("OUTREACH_LEETCODE_STAT", "Knight · Rating 2048 · 637+ solved · 32 contests")
-CODEFORCES_STAT = os.getenv("OUTREACH_CODEFORCES_STAT", "Specialist · Rating 1419 · 246+ solved")
+LEETCODE_STAT = os.getenv("OUTREACH_LEETCODE_STAT", "Knight · Rating 2048 · 711+ solved · 32 contests")
+CODEFORCES_STAT = os.getenv("OUTREACH_CODEFORCES_STAT", "Specialist · Rating 1419 · 252+ solved")
 
 # Standout work (with live links where possible)
 LOGIFLOW_NAME = os.getenv("OUTREACH_LOGIFLOW_NAME", "LogiFlow")
 LOGIFLOW_HOOK = os.getenv(
 	"OUTREACH_LOGIFLOW_HOOK",
-	"LogiFlow — Google Solution Challenge 2026 Global Top 100 (Technical Co-Lead); GCP Cloud Run backend, 100–400 ms latency",
+	"LogiFlow — Google Solution Challenge 2026 Global Top 106 (Technical Co-Lead); GCP Cloud Run backend, 100–400 ms latency",
 )
 LOGIFLOW_GITHUB = os.getenv(
 	"OUTREACH_LOGIFLOW_GITHUB",
@@ -39,6 +39,19 @@ LOGIFLOW_LIVE = os.getenv(
 	"https://logi-flow-solution-challenge-2026.vercel.app/",
 )
 
+COMMUNITY_HERO_HOOK = os.getenv(
+	"OUTREACH_COMMUNITY_HERO_HOOK",
+	"Community Hero — Google for Developers Vibe2Ship 2026 Global Top 20; civic PWA on Cloud Run with Firebase, Gemini, and map visualization",
+)
+COMMUNITY_HERO_GITHUB = os.getenv(
+	"OUTREACH_COMMUNITY_HERO_GITHUB",
+	"https://github.com/Ojas-Srivastava05/community-hero",
+)
+COMMUNITY_HERO_LIVE = os.getenv(
+	"OUTREACH_COMMUNITY_HERO_LIVE",
+	"https://community-hero-987477089222.asia-south1.run.app",
+)
+
 INTERN_HOOK = os.getenv(
 	"OUTREACH_INTERN_HOOK",
 	"Software Engineering Intern at IFFCO — shipped 10+ production REST APIs (Node.js, Express, MySQL, Docker/CI/CD)",
@@ -46,6 +59,8 @@ INTERN_HOOK = os.getenv(
 
 ACHIEVEMENTS = os.getenv(
 	"OUTREACH_ACHIEVEMENTS",
+	"Google Solution Challenge 2026 Global Top 106 (LogiFlow) · "
+	"Vibe2Ship 2026 Global Top 20 (Community Hero) · "
 	"McKinsey.org Forward Fellow 2026 · "
 	"Executive Member, ACM SVNIT & Mentor, Nexus SVNIT (DSA workshops & contests)",
 )

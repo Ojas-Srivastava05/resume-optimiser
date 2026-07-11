@@ -1,0 +1,2402 @@
+\documentclass[9pt,a4paper]{article}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{multicol}
+
+\definecolor{brutal}{RGB}{120,0,0}
+\definecolor{hint}{RGB}{0,80,120}
+\definecolor{goodbg}{RGB}{230,245,230}
+\definecolor{badbg}{RGB}{255,235,235}
+\definecolor{scriptbg}{RGB}{245,248,255}
+
+\newcommand{\goodans}[1]{\par\noindent\textbf{\textcolor{green!50!black}{Strong:}} #1\par\vspace{1mm}}
+\newcommand{\badans}[1]{\par\noindent\textbf{\textcolor{red!70!black}{Weak:}} #1\par\vspace{1mm}}
+\newcommand{\diffLone}{\textcolor{green!50!black}{\textbf{[L1]}}}
+\newcommand{\diffLtwo}{\textcolor{orange!90!black}{\textbf{[L2]}}}
+\newcommand{\diffLthree}{\textcolor{brutal}{\textbf{[L3]}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Ojas Srivastava --- Brutal Interview Simulation}
+\fancyhead[R]{\small 10 Jul 2026}
+\fancyfoot[C]{\thepage}
+
+\titleformat{\section}{\large\bfseries\color{brutal}}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+
+\setlist{nosep}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Brutal Interview Simulation Playbook}\\[4pt]
+{\large Ojas Srivastava --- B.Tech Artificial Intelligence, SVNIT Surat}\\[2pt]
+{\small CGPA 9.20/10 \textbar{} Graduating May 2028 \textbar{} LeetCode Knight 2048 (711+ solved) \textbar{} Codeforces Specialist 1419 (252+ solved)}\\[6pt]
+{\color{hint}\textit{Purpose: simulate real interview pressure across every role in your pipeline. Answer out loud. Time yourself. No bullet-point mumbling.}}\\[4pt]
+{\small \textbf{Edition 2} --- internet-sourced banks, canonical scripts, red-team tactics, 30-day schedule \textbar{} Difficulty: \diffLone warm-up \diffLtwo bar-raiser \diffLthree kill-shot}
+\end{center}
+
+\tableofcontents
+\newpage
+
+\section{How to Use This Document (Read First)}
+\textbf{This is not a cheat sheet of answers.} It is an adversarial question bank modeled on how real interviewers probe interns in India (Bengaluru/Hyderabad/Mumbai) for 2027 summer roles.
+
+\subsection{Difficulty legend}
+\begin{itemize}
+  \item \diffLone \textbf{Warm-up} --- HR, logistics, ``tell me about yourself''; aim 60--90s crisp.
+  \item \diffLtwo \textbf{Bar-raiser} --- architecture, metrics, follow-up chains; aim 2 min then FUs.
+  \item \diffLthree \textbf{Kill-shot} --- resume contradiction, ethics trap, live coding under interrupt; no notes.
+\end{itemize}
+
+\subsection{Self-score after every session (1--5)}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+\textbf{Score} & \textbf{Meaning} \\
+\midrule
+5 & Answered all FUs; numbers consistent; asked one smart question back. \\
+4 & Main story clear; one FU wobbled but recovered. \\
+3 & Moderate Fit zone --- right content, too long or vague metrics. \\
+2 & Weak Fit --- contradicted resume or no STAR structure. \\
+1 & Fail --- could not explain own architecture; restart prep. \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Simulation protocol}
+\begin{enumerate}
+  \item Pick one company section + one mock script.
+  \item Set a 45--60 minute timer. No IDE for behavioral rounds; IDE only when marked coding.
+  \item For each question: answer in 60--90 seconds, then attempt \textbf{every follow-up (FU)} without looking at notes.
+  \item Record yourself once per week. If you say ``we used AI/ML'' without specifics, restart.
+  \item After each session, write a 5-line ``what I failed to prove'' debrief.
+\end{enumerate}
+
+\subsection{Your canonical facts (keep consistent)}
+\begin{itemize}
+  \item \textbf{Degree:} B.Tech Artificial Intelligence, SVNIT (not ``AI/ML''; not Robotics-heavy).
+  \item \textbf{Internship:} IFFCO, Jun--Jul 2025, Prayagraj, 1 month, production Node/Express/MySQL.
+  \item \textbf{Flagship projects:} LogiFlow (GSC Top \textbf{106}), Community Hero (Vibe2Ship Top \textbf{20}), AirHelp, OA Forge.
+  \item \textbf{Locations willing:} Bengaluru on-site (Stripe, GE, Cisco); Hyderabad (Wells Fargo, EA); Mumbai (AlphaGrep).
+\end{itemize}
+
+\subsection{Known resume attack surfaces (prepare defenses)}
+\begin{enumerate}
+  \item \textbf{One-month IFFCO} --- emphasize ownership slices, production usage, metrics, mentor validation.
+  \item \textbf{B.Tech AI vs Computer Science} --- emphasize coursework overlap (DSA, OS, DBMS, CN, Distributed Systems).
+  \item \textbf{Hackathon $\rightarrow$ production claims} --- cite live URLs, tests, user flows, known limitations honestly.
+  \item \textbf{Workday B.S. + CS field (GE)} --- explain ATS mapping; actual degree is B.Tech AI at NIT.
+  \item \textbf{Career Automation / cold outreach} --- frame as personal tooling; acknowledge ethics boundaries.
+  \item \textbf{High CP stats but intern bar} --- connect CP to debugging speed, not bragging rights.
+\end{enumerate}
+
+\newpage
+\section{Application Portfolio Snapshot}
+\begin{longtable}{@{}p{2.2cm}p{3.5cm}p{2cm}p{1.5cm}p{5cm}@{}}
+\toprule
+\textbf{Company} & \textbf{Role} & \textbf{Location} & \textbf{Status} & \textbf{Likely OA / Focus} \\
+\midrule
+\endhead
+Stripe & Software Engineer, Intern & Bengaluru (100\% in-office) & Applied & HackerRank / CodeSignal-style DSA (2--3 mediums) + strong behavioral writing round --- production shipping, code review culture, systems + user-facing, financial infra curiosity, clarity of writing \\
+GE HealthCare & Software Intern (R4043319) & Bengaluru on-site & Applied & Aptitude + technical MCQ + coding (DSA medium) + HR --- SDLC, testing, healthcare/regulated mindset, cross-functional work, visualization/compute platform \\
+Cisco & Software Engineer Summer Intern & Bengaluru & Applied / pipeline & Cisco OA: DSA + networking fundamentals MCQs possible --- networking-aware software, secure coding, cloud scale, agile SDLC \\
+Wells Fargo & Technology Program Intern 2027 (R-557386) & Bengaluru / Hyderabad & Applied / pipeline & Codility/HackerRank + Java-heavy MCQ + situational judgment --- enterprise discipline, security, SQL, teamwork, regulated banking environment \\
+Google & Software Engineering Intern 2027 & Bengaluru / Hyderabad / Pune & Applied / pipeline & Google Online Challenge (GOC) + 4--5 onsite-style rounds if shortlisted --- algorithms, systems, scalability, ambiguity tolerance, Googleyness \\
+Microsoft & Software Engineer Intern & India hubs & Resume ready & Codility + AA (automated assessment) + interview loop --- OOP, DSA, collaboration, Azure familiarity bonus \\
+Electronic Arts (EADP) & SWE Intern --- Systest Engineer (214959) & Hyderabad hybrid & Applied / pipeline & Automation + scripting + testing scenarios + DSA easy-medium --- test automation, load simulation, performance debugging, pipelines \\
+Honeywell & Intern & India & Applied / pipeline & Aptitude + technical + HR --- industrial software, data analysis, automation, reliability \\
+AlphaGrep (Core SWE) & Software Development Intern --- Core Engineering & Mumbai / Bengaluru & Applied / pipeline & Heavy DSA (CF Div2 level) + C++ systems questions --- C++ performance, low latency, Linux, memory, I/O \\
+AlphaGrep (Quant) & Quantitative Developer Intern & Mumbai & Applied / pipeline & Math + probability + Python/C++ + puzzles --- ML features, market data pipelines, statistics, coding speed \\
+Amazon ML Summer School & MLSS 2026 cohort & Virtual / selective & Applied & ML fundamentals test + selection interview --- ML theory, generalization, probability, coding in Python \\
+Flipkart Grid 8.0 & Engineering track & India & Resume ready & Grid-specific challenges + DSA + ML optional --- scale, e-commerce, latency, distributed systems \\
+Goldman Sachs & Engineering Intern & India & Resume + cover letter ready & HackerRank (math + DSA) + HireVue + superday --- engineering rigor, probability, systems, finance curiosity \\
+Angel One & SDE Intern & India fintech & Resume ready & DSA + backend + fintech aptitude --- trading-adjacent systems, APIs, reliability \\
+\bottomrule
+\end{longtable}
+
+\newpage
+\section{Universal Brutal Round (Every Company Will Touch This)}
+\textit{Interviewers cross-check consistency. If LogiFlow numbers change between answers, you lose trust.}
+
+\subsection{Behavioral + Resume Integrity}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Walk me through your resume in 90 seconds.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item You listed 50+ workflows at IFFCO---name three specifically. Who used them?
+    \item Why does a Knight on LeetCode matter for this job?
+    \item You have many hackathon projects. Which one would you put in production at our company tomorrow, and which would you delete?
+  \end{enumerate}
+  \item Tell me about a time you received harsh critical feedback.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What did you disagree with in that feedback?
+    \item If you had to redo the project, what would you cut to ship two weeks earlier?
+  \end{enumerate}
+  \item Describe a production bug you caused or found.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How did you know it was your change?
+    \item What monitoring would have caught it faster?
+    \item Write the postmortem title in one sentence.
+  \end{enumerate}
+  \item Why should we hire you over someone with a pure CSE degree from the same college?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What do CSE students know that you don't?
+    \item Convince me AI isn't just a buzzword on your degree.
+  \end{enumerate}
+  \item What is your biggest weakness---and don't say 'perfectionism'.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Give an example from the last 30 days.
+    \item How would that weakness hurt our team in week one?
+  \end{enumerate}
+  \item You only interned for one month at IFFCO. Was that real experience?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What did you own end-to-end vs. what did your mentor do?
+    \item Why not return for a longer stint?
+  \end{enumerate}
+  \item Explain a project where you were NOT the leader.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What did you disagree with technically?
+    \item How did you escalate without being toxic?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\section{Computer Science Fundamentals --- Rapid Fire + Follow-ups}
+\subsection{OS}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Difference between process and thread; when would you prefer threads in your LogiFlow backend?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Explain deadlock with a scenario from a database + cache system.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item What happens when you fork a process that holds a mutex?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Virtual memory: why can a 4GB RAM machine run LogiFlow with large datasets?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Context switch cost---why does high concurrency hurt if work is CPU-bound?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+\end{enumerate}
+\subsection{DBMS}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Explain ACID using your IFFCO MySQL schema.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item When would you denormalize in LogiFlow's 9,526 station dataset?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Index types you used; why did a query get faster after indexing?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Serializable vs Read Committed---which for financial reporting?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Explain a slow JOIN you fixed and the EXPLAIN output you saw.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Networks}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Walk through what happens when a user hits your Cloud Run LogiFlow endpoint.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item TCP vs UDP---which for WebSockets in AirHelp and why?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item How does TLS termination work on Cloud Run?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item HTTP/1.1 vs HTTP/2 impact on your progressive streaming design.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item What is a CDN and would you add one to Community Hero?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+\end{enumerate}
+\subsection{DSA / Coding}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Implement LRU cache---then defend cache size for LogiFlow corridors.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Detect cycle in linked list---variant: dependency graph in CI pipeline.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Top K frequent elements---apply to OA Forge question frequency.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Binary search on answer---rate limiter design.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+  \item Graph shortest path---justify A* vs Dijkstra in AirHelp.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Go deeper.
+    \item Give a number from your project.
+    \item What breaks at scale?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\section{Project Deep-Dive Banks (Exhaustive)}
+\subsection{IFFCO}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item What exactly were the 50+ workflows?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Name one workflow's input/output.
+    \item How did you validate correctness with users?
+    \item What broke in production?
+  \end{enumerate}
+  \item Why Node.js and not Java/Spring for an enterprise coop?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Would you choose differently today?
+    \item How did you structure the Express app?
+  \end{enumerate}
+  \item JWT auth---walk through login to protected API.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Where do you store refresh tokens?
+    \item How do you revoke access?
+    \item Threat model: XSS vs CSRF here.
+  \end{enumerate}
+  \item 10+ REST APIs---pick one and design the OpenAPI spec live.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Versioning strategy?
+    \item Idempotency for POST retries?
+  \end{enumerate}
+  \item Docker + CI/CD---draw the pipeline.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What ran on every PR?
+    \item What tests were missing that you'd add now?
+  \end{enumerate}
+\end{enumerate}
+\subsection{LogiFlow}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why 100--400 ms and not sub-50 ms?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Show where time is spent.
+    \item What is your p99?
+    \item Cold start impact on Cloud Run?
+  \end{enumerate}
+  \item Explain progressive HTTP streaming.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not WebSockets?
+    \item Backpressure handling?
+    \item Client disconnect mid-stream?
+  \end{enumerate}
+  \item Redis caching---cache key design and invalidation.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Thundering herd on expiry?
+    \item Redis down---what happens?
+  \end{enumerate}
+  \item Gradient Boosting delay model: features, leakage, MAE 22.7 min.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Train/test split by time?
+    \item Would you deploy this model to prod?
+  \end{enumerate}
+  \item 100/100 pytest rules---give 3 example rules.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Are these unit or integration tests?
+    \item How do you test ML outputs?
+  \end{enumerate}
+  \item 580 corridors, 9,526 stations---data pipeline architecture.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Storage format?
+    \item Ingestion failures?
+    \item Duplicate station IDs?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Community Hero}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Solo-built in a hackathon---what is the scariest technical debt?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Auth model?
+    \item Firestore rules?
+    \item Rate limiting on Gemini calls?
+  \end{enumerate}
+  \item SLA routing logic---pseudo-code it.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Edge case: duplicate reports same GPS?
+    \item Admin override?
+  \end{enumerate}
+  \item Map-based UX---how do you handle low connectivity?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Offline PWA strategy?
+    \item Service worker scope?
+  \end{enumerate}
+  \item Gemini categorization---prompt design and failure modes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Hallucinated category?
+    \item Cost per 1K reports?
+  \end{enumerate}
+\end{enumerate}
+\subsection{AirHelp}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item RAG pipeline architecture.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Chunk size?
+    \item Embedding model?
+    \item When does RAG fail at an airport?
+  \end{enumerate}
+  \item WebSockets at 50--100 concurrent---bottleneck?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Single process limit?
+    \item Horizontal scaling plan?
+  \end{enumerate}
+  \item A* navigation 95\%+ accuracy---how measured?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What is the other 5\%?
+    \item Graph construction from floor plans?
+  \end{enumerate}
+  \item 1--3s latency budget breakdown.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Which component to optimize first?
+  \end{enumerate}
+\end{enumerate}
+\subsection{OA Forge}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item C++ judge sandbox---how do you prevent fork bombs / file system escape?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item seccomp? namespaces? timeouts?
+    \item What about infinite loops?
+  \end{enumerate}
+  \item g++ -O2 vs -O0 for judging fairness.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Floating point nondeterminism?
+    \item Memory limit enforcement?
+  \end{enumerate}
+  \item 14K+ occurrences vs 5.5K test cases---explain the data model.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Copyright / scraping ethics?
+    \item False positives in question matching?
+  \end{enumerate}
+  \item Why build this instead of just using LeetCode?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Does this make you a better engineer or a better test-taker?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Career Automation Stack}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Internship Scout across 965+ companies---architecture.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Dedup logic?
+    \item Rate limits?
+    \item Legal/ToS concerns?
+  \end{enumerate}
+  \item Hiring Scout cold outreach---ethics and deliverability.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Would you do this at scale for a real company?
+  \end{enumerate}
+  \item Four pipelines---which is production-grade vs hacky?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Single point of failure?
+    \item Observability?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\section{Company-Specific Question Banks}
+\subsection{Stripe --- Software Engineer, Intern}
+\textbf{Location:} Bengaluru (100\% in-office) \quad \textbf{OA expectation:} HackerRank / CodeSignal-style DSA (2--3 mediums) + strong behavioral writing round
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item production shipping
+  \item code review culture
+  \item systems + user-facing
+  \item financial infra curiosity
+  \item clarity of writing
+\end{itemize}
+
+\subsection{Stripe targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Stripe and not a Indian fintech?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How does Stripe differ from Razorpay/Cashfree architecturally?
+    \item Name a Stripe product you'd want to work on.
+  \end{enumerate}
+  \item Tell us about you + fit at Stripe (application essay live).
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Cut your answer to 30 seconds.
+    \item Remove all hackathon buzzwords.
+    \item Add one failure story.
+  \end{enumerate}
+  \item Design: make Checkout errors understandable to merchants.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item API vs UI ownership?
+    \item Internationalization?
+    \item Observability metrics?
+  \end{enumerate}
+  \item Coding: implement idempotent POST /v1/charges retry handler.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item DB schema?
+    \item Duplicate webhook delivery?
+  \end{enumerate}
+  \item Read a pull request diff and critique it.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What tests are missing?
+    \item Naming?
+    \item Security?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Stripe standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Stripe?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Stripe?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Stripe?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{GE HealthCare --- Software Intern (R4043319)}
+\textbf{Location:} Bengaluru on-site \quad \textbf{OA expectation:} Aptitude + technical MCQ + coding (DSA medium) + HR
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item SDLC
+  \item testing
+  \item healthcare/regulated mindset
+  \item cross-functional work
+  \item visualization/compute platform
+\end{itemize}
+
+\subsection{GE HealthCare targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why digital healthcare / visualization platform?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Regulated environment mindset?
+    \item Patient safety analogy in software?
+  \end{enumerate}
+  \item SDLC walkthrough for a feature you shipped.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Unit vs integration vs validation?
+    \item Traceability for QA?
+  \end{enumerate}
+  \item On-site Bengaluru 100\%---constraints?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Relocation from Surat?
+    \item Semester conflicts?
+  \end{enumerate}
+  \item Testing philosophy for medical-adjacent software.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item You didn't work on PHI---how do you reason about risk anyway?
+  \end{enumerate}
+\end{enumerate}
+\subsection{GE HealthCare standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why GE HealthCare?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of GE HealthCare?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at GE HealthCare?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Cisco --- Software Engineer Summer Intern}
+\textbf{Location:} Bengaluru \quad \textbf{OA expectation:} Cisco OA: DSA + networking fundamentals MCQs possible
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item networking-aware software
+  \item secure coding
+  \item cloud scale
+  \item agile SDLC
+\end{itemize}
+
+\subsection{Cisco targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Explain TCP handshake using your project's HTTP calls.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Where does TLS fit?
+    \item What causes tail latency on mobile networks?
+  \end{enumerate}
+  \item Secure coding at IFFCO---JWT, validation.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item STRIDE threat model quick pass.
+    \item Common Cisco CVE classes?
+  \end{enumerate}
+  \item Design microservice for device telemetry ingestion.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Scale to 1M devices?
+    \item Backpressure?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Cisco standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Cisco?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Cisco?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Cisco?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Wells Fargo --- Technology Program Intern 2027 (R-557386)}
+\textbf{Location:} Bengaluru / Hyderabad \quad \textbf{OA expectation:} Codility/HackerRank + Java-heavy MCQ + situational judgment
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item enterprise discipline
+  \item security
+  \item SQL
+  \item teamwork
+  \item regulated banking environment
+\end{itemize}
+
+\subsection{Wells Fargo targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why banking? Why Wells Fargo program structure?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Compliance comfort?
+    \item Example of following process under pressure?
+  \end{enumerate}
+  \item SQL: write query for top-N workflows by daily volume.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Index?
+    \item Explain plan?
+  \end{enumerate}
+  \item Situational: teammate shortcuts security review.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What do you do Monday morning?
+  \end{enumerate}
+  \item Java vs Node---which for enterprise banking services?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Transaction boundaries?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Wells Fargo standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Wells Fargo?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Wells Fargo?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Wells Fargo?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Google --- Software Engineering Intern 2027}
+\textbf{Location:} Bengaluru / Hyderabad / Pune \quad \textbf{OA expectation:} Google Online Challenge (GOC) + 4--5 onsite-style rounds if shortlisted
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item algorithms
+  \item systems
+  \item scalability
+  \item ambiguity tolerance
+  \item Googleyness
+\end{itemize}
+
+\subsection{Google targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item GOC prep: arrays, strings, greedy, graphs medium.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Optimize from O(n\textasciicircum{}2) to O(n log n) with proof sketch.
+  \end{enumerate}
+  \item LogiFlow OAuth + Cloud Run cold starts---deep dive.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item SLO definition?
+    \item Error budget?
+  \end{enumerate}
+  \item Googleyness: disagreement with authority.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Data you brought?
+    \item Outcome?
+  \end{enumerate}
+  \item Estimate: storage for 9,526 stations x daily events.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Fermi decomposition live.
+  \end{enumerate}
+\end{enumerate}
+\subsection{Google standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Google?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Google?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Google?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Microsoft --- Software Engineer Intern}
+\textbf{Location:} India hubs \quad \textbf{OA expectation:} Codility + AA (automated assessment) + interview loop
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item OOP
+  \item DSA
+  \item collaboration
+  \item Azure familiarity bonus
+\end{itemize}
+
+\subsection{Microsoft targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item OOP design: parking lot / LRU / logger.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item SOLID violation example from your code?
+  \end{enumerate}
+  \item Azure vs GCP---what did you choose and why?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Vendor lock-in concerns?
+  \end{enumerate}
+  \item Team conflict in hackathon team.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Role clarity?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Microsoft standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Microsoft?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Microsoft?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Microsoft?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Electronic Arts (EADP) --- SWE Intern --- Systest Engineer (214959)}
+\textbf{Location:} Hyderabad hybrid \quad \textbf{OA expectation:} Automation + scripting + testing scenarios + DSA easy-medium
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item test automation
+  \item load simulation
+  \item performance debugging
+  \item pipelines
+\end{itemize}
+
+\subsection{Electronic Arts (EADP) targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Design load test for game login spike.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Metrics: p95, error rate, saturation.
+    \item Tools you'd use?
+  \end{enumerate}
+  \item Career Automation Stack---map components to test infra.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Schedulers, artifacts, flaky tests.
+  \end{enumerate}
+  \item Debug: WebSocket drops at 80 concurrent users.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Profiling steps ordered.
+  \end{enumerate}
+  \item Why systest instead of feature dev?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Trap: don't sound like you want EA only for games.
+  \end{enumerate}
+\end{enumerate}
+\subsection{Electronic Arts (EADP) standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Electronic Arts (EADP)?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Electronic Arts (EADP)?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Electronic Arts (EADP)?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Honeywell --- Intern}
+\textbf{Location:} India \quad \textbf{OA expectation:} Aptitude + technical + HR
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item industrial software
+  \item data analysis
+  \item automation
+  \item reliability
+\end{itemize}
+
+\subsection{Honeywell targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Industrial automation interest---beyond buzzwords.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item IIoT example from your work?
+  \end{enumerate}
+  \item Data analysis story from LogiFlow model.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Business decision informed by model?
+  \end{enumerate}
+  \item Reliability in cooperative enterprise (IFFCO).
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Stakeholder communication?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Honeywell standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Honeywell?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Honeywell?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Honeywell?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{AlphaGrep (Core SWE) --- Software Development Intern --- Core Engineering}
+\textbf{Location:} Mumbai / Bengaluru \quad \textbf{OA expectation:} Heavy DSA (CF Div2 level) + C++ systems questions
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item C++ performance
+  \item low latency
+  \item Linux
+  \item memory
+  \item I/O
+\end{itemize}
+
+\subsection{AlphaGrep (Core SWE) targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Implement fast parsing of market data feed (toy).
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Memory allocations?
+    \item Branch prediction?
+  \end{enumerate}
+  \item C++: vector growth, iterator invalidation.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Real bug you avoided?
+  \end{enumerate}
+  \item Linux: strace/ltrace usage on judge binary.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Syscalls allowed in sandbox?
+  \end{enumerate}
+\end{enumerate}
+\subsection{AlphaGrep (Core SWE) standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why AlphaGrep (Core SWE)?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of AlphaGrep (Core SWE)?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at AlphaGrep (Core SWE)?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{AlphaGrep (Quant) --- Quantitative Developer Intern}
+\textbf{Location:} Mumbai \quad \textbf{OA expectation:} Math + probability + Python/C++ + puzzles
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item ML features
+  \item market data pipelines
+  \item statistics
+  \item coding speed
+\end{itemize}
+
+\subsection{AlphaGrep (Quant) targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Explain gradient boosting to a trader.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Overfitting on 15,650 train-days?
+    \item Feature importance?
+  \end{enumerate}
+  \item Probability: expected rolls until double six.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Markov chain version?
+  \end{enumerate}
+  \item Personal equities experience---specific thesis you tested.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How did you falsify yourself?
+  \end{enumerate}
+\end{enumerate}
+\subsection{AlphaGrep (Quant) standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why AlphaGrep (Quant)?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of AlphaGrep (Quant)?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at AlphaGrep (Quant)?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Amazon ML Summer School --- MLSS 2026 cohort}
+\textbf{Location:} Virtual / selective \quad \textbf{OA expectation:} ML fundamentals test + selection interview
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item ML theory
+  \item generalization
+  \item probability
+  \item coding in Python
+\end{itemize}
+
+\subsection{Amazon ML Summer School targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Bias-variance on LogiFlow delay model.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Cross-val strategy?
+    \item Leakage sources?
+  \end{enumerate}
+  \item Why MLSS over self-study?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What gap will Amazon scientists fill?
+  \end{enumerate}
+  \item Derive gradient descent update for linear regression.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Learning rate sensitivity?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Amazon ML Summer School standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Amazon ML Summer School?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Amazon ML Summer School?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Amazon ML Summer School?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Flipkart Grid 8.0 --- Engineering track}
+\textbf{Location:} India \quad \textbf{OA expectation:} Grid-specific challenges + DSA + ML optional
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item scale
+  \item e-commerce
+  \item latency
+  \item distributed systems
+\end{itemize}
+
+\subsection{Flipkart Grid 8.0 targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Design flash sale inventory system.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Overselling prevention?
+    \item Cache coherency?
+  \end{enumerate}
+  \item LogiFlow as supply chain---draw architecture.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Bottleneck at 10x traffic?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Flipkart Grid 8.0 standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Flipkart Grid 8.0?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Flipkart Grid 8.0?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Flipkart Grid 8.0?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Goldman Sachs --- Engineering Intern}
+\textbf{Location:} India \quad \textbf{OA expectation:} HackerRank (math + DSA) + HireVue + superday
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item engineering rigor
+  \item probability
+  \item systems
+  \item finance curiosity
+\end{itemize}
+
+\subsection{Goldman Sachs targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Probability + mental math warm-up.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Options intuition (even if basic).
+  \end{enumerate}
+  \item Engineering rigor in CI/CD.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Rollback strategy?
+  \end{enumerate}
+  \item Why finance + engineering hybrid?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item GS culture fit?
+    \item Risk vs reward in engineering?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Goldman Sachs standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Goldman Sachs?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Goldman Sachs?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Goldman Sachs?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{Angel One --- SDE Intern}
+\textbf{Location:} India fintech \quad \textbf{OA expectation:} DSA + backend + fintech aptitude
+
+\textbf{Primary probes:}
+\begin{itemize}
+  \item trading-adjacent systems
+  \item APIs
+  \item reliability
+\end{itemize}
+
+\subsection{Angel One targeted questions}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Build rate-limited market data API.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Auth?
+    \item Audit logs?
+  \end{enumerate}
+  \item Fintech compliance awareness (India).
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item SEBI basics you actually read?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Angel One standard intern probes}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Why Angel One?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Why not a competitor of Angel One?
+    \item What did you read about our stack last week?
+  \end{enumerate}
+  \item What would you build in your first 30 days at Angel One?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How is that not arrogant for an intern?
+    \item Dependencies on onboarding?
+  \end{enumerate}
+  \item Tell me about LogiFlow in 2 minutes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Interrupt at 60s: get to YOUR contribution only.
+    \item What would you rebuild?
+  \end{enumerate}
+\end{enumerate}
+\newpage
+
+\newpage
+\section{Internet-Sourced Real Questions (2024--2026 Reviews)}
+\textit{Compiled from candidate writeups on GeeksforGeeks, Medium, LinkedIn, Jointaro, Exponent, and company hiring blogs. These are what people actually report---not generic LeetCode lists.}
+
+\subsection{HackerRank Technical Screen (AI Recruiter) --- Your Exact Format}
+\textbf{Reported structure:} Eligibility $\rightarrow$ Role Alignment $\rightarrow$ Core SWE $\rightarrow$ Collaboration \& Communication (30 min). \textbf{Your mock result:} Moderate Fit; Collaboration = Weak Fit.
+
+\subsection{HackerRank Screen Question Bank (from your transcript + public reports)}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Walk me through your background and what you have been working on recently.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Cut your answer to 90 seconds. Lead with degree + IFFCO + one flagship project.
+    \item Do NOT open with hackathon rankings before establishing engineering work.
+    \item If you mention Vibe2Ship, say outcome (Top 20) in one clause only.
+  \end{enumerate}
+  \item Clarify IFFCO timing and what you actually built there.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item One month after first year vs last summer---get dates right.
+    \item Tech stack must match resume (Node/Express/MySQL vs HTML/Bootstrap).
+    \item What did YOU own vs mentor? Name 2 APIs or 2 bugs with outcomes.
+  \end{enumerate}
+  \item Walk through debugging when websites had broken parts / errors.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Reproduce \$ightarrow\$ DevTools \$ightarrow\$ isolate FE vs BE \$ightarrow\$ logs \$ightarrow\$ fix \$ightarrow\$ PR.
+    \item Give one farmer data-inconsistency example with validation fix.
+    \item How did you test before merge?
+  \end{enumerate}
+  \item LogiFlow: your specific role and backend architecture?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Answer in 2 min: problem, your railways pipeline, stack, metrics.
+    \item Comparator vs hybrid engines---who built what?
+    \item Do not narrate entire Indian logistics industry first.
+  \end{enumerate}
+  \item Where did railway data come from? How stored and queried?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item 2017 base CSV + scraping + 3 APIs---be honest about frugality.
+    \item Schema: stations, trains, corridors---high level ER diagram.
+    \item N-squared station pairing---complexity and why acceptable.
+  \end{enumerate}
+  \item XGBoost / delay model: features, validation, accuracy metric?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Say MAE 22.7 min consistently (not mixed 80\% / 65\% without defining metric).
+    \item 5-fold CV purpose in one sentence.
+    \item Train/test leakage risks in time-series delay data?
+  \end{enumerate}
+  \item Redis + GCP: what was cached, async workers, API response shape?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Cache key design: origin, dest, weight bucket.
+    \item Return cost fast; run ML delay async; update when ready.
+    \item Draw JSON response---do NOT say random words like SLM.
+  \end{enumerate}
+  \item Collaboration: code review, feedback, teamwork examples.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item STAR: LogiFlow pipeline split + Redis compromise with teammate.
+    \item STAR: IFFCO PR feedback on validation layer.
+    \item How do you disagree on technical decisions?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Internet-Sourced: Stripe}
+\textbf{OA: 60-min HackerRank --- 1 problem, 3 sequential sub-parts (unlock Part 2 after Part 1).}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Log parsing / transaction metrics / average latency / success rate---not classic DP.
+  \item Modular code so Part 2 reuses Part 1; edge cases on malformed lines.
+  \item Practice: parse logs, filter error codes, aggregate by merchant ID.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Technical screen: 2 medium LC-style + code quality discussion.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Arrays, maps, strings; clean naming and tests.
+  \item Explain time/space before coding; handle follow-up optimization.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Integration round (90 min): real API docs, HTTP errors, pagination, idempotency.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Authenticate \$ightarrow\$ basic GET \$ightarrow\$ paginate \$ightarrow\$ retry failed events.
+  \item Read docs out loud; debug 4xx/5xx live.
+  \item Why idempotency keys matter for payment retries?
+\end{enumerate}
+\vspace{2mm}
+\textbf{Behavioral: ownership under ambiguous requirements.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Task decomposition when spec changes mid-internship.
+  \item What do you do when integration test fails at 11pm?
+\end{enumerate}
+\vspace{2mm}
+\subsection{Internet-Sourced: GE HealthCare}
+\textbf{OA (Cocubes-style): Aptitude + Technical MCQ (OS, DBMS, DSA) + 1--2 coding.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item MCQ: TCP/IP, OOP, normalization, indexing.
+  \item Coding: array manipulation (e.g. sum of 2nd/4th/6th elements); Two Sum with hash map.
+  \item Tree: level-order traversal / print level-wise string.
+\end{enumerate}
+\vspace{2mm}
+\textbf{PI: Deep project walkthrough + HTTP 404 on live resume links.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Interviewer clicks your demo---what if link broken?
+  \item Error handling, status codes, monitoring.
+\end{enumerate}
+\vspace{2mm}
+\textbf{OOP grill: encapsulation, inheritance, polymorphism, constructor types.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Virtual functions with examples in C++ or Java.
+  \item Practical OOP in your IFFCO or LogiFlow code.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Manager: Why healthcare? Early release under compliance pressure?}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item DevOps/CI-CD answer for faster safe release.
+  \item Why GE over pharma IT services firms?
+\end{enumerate}
+\vspace{2mm}
+\subsection{Internet-Sourced: Google}
+\textbf{OA: 60--90 min, 1--2 DSA on Codility/HackerRank/Google platform.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Arrays/strings \textasciitilde{}85\%; graphs BFS/DFS common in loops.
+  \item Practice in plain text editor---no autocomplete.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Phone/onsite: Range Sum Query with updates (Segment Tree / Fenwick).}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Explain lazy propagation if asked follow-up.
+  \item BQ: learned from failure; disagree with teammate---STAR only.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Googleyness: intellectual humility, bias to action, ambiguity.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Admit wrong approach and how you corrected.
+  \item Team matching: pick a Google product and say why concretely.
+\end{enumerate}
+\vspace{2mm}
+\subsection{Internet-Sourced: Cisco}
+\textbf{OA: 2 coding + 40+ MCQs on OS, CN, OOP (HackerRank).}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Blind resume round---no college name/CGPA; candidate code only.
+  \item CN: OSI layers, TCP/IP, DNS, DHCP.
+  \item OS: deadlock, threads, memory management.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Technical: Resume deep-dive + notepad coding (denominations / frequency sort).}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Every project: what YOU built, scalability, deployment.
+  \item Favorite subject = Networks \$ightarrow\$ protocol application questions.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Manager: Design Instagram competitor in 5 min + distributed delay follow-up.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Feed, storage, CDN, upload path.
+  \item What breaks at global scale?
+\end{enumerate}
+\vspace{2mm}
+\subsection{Internet-Sourced: Wells Fargo}
+\textbf{OA: AMCAT/Codility --- English, aptitude, 2 medium coding (60 min).}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Perfect squares in array; tree level-order string.
+  \item Cannot revisit sections---time management.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Technical: OOP live coding (implement what you explain).}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Swap two numbers three different ways.
+  \item Runtime polymorphism, virtual functions, Java vs C++.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Design: Token generation system for a bank---which DS?}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Deque \$ightarrow\$ interviewer complicates \$ightarrow\$ DFS traversal variant.
+  \item Security vs speed in banking---your stance?
+\end{enumerate}
+\vspace{2mm}
+\textbf{Project grill + React/Node if on resume.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item State vs props; lifecycle/hooks; normalization in DB.
+\end{enumerate}
+\vspace{2mm}
+\subsection{Internet-Sourced: AlphaGrep}
+\textbf{OA: 5 CP problems / 90 min OR 2--3 coding + 15--20 C++ MCQ.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Bitmask, interactive graph sink, priority queue + binary search.
+  \item MCQ: C++ constructs, probability, statistics.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Interview: Design order book (bid/ask) with evolving requirements.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Throughput vs memory footprint trade-offs.
+  \item Follow-ups: new fields, faster top-of-book lookup.
+\end{enumerate}
+\vspace{2mm}
+\textbf{C++ deep: virtual functions, shared pointer implementation, sizeof tricks.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Memory management mapping to OS paging.
+  \item Low-latency network programming (TCP/IP).
+\end{enumerate}
+\vspace{2mm}
+\subsection{Internet-Sourced: Electronic Arts (EADP Systest)}
+\textbf{Phone screen: Why EA? General background.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Why systest vs gameplay---positive framing.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Technical: OOP, C++, STL --- what does this code do?}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item vector vs linked list trade-offs.
+  \item Medal ranking / wiggle subsequence style LC mediums reported.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Systest focus: load test game login spike; parse game logs.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Metrics: p95 latency, error rate, saturation.
+  \item Automation tool you would build for flaky tests.
+\end{enumerate}
+\vspace{2mm}
+\subsection{Internet-Sourced: Honeywell / Flipkart / Goldman / Amazon MLSS}
+\textbf{Honeywell: aptitude + technical + industrial automation curiosity.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Data analysis story from LogiFlow model.
+  \item Reporting and reliability in enterprise settings.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Flipkart Grid: inventory race, flash sale, cache stampede.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item E-commerce scale; supply chain tie to LogiFlow.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Goldman: probability puzzles + HackerRank math + engineering rigor.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Mental math; options intuition basic.
+  \item CI/CD rollback story.
+\end{enumerate}
+\vspace{2mm}
+\textbf{Amazon MLSS: ML theory test + logistic regression + leakage spotting.}
+\begin{enumerate}[label=\textit{Probe \arabic*:}]
+  \item Bias-variance; cross-val on your delay model honestly.
+\end{enumerate}
+\vspace{2mm}
+
+\subsection{Post-Mock Fix List (Ojas --- July 2026)}
+\begin{enumerate}
+  \item \textbf{90-sec intro script} --- degree, IFFCO, LogiFlow, Community Hero, CP one line.
+  \item \textbf{IFFCO resume alignment} --- single canonical stack story; no ChatGPT-debugging tangent.
+  \item \textbf{LogiFlow 2-min pitch} --- railways pipeline, XGBoost MAE 22.7, Redis cache, 100--400 ms.
+  \item \textbf{API JSON mock} --- comparator response with \texttt{ml\_status: pending|complete}.
+  \item \textbf{2 STAR collaboration stories} --- memorize; deliver under 60 sec each.
+  \item \textbf{Ban filler:} ``you know'', ``basically'', ``like uh'' --- record and count per answer.
+\end{enumerate}
+
+\subsection{Communication Rubric (What AI Screens Score)}
+\begin{itemize}
+  \item \textbf{Strong:} STAR in $<$90s; numbers first; admits unknowns; asks clarifying question.
+  \item \textbf{Weak:} 3+ min monologue; contradicts resume; no teamwork example; vague metrics.
+  \item \textbf{Fail:} Cannot explain own architecture; blames tools; no question back to interviewer.
+\end{itemize}
+\newpage
+
+\newpage
+\section{Canonical Model Answers (Memorize --- Resume-Aligned)}
+\textit{These are not essays. Read aloud until you hit time targets without looking. Every number must match your resume.}
+
+\subsection{90-Second Intro \diffLone (HackerRank / phone screen)}
+\begin{quote}\small
+\textbf{I'm Ojas Srivastava, B.Tech Artificial Intelligence at SVNIT Surat, CGPA 9.20, graduating May 2028.}
+
+\textbf{Last summer I interned at IFFCO Prayagraj for one month, shipping production Node.js and Express services on MySQL---automating 50+ daily workflows and building 10+ REST APIs with JWT auth, Docker, and CI/CD. I owned API slices end-to-end under mentor review.}
+
+\textbf{My flagship project is LogiFlow---Google Solution Challenge Global Top 106---where I co-led backend on GCP Cloud Run: Redis-cached reads at 100--400 ms across 580+ corridors, an XGBoost delay model with MAE 22.7 minutes on 15,650 train-days, and 100/100 pytest business-rule tests.}
+
+\textbf{I also solo-built Community Hero, Vibe2Ship Global Top 20---a civic PWA on Cloud Run.}
+
+\textbf{Competitively I am LeetCode Knight 2048 with 711+ problems solved; I use that for fast debugging, not as a substitute for shipping. I'm looking for an internship where I write reviewed production code---which is why [COMPANY] fits.}
+\end{quote}
+
+\subsection{IFFCO STAR (60 seconds) \diffLtwo}
+\begin{quote}\small
+\textbf{Situation:} At IFFCO Phulpur, operations teams ran 50+ manual daily workflows across farmer and inventory data---slow and error-prone.
+
+\textbf{Task:} I was responsible for two workflow automations and three REST endpoints, not the whole platform.
+
+\textbf{Action:} I gathered requirements from stakeholders, designed MySQL schemas with indexes for reporting queries, implemented Express routes with JWT-protected access and input validation, wrote unit tests for edge cases, and opened PRs for mentor review before Docker deploy.
+
+\textbf{Result:} Those workflows ran in production daily; one validation fix stopped inconsistent farmer records. I documented APIs so the next intern could extend them.
+\end{quote}
+
+\subsection{LogiFlow 2-Minute Pitch \diffLtwo}
+\begin{quote}\small
+\textbf{Problem:} Indian logistics lacks a single place to compare rail vs road cost and delay for freight corridors.
+
+\textbf{My role:} Railway pipeline owner and backend co-lead---not solo on ML or full frontend.
+
+\textbf{Architecture:} Next.js frontend $\rightarrow$ FastAPI/Node services on GCP Cloud Run $\rightarrow$ MySQL/Postgres for 9,526 stations and 580+ corridors $\rightarrow$ Redis for hot route cache keys (origin, destination, weight bucket).
+
+\textbf{Data:} 2017 base CSV plus public APIs and scraping---honest about frugality; 15,650 train-days for XGBoost delay model.
+
+\textbf{Metrics:} MAE 22.7 min; 81\% within 30 min in 5-fold CV; read path 100--400 ms with cache warm.
+
+\textbf{Async ML:} Comparator returns cost immediately; delay prediction runs async---client polls or receives \texttt{ml\_status} pending then complete.
+
+\textbf{Quality:} 100/100 pytest business rules; live demo on Vercel. If I rebuilt: add CDN and stricter time-based train/test split.
+\end{quote}
+
+\subsection{Collaboration STAR \#1 --- LogiFlow Redis Split \diffLtwo}
+\begin{quote}\small
+\textbf{Situation:} During Solution Challenge crunch, teammate wanted all corridor data in-process; I pushed Redis to hit latency targets.
+
+\textbf{Task:} Agree on architecture without blocking the railway pipeline merge.
+
+\textbf{Action:} I wrote a one-page comparison---p99 with/without cache, invalidation on corridor update, fallback if Redis down. We time-boxed a spike; data showed 100--400 ms only with cache. We split: I owned cache keys + API contract; they owned comparator logic.
+
+\textbf{Result:} Merged on schedule; demo held latency; judge questions on cache were answerable because we documented trade-offs in the PR description.
+\end{quote}
+
+\subsection{Collaboration STAR \#2 --- IFFCO PR Feedback \diffLtwo}
+\begin{quote}\small
+\textbf{Situation:} Mentor flagged my first API for missing server-side validation on farmer ID fields.
+
+\textbf{Task:} Fix without breaking existing mobile clients.
+
+\textbf{Action:} Added validation middleware, returned 400 with clear error codes, extended tests, asked mentor to re-review within 24 hours.
+
+\textbf{Result:} Zero regression in production; I now default to validation layer before business logic on every endpoint.
+\end{quote}
+
+\subsection{API Response JSON (draw on whiteboard) \diffLthree}
+\begin{quote}\small
+\begin{verbatim}
+GET /api/v1/compare?origin=NDLS&dest=BCT&weight_kg=5000
+
+200 OK (cache hit, ML pending)
+{
+  "corridor_id": "NDLS-BCT-rail",
+  "cost_inr": 84200,
+  "distance_km": 1384,
+  "mode": "rail",
+  "latency_ms": 127,
+  "ml_status": "pending",
+  "delay_prediction_min": null
+}
+
+200 OK (ML complete)
+{
+  ...
+  "ml_status": "complete",
+  "delay_prediction_min": 34,
+  "model_version": "xgb-v3"
+}
+\end{verbatim}
+\end{quote}
+
+\subsection{Redis Down / Degrade Path \diffLthree}
+\begin{quote}\small
+If Redis is unavailable: (1) circuit-breaker skips cache after N failures; (2) serve from DB with higher latency---acceptable for demo; (3) alert in logs; (4) never return stale corridor pricing---TTL enforced; (5) ML async queue retried with backoff. I would not claim sub-100 ms without cache in production.
+\end{quote}
+
+\newpage
+\section{Weak vs Strong --- Fix Your HackerRank Mock Gaps}
+\textit{Side-by-side from your July 2026 Moderate Fit / Weak Collaboration screen.}
+
+\subsection{IFFCO story}
+\badans{I built websites with HTML and Bootstrap and used ChatGPT to fix broken parts. It was mostly frontend debugging.}
+\goodans{I shipped Node.js/Express/MySQL services---50+ automated workflows, 10+ REST APIs, JWT auth, Docker CI/CD. I owned specific endpoints and validation fixes reviewed by my mentor.}
+
+\subsection{Opening pitch}
+\badans{Three-minute tour of every hackathon, CP stats first, logistics industry essay before saying my role.}
+\goodans{90 seconds: degree $\rightarrow$ IFFCO production $\rightarrow$ LogiFlow metrics $\rightarrow$ one line CP $\rightarrow$ why this company.}
+
+\subsection{LogiFlow architecture}
+\badans{``We used SLM models'' / vague ``AI'' without stack, numbers, or personal ownership.}
+\goodans{Cloud Run + Redis + XGBoost; MAE 22.7 min; 100--400 ms reads; I owned railway pipeline and cache contract; async \texttt{ml\_status} field.}
+
+\subsection{Collaboration}
+\badans{``I'm a good team player'' / no named conflict / no PR review example.}
+\goodans{Two STAR stories above---Redis disagreement and IFFCO validation PR---under 60 seconds each.}
+
+\subsection{Metrics consistency}
+\badans{Mixing ``80\% accuracy'' and ``65\%'' without defining the metric.}
+\goodans{Always: MAE 22.7 minutes; 81\% of predictions within 30 minutes (5-fold CV); separate latency metric 100--400 ms on cached reads.}
+
+\newpage
+\section{Interviewer Red-Team Playbook}
+\textit{Interviewers use these moves deliberately. Recognize and counter without getting defensive.}
+
+\begin{enumerate}
+  \item \textbf{Resume click-through} --- Opens your live demo mid-call. \textit{Counter:} know URL uptime; explain 404 handling; offer GitHub fallback.
+  \item \textbf{Stack swap trap} --- ``You said Bootstrap at IFFCO'' vs resume Node. \textit{Counter:} ``Correction---Express/MySQL; Bootstrap was not my stack'' once, then move on.
+  \item \textbf{Ownership shrink} --- ``So your mentor did the real work?'' \textit{Counter:} name 2 APIs, 1 schema change, 1 bug with before/after.
+  \item \textbf{Metric challenge} --- ``Prove 100--400 ms.'' \textit{Counter:} tool (k6/curl loop), environment, p50 vs p99, cache warm vs cold.
+  \item \textbf{Ambiguity freeze} --- long silence after vague answer. \textit{Counter:} ask clarifying question; structure answer STAR or architecture diagram.
+  \item \textbf{Ethics ambush} --- OA Forge scraping, cold email. \textit{Counter:} personal learning scope; respect robots.txt; no automated spam; would follow legal at company.
+  \item \textbf{Prestige bait} --- ``Why not IIT?'' \textit{Counter:} factual SVNIT + NIT system; outcomes via projects; no defensiveness.
+  \item \textbf{Overclaim interrupt} --- ``Stop---what did \emph{you} write?'' \textit{Counter:} ``I co-led backend; teammate owned X; I owned railway pipeline and Redis layer.''
+  \item \textbf{Negative sell} --- ``Why shouldn't we hire you?'' \textit{Counter:} real weakness (e.g., verbose under pressure) + mitigation (STAR practice, timers).
+  \item \textbf{City trap} --- Bengaluru only vs Hyderabad offer. \textit{Counter:} honest ranking; flexibility where true.
+\end{enumerate}
+
+\newpage
+\section{System Design Whiteboards (Lite --- Intern Bar)}
+\textit{Draw these in 5 minutes; label bottlenecks and one scaling knob.}
+
+\subsection{LogiFlow Read Path}
+\begin{verbatim}
+[Browser/PWA] --HTTPS--> [Cloud Run API]
+                              |
+                    +---------+---------+
+                    |                   |
+               [Redis cache]        [MySQL/Postgres]
+               route quotes         stations, corridors
+                    |
+              cache miss -> DB + populate TTL
+                    |
+              [Async worker] -> XGBoost delay model
+                    |
+              update ml_status on result
+\end{verbatim}
+\textbf{Probe chain:} \diffLtwo Where is thundering herd? \diffLthree Multi-region? \diffLtwo Cache invalidation trigger?
+
+\subsection{IFFCO Workflow Service}
+\begin{verbatim}
+[Ops UI] --JWT--> [Express API] --> [MySQL]
+                       |
+                 [Validation middleware]
+                       |
+                 [Workflow engine: 50+ jobs]
+                       |
+                 [Docker] <-- GitHub Actions CI
+\end{verbatim}
+\textbf{Probe chain:} \diffLtwo Idempotent workflow retry? \diffLthree Audit log for cooperative compliance?
+
+\subsection{Wells Fargo Token System (reported OA)}
+\begin{verbatim}
+[Client] --> [Token Service] --> deque / queue of active tokens
+                |                      |
+           rate limit              expiry sweep
+                |                      |
+           [Auth DB]              DFS variant follow-up
+\end{verbatim}
+\textbf{Probe chain:} \diffLthree Why deque? Security vs latency in banking?
+
+\newpage
+\section{HackerRank AI Screen --- Full Mock Replay (30 min)}
+\textit{Run with a friend reading \textbf{I:} lines; you answer \textbf{Y:} without notes.}
+
+\subsection{Minute-by-minute script}
+\begin{enumerate}
+  \item \textbf{0--2 min} \diffLone Eligibility + role alignment --- use 90s intro; stop if friend raises hand at 90s.
+  \item \textbf{2--8 min} \diffLtwo IFFCO deep-dive --- STAR above + name 2 APIs + JWT flow.
+  \item \textbf{8--14 min} \diffLtwo LogiFlow --- 2-min pitch + whiteboard JSON response.
+  \item \textbf{14--20 min} \diffLtwo Data/ML --- MAE 22.7, leakage risks, 5-fold CV purpose.
+  \item \textbf{20--26 min} \diffLthree Collaboration --- both STAR stories; friend uses interruption bank below.
+  \item \textbf{26--30 min} \diffLone Your questions + thank-you.
+\end{enumerate}
+
+\subsection{Interruption bank (friend reads randomly)}
+\begin{itemize}
+  \item ``You said one month---was that an internship or training?''
+  \item ``Name the exact Express middleware you used for auth.''
+  \item ``What if Redis and DB disagree on price?''
+  \item ``Give me the SQL for your heaviest IFFCO query.''
+  \item ``Community Hero---team of one. Who reviewed your code?''
+  \item ``Pause---you've talked 3 minutes. Summarize in 30 seconds.''
+\end{itemize}
+
+\subsection{Pass criteria for this mock}
+\begin{itemize}
+  \item Intro $\leq$ 90s; IFFCO stack matches resume; LogiFlow numbers consistent.
+  \item Both collaboration STARs delivered; no ``SLM'' or mystery acronyms.
+  \item Self-score $\geq$ 4 on rubric in Section 1.
+\end{itemize}
+
+\newpage
+\section{Company Priority Matrix (Your Pipeline)}
+\begin{tabularx}{\textwidth}{@{}lccX@{}}
+\toprule
+\textbf{Company} & \textbf{Urgency} & \textbf{Prep depth} & \textbf{Why now} \\
+\midrule
+GE HealthCare & High & Full & Applied; PI + OA likely soon \\
+Stripe & High & Full & Applied; 3-part OA + behavioral writing \\
+HackerRank screens & High & Canon scripts & Any company using AI screen \\
+Google & Medium & OA heavy & GOC segment trees + Googleyness \\
+Wells Fargo / Cisco & Medium & SQL + CN/OOP & Enterprise MCQ patterns \\
+AlphaGrep & Medium & C++ + CP & Hard OA; start early \\
+EA Systest & Medium & Load test narrative & Systest framing critical \\
+Amazon MLSS & Lower & ML theory & Selective cohort \\
+Others & As scheduled & Mock script only & Flipkart Grid, GS, Honeywell \\
+\bottomrule
+\end{tabularx}
+
+\section{Microsoft + Additional Internet Patterns (2024--2026)}
+\begin{itemize}
+  \item \textbf{Microsoft:} Codility 2 mediums (arrays, strings); AA (automated assessment) --- OOP design parking lot/LRU; Azure trivia bonus; ``tell me about a bug you fixed in a team''.
+  \item \textbf{Stripe essay:} ``Tell us about you + fit'' --- 250 words: production IFFCO, LogiFlow metrics, curiosity about payments reliability; no CP flex.
+  \item \textbf{GE PI:} Interviewer opens your portfolio link --- prepare 404 page story and monitoring.
+  \item \textbf{Cisco blind:} Resume only round --- every bullet must survive without college name.
+  \item \textbf{Goldman HireVue:} ``Why GS?'' + probability brain teaser recorded on camera.
+\end{itemize}
+
+\section{Live Coding Follow-Up Chains (Don't Stop at AC)}
+\textit{After solving, interviewers stack these. Practice aloud.}
+
+\begin{enumerate}
+  \item \textbf{Two Sum} \diffLone $\rightarrow$ \diffLtwo 3Sum $\rightarrow$ \diffLthree 3Sum closest with proof of two-pointer move.
+  \item \textbf{Valid parentheses} \diffLone $\rightarrow$ \diffLtwo Generate all valid $\rightarrow$ \diffLthree Longest valid substring.
+  \item \textbf{LRU Cache} \diffLtwo $\rightarrow$ \diffLthree Thread-safe version / distributed cache invalidation story.
+  \item \textbf{Rate limiter} \diffLtwo $\rightarrow$ \diffLthree Per-merchant limits + Redis atomicity.
+  \item \textbf{Level-order traversal} \diffLone $\rightarrow$ \diffLtwo Zigzag $\rightarrow$ \diffLthree Serialize BT with null markers.
+  \item \textbf{Merge intervals} \diffLtwo $\rightarrow$ \diffLthree Employee free time across calendars.
+\end{enumerate}
+
+\newpage
+\subsection{Extended Behavioral Bank (Round 2 HR + Hiring Manager)}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Tell me about yourself --- 30s / 90s / 3min versions.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Which version for a bar raiser?
+    \item Remove all awards---still compelling?
+  \end{enumerate}
+  \item Why intern now vs focusing on CP?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Is internship just resume padding?
+    \item What if you fail to convert?
+  \end{enumerate}
+  \item Conflict with a teammate who wouldn't review your PR.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Exact Slack message you'd send.
+    \item When do you involve the mentor?
+  \end{enumerate}
+  \item Time you shipped something you knew was wrong.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Technical debt accepted?
+    \item How did you document it?
+  \end{enumerate}
+  \item Most embarrassing bug in front of users.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Hotfix process?
+    \item Communication to stakeholders?
+  \end{enumerate}
+  \item Describe LogiFlow team dynamics. Who argued with you?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What did you lose on?
+    \item What did you win on?
+  \end{enumerate}
+  \item Community Hero solo---prove you didn't outsource work.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Hardest integration point?
+    \item Git history story?
+  \end{enumerate}
+  \item Why SVNIT and not IIT?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Defensive answer trap---stay factual.
+  \end{enumerate}
+  \item CGPA 9.20---why not higher?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Which course pulled you down?
+    \item Learning vs grades?
+  \end{enumerate}
+  \item McKinsey Forward Fellow---what did it change in you?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Not name-dropping---substance?
+  \end{enumerate}
+  \item Mentoring at Nexus---tell about a junior who struggled.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item How do you measure mentor success?
+  \end{enumerate}
+  \item ACM events you organized---numbers, outcomes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Budget? Sponsors? Failures?
+  \end{enumerate}
+  \item RangRiti Technical Lead---what broke on demo day?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Rollback plan?
+  \end{enumerate}
+  \item If we Google your GitHub right now, what will we critique?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Open issues?
+    \item Test coverage gaps?
+  \end{enumerate}
+  \item What are you building this week?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Not vaporware---show commit cadence.
+  \end{enumerate}
+\end{enumerate}
+\subsection{HR + Logistics (Often Dismissed --- Don't)}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Summer 2027 availability: exact dates.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item May--Aug full-time?
+    \item Exam conflicts in SVNIT calendar?
+  \end{enumerate}
+  \item Bengaluru relocation from Surat.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Housing plan?
+    \item Budget?
+    \item Family constraints?
+  \end{enumerate}
+  \item Will you accept hybrid in Hyderabad if Bengaluru fails?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Preference ranking of cities?
+  \end{enumerate}
+  \item Stipend expectations.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Trap: don't anchor too high for intern; show flexibility.
+  \end{enumerate}
+  \item Other offers / pipelines in flight.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Honesty without sounding desperate.
+  \end{enumerate}
+  \item Security clearance / background check issues?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Any legal incidents? Default no.
+  \end{enumerate}
+  \item Need academic credit for internship?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item SVNIT internship policy awareness?
+  \end{enumerate}
+  \item Rejoin as PPO goal---explicit or exploratory?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Company-specific honesty.
+  \end{enumerate}
+\end{enumerate}
+\subsection{Resume Line-by-Line Interrogation (Bring BATCH-6 PDF)}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item Bullet: 50+ daily workflows --- quantify users and frequency.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Per workflow runtime?
+    \item Manual time saved?
+  \end{enumerate}
+  \item Bullet: 10+ REST APIs --- pick 3 methods + status codes.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item 429 handling?
+    \item Pagination?
+  \end{enumerate}
+  \item Bullet: 100--400 ms read paths --- measurement harness.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item wrk/k6?
+    \item Synthetic vs real?
+  \end{enumerate}
+  \item Bullet: 580+ corridors --- data source provenance.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Government open data?
+    \item Cleaning pipeline?
+  \end{enumerate}
+  \item Bullet: 9,526 stations --- schema normalization.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Duplicates across zones?
+  \end{enumerate}
+  \item Bullet: 15,650 train-days --- label definition.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What counts as a train-day?
+  \end{enumerate}
+  \item Bullet: MAE 22.7 min --- baseline comparison.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Naive baseline?
+    \item Business acceptable error?
+  \end{enumerate}
+  \item Bullet: 100/100 pytest --- are tests too brittle?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Mutation testing awareness?
+  \end{enumerate}
+  \item Bullet: 14K+ question occurrences --- legal/ethical sourcing.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item DMCA concern?
+  \end{enumerate}
+  \item Bullet: 5.5K+ test cases --- generation vs manual.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item False AC risk?
+  \end{enumerate}
+  \item Bullet: 965+ companies scout --- maintenance burden.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Broken scrapers weekly?
+  \end{enumerate}
+  \item Bullet: LeetCode Knight 2048 --- contest vs practice split.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item When did you peak?
+    \item Trend last 6 months?
+  \end{enumerate}
+  \item Bullet: Vibe2Ship Top 20 --- team size vs solo claim.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item What did judges score?
+  \end{enumerate}
+  \item Bullet: GSC Top 106 --- how many teams globally?
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Your rank within team?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Leadership + POR (ACM SVNIT / Nexus)}
+\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*]
+  \item ACM Executive Member---conflict with faculty advisor.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Budget overrun story?
+  \end{enumerate}
+  \item Nexus DSA Mentor---curriculum you designed.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Beginner failure modes?
+    \item How many mentees?
+  \end{enumerate}
+  \item Organizing contest---cheating detection.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Plagiarism tools?
+    \item Appeals process?
+  \end{enumerate}
+  \item Balancing mentorship vs your own CP grind.
+  \begin{enumerate}[label=\textit{FU\arabic*:}, leftmargin=2em]
+    \item Time audit weekly?
+  \end{enumerate}
+\end{enumerate}
+\subsection{Rapid-Fire 30 (30 seconds each, no filler)}
+\begin{enumerate}
+  \item Big-O of your favorite LogiFlow endpoint.
+  \item CAP theorem---where does Redis sit?
+  \item Normalize vs denormalize in one sentence with example.
+  \item HTTP 401 vs 403 in IFFCO auth.
+  \item Difference between JWT and session cookie.
+  \item What is connection pooling in MySQL?
+  \item Docker layer caching---practical tip.
+  \item CI fails on lint but not tests---ship or block?
+  \item Git rebase vs merge for intern PRs.
+  \item When is gradient boosting better than linear regression for delays?
+  \item Precision vs recall for delay alerts.
+  \item ChromaDB vs Pinecone---why you chose Chroma.
+  \item WebSocket close codes you actually know.
+  \item A* heuristic admissibility in AirHelp graph.
+  \item C++17 feature you used in OA Forge.
+  \item Undefined behavior example in C++.
+  \item Python GIL---does it affect your FastAPI app?
+  \item async/await vs threads for I/O bound work.
+  \item Supabase vs raw Postgres---trade-off.
+  \item Cloud Run concurrency setting you tuned.
+  \item Cold start mitigation list (3 items).
+  \item OAuth2 authorization code flow steps.
+  \item Rate limiting: token bucket vs leaky bucket.
+  \item Idempotency key placement in Stripe-like API.
+  \item SAGA vs 2PC---one-line intern answer.
+  \item Load balancer layer 4 vs layer 7.
+  \item CDN cache hit ratio---what's good enough?
+  \item Selenium vs Playwright for scrapers.
+  \item Ethics of scraping job boards.
+  \item How you validate an OA question match.
+  \item Explain CAP theorem using LogiFlow Redis + MySQL.
+  \item What is the thundering herd problem and your LogiFlow fix?
+  \item Difference between IaaS, PaaS, SaaS with your stack examples.
+  \item Stripe idempotency key --- where stored and for how long?
+  \item GE Workday B.S. mapping --- 15-second honest answer.
+  \item Community Hero Firestore security rules --- one rule you wrote.
+  \item OA Forge memory limit --- how enforced in judge?
+  \item When would you pick Postgres over MySQL for LogiFlow?
+  \item Explain your cold-start mitigation on Cloud Run (3 bullets).
+\end{enumerate}
+\newpage
+\section{OA Full Simulation Timetables}
+\subsection{Stripe/Google OA simulation (90 min)}
+\begin{enumerate}
+  \item 0--15: warm-up easy array.
+  \item 15--45: medium \#1 (intervals/heap).
+  \item 45--75: medium \#2 (graphs/BFS).
+  \item 75--90: review complexity, edge cases, test cases.
+\end{enumerate}
+\subsection{GE/Honeywell OA simulation (60 min)}
+\begin{enumerate}
+  \item 20 MCQ OS/DBMS/CN.
+  \item 20 MCQ aptitude.
+  \item 1 coding medium.
+  \item 5 HR written responses.
+\end{enumerate}
+\subsection{AlphaGrep OA simulation (120 min)}
+\begin{enumerate}
+  \item 3 implementation-heavy problems.
+  \item Fast I/O required.
+  \item Partial scoring---attempt all.
+\end{enumerate}
+\newpage
+\section{Full Verbatim Mock Transcripts (Read Aloud with a Friend)}
+\subsection{Stripe --- Round 1 (excerpt, 12 min)}
+
+\textbf{Interviewer (I):} Thanks for joining. I've got your resume---B.Tech AI, IFFCO, LogiFlow, OA Forge. Quick one: what happens when I click Pay on a Stripe Checkout page? Keep it under two minutes.
+
+\textbf{You (Y):} [Answer: browser $\rightarrow$ merchant backend creates PaymentIntent $\rightarrow$ client secret $\rightarrow$ Stripe.js confirms $\rightarrow$ webhooks notify merchant $\rightarrow$ idempotent fulfillment.]
+
+\textbf{I:} Good. You wrote production Node at IFFCO for one month. Skeptical---what did \emph{you} own?
+
+\textbf{Y:} [Name 2--3 APIs, one schema change, one bug you fixed.]
+
+\textbf{I:} LogiFlow---100 to 400 ms. Measured how?
+
+\textbf{Y:} [Tool, environment, p50 vs p99, before/after.]
+
+\textbf{I:} If Redis evaporates?
+
+\textbf{Y:} [Degrade path, DB fallback, circuit breaker, alert.]
+
+\textbf{I:} Coding: implement rate limiter, 10 req/sec per API key.
+
+\textbf{Y:} [Token bucket; mention thread safety if asked.]
+
+\textbf{I:} Why Stripe over building payments yourself?
+
+\textbf{Y:} [Compliance, reliability, global rails, learning from best team.]
+
+\newpage
+\subsection{GE HealthCare --- Hiring Manager (excerpt, 10 min)}
+
+\textbf{I:} Why healthcare software if your projects are logistics and civic apps?
+
+\textbf{Y:} [Impact on clinicians, reliability culture, compute/visualization interest---honest pivot.]
+
+\textbf{I:} Walk SDLC for one IFFCO feature.
+
+\textbf{Y:} [Req $\rightarrow$ design $\rightarrow$ impl $\rightarrow$ test $\rightarrow$ deploy $\rightarrow$ feedback.]
+
+\textbf{I:} Workday says B.S. Computer Science. Resume B.Tech AI. Explain.
+
+\textbf{Y:} [ATS mapping; coursework is CS-core; official degree at NIT.]
+
+\textbf{I:} How do you test software where mistakes hurt patients, even if you don't touch PHI?
+
+\textbf{Y:} [Traceability, regression suites, documentation, escalation---no fake HIPAA claims.]
+
+\textbf{I:} On-site Bengaluru entire summer?
+
+\textbf{Y:} [Yes + logistics.]
+
+\newpage
+\subsection{AlphaGrep --- Core SWE (excerpt, 15 min)}
+
+\textbf{I:} CF 1419 Specialist. Why not more contests before applying here?
+
+\textbf{Y:} [Honest balance with shipping projects; trend improving.]
+
+\textbf{I:} OA Forge judge---sandbox escape in 30 seconds.
+
+\textbf{Y:} [Timeouts, syscall restrictions, resource limits, separate user, no network.]
+
+\textbf{I:} std::vector reallocation---what invalidates?
+
+\textbf{Y:} [Iterators/pointers/references; emplace vs push\_back trade-offs.]
+
+\textbf{I:} Parse 10M integers from stdin fast---outline.
+
+\textbf{Y:} [Fast I/O, avoid endl, reserve where possible, minimal allocations.]
+
+\textbf{I:} Why trading?
+
+\textbf{Y:} [Real systems constraints + personal markets interest---specific, not glam.]
+
+\newpage
+\subsection{HackerRank AI Screen --- Full Replay (excerpt, 18 min)}
+
+\textbf{I:} Walk me through your background and recent work. Ninety seconds.
+
+\textbf{Y:} [Use canonical 90s intro---stop at degree, IFFCO, LogiFlow, Community Hero, CP one line.]
+
+\textbf{I:} IFFCO was one month. What did you actually build?
+
+\textbf{Y:} [STAR: Node/Express/MySQL; 50+ workflows; 10+ APIs; JWT; name 2 endpoints.]
+
+\textbf{I:} LogiFlow---your role and backend architecture. Two minutes.
+
+\textbf{Y:} [2-min pitch: Cloud Run, Redis 100--400 ms, XGBoost MAE 22.7, async ml\_status.]
+
+\textbf{I:} Redis and GCP---what is cached and what does the API return?
+
+\textbf{Y:} [Draw JSON; cache keys; pending vs complete ML.]
+
+\textbf{I:} Collaboration example---code review or disagreement.
+
+\textbf{Y:} [Redis split STAR under 60s; IFFCO validation PR if time.]
+
+\textbf{I:} [SILENCE 5 sec] You talked three minutes on logistics. Thirty-second summary.
+
+\textbf{Y:} [``I owned railway pipeline and cache layer; MAE 22.7 min; 100--400 ms reads.'']
+
+\textbf{I:} Any questions for us?
+
+\textbf{Y:} [Intern project success criteria; mentor pairing; code review culture.]
+
+\newpage
+\section{Coding Problem Bank --- 60 Problems (Company-Tagged)}
+\subsection{Stripe/Google}
+\begin{enumerate}
+  \item Two Sum / 3Sum --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Valid Parentheses --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Merge Intervals --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item LRU Cache --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Rate Limiter --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Serialize BT --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Word Break --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Course Schedule --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item K Closest Points --- \textit{Follow-up: time/space, edge cases, test cases.}
+\end{enumerate}
+\subsection{GE/Honeywell}
+\begin{enumerate}
+  \item SQL: second highest salary --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Find duplicate emails --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Running total --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Array rotation --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item String anagram groups --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item BST validation --- \textit{Follow-up: time/space, edge cases, test cases.}
+\end{enumerate}
+\subsection{Wells Fargo/GS}
+\begin{enumerate}
+  \item Expected dice rolls --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Stock span --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Max subarray --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Matrix islands --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Coin change --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Probability: birthday paradox sketch --- \textit{Follow-up: time/space, edge cases, test cases.}
+\end{enumerate}
+\subsection{AlphaGrep}
+\begin{enumerate}
+  \item Fast stdin sum --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Custom sort with comparator --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Segment tree range sum (conceptual) --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Greedy scheduling --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Binary search on answer --- \textit{Follow-up: time/space, edge cases, test cases.}
+\end{enumerate}
+\subsection{EA Systest}
+\begin{enumerate}
+  \item Parse nginx log top IPs --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Flaky test reproduction plan --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item pytest fixture design --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Load test scenario doc --- \textit{Follow-up: time/space, edge cases, test cases.}
+\end{enumerate}
+\subsection{Amazon MLSS}
+\begin{enumerate}
+  \item Logistic regression grad --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Train/test leakage spotting --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Vectorized mean in numpy --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Bias-variance tradeoff MCQ --- \textit{Follow-up: time/space, edge cases, test cases.}
+\end{enumerate}
+\subsection{Cisco}
+\begin{enumerate}
+  \item Prefix trie insert/search --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item TCP handshake ordering quiz --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item HTTP status code scenarios --- \textit{Follow-up: time/space, edge cases, test cases.}
+\end{enumerate}
+\subsection{Flipkart}
+\begin{enumerate}
+  \item Inventory decrement race --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Cache stampede mitigation --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Cart merge concurrency --- \textit{Follow-up: time/space, edge cases, test cases.}
+\end{enumerate}
+\subsection{General}
+\begin{enumerate}
+  \item Detect cycle in LL --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Topo sort --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Dijkstra --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Union Find --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Heap merge K lists --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item DP knapsack --- \textit{Follow-up: time/space, edge cases, test cases.}
+  \item Sliding window max --- \textit{Follow-up: time/space, edge cases, test cases.}
+\end{enumerate}
+\section{STAR Story Worksheets (Fill Before Interview)}
+\subsection{IFFCO production delivery under mentor oversight}
+\begin{itemize}
+  \item \textbf{Situation (2 sentences)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Task (your responsibility only)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Action (technical verbs, metrics)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Result (quantified)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Brutal follow-up you fear}: \rule{0.65\textwidth}{0.4pt}
+\end{itemize}
+\subsection{LogiFlow latency crisis during Solution Challenge}
+\begin{itemize}
+  \item \textbf{Situation (2 sentences)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Task (your responsibility only)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Action (technical verbs, metrics)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Result (quantified)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Brutal follow-up you fear}: \rule{0.65\textwidth}{0.4pt}
+\end{itemize}
+\subsection{Community Hero solo ship under hackathon deadline}
+\begin{itemize}
+  \item \textbf{Situation (2 sentences)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Task (your responsibility only)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Action (technical verbs, metrics)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Result (quantified)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Brutal follow-up you fear}: \rule{0.65\textwidth}{0.4pt}
+\end{itemize}
+\subsection{OA Forge security/scoping decision}
+\begin{itemize}
+  \item \textbf{Situation (2 sentences)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Task (your responsibility only)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Action (technical verbs, metrics)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Result (quantified)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Brutal follow-up you fear}: \rule{0.65\textwidth}{0.4pt}
+\end{itemize}
+\subsection{ACM/Nexus mentoring breakthrough}
+\begin{itemize}
+  \item \textbf{Situation (2 sentences)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Task (your responsibility only)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Action (technical verbs, metrics)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Result (quantified)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Brutal follow-up you fear}: \rule{0.65\textwidth}{0.4pt}
+\end{itemize}
+\subsection{Code review conflict resolution}
+\begin{itemize}
+  \item \textbf{Situation (2 sentences)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Task (your responsibility only)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Action (technical verbs, metrics)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Result (quantified)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Brutal follow-up you fear}: \rule{0.65\textwidth}{0.4pt}
+\end{itemize}
+\subsection{Failed approach you pivoted from}
+\begin{itemize}
+  \item \textbf{Situation (2 sentences)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Task (your responsibility only)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Action (technical verbs, metrics)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Result (quantified)}: \rule{0.65\textwidth}{0.4pt}
+  \item \textbf{Brutal follow-up you fear}: \rule{0.65\textwidth}{0.4pt}
+\end{itemize}
+\section{Panel Stress Interview (3 Interviewers, 60 min)}
+
+\begin{enumerate}
+  \item \textbf{Engineer A} attacks LogiFlow architecture for 15 min straight.
+  \item \textbf{Engineer B} asks OS/DBMS/CN rapid fire; no pauses $>$ 5 sec.
+  \item \textbf{HR C} asks ethics of scraping, cold email, OA Forge legality.
+  \item \textbf{All three:} ``Where do you rank yourself in your batch? Prove it.''
+  \item \textbf{Closing:} each gives one reason to reject you---you respond without defensiveness.
+\end{enumerate}
+\section{Full Mock Interview Scripts (Timed)}
+\subsection{Mock Round A --- Stripe-style (45 min)}
+\textbf{Interviewer persona:} Senior Engineer, Payments Infrastructure
+
+\textbf{Flow:}
+\begin{enumerate}
+  \item \textbf{0--5 min}: Intro + 'Tell me about a time you shipped under ambiguity.'
+  \item \textbf{5--20 min}: Resume deep-dive on LogiFlow + OA Forge with interrupting follow-ups.
+  \item \textbf{20--35 min}: Coding: implement rate limiter (token bucket) + unit tests.
+  \item \textbf{35--42 min}: Design lite: idempotent payment retry API---components only.
+  \item \textbf{42--45 min}: Your questions + 'Why Stripe over Razorpay?'
+\end{enumerate}
+
+\textbf{Brutal interruption bank (use randomly):}
+\begin{itemize}
+  \item 'You said production---how many daily active users?'
+  \item 'Your cache numbers sound benchmarked. Show me methodology.'
+  \item 'What happens if Redis and DB disagree on corridor status?'
+\end{itemize}
+
+\subsection{Mock Round B --- GE HealthCare / Enterprise (45 min)}
+\textbf{Interviewer persona:} Engineering Manager, Digital Technology
+
+\textbf{Flow:}
+\begin{enumerate}
+  \item \textbf{0--5 min}: Why healthcare? Why GE? Why Bengaluru on-site?
+  \item \textbf{5--15 min}: IFFCO: requirements, testing, documentation for auditors.
+  \item \textbf{15--25 min}: LogiFlow reliability + pytest culture.
+  \item \textbf{25--35 min}: MCQ rapid fire: SQL, OOP, testing definitions.
+  \item \textbf{35--40 min}: Behavioral: conflict with teammate on design.
+  \item \textbf{40--45 min}: Logistics: dates, backlog status, degree clarification.
+\end{enumerate}
+
+\textbf{Brutal interruption bank (use randomly):}
+\begin{itemize}
+  \item 'Workday says B.S. Computer Science; resume says B.Tech AI---explain.'
+  \item 'One-month internship---how is that sufficient?'
+  \item 'Healthcare is regulated. Where did you validate PHI/PII handling?' (trap: you didn't---answer honestly)
+\end{itemize}
+
+\subsection{Mock Round C --- AlphaGrep / HFT-flavored (60 min)}
+\textbf{Interviewer persona:} Core Engineering Lead
+
+\textbf{Flow:}
+\begin{enumerate}
+  \item \textbf{0--10 min}: C++ trivia: move semantics, STL complexity, memory alignment basics.
+  \item \textbf{10--25 min}: Live coding: parse streaming integers from stdin under time limit.
+  \item \textbf{25--40 min}: OA Forge judge design whiteboard.
+  \item \textbf{40--50 min}: LogiFlow latency story---skeptical probing.
+  \item \textbf{50--60 min}: Probability warm-up + 'Why trading?'
+\end{enumerate}
+
+\textbf{Brutal interruption bank (use randomly):}
+\begin{itemize}
+  \item 'CF 1419 is Specialist, not expert---why should we trust your systems skills?'
+  \item 'Judge in C++---how many microseconds per test case?'
+\end{itemize}
+
+\subsection{Mock Round D --- Google SWE Intern (60 min)}
+\textbf{Interviewer persona:} L3/L4 Engineer, Core Infrastructure
+
+\textbf{Flow:}
+\begin{enumerate}
+  \item \textbf{0--5 min}: Warm-up: favorite data structure and non-coding use.
+  \item \textbf{5--15 min}: Coding \#1: medium array/graph with follow-up optimization.
+  \item \textbf{15--25 min}: Coding \#2: strings + hash map twist.
+  \item \textbf{25--40 min}: System: design global key-value cache for LogiFlow reads.
+  \item \textbf{40--50 min}: Behavioral: failed hypothesis in project.
+  \item \textbf{50--60 min}: Reverse: questions + 'What Google product would you remove?' (trap: be thoughtful).
+\end{enumerate}
+
+\textbf{Brutal interruption bank (use randomly):}
+\begin{itemize}
+  \item 'Your second solution is still not optimal---try again.'
+  \item 'How would this work at Google scale with multi-region?'
+  \item 'Tell me about a time you had no idea what to do for 2 days.'
+\end{itemize}
+
+\subsection{Mock Round E --- Wells Fargo / Enterprise Bank (45 min)}
+\textbf{Interviewer persona:} VP Technology + Campus Recruiter
+
+\textbf{Flow:}
+\begin{enumerate}
+  \item \textbf{0--8 min}: Why banking; why not fintech startup?
+  \item \textbf{8--18 min}: SQL live + explain integrity constraints.
+  \item \textbf{18--28 min}: Secure SDLC story from IFFCO.
+  \item \textbf{28--38 min}: Situational judgment: data leak scare.
+  \item \textbf{38--45 min}: Program fit + location preference.
+\end{enumerate}
+
+\textbf{Brutal interruption bank (use randomly):}
+\begin{itemize}
+  \item 'Banking is boring---convince me you'll stay engaged.'
+  \item 'Node in production at coop---would we allow that here?'
+\end{itemize}
+
+\subsection{Mock Round F --- EA Systest / Games Platform (50 min)}
+\textbf{Interviewer persona:} Senior SDET, EADP Hyderabad
+
+\textbf{Flow:}
+\begin{enumerate}
+  \item \textbf{0--10 min}: Resume: Career Automation Stack only.
+  \item \textbf{10--25 min}: Design load test for login API.
+  \item \textbf{25--35 min}: Debug flaky test exercise.
+  \item \textbf{35--45 min}: Coding: parse log file, top 10 error codes.
+  \item \textbf{45--50 min}: Culture: crunch vs quality (navigate carefully).
+\end{enumerate}
+
+\textbf{Brutal interruption bank (use randomly):}
+\begin{itemize}
+  \item 'Systest is unglamorous---why not gameplay engineering?'
+  \item 'Your WebSocket load numbers are tiny for games scale.'
+\end{itemize}
+
+\subsection{Mock Round G --- Cisco Networking Flavor (45 min)}
+\textbf{Interviewer persona:} Application Software Engineer
+
+\textbf{Flow:}
+\begin{enumerate}
+  \item \textbf{0--10 min}: TCP/IP deep dive tied to your projects.
+  \item \textbf{10--20 min}: Secure coding checklist for REST APIs.
+  \item \textbf{20--30 min}: Coding: implement prefix trie for routing table toy.
+  \item \textbf{30--40 min}: Agile ceremony participation proof.
+  \item \textbf{40--45 min}: Device/cloud intersection curiosity.
+\end{enumerate}
+
+\textbf{Brutal interruption bank (use randomly):}
+\begin{itemize}
+  \item 'Name a Cisco product---if you can't, why Cisco?'
+  \item 'How does your PWA relate to networking?'
+\end{itemize}
+
+\subsection{Mock Round H --- HackerRank AI Screen Replay (30 min)}
+\textbf{Interviewer persona:} AI Recruiter + Automated Rubric (Collaboration weighted)
+
+\textbf{Flow:}
+\begin{enumerate}
+  \item \textbf{0--2 min}: 90-second intro --- friend stops you at 90s.
+  \item \textbf{2--8 min}: IFFCO STAR + stack alignment (Node/Express/MySQL only).
+  \item \textbf{8--14 min}: LogiFlow 2-min pitch + JSON response whiteboard.
+  \item \textbf{14--20 min}: ML metrics: MAE 22.7, CV, leakage --- no mixed percentages.
+  \item \textbf{20--26 min}: Collaboration STAR x2 --- Redis split + IFFCO PR review.
+  \item \textbf{26--30 min}: Your questions; debrief score 1--5.
+\end{enumerate}
+
+\textbf{Brutal interruption bank (use randomly):}
+\begin{itemize}
+  \item 'You mentioned Bootstrap---resume says Express. Which is true?'
+  \item 'Pause. Summarize LogiFlow in 30 seconds.'
+  \item 'No teamwork example yet---Weak Fit on collaboration.'
+\end{itemize}
+
+\subsection{Mock Round I --- Stripe Essay + Integration (60 min)}
+\textbf{Interviewer persona:} Recruiter + Engineer pair
+
+\textbf{Flow:}
+\begin{enumerate}
+  \item \textbf{0--10 min}: Read aloud 250-word Stripe fit essay; cut fluff live.
+  \item \textbf{10--25 min}: Log-parse 3-part OA simulation on paper.
+  \item \textbf{25--40 min}: Integration: paginated API + idempotent retry design.
+  \item \textbf{40--50 min}: Code review diff critique exercise.
+  \item \textbf{50--60 min}: Why Stripe over Razorpay---specific product reference.
+\end{enumerate}
+
+\textbf{Brutal interruption bank (use randomly):}
+\begin{itemize}
+  \item 'Your essay mentions CP twice---remove and re-read.'
+  \item 'Part 2 fails if Part 1 parsing is brittle---show tests.'
+\end{itemize}
+
+
+\section{OA / Coding Problem Bank (Aligned to Your Pipeline)}
+\subsection{High-frequency patterns for your stats (Knight / Specialist)}
+\begin{itemize}
+  \item Arrays/strings: two pointers, sliding window, prefix sums
+  \item Trees/graphs: BFS/DFS, shortest path, topological sort
+  \item Heaps: top-K, merge K lists, scheduling
+  \item DP: knapsack variants, LIS, grid paths
+  \item System-ish: rate limiter, LRU, file tail, log aggregation
+\end{itemize}
+
+\subsection{Company-tagged practice set}
+\begin{longtable}{@{}p{2.5cm}p{4cm}p{8cm}@{}}
+\toprule
+\textbf{Company} & \textbf{Format} & \textbf{Representative problems} \\
+\midrule
+Stripe / Google & 2--3 mediums OR 1x 3-part implementation (log parse) & Rate limiter; segment tree; merge intervals \\
+GE / Honeywell & Aptitude + MCQ + 1--2 coding & Sum 2nd/4th/6th elems; Two Sum; HTTP/OOP MCQ \\
+Wells Fargo / GS & AMCAT/Codility + aptitude & Token system DS; tree level-order; swap 3 ways \\
+AlphaGrep & 5 CP / 90 min or 2--3 code + C++ MCQ & Order book design; fast I/O; bitmask \\
+EA Systest & OOP + code reading + LC medium & Load test design; vector vs list; medal ranking \\
+HackerRank Screen & AI 30-min behavioral-technical & Resume deep-dive; collaboration STAR required \\
+Amazon MLSS & ML + code & Logistic regression derivation, numpy vectorization, train/test leakage MCQ \\
+\bottomrule
+\end{longtable}
+
+\section{Trap Questions --- Honest Answer Frameworks}
+\begin{enumerate}
+  \item \textbf{``Isn't this just ChatGPT code?''} --- Point to commits, tests, architecture trade-offs YOU defended live.
+  \item \textbf{``Global Top 106 sounds like marketing.''} --- Explain judging criteria, team size, your measurable contribution.
+  \item \textbf{``You optimize for internships (OA Forge) more than engineering.''} --- Pivot to judge sandbox, CI, data pipelines as real engineering.
+  \item \textbf{``AI degree but SWE role?''} --- Coursework map + projects that are backend/systems heavy.
+  \item \textbf{``Will you leave for higher CP / quant?''} --- Commit to role scope; honesty without sounding flaky.
+\end{enumerate}
+
+\section{Questions YOU Should Ask (Don't End Passive)}
+\begin{itemize}
+  \item What does a successful intern project look like at handoff?
+  \item How are interns paired with mentors weekly?
+  \item What is the code review culture for intern PRs?
+  \item Biggest technical debt the team wants help with this summer?
+  \item How is on-call / production responsibility handled for interns (usually: none---verify)?
+\end{itemize}
+
+\section{7-Day Brutal Prep Schedule}
+\begin{enumerate}
+  \item \textbf{Day 1:} Canonical scripts (Section 6) + IFFCO deep-dive recorded.
+  \item \textbf{Day 2:} LogiFlow + Community Hero whiteboard + DBMS/OS rapid fire.
+  \item \textbf{Day 3:} Stripe/Google mock script A + 2 medium LeetCode timed.
+  \item \textbf{Day 4:} AlphaGrep C++ + OA Forge security questions.
+  \item \textbf{Day 5:} Wells Fargo SQL + situational + GE healthcare angle.
+  \item \textbf{Day 6:} EA systest load testing narrative + AirHelp concurrency.
+  \item \textbf{Day 7:} Full 3-hour loop: OA simulation + behavioral + one system lite.
+\end{enumerate}
+
+\section{30-Day Interview Camp (Recommended Rotation)}
+\textit{Repeat the 7-day block 4 times; each week add one new mock script and re-record canonical answers.}
+
+\begin{longtable}{@{}p{1.2cm}p{5.5cm}p{8cm}@{}}
+\toprule
+\textbf{Week} & \textbf{Focus} & \textbf{Daily minimum (weekdays)} \\
+\midrule
+\endhead
+1 & Canon + HackerRank screen & Memorize 90s intro; 1 STAR/day; 1 timed medium LC \\
+2 & Stripe + Google OAs & Log-parse 3-part mock; segment tree review; 2 mediums \\
+3 & Enterprise (GE, WF, Cisco) & SQL + OOP MCQ drill; situational STAR; HTTP/CN rapid fire \\
+4 & AlphaGrep + EA + MLSS & C++ MCQ; load-test narrative; bias-variance on LogiFlow \\
+\bottomrule
+\end{longtable}
+
+\subsection{Weekend blocks (Sat--Sun)}
+\begin{itemize}
+  \item \textbf{Saturday:} Full mock script (45--60 min) with friend + brutal interruption bank.
+  \item \textbf{Sunday:} OA simulation timetable + debrief 5 lines + update STAR worksheets.
+\end{itemize}
+
+\vfill
+\begin{center}
+\textit{Generated for Ojas Srivastava --- Resume Optimiser repo --- July 2026}\\
+\small Good luck. Brutal practice $\rightarrow$ calm interviews.
+\end{center}
+
+\end{document}
