@@ -1,24 +1,24 @@
 {
-  "fetched_at": "2026-07-05T06:23:24+00:00",
+  "fetched_at": "2026-07-12T05:41:09+00:00",
   "target_internship_year": 2027,
   "target_season": "Summer 2027",
   "scout_company_count": 964,
-  "total_unique_emails": 5139,
+  "total_unique_emails": 5195,
   "by_confidence": {
     "scraped_personal": 2,
-    "scraped": 99,
-    "public_listed": 137,
+    "scraped": 113,
+    "public_listed": 181,
     "inferred_pattern": 332,
-    "generic_inferred": 4559,
+    "generic_inferred": 4557,
     "generic": 10
   },
   "by_contact_type": {
-    "unknown": 101,
-    "hr_inbox": 137,
+    "unknown": 115,
+    "hr_inbox": 181,
     "recruiter": 332,
-    "careers_inbox": 4569
+    "careers_inbox": 4567
   },
-  "scout_overlap_emails": 4899,
+  "scout_overlap_emails": 4906,
   "sources": {
     "github_clone": [
       "ok careerLauncher",
