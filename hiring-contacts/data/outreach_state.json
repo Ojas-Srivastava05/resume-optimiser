@@ -421,8 +421,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Cerebras",
       "dry_run": false,
       "sent_at": "2026-06-26T07:11:50.729246+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-13T02:33:35.356480+00:00"
     },
     "ask.campus.emea@aexp.com": {
       "email": "ask.campus.emea@aexp.com",
@@ -875,71 +876,9 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 24
+    "total_followups": 25
   },
   "daily_log": {
-    "2026-06-26": {
-      "emails": [
-        "kaitlynn@cerebras.net",
-        "ask.campus.emea@aexp.com",
-        "ia.po@angelone.in",
-        "contact.community@cdprojektred.com",
-        "aire.hanagata@concentrix.com",
-        "etf.sales@drw.com",
-        "adam.shi@deel.com",
-        "askhr.us@fiserv.com",
-        "shruti.pattanaik@inmobi.com",
-        "taarika.khedekar@icicisecurities.com",
-        "talent.acquisition@kla.com",
-        "applicant.accomodations@ltts.com",
-        "grievance.redressal@lendingkart.com",
-        "amita.chohan@man.com",
-        "1.g2-best-software-top-50-hr-products@2x.webp",
-        "career.sr@samsung.com",
-        "global.careers@teradata.com",
-        "complaints.mcx@upstox.com",
-        "askhr@amd.com",
-        "chinacareers@alpha-grep.com",
-        "recruitmentenquiries@arm.com",
-        "careershome_collage_desktop@2x.png",
-        "recruiting@belvederetrading.com",
-        "careers@bigeye.com",
-        "disability.assistance@blackrock.com",
-        "anastasia.biska@booking.com",
-        "recruitments@byjus.com",
-        "recruitingaccommodation@capitalone.com"
-      ],
-      "companies": [
-        "cerebras",
-        "americanexpress",
-        "angelone",
-        "cdprojektred",
-        "concentrix",
-        "drw",
-        "deel",
-        "fiserv",
-        "glance",
-        "icicisecurities",
-        "klacorporation",
-        "ltts",
-        "lendingkart",
-        "mangroup",
-        "remote",
-        "samsungrd",
-        "teradata",
-        "upstox",
-        "amd",
-        "alphagrep",
-        "arm",
-        "atlassian",
-        "belvederetrading",
-        "bigeye",
-        "blackrock",
-        "bookingcom",
-        "byjus",
-        "capitalone"
-      ]
-    },
     "2026-06-29": {
       "emails": [
         "shane.sabaiz-birdsill@cerebras.net",
@@ -1049,7 +988,15 @@
         "atlassian",
         "alation"
       ]
+    },
+    "2026-07-13": {
+      "emails": [
+        "kaitlynn@cerebras.net"
+      ],
+      "companies": [
+        "cerebras"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-10T10:29:34.615828+00:00"
+  "last_live_send_at": "2026-07-13T02:33:35.356467+00:00"
 }
