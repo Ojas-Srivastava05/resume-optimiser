@@ -2,7 +2,7 @@ name: Hiring Contacts Refresh
 
 on:
   schedule:
-    # Sunday 8:00 AM IST = 2:30 AM UTC
+    # Sunday 8:00 AM IST — purge any junk that slipped in; never rebuild from legacy scrapes
     - cron: "30 2 * * 0"
   workflow_dispatch:
 
@@ -18,15 +18,16 @@ defaults:
     working-directory: hiring-contacts
 
 jobs:
-  refresh:
+  maintenance:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 15
 
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: false
-          fetch-depth: 1
+          persist-credentials: true
+          token: ${{ github.token }}
 
       - uses: actions/setup-python@v5
         with:
@@ -34,26 +35,16 @@ jobs:
           cache: pip
           cache-dependency-path: hiring-contacts/requirements.txt
 
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Refresh contact database
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: python3 scripts/refresh_all.py
+      - name: Purge inauthentic contacts
+        run: python3 scripts/purge_inauthentic_contacts.py
 
-      - name: Commit merged contact data
+      - name: Commit authentic-only database
         working-directory: .
         run: |
-          bash .github/scripts/git-push-state.sh "chore(hiring-contacts): refresh contact database" \
+          bash .github/scripts/git-push-state.sh "chore(hiring-contacts): purge inauthentic contacts" \
             hiring-contacts/data/merged/ \
-            hiring-contacts/data/raw/scout_companies_snapshot.csv \
-            hiring-contacts/data/sources.json
-
-      - name: Upload ingest report
-        if: success() || failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: hiring-contacts-ingest-report
-          path: hiring-contacts/data/merged/ingest_report.json
-          if-no-files-found: warn
+            hiring-contacts/data/raw/incremental_hq_contacts.csv \
+            hiring-contacts/data/archive/purged_contacts.csv

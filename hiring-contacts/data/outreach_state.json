@@ -15,7 +15,8 @@
       "sent_at": "2026-06-24T13:16:19.018225+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-06-29T13:51:36.889504+00:00"
+      "followup_at": "2026-06-29T13:51:36.889504+00:00",
+      "reply_status": "no_reply"
     },
     "r.chandrasi1996@gmail.com": {
       "email": "r.chandrasi1996@gmail.com",
@@ -32,7 +33,8 @@
       "sent_at": "2026-06-24T13:23:46.018311+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-06-30T10:42:07.869474+00:00"
+      "followup_at": "2026-06-30T10:42:07.869474+00:00",
+      "reply_status": "no_reply"
     },
     "swapnil.mishra@cars24.com": {
       "email": "swapnil.mishra@cars24.com",
@@ -49,7 +51,8 @@
       "sent_at": "2026-06-24T13:31:13.553493+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-06-30T11:58:28.478735+00:00"
+      "followup_at": "2026-06-30T11:58:28.478735+00:00",
+      "reply_status": "no_reply"
     },
     "miskin.shravani@juspay.in": {
       "email": "miskin.shravani@juspay.in",
@@ -66,7 +69,8 @@
       "sent_at": "2026-06-25T05:23:11.416999+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-01T10:51:55.063214+00:00"
+      "followup_at": "2026-07-01T10:51:55.063214+00:00",
+      "reply_status": "no_reply"
     },
     "careers@palantir.com": {
       "email": "careers@palantir.com",
@@ -83,7 +87,8 @@
       "sent_at": "2026-06-25T05:23:57.765855+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-01T12:19:57.079717+00:00"
+      "followup_at": "2026-07-01T12:19:57.079717+00:00",
+      "reply_status": "no_reply"
     },
     "hr@paytm.com": {
       "email": "hr@paytm.com",
@@ -100,7 +105,8 @@
       "sent_at": "2026-06-25T05:24:44.075100+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-02T10:17:18.564115+00:00"
+      "followup_at": "2026-07-02T10:17:18.564115+00:00",
+      "reply_status": "no_reply"
     },
     "shivani.sahraot@phonepe.com": {
       "email": "shivani.sahraot@phonepe.com",
@@ -117,7 +123,8 @@
       "sent_at": "2026-06-25T05:25:30.303565+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-02T11:52:57.041447+00:00"
+      "followup_at": "2026-07-02T11:52:57.041447+00:00",
+      "reply_status": "no_reply"
     },
     "emergingtalent@samsung.com": {
       "email": "emergingtalent@samsung.com",
@@ -134,7 +141,8 @@
       "sent_at": "2026-06-25T05:26:16.552247+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-03T10:12:55.293026+00:00"
+      "followup_at": "2026-07-03T10:12:55.293026+00:00",
+      "reply_status": "no_reply"
     },
     "talenthelp@am.sony.com": {
       "email": "talenthelp@am.sony.com",
@@ -151,7 +159,8 @@
       "sent_at": "2026-06-25T05:27:03.111689+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-03T11:50:47.698668+00:00"
+      "followup_at": "2026-07-03T11:50:47.698668+00:00",
+      "reply_status": "no_reply"
     },
     "accessiblecareers@splunk.com": {
       "email": "accessiblecareers@splunk.com",
@@ -168,7 +177,8 @@
       "sent_at": "2026-06-25T05:27:49.489225+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-06T11:46:10.922612+00:00"
+      "followup_at": "2026-07-06T11:46:10.922612+00:00",
+      "reply_status": "no_reply"
     },
     "ta-recruitment@tesla.com": {
       "email": "ta-recruitment@tesla.com",
@@ -185,7 +195,8 @@
       "sent_at": "2026-06-25T05:28:35.864036+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-06T13:04:12.421878+00:00"
+      "followup_at": "2026-07-06T13:04:12.421878+00:00",
+      "reply_status": "no_reply"
     },
     "accessibility@autodesk.com": {
       "email": "accessibility@autodesk.com",
@@ -202,7 +213,8 @@
       "sent_at": "2026-06-25T05:29:22.163565+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-06T16:01:42.259953+00:00"
+      "followup_at": "2026-07-06T16:01:42.259953+00:00",
+      "reply_status": "no_reply"
     },
     "yourresourcingsupport@barclays.com": {
       "email": "yourresourcingsupport@barclays.com",
@@ -219,7 +231,8 @@
       "sent_at": "2026-06-25T05:30:08.987159+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-07T02:34:06.220278+00:00"
+      "followup_at": "2026-07-07T02:34:06.220278+00:00",
+      "reply_status": "no_reply"
     },
     "gursharan.kaur@cars24.com": {
       "email": "gursharan.kaur@cars24.com",
@@ -236,7 +249,8 @@
       "sent_at": "2026-06-25T07:01:20.395604+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-07T06:32:25.424125+00:00"
+      "followup_at": "2026-07-07T06:32:25.424125+00:00",
+      "reply_status": "no_reply"
     },
     "tom@cerebras.net": {
       "email": "tom@cerebras.net",
@@ -253,7 +267,8 @@
       "sent_at": "2026-06-25T07:02:09.059165+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-07T10:31:24.265020+00:00"
+      "followup_at": "2026-07-07T10:31:24.265020+00:00",
+      "reply_status": "no_reply"
     },
     "abhinavsingh.k@flipkart.com": {
       "email": "abhinavsingh.k@flipkart.com",
@@ -270,7 +285,8 @@
       "sent_at": "2026-06-25T07:02:55.416443+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-08T02:36:41.603966+00:00"
+      "followup_at": "2026-07-08T02:36:41.603966+00:00",
+      "reply_status": "no_reply"
     },
     "future@groww.in": {
       "email": "future@groww.in",
@@ -287,7 +303,8 @@
       "sent_at": "2026-06-25T07:03:42.101014+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-08T05:42:08.088994+00:00"
+      "followup_at": "2026-07-08T05:42:08.088994+00:00",
+      "reply_status": "no_reply"
     },
     "shubhi.verma@oyorooms.com": {
       "email": "shubhi.verma@oyorooms.com",
@@ -304,7 +321,8 @@
       "sent_at": "2026-06-25T07:04:28.290030+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-08T09:33:12.010515+00:00"
+      "followup_at": "2026-07-08T09:33:12.010515+00:00",
+      "reply_status": "no_reply"
     },
     "prakriti.goel@pw.live": {
       "email": "prakriti.goel@pw.live",
@@ -321,7 +339,8 @@
       "sent_at": "2026-06-25T07:05:14.349102+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-09T02:37:04.988302+00:00"
+      "followup_at": "2026-07-09T02:37:04.988302+00:00",
+      "reply_status": "no_reply"
     },
     "tateam@practo.com": {
       "email": "tateam@practo.com",
@@ -338,7 +357,8 @@
       "sent_at": "2026-06-25T07:06:00.440686+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-09T06:40:12.807700+00:00"
+      "followup_at": "2026-07-09T06:40:12.807700+00:00",
+      "reply_status": "no_reply"
     },
     "priyanka.deshmukh@zeptonow.com": {
       "email": "priyanka.deshmukh@zeptonow.com",
@@ -355,7 +375,8 @@
       "sent_at": "2026-06-25T07:06:46.517026+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-09T10:57:05.032370+00:00"
+      "followup_at": "2026-07-09T10:57:05.032370+00:00",
+      "reply_status": "no_reply"
     },
     "batesj@amazon.com": {
       "email": "batesj@amazon.com",
@@ -372,7 +393,8 @@
       "sent_at": "2026-06-25T07:07:32.542799+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-10T02:34:02.344641+00:00"
+      "followup_at": "2026-07-10T02:34:02.344641+00:00",
+      "reply_status": "no_reply"
     },
     "abatchelor@atlassian.com": {
       "email": "abatchelor@atlassian.com",
@@ -389,7 +411,8 @@
       "sent_at": "2026-06-25T07:08:18.713499+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-10T06:28:53.478917+00:00"
+      "followup_at": "2026-07-10T06:28:53.478917+00:00",
+      "reply_status": "no_reply"
     },
     "ashley.womack@alation.com": {
       "email": "ashley.womack@alation.com",
@@ -406,7 +429,8 @@
       "sent_at": "2026-06-25T11:57:22.717606+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-10T10:29:34.615843+00:00"
+      "followup_at": "2026-07-10T10:29:34.615843+00:00",
+      "reply_status": "no_reply"
     },
     "kaitlynn@cerebras.net": {
       "email": "kaitlynn@cerebras.net",
@@ -423,7 +447,9 @@
       "sent_at": "2026-06-26T07:11:50.729246+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-13T02:33:35.356480+00:00"
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "ask.campus.emea@aexp.com": {
       "email": "ask.campus.emea@aexp.com",
@@ -440,7 +466,9 @@
       "sent_at": "2026-06-26T07:12:36.967085+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-13T05:57:02.889967+00:00"
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "ia.po@angelone.in": {
       "email": "ia.po@angelone.in",
@@ -457,7 +485,9 @@
       "sent_at": "2026-06-26T07:13:23.367528+00:00",
       "followup_sent": true,
       "followup_count": 1,
-      "followup_at": "2026-07-13T10:34:01.269039+00:00"
+      "excluded": true,
+      "excluded_reason": "User disabled Angel One outreach",
+      "reply_status": "no_reply"
     },
     "contact.community@cdprojektred.com": {
       "email": "contact.community@cdprojektred.com",
@@ -472,8 +502,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 CD Projekt Red",
       "dry_run": false,
       "sent_at": "2026-06-26T07:14:10.026923+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "aire.hanagata@concentrix.com": {
       "email": "aire.hanagata@concentrix.com",
@@ -488,8 +521,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Concentrix",
       "dry_run": false,
       "sent_at": "2026-06-26T07:14:56.682981+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "etf.sales@drw.com": {
       "email": "etf.sales@drw.com",
@@ -504,8 +540,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 DRW",
       "dry_run": false,
       "sent_at": "2026-06-26T07:15:42.818154+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "adam.shi@deel.com": {
       "email": "adam.shi@deel.com",
@@ -520,8 +559,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Deel",
       "dry_run": false,
       "sent_at": "2026-06-26T07:16:29.316221+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "askhr.us@fiserv.com": {
       "email": "askhr.us@fiserv.com",
@@ -536,8 +578,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Fiserv",
       "dry_run": false,
       "sent_at": "2026-06-26T07:17:15.507320+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "shruti.pattanaik@inmobi.com": {
       "email": "shruti.pattanaik@inmobi.com",
@@ -552,8 +597,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Glance",
       "dry_run": false,
       "sent_at": "2026-06-26T07:18:01.748548+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "taarika.khedekar@icicisecurities.com": {
       "email": "taarika.khedekar@icicisecurities.com",
@@ -568,8 +616,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 ICICI Securities",
       "dry_run": false,
       "sent_at": "2026-06-26T07:18:48.050602+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "talent.acquisition@kla.com": {
       "email": "talent.acquisition@kla.com",
@@ -584,8 +635,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 KLA Corporation",
       "dry_run": false,
       "sent_at": "2026-06-26T07:47:08.132446+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "applicant.accomodations@ltts.com": {
       "email": "applicant.accomodations@ltts.com",
@@ -600,8 +654,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 LTTS",
       "dry_run": false,
       "sent_at": "2026-06-26T07:47:54.618805+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "grievance.redressal@lendingkart.com": {
       "email": "grievance.redressal@lendingkart.com",
@@ -616,8 +673,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Lendingkart",
       "dry_run": false,
       "sent_at": "2026-06-26T07:48:41.214091+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "amita.chohan@man.com": {
       "email": "amita.chohan@man.com",
@@ -632,8 +692,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Man Group",
       "dry_run": false,
       "sent_at": "2026-06-26T07:49:27.889535+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "1.g2-best-software-top-50-hr-products@2x.webp": {
       "email": "1.g2-best-software-top-50-hr-products@2x.webp",
@@ -648,8 +711,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Remote",
       "dry_run": false,
       "sent_at": "2026-06-26T07:50:14.447643+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "career.sr@samsung.com": {
       "email": "career.sr@samsung.com",
@@ -664,8 +730,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Samsung R&D",
       "dry_run": false,
       "sent_at": "2026-06-26T07:51:01.052300+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "global.careers@teradata.com": {
       "email": "global.careers@teradata.com",
@@ -680,8 +749,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Teradata",
       "dry_run": false,
       "sent_at": "2026-06-26T07:51:47.596568+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "complaints.mcx@upstox.com": {
       "email": "complaints.mcx@upstox.com",
@@ -696,8 +768,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Upstox",
       "dry_run": false,
       "sent_at": "2026-06-26T07:52:34.124846+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "askhr@amd.com": {
       "email": "askhr@amd.com",
@@ -712,8 +787,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 AMD",
       "dry_run": false,
       "sent_at": "2026-06-26T07:53:20.581416+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "chinacareers@alpha-grep.com": {
       "email": "chinacareers@alpha-grep.com",
@@ -728,8 +806,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 AlphaGrep",
       "dry_run": false,
       "sent_at": "2026-06-26T07:54:07.341268+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "recruitmentenquiries@arm.com": {
       "email": "recruitmentenquiries@arm.com",
@@ -744,8 +825,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Arm",
       "dry_run": false,
       "sent_at": "2026-06-26T08:10:33.293312+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "careershome_collage_desktop@2x.png": {
       "email": "careershome_collage_desktop@2x.png",
@@ -760,8 +844,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Atlassian",
       "dry_run": false,
       "sent_at": "2026-06-26T08:11:18.996526+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "recruiting@belvederetrading.com": {
       "email": "recruiting@belvederetrading.com",
@@ -776,8 +863,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Belvedere Trading",
       "dry_run": false,
       "sent_at": "2026-06-26T08:12:04.759708+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "careers@bigeye.com": {
       "email": "careers@bigeye.com",
@@ -792,8 +882,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Bigeye",
       "dry_run": false,
       "sent_at": "2026-06-26T08:12:50.533573+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "disability.assistance@blackrock.com": {
       "email": "disability.assistance@blackrock.com",
@@ -808,8 +901,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 BlackRock",
       "dry_run": false,
       "sent_at": "2026-06-26T08:13:36.174947+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "anastasia.biska@booking.com": {
       "email": "anastasia.biska@booking.com",
@@ -824,8 +920,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Booking.com",
       "dry_run": false,
       "sent_at": "2026-06-26T08:14:21.792499+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "recruitments@byjus.com": {
       "email": "recruitments@byjus.com",
@@ -840,8 +939,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Byju\u2019s",
       "dry_run": false,
       "sent_at": "2026-06-26T08:15:07.420650+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "recruitingaccommodation@capitalone.com": {
       "email": "recruitingaccommodation@capitalone.com",
@@ -856,8 +958,11 @@
       "subject": "Summer 2027 Intern SWE \u2014 Capital One",
       "dry_run": false,
       "sent_at": "2026-06-26T08:15:53.350525+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
     },
     "shane.sabaiz-birdsill@cerebras.net": {
       "email": "shane.sabaiz-birdsill@cerebras.net",
@@ -872,13 +977,70 @@
       "subject": "Summer 2027 Intern SWE \u2014 Cerebras",
       "dry_run": false,
       "sent_at": "2026-06-29T12:14:26.621277+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled",
+      "reply_status": "no_reply"
+    },
+    "abbas.hussein@ae.standardchartered.com": {
+      "email": "abbas.hussein@ae.standardchartered.com",
+      "company": "Standard Chartered",
+      "name": "",
+      "role_title": "",
+      "contact_type": "recruiter",
+      "confidence": "scraped_personal",
+      "in_scout_list": true,
+      "source_id": "local:hr_email_csv",
+      "career_portal": "https://jobs.standardchartered.com/",
+      "quality_score": 60,
+      "subject": "Summer 2027 SWE intern \u2014 Standard Chartered",
+      "dry_run": false,
+      "sent_at": "2026-07-13T13:55:57.259970+00:00",
       "followup_sent": false,
-      "followup_count": 0
+      "followup_count": 0,
+      "reply_status": "no_reply"
+    },
+    "brijesh.sequeira@mphasis.com": {
+      "email": "brijesh.sequeira@mphasis.com",
+      "company": "Mphasis",
+      "name": "",
+      "role_title": "",
+      "contact_type": "recruiter",
+      "confidence": "scraped_personal",
+      "in_scout_list": true,
+      "source_id": "local:hr_email_csv",
+      "career_portal": "https://careers.google.com/jobs/results/?q=Mphasis",
+      "quality_score": 60,
+      "subject": "Summer 2027 SWE intern \u2014 Mphasis",
+      "dry_run": false,
+      "sent_at": "2026-07-13T13:57:33.481071+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
+    },
+    "chaitrashree.hegde.con@hotstar.com": {
+      "email": "chaitrashree.hegde.con@hotstar.com",
+      "company": "Disney+ Hotstar",
+      "name": "",
+      "role_title": "",
+      "contact_type": "recruiter",
+      "confidence": "scraped_personal",
+      "in_scout_list": true,
+      "source_id": "web:substack_verified",
+      "career_portal": "https://careers.hotstar.com",
+      "quality_score": 60,
+      "subject": "Summer 2027 SWE intern \u2014 Disney+ Hotstar",
+      "dry_run": false,
+      "sent_at": "2026-07-13T13:58:00.461370+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 53,
-    "total_followups": 27
+    "total_sent": 56,
+    "total_followups": 24
   },
   "daily_log": {
     "2026-06-29": {
@@ -993,16 +1155,383 @@
     },
     "2026-07-13": {
       "emails": [
-        "kaitlynn@cerebras.net",
-        "ask.campus.emea@aexp.com",
-        "ia.po@angelone.in"
+        "abbas.hussein@ae.standardchartered.com",
+        "brijesh.sequeira@mphasis.com",
+        "chaitrashree.hegde.con@hotstar.com"
       ],
       "companies": [
-        "cerebras",
-        "americanexpress",
-        "angelone"
+        "standardchartered",
+        "mphasis",
+        "disneyhotstar"
       ]
     }
   },
-  "last_live_send_at": "2026-07-13T10:34:01.269026+00:00"
+  "last_live_send_at": "2026-07-13T13:58:00.461362+00:00",
+  "companies": {
+    "meesho": {
+      "company": "Meesho",
+      "last_contacted_at": "2026-06-29T13:51:36.889504+00:00",
+      "last_email": "himanshubarak@gmail.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "paypal": {
+      "company": "Paypal",
+      "last_contacted_at": "2026-06-30T10:42:07.869474+00:00",
+      "last_email": "r.chandrasi1996@gmail.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "cars24": {
+      "company": "Cars24",
+      "last_contacted_at": "2026-07-07T06:32:25.424125+00:00",
+      "last_email": "gursharan.kaur@cars24.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "juspay": {
+      "company": "Juspay",
+      "last_contacted_at": "2026-07-01T10:51:55.063214+00:00",
+      "last_email": "miskin.shravani@juspay.in",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "palantir": {
+      "company": "Palantir",
+      "last_contacted_at": "2026-07-01T12:19:57.079717+00:00",
+      "last_email": "careers@palantir.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "paytm": {
+      "company": "Paytm",
+      "last_contacted_at": "2026-07-02T10:17:18.564115+00:00",
+      "last_email": "hr@paytm.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "phonepe": {
+      "company": "PhonePe",
+      "last_contacted_at": "2026-07-02T11:52:57.041447+00:00",
+      "last_email": "shivani.sahraot@phonepe.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "samsung": {
+      "company": "Samsung",
+      "last_contacted_at": "2026-07-03T10:12:55.293026+00:00",
+      "last_email": "emergingtalent@samsung.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "sony": {
+      "company": "Sony",
+      "last_contacted_at": "2026-07-03T11:50:47.698668+00:00",
+      "last_email": "talenthelp@am.sony.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "splunk": {
+      "company": "Splunk",
+      "last_contacted_at": "2026-07-06T11:46:10.922612+00:00",
+      "last_email": "accessiblecareers@splunk.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "tesla": {
+      "company": "Tesla",
+      "last_contacted_at": "2026-07-06T13:04:12.421878+00:00",
+      "last_email": "ta-recruitment@tesla.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "autodesk": {
+      "company": "Autodesk",
+      "last_contacted_at": "2026-07-06T16:01:42.259953+00:00",
+      "last_email": "accessibility@autodesk.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "barclays": {
+      "company": "Barclays",
+      "last_contacted_at": "2026-07-07T02:34:06.220278+00:00",
+      "last_email": "yourresourcingsupport@barclays.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "cerebras": {
+      "company": "Cerebras",
+      "last_contacted_at": "2026-07-07T10:31:24.265020+00:00",
+      "last_email": "tom@cerebras.net",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "flipkart": {
+      "company": "Flipkart",
+      "last_contacted_at": "2026-07-08T02:36:41.603966+00:00",
+      "last_email": "abhinavsingh.k@flipkart.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "groww": {
+      "company": "Groww",
+      "last_contacted_at": "2026-07-08T05:42:08.088994+00:00",
+      "last_email": "future@groww.in",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "oyo": {
+      "company": "Oyo",
+      "last_contacted_at": "2026-07-08T09:33:12.010515+00:00",
+      "last_email": "shubhi.verma@oyorooms.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "physicswallah": {
+      "company": "Physics Wallah",
+      "last_contacted_at": "2026-07-09T02:37:04.988302+00:00",
+      "last_email": "prakriti.goel@pw.live",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "practo": {
+      "company": "Practo",
+      "last_contacted_at": "2026-07-09T06:40:12.807700+00:00",
+      "last_email": "tateam@practo.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "zepto": {
+      "company": "Zepto",
+      "last_contacted_at": "2026-07-09T10:57:05.032370+00:00",
+      "last_email": "priyanka.deshmukh@zeptonow.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "amazon": {
+      "company": "amazon",
+      "last_contacted_at": "2026-07-10T02:34:02.344641+00:00",
+      "last_email": "batesj@amazon.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "atlassian": {
+      "company": "atlassian",
+      "last_contacted_at": "2026-07-10T06:28:53.478917+00:00",
+      "last_email": "abatchelor@atlassian.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "alation": {
+      "company": "Alation",
+      "last_contacted_at": "2026-07-10T10:29:34.615843+00:00",
+      "last_email": "ashley.womack@alation.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "americanexpress": {
+      "company": "American Express",
+      "last_contacted_at": "2026-06-26T07:12:36.967085+00:00",
+      "last_email": "ask.campus.emea@aexp.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "angelone": {
+      "company": "Angel One",
+      "last_contacted_at": "2026-06-26T07:13:23.367528+00:00",
+      "last_email": "ia.po@angelone.in",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "cdprojektred": {
+      "company": "CD Projekt Red",
+      "last_contacted_at": "2026-06-26T07:14:10.026923+00:00",
+      "last_email": "contact.community@cdprojektred.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "concentrix": {
+      "company": "Concentrix",
+      "last_contacted_at": "2026-06-26T07:14:56.682981+00:00",
+      "last_email": "aire.hanagata@concentrix.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "drw": {
+      "company": "DRW",
+      "last_contacted_at": "2026-06-26T07:15:42.818154+00:00",
+      "last_email": "etf.sales@drw.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "deel": {
+      "company": "Deel",
+      "last_contacted_at": "2026-06-26T07:16:29.316221+00:00",
+      "last_email": "adam.shi@deel.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "fiserv": {
+      "company": "Fiserv",
+      "last_contacted_at": "2026-06-26T07:17:15.507320+00:00",
+      "last_email": "askhr.us@fiserv.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "glance": {
+      "company": "Glance",
+      "last_contacted_at": "2026-06-26T07:18:01.748548+00:00",
+      "last_email": "shruti.pattanaik@inmobi.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "icicisecurities": {
+      "company": "ICICI Securities",
+      "last_contacted_at": "2026-06-26T07:18:48.050602+00:00",
+      "last_email": "taarika.khedekar@icicisecurities.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "klacorporation": {
+      "company": "KLA Corporation",
+      "last_contacted_at": "2026-06-26T07:47:08.132446+00:00",
+      "last_email": "talent.acquisition@kla.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "ltts": {
+      "company": "LTTS",
+      "last_contacted_at": "2026-06-26T07:47:54.618805+00:00",
+      "last_email": "applicant.accomodations@ltts.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "lendingkart": {
+      "company": "Lendingkart",
+      "last_contacted_at": "2026-06-26T07:48:41.214091+00:00",
+      "last_email": "grievance.redressal@lendingkart.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "mangroup": {
+      "company": "Man Group",
+      "last_contacted_at": "2026-06-26T07:49:27.889535+00:00",
+      "last_email": "amita.chohan@man.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "remote": {
+      "company": "Remote",
+      "last_contacted_at": "2026-06-26T07:50:14.447643+00:00",
+      "last_email": "1.g2-best-software-top-50-hr-products@2x.webp",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "samsungrd": {
+      "company": "Samsung R&D",
+      "last_contacted_at": "2026-06-26T07:51:01.052300+00:00",
+      "last_email": "career.sr@samsung.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "teradata": {
+      "company": "Teradata",
+      "last_contacted_at": "2026-06-26T07:51:47.596568+00:00",
+      "last_email": "global.careers@teradata.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "upstox": {
+      "company": "Upstox",
+      "last_contacted_at": "2026-06-26T07:52:34.124846+00:00",
+      "last_email": "complaints.mcx@upstox.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "amd": {
+      "company": "AMD",
+      "last_contacted_at": "2026-06-26T07:53:20.581416+00:00",
+      "last_email": "askhr@amd.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "alphagrep": {
+      "company": "AlphaGrep",
+      "last_contacted_at": "2026-06-26T07:54:07.341268+00:00",
+      "last_email": "chinacareers@alpha-grep.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "arm": {
+      "company": "Arm",
+      "last_contacted_at": "2026-06-26T08:10:33.293312+00:00",
+      "last_email": "recruitmentenquiries@arm.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "belvederetrading": {
+      "company": "Belvedere Trading",
+      "last_contacted_at": "2026-06-26T08:12:04.759708+00:00",
+      "last_email": "recruiting@belvederetrading.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "bigeye": {
+      "company": "Bigeye",
+      "last_contacted_at": "2026-06-26T08:12:50.533573+00:00",
+      "last_email": "careers@bigeye.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "blackrock": {
+      "company": "BlackRock",
+      "last_contacted_at": "2026-06-26T08:13:36.174947+00:00",
+      "last_email": "disability.assistance@blackrock.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "bookingcom": {
+      "company": "Booking.com",
+      "last_contacted_at": "2026-06-26T08:14:21.792499+00:00",
+      "last_email": "anastasia.biska@booking.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "byjus": {
+      "company": "Byju\u2019s",
+      "last_contacted_at": "2026-06-26T08:15:07.420650+00:00",
+      "last_email": "recruitments@byjus.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "capitalone": {
+      "company": "Capital One",
+      "last_contacted_at": "2026-06-26T08:15:53.350525+00:00",
+      "last_email": "recruitingaccommodation@capitalone.com",
+      "status": "no_reply",
+      "touch_count": 1
+    },
+    "standardchartered": {
+      "company": "Standard Chartered",
+      "last_contacted_at": "2026-07-13T13:55:57.260082+00:00",
+      "last_email": "abbas.hussein@ae.standardchartered.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "mphasis": {
+      "company": "Mphasis",
+      "last_contacted_at": "2026-07-13T13:57:33.481219+00:00",
+      "last_email": "brijesh.sequeira@mphasis.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "disneyhotstar": {
+      "company": "Disney+ Hotstar",
+      "last_contacted_at": "2026-07-13T13:58:00.461470+00:00",
+      "last_email": "chaitrashree.hegde.con@hotstar.com",
+      "status": "no_reply",
+      "touch_count": 2
+    }
+  },
+  "rotation_index": 3
 }

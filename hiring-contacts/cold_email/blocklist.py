@@ -1,4 +1,4 @@
-"""Blocklist + outreach eligibility — skip stale/bounced/bad inboxes."""
+"""Blocklist + outreach eligibility — LinkedIn-verified contacts only."""
 
 from __future__ import annotations
 
@@ -7,10 +7,19 @@ import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from cold_email.config import BLOCKLIST_PATH, BLOCKED_LOCAL_PARTS, MAX_CONTACT_AGE_DAYS, STALE_SOURCE_IDS
+from cold_email.config import (
+	BLOCKLIST_PATH,
+	BLOCKED_LOCAL_PARTS,
+	LINKEDIN_ONLY_MODE,
+	LINKEDIN_VERIFIED_SOURCE_IDS,
+	MAX_CONTACT_AGE_DAYS,
+	STALE_SOURCE_IDS,
+)
+from cold_email.exclusions import is_outreach_excluded
 from cold_email.mx_check import has_mx_record
 
 EMAIL_RE = re.compile(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}")
+LINKEDIN_PROFILE_RE = re.compile(r"linkedin\.com/in/", re.I)
 
 
 def _now() -> datetime:
@@ -66,7 +75,13 @@ def record_bounce_from_message(email: str, message: str) -> list[str]:
 
 def _local_part_blocked(email: str) -> bool:
 	local = email.split("@", 1)[0].lower()
-	return any(part in local for part in BLOCKED_LOCAL_PARTS)
+	if any(part in local for part in BLOCKED_LOCAL_PARTS):
+		return True
+	if re.search(r"\.(webp|png|jpg|jpeg|gif|svg|pdf)$", local):
+		return True
+	if "grievance" in local or "redressal" in local:
+		return True
+	return False
 
 
 def _parse_fetched_at(value: str) -> datetime | None:
@@ -78,35 +93,53 @@ def _parse_fetched_at(value: str) -> datetime | None:
 		return None
 
 
+def _has_linkedin_proof(row: dict) -> bool:
+	source_url = row.get("source_url") or ""
+	notes = row.get("notes") or ""
+	if LINKEDIN_PROFILE_RE.search(source_url):
+		return True
+	if "linkedin_profile=" in notes:
+		return True
+	return False
+
+
 def is_outreach_eligible(row: dict) -> tuple[bool, str]:
 	email = (row.get("email") or "").strip().lower()
 	if not email:
 		return False, "missing_email"
-	# Always enforce blocklist + local-part rules (even for discover:career_portal).
+	company = row.get("company") or row.get("company_normalized") or ""
+	if is_outreach_excluded(company=company, email=email):
+		return False, "excluded_company"
 	if is_blocked(email):
 		return False, "blocklist"
 	if _local_part_blocked(email):
 		return False, "blocked_local_part"
 
 	source_id = (row.get("source_id") or "").strip()
+	notes = row.get("notes") or ""
+
+	if LINKEDIN_ONLY_MODE:
+		if source_id not in LINKEDIN_VERIFIED_SOURCE_IDS:
+			return False, "non_linkedin_source"
+		if not _has_linkedin_proof(row):
+			return False, "missing_linkedin_profile"
+		if "confidence=" not in notes and "hunter_score=" not in notes and "explorium_email_status=" not in notes:
+			return False, "missing_verification_score"
+		if "mx_ok" not in notes and not has_mx_record(email.split("@", 1)[1]):
+			return False, "mx_fail"
+		name = (row.get("name") or "").strip()
+		if not name:
+			return False, "missing_name"
+		return True, source_id
+
 	if source_id in STALE_SOURCE_IDS:
 		return False, "stale_source"
 
-	local = email.split("@", 1)[0]
-	domain = email.split("@", 1)[1] if "@" in email else ""
-
-	# Trusted fresh sources.
 	if source_id in {
-		"discover:career_portal",
 		"manual:verified",
 		"web:devblogger_verified",
 		"web:substack_verified",
-		"local:hr_email_csv",
 	}:
-		notes = row.get("notes") or ""
-		if "domain_fallback" in notes:
-			if "mx_ok" not in notes and not has_mx_record(domain):
-				return False, "unverified_fallback"
 		return True, source_id
 
 	confidence = row.get("confidence") or ""
@@ -118,7 +151,8 @@ def is_outreach_eligible(row: dict) -> tuple[bool, str]:
 		if source_id not in {"manual:verified", "web:devblogger_verified", "web:substack_verified"}:
 			return False, "stale_age"
 
-	# Reject mega-corp careers@ that commonly 550 external mail.
+	local = email.split("@", 1)[0]
+	domain = email.split("@", 1)[1] if "@" in email else ""
 	if local in {"careers", "jobs", "recruiting"} and domain in {
 		"palantir.com",
 		"google.com",

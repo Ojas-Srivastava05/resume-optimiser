@@ -11,6 +11,7 @@
 
 # Internship Scout (see internship-scout/.gitignore for details)
 internship-scout/.env
+hiring-contacts/.env
 internship-scout/venv/
 internship-scout/__pycache__/
 internship-scout/**/*.pyc

@@ -12,8 +12,10 @@ from zoneinfo import ZoneInfo
 
 from cold_email.blocklist import is_outreach_eligible
 from cold_email.config import (
+	COMPANY_COOLDOWN_DAYS,
 	DEFAULT_DAILY_CAP,
 	DEFAULT_TIERS,
+	ENABLE_FOLLOWUPS,
 	FOLLOWUP_DAYS,
 	MASTER_CSV,
 	MAX_FOLLOWUPS,
@@ -21,6 +23,14 @@ from cold_email.config import (
 	MIN_SECONDS_BETWEEN_SENDS,
 	SCOUT_CSV,
 	STATE_PATH,
+)
+from cold_email.exclusions import is_outreach_excluded
+from cold_email.selection import (
+	company_on_cooldown,
+	contact_quality_score,
+	passes_quality_gate,
+	pick_rotated_batch,
+	sync_company_registry,
 )
 
 
@@ -49,6 +59,7 @@ class ContactTarget:
 	career_portal: str = ""
 	is_followup: bool = False
 	prior_sent_at: str = ""
+	quality_score: int = 0
 
 
 def load_scout_portals() -> dict[str, str]:
@@ -72,6 +83,9 @@ def load_state() -> dict:
 	state.setdefault("daily_log", {})
 	state.setdefault("sent", {})
 	state.setdefault("stats", {})
+	state.setdefault("companies", {})
+	state.setdefault("rotation_index", 0)
+	sync_company_registry(state)
 	return state
 
 
@@ -80,6 +94,7 @@ def save_state(state: dict) -> None:
 	cutoff = (datetime.now(ZoneInfo("Asia/Kolkata")).date() - timedelta(days=14)).isoformat()
 	daily = state.get("daily_log", {})
 	state["daily_log"] = {k: v for k, v in daily.items() if k >= cutoff}
+	sync_company_registry(state)
 	STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
 	STATE_PATH.write_text(json.dumps(state, indent=2), encoding="utf-8")
 
@@ -125,14 +140,60 @@ def load_contacts() -> list[dict]:
 		return list(csv.DictReader(f))
 
 
-def _tier_rank(row: dict) -> int:
-	confidence = row.get("confidence") or ""
-	order = {t: i for i, t in enumerate(DEFAULT_TIERS)}
-	base = order.get(confidence, 99)
-	# Prefer live-discovered contacts over anything else.
-	if (row.get("source_id") or "") == "discover:career_portal":
-		base -= 10
-	return base
+def _followup_candidates(
+	state: dict,
+	*,
+	effective_limit: int,
+	emails_today: set[str],
+	company_blocked,
+	company_filter: str,
+) -> list[ContactTarget]:
+	if not ENABLE_FOLLOWUPS or MAX_FOLLOWUPS <= 0:
+		return []
+
+	now = _now()
+	targets: list[ContactTarget] = []
+
+	for email, meta in state.get("sent", {}).items():
+		if len(targets) >= effective_limit:
+			break
+		if meta.get("followup_sent") or meta.get("followup_count", 0) >= MAX_FOLLOWUPS:
+			continue
+		if meta.get("reply_status") == "replied":
+			continue
+		sent_at = meta.get("sent_at")
+		if not sent_at:
+			continue
+		try:
+			sent_dt = datetime.fromisoformat(sent_at)
+		except ValueError:
+			continue
+		if now - sent_dt < timedelta(days=FOLLOWUP_DAYS):
+			continue
+		if company_filter and norm_company(meta.get("company", "")) != norm_company(company_filter):
+			continue
+		if is_outreach_excluded(company=meta.get("company", ""), email=email):
+			continue
+		if email.lower() in emails_today:
+			continue
+		if company_blocked(meta.get("company", "")):
+			continue
+		targets.append(
+			ContactTarget(
+				email=email,
+				company=meta.get("company", ""),
+				name=meta.get("name", ""),
+				role_title=meta.get("role_title", ""),
+				contact_type=meta.get("contact_type", ""),
+				confidence=meta.get("confidence", ""),
+				in_scout_list=bool(meta.get("in_scout_list")),
+				source_id=meta.get("source_id", ""),
+				career_portal=meta.get("career_portal", ""),
+				is_followup=True,
+				prior_sent_at=meta.get("sent_at", ""),
+			)
+		)
+	return targets
 
 
 def pick_batch(
@@ -142,6 +203,7 @@ def pick_batch(
 	followups_only: bool = False,
 	company_filter: str = "",
 	enforce_interval: bool = True,
+	persist_rotation: bool = True,
 ) -> list[ContactTarget]:
 	state = load_state()
 	remaining_today = daily_remaining_quota(state)
@@ -158,59 +220,33 @@ def pick_batch(
 		allowed.add("generic_inferred")
 
 	emails_today, companies_today = _daily_usage(state)
-	now = _now()
 	targets: list[ContactTarget] = []
 	companies_in_batch: set[str] = set()
 
 	def company_blocked(company: str) -> bool:
+		if is_outreach_excluded(company=company):
+			return True
 		cn = norm_company(company)
 		if not cn:
 			return False
+		if company_on_cooldown(company, state, cooldown_days=COMPANY_COOLDOWN_DAYS):
+			return True
 		if MAX_PER_COMPANY_PER_DAY and cn in companies_today:
 			return True
 		if MAX_PER_COMPANY_PER_DAY and cn in companies_in_batch:
 			return True
 		return False
 
-	def add_followup(meta: dict, email: str) -> None:
-		if email.lower() in emails_today:
-			return
-		if company_blocked(meta.get("company", "")):
-			return
-		targets.append(
-			ContactTarget(
-				email=email,
-				company=meta.get("company", ""),
-				name=meta.get("name", ""),
-				role_title=meta.get("role_title", ""),
-				contact_type=meta.get("contact_type", ""),
-				confidence=meta.get("confidence", ""),
-				in_scout_list=bool(meta.get("in_scout_list")),
-				source_id=meta.get("source_id", ""),
-				career_portal=meta.get("career_portal", ""),
-				is_followup=True,
-				prior_sent_at=meta.get("sent_at", ""),
-			)
-		)
-		companies_in_batch.add(norm_company(meta.get("company", "")))
-
-	for email, meta in state.get("sent", {}).items():
-		if len(targets) >= effective_limit:
-			break
-		if meta.get("followup_sent") or meta.get("followup_count", 0) >= MAX_FOLLOWUPS:
-			continue
-		sent_at = meta.get("sent_at")
-		if not sent_at:
-			continue
-		try:
-			sent_dt = datetime.fromisoformat(sent_at)
-		except ValueError:
-			continue
-		if now - sent_dt < timedelta(days=FOLLOWUP_DAYS):
-			continue
-		if company_filter and norm_company(meta.get("company", "")) != norm_company(company_filter):
-			continue
-		add_followup(meta, email)
+	if ENABLE_FOLLOWUPS and MAX_FOLLOWUPS > 0:
+		for t in _followup_candidates(
+			state,
+			effective_limit=effective_limit,
+			emails_today=emails_today,
+			company_blocked=company_blocked,
+			company_filter=company_filter,
+		):
+			targets.append(t)
+			companies_in_batch.add(norm_company(t.company))
 
 	if followups_only:
 		return targets[:effective_limit]
@@ -227,6 +263,9 @@ def pick_batch(
 		ok, _reason = is_outreach_eligible(row)
 		if not ok:
 			continue
+		ok_q, _qreason = passes_quality_gate(row)
+		if not ok_q:
+			continue
 		if email in emails_today:
 			continue
 		if company_blocked(row.get("company") or ""):
@@ -235,27 +274,22 @@ def pick_batch(
 			continue
 		candidates.append(row)
 
-	candidates.sort(
-		key=lambda r: (
-			0 if (r.get("source_id") or "") == "manual:verified" else 1,
-			0 if (r.get("notes") or "") == "career_portal_scrape" else 1,
-			0 if (r.get("source_id") or "") in {"web:devblogger_verified", "web:substack_verified", "local:hr_email_csv"} else 1,
-			0 if (r.get("source_id") or "") == "discover:career_portal" and r.get("confidence") == "scraped_personal" else 1,
-			0 if str(r.get("in_scout_list")).lower() == "true" else 1,
-			_tier_rank(r),
-			0 if (r.get("name") or "").strip() else 1,
-			1 if "domain_fallback" in (r.get("notes") or "") else 0,
-			r.get("company") or "",
-		)
+	today = _today_ist()
+	picked_rows = pick_rotated_batch(
+		candidates,
+		limit=max(0, effective_limit - len(targets)),
+		state=state,
+		today_ist=today,
 	)
 
-	for row in candidates:
+	for row in picked_rows:
 		if len(targets) >= effective_limit:
 			break
 		company = row.get("company") or ""
 		if company_blocked(company):
 			continue
 		cn = norm_company(company)
+		score = contact_quality_score(row)
 		targets.append(
 			ContactTarget(
 				email=row["email"].strip().lower(),
@@ -267,9 +301,14 @@ def pick_batch(
 				in_scout_list=str(row.get("in_scout_list")).lower() == "true",
 				source_id=row.get("source_id") or "",
 				career_portal=portals.get(cn, ""),
+				quality_score=score,
 			)
 		)
 		companies_in_batch.add(cn)
+
+	if picked_rows and not followups_only and persist_rotation:
+		state["rotation_index"] = int(state.get("rotation_index") or 0) + 1
+		save_state(state)
 
 	return targets[:effective_limit]
 
@@ -301,6 +340,7 @@ def mark_sent(target: ContactTarget, *, subject: str, dry_run: bool) -> None:
 		"in_scout_list": target.in_scout_list,
 		"source_id": target.source_id,
 		"career_portal": target.career_portal,
+		"quality_score": target.quality_score,
 		"subject": subject,
 		"dry_run": dry_run,
 	}
@@ -317,6 +357,20 @@ def mark_sent(target: ContactTarget, *, subject: str, dry_run: bool) -> None:
 		entry["sent_at"] = _now().isoformat()
 		entry["followup_sent"] = False
 		entry["followup_count"] = 0
+		entry["reply_status"] = "no_reply"
 		state["sent"][key] = entry
 		state["stats"]["total_sent"] = state["stats"].get("total_sent", 0) + 1
+
+	if cn:
+		registry = sync_company_registry(state)
+		prev_co = registry.get(cn, {})
+		registry[cn] = {
+			"company": target.company,
+			"last_contacted_at": _now().isoformat(),
+			"last_email": target.email,
+			"status": prev_co.get("status") or "no_reply",
+			"touch_count": prev_co.get("touch_count", 0) + 1,
+		}
+		state["companies"] = registry
+
 	save_state(state)

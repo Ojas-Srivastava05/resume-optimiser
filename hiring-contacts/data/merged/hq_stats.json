@@ -1,4 +1,6 @@
 {
-  "high_quality_contacts": 9422,
-  "total_contacts": 10757
+  "high_quality_contacts": 46,
+  "total_contacts": 46,
+  "authentic_only": true,
+  "purged_at": "2026-07-13T15:20:00.850239+00:00"
 }

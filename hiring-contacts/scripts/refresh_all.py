@@ -528,7 +528,20 @@ def write_outputs(rows: list[dict], report: dict) -> None:
 def main() -> int:
 	parser = argparse.ArgumentParser()
 	parser.add_argument("--skip-clone", action="store_true")
+	parser.add_argument(
+		"--legacy-refresh",
+		action="store_true",
+		help="Allow overwriting master with unverified scrapes (disabled by default)",
+	)
 	args = parser.parse_args()
+
+	if not args.legacy_refresh:
+		print(
+			"refresh_all.py is disabled — it reintroduces unverified scrapes.\n"
+			"Use: python3 scripts/discover_linkedin_contacts.py\n"
+			"To force legacy rebuild: python3 scripts/refresh_all.py --legacy-refresh"
+		)
+		return 1
 
 	fetched_at = now_iso()
 	DATA_RAW.mkdir(parents=True, exist_ok=True)

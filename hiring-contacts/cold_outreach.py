@@ -84,6 +84,7 @@ def main() -> int:
 		followups_only=args.followups,
 		company_filter=args.company,
 		enforce_interval=not args.dry_run,
+		persist_rotation=not args.dry_run,
 	)
 
 	if not targets:
@@ -100,6 +101,14 @@ def main() -> int:
 				print(f"Rate limit: next live send allowed in ~{mins} min (min 1 hour between sends).")
 				return 0
 		print("No targets in queue (all caught up, daily cap hit, or empty contact DB).")
+		if not args.dry_run:
+			from cold_email.config import LINKEDIN_ONLY_MODE
+
+			if LINKEDIN_ONLY_MODE:
+				print(
+					"LinkedIn-only mode: grow verified recruiter contacts:\n"
+					"  python3 scripts/discover_linkedin_contacts.py --batch-size 12"
+				)
 		return 0
 
 	print(
@@ -114,7 +123,12 @@ def main() -> int:
 	for t in targets:
 		subject = subject_line(t.company, is_followup=t.is_followup)
 		if t.is_followup:
-			body = body_followup(company=t.company, contact_name=t.name, email=t.email)
+			body = body_followup(
+				company=t.company,
+				contact_name=t.name,
+				email=t.email,
+				career_portal=t.career_portal,
+			)
 		else:
 			body = body_initial(
 				company=t.company,
@@ -134,7 +148,10 @@ def main() -> int:
 			if not args.dry_run:
 				mark_sent(t, subject=subject, dry_run=False)
 			sent += 1
-			print(f"  {'[dry-run] ' if args.dry_run else ''}OK {t.email} @ {t.company} ({t.confidence})")
+			print(
+				f"  {'[dry-run] ' if args.dry_run else ''}OK {t.email} @ {t.company} "
+				f"({t.confidence}, q={t.quality_score or '—'})"
+			)
 		except Exception as exc:
 			print(f"  FAIL {t.email}: {exc}")
 

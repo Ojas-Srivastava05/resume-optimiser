@@ -92,12 +92,19 @@ jobs:
       - name: Ensure contact DB exists
         run: |
           if [ ! -f data/merged/master_contacts.csv ]; then
-            python3 scripts/refresh_all.py --skip-clone
+            python3 scripts/discover_linkedin_contacts.py --batch-size 5
           fi
+          python3 scripts/purge_inauthentic_contacts.py
 
-      - name: Discover fresh HQ contacts
+      - name: Reconcile outreach state (cancel stale follow-ups)
+        run: python3 scripts/reconcile_outreach_state.py
+
+      - name: LinkedIn recruiter discovery (Hunter + Explorium)
         continue-on-error: true
-        run: python3 scripts/discover_contacts.py --batch-size 15
+        env:
+          HUNTER_API_KEY: ${{ secrets.HUNTER_API_KEY }}
+          EXPLORIUM_API_KEY: ${{ secrets.EXPLORIUM_API_KEY }}
+        run: python3 scripts/discover_linkedin_contacts.py --batch-size 8
 
       - name: Run cold outreach (max 1 email this run)
         env:
@@ -108,6 +115,10 @@ jobs:
           COLD_EMAIL_MAX_PER_RUN: "1"
           COLD_EMAIL_MIN_INTERVAL_SEC: "3600"
           COLD_EMAIL_MAX_PER_COMPANY_PER_DAY: "1"
+          COLD_EMAIL_ENABLE_FOLLOWUPS: "false"
+          COLD_EMAIL_COMPANY_COOLDOWN_DAYS: "180"
+          COLD_EMAIL_MIN_QUALITY: "55"
+          COLD_EMAIL_LINKEDIN_ONLY: "true"
           # Scheduled + workflow_run runs are live. Manual dispatch uses dry_run input.
           OUTREACH_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run }}
           OUTREACH_FOLLOWUPS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.followups_only }}

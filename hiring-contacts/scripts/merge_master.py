@@ -41,6 +41,9 @@ CONF_RANK = {
 }
 
 SOURCE_RANK = {
+	"linkedin:verified": 10,
+	"linkedin:hunter_verified": 10,
+	"linkedin:explorium_verified": 10,
 	"discover:career_portal": 5,
 	"manual:verified": 5,
 	"web:devblogger_verified": 4,

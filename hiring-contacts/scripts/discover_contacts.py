@@ -28,6 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from cold_email.discovery import discover_company  # noqa: E402
+from cold_email.exclusions import is_company_excluded  # noqa: E402
 from config import SCOUT_COMPANIES_CSV  # noqa: E402
 from scripts.extract import norm_company  # noqa: E402
 from scripts.merge_master import HQ_CONFIDENCE, INCREMENTAL_CSV, merge_master  # noqa: E402
@@ -134,6 +135,10 @@ def main() -> int:
 		attempts += 1
 		key = co["key"]
 		name = co["name"]
+
+		if is_company_excluded(name):
+			probed[key] = fetched_at
+			continue
 
 		last = probed.get(key)
 		if last:

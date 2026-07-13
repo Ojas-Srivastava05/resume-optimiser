@@ -19,7 +19,70 @@
     "yourresourcingsupport@barclays.com": {
       "reason": "Vendor/resourcing support, not campus recruiting",
       "recorded_at": "2026-06-25T12:00:00+00:00"
+    },
+    "ia.po@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "ra.po@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "careers@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "campus@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "hr@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "recruiting@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "talent@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "university@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "hiring@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "interns@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "internships@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "jobs@angelone.in": {
+      "reason": "Angel One outreach disabled by user",
+      "recorded_at": "2026-07-13T14:00:00+00:00"
+    },
+    "grievance.redressal@lendingkart.com": {
+      "reason": "garbage_scrape_reconcile",
+      "recorded_at": "2026-07-13T13:55:52.496788+00:00"
+    },
+    "1.g2-best-software-top-50-hr-products@2x.webp": {
+      "reason": "garbage_scrape_reconcile",
+      "recorded_at": "2026-07-13T13:55:52.497185+00:00"
+    },
+    "careershome_collage_desktop@2x.png": {
+      "reason": "garbage_scrape_reconcile",
+      "recorded_at": "2026-07-13T13:55:52.497310+00:00"
     }
+  },
+  "excluded_companies": {
+    "angelone": "Outreach disabled by user (Jul 2026)"
   },
   "replacements": {
     "tom@cerebras.net": [
