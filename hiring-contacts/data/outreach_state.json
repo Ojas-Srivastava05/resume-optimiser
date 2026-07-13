@@ -438,8 +438,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 American Express",
       "dry_run": false,
       "sent_at": "2026-06-26T07:12:36.967085+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-13T05:57:02.889967+00:00"
     },
     "ia.po@angelone.in": {
       "email": "ia.po@angelone.in",
@@ -876,7 +877,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 25
+    "total_followups": 26
   },
   "daily_log": {
     "2026-06-29": {
@@ -991,12 +992,14 @@
     },
     "2026-07-13": {
       "emails": [
-        "kaitlynn@cerebras.net"
+        "kaitlynn@cerebras.net",
+        "ask.campus.emea@aexp.com"
       ],
       "companies": [
-        "cerebras"
+        "cerebras",
+        "americanexpress"
       ]
     }
   },
-  "last_live_send_at": "2026-07-13T02:33:35.356467+00:00"
+  "last_live_send_at": "2026-07-13T05:57:02.889953+00:00"
 }
