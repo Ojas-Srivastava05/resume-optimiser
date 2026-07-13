@@ -455,8 +455,9 @@
       "subject": "Summer 2027 Intern SWE \u2014 Angel One",
       "dry_run": false,
       "sent_at": "2026-06-26T07:13:23.367528+00:00",
-      "followup_sent": false,
-      "followup_count": 0
+      "followup_sent": true,
+      "followup_count": 1,
+      "followup_at": "2026-07-13T10:34:01.269039+00:00"
     },
     "contact.community@cdprojektred.com": {
       "email": "contact.community@cdprojektred.com",
@@ -877,7 +878,7 @@
   },
   "stats": {
     "total_sent": 53,
-    "total_followups": 26
+    "total_followups": 27
   },
   "daily_log": {
     "2026-06-29": {
@@ -993,13 +994,15 @@
     "2026-07-13": {
       "emails": [
         "kaitlynn@cerebras.net",
-        "ask.campus.emea@aexp.com"
+        "ask.campus.emea@aexp.com",
+        "ia.po@angelone.in"
       ],
       "companies": [
         "cerebras",
-        "americanexpress"
+        "americanexpress",
+        "angelone"
       ]
     }
   },
-  "last_live_send_at": "2026-07-13T05:57:02.889953+00:00"
+  "last_live_send_at": "2026-07-13T10:34:01.269026+00:00"
 }
