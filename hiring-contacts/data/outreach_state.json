@@ -1036,10 +1036,46 @@
       "followup_sent": false,
       "followup_count": 0,
       "reply_status": "no_reply"
+    },
+    "mohan.dayananda@phonepe.com": {
+      "email": "mohan.dayananda@phonepe.com",
+      "company": "PhonePe Switch",
+      "name": "Mohan Dayananda",
+      "role_title": "Head of Human Resources",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.phonepe.com/careers",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 PhonePe Switch",
+      "dry_run": false,
+      "sent_at": "2026-07-13T16:25:23.110564+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
+    },
+    "dclarwal@adobe.com": {
+      "email": "dclarwal@adobe.com",
+      "company": "Adobe",
+      "name": "Duke Clarwal",
+      "role_title": "Human Resources Director",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.adobe.com/careers.html",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Adobe",
+      "dry_run": false,
+      "sent_at": "2026-07-13T16:25:26.635054+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 56,
+    "total_sent": 58,
     "total_followups": 24
   },
   "daily_log": {
@@ -1157,16 +1193,20 @@
       "emails": [
         "abbas.hussein@ae.standardchartered.com",
         "brijesh.sequeira@mphasis.com",
-        "chaitrashree.hegde.con@hotstar.com"
+        "chaitrashree.hegde.con@hotstar.com",
+        "mohan.dayananda@phonepe.com",
+        "dclarwal@adobe.com"
       ],
       "companies": [
         "standardchartered",
         "mphasis",
-        "disneyhotstar"
+        "disneyhotstar",
+        "phonepeswitch",
+        "adobe"
       ]
     }
   },
-  "last_live_send_at": "2026-07-13T13:58:00.461362+00:00",
+  "last_live_send_at": "2026-07-13T16:25:26.635050+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -1531,7 +1571,21 @@
       "last_email": "chaitrashree.hegde.con@hotstar.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "phonepeswitch": {
+      "company": "PhonePe Switch",
+      "last_contacted_at": "2026-07-13T16:25:23.110681+00:00",
+      "last_email": "mohan.dayananda@phonepe.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "adobe": {
+      "company": "Adobe",
+      "last_contacted_at": "2026-07-13T16:25:26.635103+00:00",
+      "last_email": "dclarwal@adobe.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 3
+  "rotation_index": 4
 }
