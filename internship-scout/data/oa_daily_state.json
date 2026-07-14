@@ -692,7 +692,7 @@
     "videonetics",
     "wtw"
   ],
-  "queue_index": 21,
+  "queue_index": 22,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -716,7 +716,8 @@
     "syfe": 1,
     "snapchat": 1,
     "toptal": 1,
-    "mercari": 1
+    "mercari": 1,
+    "dialpad": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -784,7 +785,10 @@
     ],
     "mercari": [
       "design-underground-system"
+    ],
+    "dialpad": [
+      "longest-substring-without-repeating-characters|valid-anagram"
     ]
   },
-  "last_run": "2026-07-13T05:44:30.091891+00:00"
+  "last_run": "2026-07-14T04:56:27.988857+00:00"
 }
