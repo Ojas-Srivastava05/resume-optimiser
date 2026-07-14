@@ -997,9 +997,11 @@
       "subject": "Summer 2027 SWE intern \u2014 Standard Chartered",
       "dry_run": false,
       "sent_at": "2026-07-13T13:55:57.259970+00:00",
-      "followup_sent": false,
-      "followup_count": 0,
-      "reply_status": "no_reply"
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
     },
     "brijesh.sequeira@mphasis.com": {
       "email": "brijesh.sequeira@mphasis.com",
@@ -1015,9 +1017,11 @@
       "subject": "Summer 2027 SWE intern \u2014 Mphasis",
       "dry_run": false,
       "sent_at": "2026-07-13T13:57:33.481071+00:00",
-      "followup_sent": false,
-      "followup_count": 0,
-      "reply_status": "no_reply"
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
     },
     "chaitrashree.hegde.con@hotstar.com": {
       "email": "chaitrashree.hegde.con@hotstar.com",
@@ -1033,26 +1037,36 @@
       "subject": "Summer 2027 SWE intern \u2014 Disney+ Hotstar",
       "dry_run": false,
       "sent_at": "2026-07-13T13:58:00.461370+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "namrata.patil@pinelabs.com": {
+      "email": "namrata.patil@pinelabs.com",
+      "company": "Pine Labs",
+      "name": "Namrata Patil",
+      "role_title": "Senior Talent Acquisition Specialist",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.pinelabs.com/careers/open-jobs",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Pine Labs",
+      "dry_run": false,
+      "sent_at": "2026-07-14T02:35:45.668664+00:00",
       "followup_sent": false,
       "followup_count": 0,
       "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 56,
+    "total_sent": 57,
     "total_followups": 24
   },
   "daily_log": {
-    "2026-06-29": {
-      "emails": [
-        "shane.sabaiz-birdsill@cerebras.net",
-        "himanshubarak@gmail.com"
-      ],
-      "companies": [
-        "cerebras",
-        "meesho"
-      ]
-    },
     "2026-06-30": {
       "emails": [
         "r.chandrasi1996@gmail.com",
@@ -1164,9 +1178,17 @@
         "mphasis",
         "disneyhotstar"
       ]
+    },
+    "2026-07-14": {
+      "emails": [
+        "namrata.patil@pinelabs.com"
+      ],
+      "companies": [
+        "pinelabs"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-13T13:58:00.461362+00:00",
+  "last_live_send_at": "2026-07-14T02:35:45.668652+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -1531,7 +1553,14 @@
       "last_email": "chaitrashree.hegde.con@hotstar.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "pinelabs": {
+      "company": "Pine Labs",
+      "last_contacted_at": "2026-07-14T02:35:45.668751+00:00",
+      "last_email": "namrata.patil@pinelabs.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 3
+  "rotation_index": 4
 }
