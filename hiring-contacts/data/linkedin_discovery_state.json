@@ -1,5 +1,5 @@
 {
-  "rotation_index": 492,
+  "rotation_index": 504,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -68,13 +68,25 @@
     "groww": "2026-07-13T15:19:31+00:00",
     "sharechat": "2026-07-13T15:19:36+00:00",
     "delhivery": "2026-07-13T15:19:50+00:00",
-    "makemytrip": "2026-07-13T15:19:55+00:00"
+    "makemytrip": "2026-07-13T15:19:55+00:00",
+    "mamaearthhonasa": "2026-07-15T04:06:00+00:00",
+    "mangroup": "2026-07-15T04:06:00+00:00",
+    "mandiant": "2026-07-15T04:06:00+00:00",
+    "manipalhospitals": "2026-07-15T04:06:00+00:00",
+    "mapr": "2026-07-15T04:06:00+00:00",
+    "marcellusinvestment": "2026-07-15T04:06:00+00:00",
+    "mariadb": "2026-07-15T04:06:00+00:00",
+    "marqeta": "2026-07-15T04:06:00+00:00",
+    "marutisuzuki": "2026-07-15T04:06:00+00:00",
+    "marvellindia": "2026-07-15T04:06:00+00:00",
+    "marvelltechnology": "2026-07-15T04:06:00+00:00",
+    "marwaricatalysts": "2026-07-15T04:06:00+00:00"
   },
   "stats": {
-    "total_runs": 34,
+    "total_runs": 35,
     "total_profiles_found": 0,
-    "total_emails_verified": 66,
-    "last_run_at": "2026-07-13T15:20:00+00:00",
-    "last_batch_profiles": 0
+    "total_emails_verified": 79,
+    "last_run_at": "2026-07-15T04:06:00+00:00",
+    "last_batch_profiles": 13
   }
 }
