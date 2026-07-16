@@ -47,6 +47,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Verify Gmail SMTP credentials
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != 'true'
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          SMTP_VERIFY_LABEL: oa-daily-drill
+        run: python3 ../.github/scripts/verify-smtp.py
+
       - name: Run OA drill
         env:
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}

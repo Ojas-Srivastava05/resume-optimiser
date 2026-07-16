@@ -14,6 +14,19 @@ BRANCH="${GITHUB_REF_NAME:-main}"
 git config user.name "github-actions[bot]"
 git config user.email "github-actions[bot]@users.noreply.github.com"
 
+for path in "$@"; do
+  case "$path" in
+    *.json)
+      if [ -f "$path" ]; then
+        python3 -c "import json,sys; json.load(open(sys.argv[1], encoding='utf-8'))" "$path" || {
+          echo "Refusing to commit invalid JSON: $path" >&2
+          exit 1
+        }
+      fi
+      ;;
+  esac
+done
+
 git add "$@" || true
 if git diff --staged --quiet; then
   echo "No changes to commit."

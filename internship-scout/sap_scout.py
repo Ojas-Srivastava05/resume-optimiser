@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import smtplib
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -50,13 +51,18 @@ def main() -> int:
             print(f"  [{job.source}] {job.company} — {job.title}")
         return 0
 
-    recipients = send_digest(
-        to_send,
-        new_only=not args.full,
-        suppressed_count=suppressed,
-        total_scanned=len(all_jobs),
-        dry_run=args.dry_run,
-    )
+    try:
+        recipients = send_digest(
+            to_send,
+            new_only=not args.full,
+            suppressed_count=suppressed,
+            total_scanned=len(all_jobs),
+            dry_run=args.dry_run,
+        )
+    except (RuntimeError, smtplib.SMTPAuthenticationError) as exc:
+        print(f"Email failed: {exc}", file=sys.stderr)
+        print(f"::warning::SAP digest email failed; job scan completed. {exc}", file=sys.stderr)
+        return 0
 
     if not args.dry_run:
         record_sends([j.key for j in to_send])

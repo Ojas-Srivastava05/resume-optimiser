@@ -205,7 +205,7 @@ def main() -> int:
                 )
         except RuntimeError as exc:
             log(f"Email failed: {exc}", level="ERROR")
-            return 1
+            print(f"::warning::Digest email failed; scout data was still collected. {exc}", file=sys.stderr)
 
     if not args.full:
         all_keys = [j.key for j in to_send]

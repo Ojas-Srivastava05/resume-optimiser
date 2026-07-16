@@ -89,6 +89,19 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
+      - name: Validate outreach state JSON
+        run: |
+          python3 -c "import json; json.load(open('data/outreach_state.json'))" \
+            || python3 scripts/repair_outreach_state.py
+
+      - name: Verify Gmail SMTP credentials
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          SMTP_VERIFY_LABEL: cold-outreach
+        run: python3 ../.github/scripts/verify-smtp.py
+
       - name: Ensure contact DB exists
         run: |
           if [ ! -f data/merged/master_contacts.csv ]; then

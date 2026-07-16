@@ -9,6 +9,12 @@ from zoneinfo import ZoneInfo
 from config import RECIPIENT_EMAIL, SMTP_APP_PASSWORD, SMTP_EMAIL
 from oa_daily.models import OADayPlan, OAQuestion
 
+_GMAIL_APP_PASSWORD_HINT = (
+	"Gmail rejected login. SMTP_APP_PASSWORD must be a 16-character Gmail App Password, "
+	"not your normal Gmail password. Regenerate: Google Account → Security → "
+	"2-Step Verification → App passwords → Mail."
+)
+
 
 def _escape(s: str) -> str:
 	return (
@@ -88,5 +94,8 @@ def send_oa_email(plan: OADayPlan) -> None:
 	msg.attach(MIMEText(build_html(plan), "html"))
 
 	with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as server:
-		server.login(SMTP_EMAIL, SMTP_APP_PASSWORD)
+		try:
+			server.login(SMTP_EMAIL, SMTP_APP_PASSWORD)
+		except smtplib.SMTPAuthenticationError as exc:
+			raise RuntimeError(_GMAIL_APP_PASSWORD_HINT) from exc
 		server.sendmail(SMTP_EMAIL, [RECIPIENT_EMAIL], msg.as_string())

@@ -157,7 +157,13 @@ def send_digest(
         msg.attach(MIMEText(html, "html"))
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as server:
-            server.login(SMTP_EMAIL, SMTP_APP_PASSWORD)
+            try:
+                server.login(SMTP_EMAIL, SMTP_APP_PASSWORD)
+            except smtplib.SMTPAuthenticationError as exc:
+                raise RuntimeError(
+                    "Gmail auth failed. SMTP_APP_PASSWORD must be a 16-character Gmail App Password. "
+                    "Regenerate in Google Account → Security → App passwords."
+                ) from exc
             server.sendmail(SMTP_EMAIL, [recipient], msg.as_string())
         sent_to.append(recipient)
         print(f"SAP digest sent to {recipient}")

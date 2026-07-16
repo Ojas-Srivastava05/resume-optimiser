@@ -12,11 +12,18 @@ sys.path.insert(0, str(ROOT))
 
 from cold_email.blocklist import record_bounce  # noqa: E402
 from cold_email.config import STATE_PATH  # noqa: E402
+from cold_email.json_state import load_json, save_json  # noqa: E402
 from cold_email.selection import is_garbage_email, sync_company_registry  # noqa: E402
 
 
 def main() -> int:
-	state = json.loads(STATE_PATH.read_text(encoding="utf-8"))
+	try:
+		state = load_json(STATE_PATH)
+	except RuntimeError:
+		import subprocess
+
+		subprocess.run([sys.executable, str(ROOT / "scripts" / "repair_outreach_state.py")], check=True)
+		state = load_json(STATE_PATH)
 	sent = state.setdefault("sent", {})
 	cancelled = 0
 	blocked = 0
@@ -34,7 +41,7 @@ def main() -> int:
 		meta.setdefault("reply_status", "no_reply")
 
 	sync_company_registry(state)
-	STATE_PATH.write_text(json.dumps(state, indent=2), encoding="utf-8")
+	save_json(STATE_PATH, state)
 	print(json.dumps({"cancelled_followups": cancelled, "blocked_garbage": blocked}, indent=2))
 	return 0
 

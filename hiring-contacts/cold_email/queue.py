@@ -25,6 +25,7 @@ from cold_email.config import (
 	STATE_PATH,
 )
 from cold_email.exclusions import is_outreach_excluded
+from cold_email.json_state import load_json, save_json
 from cold_email.selection import (
 	company_on_cooldown,
 	contact_quality_score,
@@ -77,7 +78,7 @@ def load_scout_portals() -> dict[str, str]:
 
 def load_state() -> dict:
 	if STATE_PATH.exists():
-		state = json.loads(STATE_PATH.read_text(encoding="utf-8"))
+		state = load_json(STATE_PATH)
 	else:
 		state = {"sent": {}, "stats": {"total_sent": 0, "total_followups": 0}}
 	state.setdefault("daily_log", {})
@@ -95,8 +96,7 @@ def save_state(state: dict) -> None:
 	daily = state.get("daily_log", {})
 	state["daily_log"] = {k: v for k, v in daily.items() if k >= cutoff}
 	sync_company_registry(state)
-	STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
-	STATE_PATH.write_text(json.dumps(state, indent=2), encoding="utf-8")
+	save_json(STATE_PATH, state)
 
 
 def _daily_usage(state: dict) -> tuple[set[str], set[str]]:
