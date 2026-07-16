@@ -1182,10 +1182,28 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "aarushi.gupta@zomato.com": {
+      "email": "aarushi.gupta@zomato.com",
+      "company": "Zomato",
+      "name": "Aarushi Gupta",
+      "role_title": "HR Generalist",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.smartrecruiters.com/Zomato1",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Zomato",
+      "dry_run": false,
+      "sent_at": "2026-07-16T12:02:33.858465+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 63,
+    "total_sent": 64,
     "total_followups": 24
   },
   "daily_log": {
@@ -1296,15 +1314,17 @@
     "2026-07-16": {
       "emails": [
         "kosuna@marqeta.com",
-        "ewa.boardman@mathworks.com"
+        "ewa.boardman@mathworks.com",
+        "aarushi.gupta@zomato.com"
       ],
       "companies": [
         "marqeta",
-        "mathworks"
+        "mathworks",
+        "zomato"
       ]
     }
   },
-  "last_live_send_at": "2026-07-16T09:21:43.883513+00:00",
+  "last_live_send_at": "2026-07-16T12:02:33.858453+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -1718,7 +1738,14 @@
       "last_email": "ewa.boardman@mathworks.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "zomato": {
+      "company": "Zomato",
+      "last_contacted_at": "2026-07-16T12:02:33.858603+00:00",
+      "last_email": "aarushi.gupta@zomato.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 8
+  "rotation_index": 9
 }
