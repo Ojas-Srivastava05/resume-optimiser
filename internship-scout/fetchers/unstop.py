@@ -7,6 +7,7 @@ import requests
 from companies import match_priority_company
 from config import COMPANY_BATCH_SIZE, UNSTOP_MAX_COMPANIES
 from fetchers.parallel import map_parallel
+from fetchers.unstop_utils import unstop_opportunity_is_stale
 from filters import Job, make_job
 from logger import log
 from rotation import rotated_names
@@ -42,13 +43,18 @@ def _search(query: str) -> list[dict]:
         "page": 1,
         "per_page": 20,
         "searchTerm": query,
+        "oppstatus": "upcoming",
     }
     resp = SESSION.get(API, params=params, timeout=12)
     resp.raise_for_status()
-    return (resp.json().get("data") or {}).get("data") or []
+    items = (resp.json().get("data") or {}).get("data") or []
+    return [i for i in items if not unstop_opportunity_is_stale(i)]
 
 
 def _parse_item(item: dict) -> Job | None:
+    if unstop_opportunity_is_stale(item):
+        return None
+
     title = item.get("title") or item.get("name") or ""
     org = item.get("organisation") or item.get("organization") or {}
     company = org.get("name", "") if isinstance(org, dict) else str(org)

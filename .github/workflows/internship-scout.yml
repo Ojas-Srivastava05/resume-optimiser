@@ -56,6 +56,13 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Verify Gmail SMTP credentials
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          SMTP_VERIFY_LABEL: internship-scout
+        run: python3 ../.github/scripts/verify-smtp.py
+
       - name: Run internship scout (fast)
         env:
           FAST_MODE: "1"

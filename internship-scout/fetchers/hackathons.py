@@ -11,7 +11,6 @@ Sources: Unstop, Devfolio, MLH, direct company pages.
 
 import re
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from urllib.parse import urljoin
 
 import requests
@@ -19,6 +18,7 @@ from bs4 import BeautifulSoup
 
 from companies import load_companies, match_priority_company
 from fetchers.parallel import map_parallel
+from fetchers.unstop_utils import is_expired, unstop_opportunity_is_stale
 from logger import log
 
 BASE_UNSTOP = "https://unstop.com"
@@ -99,40 +99,17 @@ STIPEND_RE = re.compile(r"\b(stipend|paid\s+internship|intern\s+offer)\b", re.I)
 MIN_PRIZE_POOL = 50000  # ₹50k
 
 
-def _is_expired(date_str: str) -> bool:
-    """Return True if the given ISO-ish date string is in the past."""
-    if not date_str:
-        return False  # No date → can't confirm expired, let it through
-    for fmt in (
-        "%Y-%m-%dT%H:%M:%S%z",      # 2025-07-19T12:27:11+05:30
-        "%Y-%m-%dT%H:%M:%S.%f%z",   # with microseconds
-        "%Y-%m-%d %H:%M:%S%z",      # 2025-07-19 12:27:11+05:30
-        "%Y-%m-%dT%H:%M:%S",        # no tz
-        "%Y-%m-%d %H:%M:%S",        # no tz
-        "%Y-%m-%d",                  # date only
-    ):
-        try:
-            dt = datetime.strptime(date_str.strip(), fmt)
-            if dt.tzinfo is None:
-                dt = dt.replace(tzinfo=timezone.utc)
-            return dt < datetime.now(timezone.utc)
-        except ValueError:
-            continue
-    return False  # Unparseable → let it through
-
-
 def _hackathon_is_stale(item: dict) -> bool:
-    """Return True if an Unstop hackathon item has expired (all relevant dates in the past)."""
-    # Collect all date fields that indicate the event is still relevant
-    end_date = item.get("end_date", "") or ""
-    regn = item.get("regnRequirements") or {}
-    regn_end = regn.get("end_regn_dt", "") if isinstance(regn, dict) else ""
+    """Return True if an Unstop hackathon item is closed or registration ended."""
+    return unstop_opportunity_is_stale(item)
 
-    # If we have an end_date and it's in the past, the hackathon is done
-    if end_date and _is_expired(end_date):
+
+def _hackathon_deadline_stale(h: "Hackathon") -> bool:
+    """Drop parsed hackathons whose known deadline is already past."""
+    if h.deadline and is_expired(h.deadline):
         return True
-    # If no end_date but registration ended, also stale
-    if not end_date and regn_end and _is_expired(regn_end):
+    # HTML scrape cards have no dates — too risky to email as "live"
+    if h.platform == "Direct" and not h.deadline:
         return True
     return False
 
@@ -401,7 +378,7 @@ def _fetch_devfolio_hackathons() -> list[Hackathon]:
                 url = f"https://devfolio.co/hackathons/{slug}" if slug else ""
 
                 # Skip expired Devfolio hackathons
-                if ends and _is_expired(ends):
+                if ends and is_expired(ends):
                     continue
 
                 blob = f"{title} {organizer} {desc} {prize}"
@@ -544,6 +521,12 @@ def fetch_hackathons() -> list[Hackathon]:
             add(batch, "Direct")
         elif isinstance(batch, Hackathon):
             add([batch], "Direct")
+
+    before = len(all_hackathons)
+    all_hackathons = [h for h in all_hackathons if not _hackathon_deadline_stale(h)]
+    dropped = before - len(all_hackathons)
+    if dropped:
+        log(f"Filtered {dropped} stale/unverifiable hackathons")
 
     # Sort by quality score (best first)
     all_hackathons.sort(key=lambda h: (-h.score, h.organizer, h.title))
