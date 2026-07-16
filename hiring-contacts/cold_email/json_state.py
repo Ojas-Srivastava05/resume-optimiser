@@ -11,6 +11,20 @@ from typing import Any
 _EMAIL_KEY_RE = re.compile(r'^[\s"]*([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})"\s*:\s*\{')
 
 
+def _repair_outreach_file(path: Path, raw: str) -> dict[str, Any]:
+	import importlib.util
+
+	repair_script = path.resolve().parent.parent / "scripts" / "repair_outreach_state.py"
+	spec = importlib.util.spec_from_file_location("_repair_outreach_state", repair_script)
+	if spec is None or spec.loader is None:
+		raise RuntimeError(f"Missing repair script at {repair_script}")
+	mod = importlib.util.module_from_spec(spec)
+	spec.loader.exec_module(mod)
+	repaired = mod.repair_state(raw)
+	save_json(path, repaired)
+	return repaired
+
+
 def load_json(path: Path, *, default: dict[str, Any] | None = None) -> dict[str, Any]:
 	"""Load JSON state; auto-repair outreach_state.json when merge corruption is detected."""
 	raw = path.read_text(encoding="utf-8")
@@ -18,11 +32,7 @@ def load_json(path: Path, *, default: dict[str, Any] | None = None) -> dict[str,
 		return json.loads(raw)
 	except json.JSONDecodeError as exc:
 		if path.name == "outreach_state.json":
-			from scripts.repair_outreach_state import repair_state
-
-			repaired = repair_state(raw)
-			save_json(path, repaired)
-			return repaired
+			return _repair_outreach_file(path, raw)
 		raise RuntimeError(
 			f"Corrupt JSON in {path} ({exc}). "
 			"Run: python3 hiring-contacts/scripts/repair_outreach_state.py"
