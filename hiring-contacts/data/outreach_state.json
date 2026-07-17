@@ -1257,9 +1257,11 @@
       "subject": "Summer 2027 SWE intern \u2014 Mastek",
       "dry_run": false,
       "sent_at": "2026-07-17T09:17:12.032503+00:00",
-      "followup_sent": false,
-      "followup_count": 0,
-      "reply_status": "no_reply"
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
     }
   },
   "stats": {
