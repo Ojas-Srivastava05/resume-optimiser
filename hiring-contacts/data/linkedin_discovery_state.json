@@ -1,5 +1,5 @@
 {
-  "rotation_index": 507,
+  "rotation_index": 519,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -83,13 +83,25 @@
     "marwaricatalysts": "2026-07-15T04:06:00+00:00",
     "mastek": "2026-07-16T07:30:23+00:00",
     "mastercard": "2026-07-16T07:30:23+00:00",
-    "mastercardlabs": "2026-07-16T07:30:23+00:00"
+    "mastercardlabs": "2026-07-16T07:30:23+00:00",
+    "materialsecurity": "2026-07-17T04:07:55+00:00",
+    "mathworks": "2026-07-17T04:07:55+00:00",
+    "matillion": "2026-07-17T04:07:55+00:00",
+    "matrixorg": "2026-07-17T04:07:55+00:00",
+    "mavensecurities": "2026-07-17T04:07:55+00:00",
+    "maxhealthcare": "2026-07-17T04:07:55+00:00",
+    "maximintegrated": "2026-07-17T04:07:55+00:00",
+    "mcafee": "2026-07-17T04:07:55+00:00",
+    "mckinsey": "2026-07-17T04:07:55+00:00",
+    "mckinseycompany": "2026-07-17T04:07:55+00:00",
+    "mckinseyandcompany": "2026-07-17T04:07:55+00:00",
+    "mclarenracing": "2026-07-17T04:07:55+00:00"
   },
   "stats": {
-    "total_runs": 36,
+    "total_runs": 37,
     "total_profiles_found": 0,
-    "total_emails_verified": 82,
-    "last_run_at": "2026-07-16T07:30:23+00:00",
-    "last_batch_profiles": 3
+    "total_emails_verified": 98,
+    "last_run_at": "2026-07-17T04:07:55+00:00",
+    "last_batch_profiles": 16
   }
 }
