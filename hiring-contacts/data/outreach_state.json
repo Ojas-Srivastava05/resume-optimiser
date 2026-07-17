@@ -1222,10 +1222,28 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "deepa.k@honasa.in": {
+      "email": "deepa.k@honasa.in",
+      "company": "Mamaearth (Honasa)",
+      "name": "Deepa Kaushik",
+      "role_title": "Assistant Vice President, Human Resources",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://honasa.in/pages/careers",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Mamaearth (Honasa)",
+      "dry_run": false,
+      "sent_at": "2026-07-17T05:31:16.154919+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 65,
+    "total_sent": 66,
     "total_followups": 24
   },
   "daily_log": {
@@ -1337,14 +1355,16 @@
     },
     "2026-07-17": {
       "emails": [
-        "anju_vinay@mcafee.com"
+        "anju_vinay@mcafee.com",
+        "deepa.k@honasa.in"
       ],
       "companies": [
-        "mcafee"
+        "mcafee",
+        "mamaearthhonasa"
       ]
     }
   },
-  "last_live_send_at": "2026-07-17T02:36:42.251267+00:00",
+  "last_live_send_at": "2026-07-17T05:31:16.154907+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -1772,7 +1792,14 @@
       "last_email": "anju_vinay@mcafee.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "mamaearthhonasa": {
+      "company": "Mamaearth (Honasa)",
+      "last_contacted_at": "2026-07-17T05:31:16.155017+00:00",
+      "last_email": "deepa.k@honasa.in",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 10
+  "rotation_index": 11
 }
