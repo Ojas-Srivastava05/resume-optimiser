@@ -1,5 +1,5 @@
 {
-  "rotation_index": 519,
+  "rotation_index": 532,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -95,13 +95,25 @@
     "mckinsey": "2026-07-17T04:07:55+00:00",
     "mckinseycompany": "2026-07-17T04:07:55+00:00",
     "mckinseyandcompany": "2026-07-17T04:07:55+00:00",
-    "mclarenracing": "2026-07-17T04:07:55+00:00"
+    "mclarenracing": "2026-07-17T04:07:55+00:00",
+    "medianet": "2026-07-18T03:55:58+00:00",
+    "mediatek": "2026-07-18T03:55:58+00:00",
+    "medlife": "2026-07-18T03:55:58+00:00",
+    "medtronicindia": "2026-07-18T03:55:58+00:00",
+    "menlosecurity": "2026-07-18T03:55:58+00:00",
+    "mercedesbenz": "2026-07-18T03:55:58+00:00",
+    "mercedesbenzgroup": "2026-07-18T03:55:58+00:00",
+    "mercor": "2026-07-18T03:55:58+00:00",
+    "meta": "2026-07-18T03:55:58+00:00",
+    "metafacebook": "2026-07-18T03:55:58+00:00",
+    "mfine": "2026-07-18T03:55:58+00:00",
+    "mgmotorindia": "2026-07-18T03:55:58+00:00"
   },
   "stats": {
-    "total_runs": 37,
+    "total_runs": 38,
     "total_profiles_found": 0,
-    "total_emails_verified": 98,
-    "last_run_at": "2026-07-17T04:07:55+00:00",
-    "last_batch_profiles": 16
+    "total_emails_verified": 106,
+    "last_run_at": "2026-07-18T03:55:58+00:00",
+    "last_batch_profiles": 8
   }
 }
