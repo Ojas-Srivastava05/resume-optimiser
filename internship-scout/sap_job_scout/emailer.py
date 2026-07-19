@@ -8,7 +8,13 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from zoneinfo import ZoneInfo
 
-from sap_job_scout.config import SAP_MONITOR_EMAIL, SAP_RECIPIENT_EMAIL, SMTP_APP_PASSWORD, SMTP_EMAIL
+from sap_job_scout.config import (
+    SAP_EXTRA_RECIPIENTS,
+    SAP_MONITOR_EMAIL,
+    SAP_RECIPIENT_EMAIL,
+    SMTP_APP_PASSWORD,
+    SMTP_EMAIL,
+)
 from sap_job_scout.models import SapJob
 
 
@@ -117,9 +123,9 @@ def send_digest(
     total_scanned: int = 0,
     dry_run: bool = False,
 ) -> list[str]:
-    """Send identical digest to Ananya + monitor inbox. Returns list of recipient emails."""
+    """Send identical digest to all configured recipients. Returns list of recipient emails."""
     recipients = []
-    for addr in (SAP_RECIPIENT_EMAIL, SAP_MONITOR_EMAIL):
+    for addr in (SAP_RECIPIENT_EMAIL, SAP_MONITOR_EMAIL, *SAP_EXTRA_RECIPIENTS):
         addr = (addr or "").strip()
         if addr and addr not in recipients:
             recipients.append(addr)

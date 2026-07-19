@@ -14,7 +14,12 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
 from sap_job_scout.companies import advance_rotation, company_names, load_companies  # noqa: E402
-from sap_job_scout.config import COMPANY_BATCH_SIZE, SAP_MONITOR_EMAIL, SAP_RECIPIENT_EMAIL  # noqa: E402
+from sap_job_scout.config import (  # noqa: E402
+    COMPANY_BATCH_SIZE,
+    SAP_EXTRA_RECIPIENTS,
+    SAP_MONITOR_EMAIL,
+    SAP_RECIPIENT_EMAIL,
+)
 from sap_job_scout.emailer import send_digest  # noqa: E402
 from sap_job_scout.fetchers import collect_all_jobs  # noqa: E402
 from sap_job_scout.storage import load_send_records, record_sends, should_email  # noqa: E402
@@ -31,6 +36,8 @@ def main() -> int:
     print(f"SAP Job Scout start — {ist.strftime('%Y-%m-%d %H:%M IST')}")
     print(f"Primary recipient: {SAP_RECIPIENT_EMAIL}")
     print(f"Monitor copy: {SAP_MONITOR_EMAIL}")
+    if SAP_EXTRA_RECIPIENTS:
+        print(f"Extra recipients: {', '.join(SAP_EXTRA_RECIPIENTS)}")
 
     companies = load_companies()
     print(f"SAP company universe: {len(companies)} firms ({len(company_names())} names)")
@@ -41,9 +48,6 @@ def main() -> int:
     records = load_send_records()
     to_send = [j for j in all_jobs if should_email(j.key, records, full=args.full)]
     suppressed = len(all_jobs) - len(to_send)
-
-    # Cap digest size for readability
-    to_send = to_send[:40]
 
     if args.no_email:
         print(f"Fetched {len(all_jobs)} jobs; would email {len(to_send)} (suppressed {suppressed})")

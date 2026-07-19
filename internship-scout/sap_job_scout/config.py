@@ -22,6 +22,13 @@ def _getenv(key: str, default: str = "") -> str:
 SAP_RECIPIENT_EMAIL = _getenv("SAP_RECIPIENT_EMAIL", "ananyasrivas34@gmail.com")
 # Monitor copy: Ojas gets the same digest to confirm sends
 SAP_MONITOR_EMAIL = _getenv("SAP_MONITOR_EMAIL", _getenv("RECIPIENT_EMAIL", "srivastavaojas454@gmail.com"))
+# Extra inboxes that always get the same digest (comma-separated override via env)
+_DEFAULT_EXTRA = "anshmali1964@gmail.com"
+SAP_EXTRA_RECIPIENTS = [
+    addr.strip()
+    for addr in _getenv("SAP_EXTRA_RECIPIENTS", _DEFAULT_EXTRA).split(",")
+    if addr.strip()
+]
 
 SMTP_EMAIL = _getenv("SMTP_EMAIL", SAP_MONITOR_EMAIL)
 SMTP_APP_PASSWORD = _getenv("SMTP_APP_PASSWORD", "").replace(" ", "")
