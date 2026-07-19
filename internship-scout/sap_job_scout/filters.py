@@ -9,7 +9,11 @@ SAP_SKILL_RE = re.compile(
     r"odata|sap\s*abap|abap\b|s/?4\s*hana|sap\s*labs|sap\s*consultant|"
     r"packaged\s+application|sap\s*frontend|sap\s*web\s*ide|sap\s*business\s+application\s+studio|"
     r"sap\s*integration|sap\s*cloud|sap\s*successfactors|sap\s*ariba|sap\s*ewm|"
-    r"sap\s*mm\b|sap\s*sd\b|sap\s*fi\b|sap\s*hr\b|sap\s*basis|sap\s*security)\b",
+    r"sap\s*mm\b|sap\s*sd\b|sap\s*fi\b|sap\s*hr\b|sap\s*basis|sap\s*security|"
+    r"sap\s*rap\b|\brap\b.*\bsap\b|cds\s*views?|cloud\s*application\s*programming|"
+    r"sap\s*build|integration\s*suite|sap\s*cpi|sap\s*po\b|sap\s*pi\b|"
+    r"sap\s*workflow|sap\s*mdg|sap\s*tm\b|sap\s*hana|"
+    r"kyma|sap\s*extension|side[\s-]?by[\s-]?side)\b",
     re.I,
 )
 
@@ -22,7 +26,9 @@ ROLE_RE = re.compile(
 
 INDIA_RE = re.compile(
     r"\b(india|indian|bangalore|bengaluru|hyderabad|mumbai|pune|gurgaon|"
-    r"gurugram|noida|chennai|kolkata|bhubaneswar|remote\s+india|work\s+from\s+home)\b",
+    r"gurugram|noida|chennai|kolkata|bhubaneswar|ahmedabad|jaipur|kochi|"
+    r"coimbatore|chandigarh|indore|nagpur|vadodara|trivandrum|thiruvananthapuram|"
+    r"remote\s+india|work\s+from\s+home|wfh)\b",
     re.I,
 )
 
@@ -46,9 +52,9 @@ def _score(title: str, company: str, location: str) -> int:
     score = 0
     if re.search(r"ui5|fiori|sapui5", blob, re.I):
         score += 8
-    if re.search(r"odata|btp|cap\b|capm", blob, re.I):
+    if re.search(r"odata|btp|cap\b|capm|rap\b|cds", blob, re.I):
         score += 5
-    if re.search(r"abap|s/?4\s*hana", blob, re.I):
+    if re.search(r"abap|s/?4\s*hana|integration\s*suite|cpi", blob, re.I):
         score += 3
     if ROLE_RE.search(title):
         score += 3

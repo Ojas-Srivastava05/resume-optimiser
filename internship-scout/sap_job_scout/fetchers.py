@@ -36,6 +36,7 @@ SAP_QUERIES = [
     "SAP frontend developer",
     "SAP BTP developer",
     "SAP CAP developer",
+    "SAP CAPM developer",
     "SAP ABAP developer",
     "SAP UI5 Fiori India",
     "SAP OData developer",
@@ -44,6 +45,20 @@ SAP_QUERIES = [
     "SAP UI developer",
     "SAP Fiori application",
     "Packaged application developer SAP",
+    "SAP RAP developer",
+    "SAP CDS views developer",
+    "SAP Integration Suite",
+    "SAP CPI developer",
+    "SAP Build developer",
+    "SAP BTP Fiori",
+    "SAP UI5 Fiori OData",
+    "SAP S/4HANA Fiori developer",
+    "SAP Fiori UX consultant",
+    "SAP ABAP on HANA",
+    "SAP full stack developer UI5",
+    "SAP cloud developer BTP",
+    "SAP Business Application Studio",
+    "SAP Workflow developer",
 ]
 
 NAUKRI_PATHS = [
@@ -55,12 +70,28 @@ NAUKRI_PATHS = [
     "/sap-btp-developer-jobs",
     "/sap-technical-consultant-jobs",
     "/sap-fresher-jobs",
+    "/sap-cap-developer-jobs",
+    "/sap-odata-jobs",
+    "/sap-hana-developer-jobs",
+    "/sap-s4-hana-jobs",
+    "/sap-integration-jobs",
     "/sap-jobs-in-bangalore",
     "/sap-jobs-in-hyderabad",
     "/sap-jobs-in-pune",
     "/sap-jobs-in-chennai",
     "/sap-jobs-in-noida",
     "/sap-jobs-in-mumbai",
+    "/sap-jobs-in-gurgaon",
+    "/sap-jobs-in-gurugram",
+    "/sap-jobs-in-kolkata",
+    "/sap-jobs-in-ahmedabad",
+    "/sap-jobs-in-jaipur",
+    "/sap-jobs-in-coimbatore",
+    "/sap-ui5-jobs-in-bangalore",
+    "/sap-fiori-jobs-in-hyderabad",
+    "/sap-fiori-jobs-in-pune",
+    "/sap-btp-jobs-in-bangalore",
+    "/sap-abap-jobs-in-hyderabad",
 ]
 
 INDEED_QUERIES = [
@@ -72,6 +103,13 @@ INDEED_QUERIES = [
     "SAP frontend developer",
     "SAP technical consultant",
     "SAP OData developer",
+    "SAP CAP developer",
+    "SAP RAP developer",
+    "SAP Integration Suite",
+    "SAP Fiori UI5",
+    "SAP S/4HANA developer",
+    "SAP CPI consultant",
+    "SAP Build apps",
 ]
 
 
@@ -122,7 +160,7 @@ def _parse_linkedin(html: str) -> list[dict]:
 
 def _fetch_linkedin_query(query: str) -> list[SapJob]:
     jobs: list[SapJob] = []
-    for start in (0, 25):
+    for start in (0, 25, 50):
         try:
             cards = _parse_linkedin(_linkedin_search(query, start))
         except requests.RequestException:
@@ -140,7 +178,7 @@ def _fetch_linkedin_query(query: str) -> list[SapJob]:
 
 
 def _fetch_linkedin_company(company: str) -> list[SapJob]:
-    return _fetch_linkedin_query(f"{company} SAP UI5 Fiori developer")
+    return _fetch_linkedin_query(f"{company} SAP UI5 Fiori BTP developer")
 
 
 def fetch_linkedin_jobs() -> list[SapJob]:
@@ -256,7 +294,7 @@ def _indeed_search(query: str, start: int = 0) -> list[dict]:
 
 def _fetch_indeed_query(query: str) -> list[SapJob]:
     jobs: list[SapJob] = []
-    for start in (0, 10):
+    for start in (0, 10, 20):
         cards = _indeed_search(query, start)
         if not cards:
             break
@@ -286,36 +324,48 @@ def fetch_adzuna_jobs() -> list[SapJob]:
     if not ADZUNA_APP_ID or not ADZUNA_APP_KEY:
         return []
     jobs: list[SapJob] = []
-    queries = ["SAP UI5", "SAP Fiori", "SAP ABAP", "SAP consultant"]
+    queries = [
+        "SAP UI5",
+        "SAP Fiori",
+        "SAP ABAP",
+        "SAP consultant",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP OData",
+        "SAP Integration Suite",
+        "SAP S/4HANA developer",
+        "SAP RAP",
+    ]
     for what in queries:
-        params = {
-            "app_id": ADZUNA_APP_ID,
-            "app_key": ADZUNA_APP_KEY,
-            "results_per_page": 50,
-            "what": what,
-            "where": "india",
-        }
-        try:
-            resp = SESSION.get(
-                "https://api.adzuna.com/v1/api/jobs/in/search/1",
-                params=params,
-                timeout=25,
-            )
-            if resp.status_code != 200:
-                continue
-            for item in resp.json().get("results", []):
-                job = make_job(
-                    item.get("title", ""),
-                    (item.get("company") or {}).get("display_name", ""),
-                    (item.get("location") or {}).get("display_name", "India"),
-                    item.get("redirect_url", ""),
-                    "Adzuna",
-                    india_platform=True,
+        for page in (1, 2):
+            params = {
+                "app_id": ADZUNA_APP_ID,
+                "app_key": ADZUNA_APP_KEY,
+                "results_per_page": 50,
+                "what": what,
+                "where": "india",
+            }
+            try:
+                resp = SESSION.get(
+                    f"https://api.adzuna.com/v1/api/jobs/in/search/{page}",
+                    params=params,
+                    timeout=25,
                 )
-                if job:
-                    jobs.append(job)
-        except requests.RequestException:
-            continue
+                if resp.status_code != 200:
+                    continue
+                for item in resp.json().get("results", []):
+                    job = make_job(
+                        item.get("title", ""),
+                        (item.get("company") or {}).get("display_name", ""),
+                        (item.get("location") or {}).get("display_name", "India"),
+                        item.get("redirect_url", ""),
+                        "Adzuna",
+                        india_platform=True,
+                    )
+                    if job:
+                        jobs.append(job)
+            except requests.RequestException:
+                continue
     print(f"Adzuna SAP: {len(jobs)} matches")
     return jobs
 

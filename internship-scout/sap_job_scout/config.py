@@ -41,5 +41,6 @@ COMPANIES_CSV = DATA / "sap_companies.csv"
 SEEN_PATH = DATA / "sap_job_scout_seen.json"
 
 MAX_EMAIL_SENDS = int(_getenv("SAP_MAX_EMAIL_SENDS", "2") or "2")
-COMPANY_BATCH_SIZE = int(_getenv("SAP_COMPANY_BATCH_SIZE", "50") or "50")
-FETCH_WORKERS = int(_getenv("SAP_FETCH_WORKERS", "12") or "12")
+# Larger rotation + more workers = wider company/query coverage each run
+COMPANY_BATCH_SIZE = int(_getenv("SAP_COMPANY_BATCH_SIZE", "80") or "80")
+FETCH_WORKERS = int(_getenv("SAP_FETCH_WORKERS", "16") or "16")
