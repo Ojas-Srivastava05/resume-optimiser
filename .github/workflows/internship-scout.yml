@@ -38,7 +38,7 @@ jobs:
         working-directory: internship-scout
     runs-on: ubuntu-latest
     # Careers fills until CAREERS_TIME_BUDGET_SEC; leave headroom for other sources + email
-    timeout-minutes: 40
+    timeout-minutes: 50
 
     steps:
       - uses: actions/checkout@v4
@@ -75,7 +75,7 @@ jobs:
           COMPANY_BATCH_SIZE: "120"
           # 0 = queue every company; scrape until time budget (as many as fit)
           CAREERS_MAX_SCRAPES: "0"
-          CAREERS_TIME_BUDGET_SEC: "1500"
+          CAREERS_TIME_BUDGET_SEC: "1200"
           CAREERS_MAX_URLS_PER_COMPANY: "2"
           CAREERS_HTTP_TIMEOUT: "12"
           ORACLE_PROBE_PER_RUN: "20"

@@ -10,6 +10,9 @@ from logger import log
 T = TypeVar("T")
 R = TypeVar("R")
 
+# After the wall-clock budget, wait this long for in-flight work before abandoning
+_INFLIGHT_GRACE_SEC = 45.0
+
 
 def map_parallel(
     items: list[T],
@@ -21,8 +24,8 @@ def map_parallel(
 ) -> list[R]:
     """Run fn over items in parallel.
 
-    When deadline_sec is set, only *start* new work while time remains — covering
-    as many items as fit. In-flight tasks are allowed to finish after the budget.
+    When deadline_sec is set, only *start* new work while time remains. In-flight
+    tasks get a short grace period, then are abandoned so the job can finish.
     """
     if not items:
         return []
@@ -37,6 +40,7 @@ def map_parallel(
     started = 0
     completed = 0
     logged_budget = False
+    abandon_at: float | None = None
 
     def under_budget() -> bool:
         return deadline is None or time.monotonic() < deadline
@@ -56,27 +60,41 @@ def map_parallel(
             started += 1
             return True
 
-        # Keep a small ready queue so workers stay saturated
         for _ in range(min(w * 2, len(items))):
             if not submit_one():
                 break
 
         while futures:
-            done, _ = wait(set(futures.keys()), timeout=2.0, return_when=FIRST_COMPLETED)
+            now = time.monotonic()
             can_start_more = under_budget()
             if not can_start_more and not logged_budget:
                 logged_budget = True
+                abandon_at = now + _INFLIGHT_GRACE_SEC
                 log(
-                    f"Parallel {label}: time budget reached — finishing {len(futures)} in-flight, "
-                    f"{len(items) - started} never started ({completed} done so far)",
+                    f"Parallel {label}: time budget reached — finishing {len(futures)} in-flight "
+                    f"(grace {_INFLIGHT_GRACE_SEC:.0f}s), {len(items) - started} never started "
+                    f"({completed} done so far)",
                     level="WARN",
                 )
 
+            if abandon_at is not None and now >= abandon_at:
+                stuck = len(futures)
+                log(
+                    f"Parallel {label}: abandoning {stuck} hung in-flight task(s) after grace "
+                    f"({completed}/{len(items)} completed)",
+                    level="WARN",
+                )
+                for fut in list(futures):
+                    fut.cancel()
+                pool.shutdown(wait=False, cancel_futures=True)
+                break
+
+            done, _ = wait(set(futures.keys()), timeout=2.0, return_when=FIRST_COMPLETED)
             for fut in done:
                 item = futures.pop(fut, None)
                 completed += 1
                 try:
-                    result = fut.result()
+                    result = fut.result(timeout=0)
                     if result:
                         if isinstance(result, list):
                             out.extend(result)
