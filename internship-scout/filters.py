@@ -1,4 +1,11 @@
-"""Relevance filters: priority companies, software intern, batch 2028."""
+"""Relevance filters: priority companies, CS-adjacent intern roles, batch 2028.
+
+Relaxed for Computer Science / AI students: accept tech-adjacent titles
+(Applied Sciences, Technology Intern, Summer Analyst, SDET, etc.), not only
+strict \"SWE Intern\" wording. Still blocks marketing/HR/content noise.
+"""
+
+from __future__ import annotations
 
 import re
 from dataclasses import dataclass
@@ -6,42 +13,74 @@ from dataclasses import dataclass
 from companies import match_priority_company
 
 INTERN_RE = re.compile(
-    r"\b(intern(ship)?|trainee|co-?op|apprentice|summer\s+(analyst|associate))\b",
+    r"\b(intern(ship)?|trainee|co-?op|apprentice|"
+    r"summer\s+(analyst|associate|intern)|"
+    r"graduate\s+(trainee|engineer|program)|"
+    r"campus\s+(hire|recruit|program)|"
+    r"fellow(ship)?)\b",
     re.I,
 )
 NEW_GRAD_RE = re.compile(
     r"\b(new\s+grad|university\s+grad|graduate\s+(program|engineer)|campus|"
-    r"early\s+career|entry[\s-]level)\b",
+    r"early\s+career|entry[\s-]level|university\s+recruit)\b",
     re.I,
 )
+# Broad CS / engineering / applied-science signal — not SWE-only
 TECH_ROLE_RE = re.compile(
-    r"\b(software|sde|swe|developer|engineer|engineering|backend|frontend|"
-    r"full[\s-]?stack|platform|devops|site\s+reliability|sre|ml|machine\s+learning|"
-    r"\bai\b|artificial\s+intelligence|data\s+(scientist|engineer|analyst)|"
-    r"android|ios|mobile|cloud|distributed|systems|quant|research|"
+    r"\b("
+    r"software|sde|swe|sdet|developer|programmer|programming|coding|"
+    r"engineer|engineering|backend|frontend|full[\s-]?stack|platform|"
+    r"devops|site\s+reliability|sre|"
+    r"ml|machine\s+learning|\bai\b|artificial\s+intelligence|"
+    r"applied\s+science|data\s+(scientist|engineer|analyst|science)|"
+    r"computer\s+science|computing|\bcs\b|information\s+technology|"
+    r"android|ios|mobile|cloud|distributed|systems|quant|quantitative|"
+    r"research|scientist|"
     r"cyber\s*security|infosec|information\s+security|blockchain|web3|"
     r"embedded|firmware|hardware|fpga|vlsi|asic|"
     r"nlp|natural\s+language|computer\s+vision|deep\s+learning|"
-    r"automation|test\s+automation|qa\s+automation|"
+    r"automation|test\s+(automation|engineer)|qa\s+(automation|engineer)|"
     r"database|sql|nosql|infrastructure|networking|network\s+engineer|"
     r"compiler|language|runtime|kernel|os\s+engineer|"
     r"robotics|iot|internet\s+of\s+things|edge\s+computing|"
-    r"technical|technology|tech\s+intern|coding)\b",
+    r"technical|technology|tech(\s+intern|\s+program|\s+analyst)?|"
+    r"product\s+(intern|analyst|manager|engineer)|"
+    r"\bit\b|"
+    r"analytics|algorithm|platform\s+intern|"
+    r"chipset|modem|multimedia|wireless|connectivity"
+    r")\b",
+    re.I,
+)
+# Soft tech: titles that are fine at priority tech/finance firms without SWE wording
+SOFT_TECH_TITLE_RE = re.compile(
+    r"\b("
+    r"summer\s+analyst|summer\s+associate|"
+    r"analyst\s+intern|intern\s*[-–]\s*analyst|"
+    r"campus\s+intern|technology\s+program|"
+    r"graduate\s+trainee|get\b|engineer\s+trainee"
+    r")\b",
     re.I,
 )
 INDIA_RE = re.compile(
     r"\b(india|indian|bangalore|bengaluru|hyderabad|mumbai|pune|gurgaon|"
-    r"gurugram|noida|chennai|kolkata|surat|remote\s+india|work\s+from\s+home.*india)\b",
+    r"gurugram|noida|chennai|kolkata|surat|delhi|ahmedabad|"
+    r"remote\s+india|work\s+from\s+home.*india|"
+    r"multiple\s+locations|pan[\s-]india)\b",
     re.I,
 )
+# Non-CS noise only — keep QA/SDET/electronics/ops-tech pathways open
 EXCLUDE_TITLE_RE = re.compile(
-    r"\b(marketing|sales|hr\b|human\s+resources|recruiter|copy\s*writer|"
-    r"content\s*(writer|creator|-\s*intern)|graphic\s*design|campus\s+director|"
+    r"\b("
+    r"marketing|sales|hr\b|human\s+resources|recruiter|copy\s*writer|"
+    r"content\s*(writer|creator)|graphic\s*design|campus\s+director|"
     r"business\s+development|bd\s+intern|campus\s+growth|digital\s+marketing|"
-    r"social\s+media|video\s+editor|architect\s+intern|legal|finance\s+intern|"
-    r"operations\s+intern|customer\s+support|talent\s+scout|mechanical|electrical|"
-    r"electronics\s+engineering|civil\s+engineering|chemical\s+engineering|drone|"
-    r"market\s+research|corporate\s+internship|prompt\s+engineering|software\s+testing)\b",
+    r"social\s+media|video\s+editor|legal|"
+    r"customer\s+support|talent\s+scout|"
+    r"mechanical(\s+engineering)?|civil\s+engineering|chemical\s+engineering|"
+    r"drone\s+(pilot|operator)|market\s+research|"
+    r"corporate\s+communications|public\s+relations|\bpr\s+intern|"
+    r"ui/?ux\s+design\s+intern|fashion|hospitality|pharmacy|nursing"
+    r")\b",
     re.I,
 )
 # Graduation batch years that are NOT yours — e.g. Myntra "Batch of 2026"
@@ -55,6 +94,13 @@ WRONG_GRAD_BATCH_RE = re.compile(
 BATCH_2028_RE = re.compile(
     r"\b(?:batch\s+of|batch\s*[-–]\s*|class\s+of|graduating\s+in|"
     r"passing\s+(?:year|batch)|(?:bt\.?tech|b\.?tech)\s+batch\s+of?)\s*['\"]?(2028|28)\b",
+    re.I,
+)
+
+# Sectors where a bare "Intern" / Summer Analyst title is still CS-relevant
+TECH_SECTOR_HINT = re.compile(
+    r"tech|software|faang|fintech|bank|quant|ai|ml|cloud|saas|internet|"
+    r"semiconductor|electronics|product|engineering|it\b|computer",
     re.I,
 )
 
@@ -82,6 +128,17 @@ def batch_year_ok(title: str) -> bool:
     return True
 
 
+def _is_tech_role(title: str, company_entry: dict | None) -> bool:
+    if TECH_ROLE_RE.search(title) or SOFT_TECH_TITLE_RE.search(title):
+        return True
+    # Bare intern / trainee at a clearly tech-sector priority company
+    if company_entry and INTERN_RE.search(title):
+        sector = str(company_entry.get("sector") or "")
+        if TECH_SECTOR_HINT.search(sector):
+            return True
+    return False
+
+
 def is_relevant(
     title: str,
     company: str,
@@ -98,20 +155,24 @@ def is_relevant(
         return False
 
     check_name = board_company or company
-    if require_priority and not match_priority_company(check_name):
-        # Also try job poster name for Unstop listings
-        if not match_priority_company(company):
-            return False
+    entry = match_priority_company(check_name) or match_priority_company(company)
+    if require_priority and not entry:
+        return False
 
     blob = f"{title} {location}"
     is_intern = bool(
         INTERN_RE.search(title) or NEW_GRAD_RE.search(blob) or assume_intern
     )
-    is_tech = bool(TECH_ROLE_RE.search(title))
+    is_tech = _is_tech_role(title, entry)
     if not (is_intern and is_tech):
         return False
 
     in_india = bool(INDIA_RE.search(blob)) or india_platform
+    # ATS boards often omit India in the location string for multi-country postings
+    if not in_india and entry and TECH_SECTOR_HINT.search(str(entry.get("sector") or "")):
+        loc_l = (location or "").lower()
+        if not loc_l or loc_l in {"—", "-", "remote", "n/a", "worldwide", "global"}:
+            in_india = True
     if not in_india:
         return False
     return True
@@ -124,11 +185,16 @@ def _score_job(title: str, company: str, location: str) -> int:
         score += 5
     if TECH_ROLE_RE.search(title):
         score += 4
+    elif SOFT_TECH_TITLE_RE.search(title):
+        score += 2
     if BATCH_2028_RE.search(title):
         score += 6
     if INDIA_RE.search(blob):
         score += 3
     if match_priority_company(company):
+        score += 2
+    # Prefer classic SWE wording slightly in ranking
+    if re.search(r"\b(software|sde|swe|developer)\b", title, re.I):
         score += 2
     return score
 

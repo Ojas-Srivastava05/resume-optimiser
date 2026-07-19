@@ -42,10 +42,17 @@ HEADERS = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     ),
 }
-INTERN_HINT = re.compile(r"intern|internship|campus|university|graduate|co-?op", re.I)
+INTERN_HINT = re.compile(
+    r"intern|internship|campus|university|graduate|co-?op|trainee|fellow|"
+    r"summer\s+analyst|early\s+career",
+    re.I,
+)
 TECH_HINT = re.compile(
-    r"software|sde|swe|developer|engineer|ml|machine.?learning|\bai\b|data|backend|"
-    r"frontend|full.?stack|platform|technology|tech",
+    r"software|sde|swe|sdet|developer|programmer|engineer|engineering|"
+    r"ml|machine.?learning|\bai\b|applied\s+science|data|backend|"
+    r"frontend|full.?stack|platform|technology|tech|computing|computer|"
+    r"quant|research|scientist|analytics|product|embedded|firmware|"
+    r"chipset|wireless|multimedia|connectivity|\bit\b",
     re.I,
 )
 SESSION = requests.Session()
