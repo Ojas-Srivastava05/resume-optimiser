@@ -17,6 +17,14 @@ def _group_by_source(jobs: list[Job]) -> dict[str, list[Job]]:
     return groups
 
 
+def _portal_line(portal_coverage) -> str:
+    if not portal_coverage:
+        return ""
+    if hasattr(portal_coverage, "line"):
+        return portal_coverage.line()
+    return str(portal_coverage)
+
+
 def build_digest_html(
     jobs: list[Job],
     *,
@@ -24,10 +32,12 @@ def build_digest_html(
     suppressed_count: int = 0,
     total_scanned: int = 0,
     hackathons: list | None = None,
+    portal_coverage=None,
 ) -> str:
     ist = datetime.now(ZoneInfo("Asia/Kolkata"))
     date_str = ist.strftime("%d %b %Y")
     hackathons = hackathons or []
+    coverage = _portal_line(portal_coverage)
 
     if not jobs and not hackathons:
         parts = [
@@ -35,6 +45,8 @@ def build_digest_html(
             "<p><strong>No new openings or hackathons for today.</strong></p>",
             "<p>The daily scan completed successfully. Nothing new to apply to right now.</p>",
         ]
+        if coverage:
+            parts.append(f"<p><small>🌐 {coverage}</small></p>")
         if suppressed_count:
             parts.append(
                 f"<p><small>{suppressed_count} live listing{'s' if suppressed_count != 1 else ''} "
@@ -50,19 +62,22 @@ def build_digest_html(
     parts = [
         f"<h2>🔍 Internship + Hackathon Scout — {date_str}</h2>",
     ]
+    if coverage:
+        parts.append(
+            f"<p style='background:#f4f6fb;padding:10px 12px;border-radius:6px;'>"
+            f"<strong>🌐 Portal coverage:</strong> {coverage}</p>"
+        )
 
-    # ─── Internship section ───────────────────────────────────────────────────
     if jobs:
         headline = (
             f"{len(jobs)} new internship match{'es' if len(jobs) != 1 else ''}"
             if new_only
             else f"{len(jobs)} internship matches (full scan)"
         )
-        parts.append(f"<h3>💼 Internships</h3>")
+        parts.append("<h3>💼 Internships</h3>")
         parts.append(f"<p><strong>{headline}</strong></p>")
 
         for source, items in _group_by_source(jobs).items():
-            # Use emoji indicators for different sources
             emoji = {
                 "Greenhouse": "🌿",
                 "Lever": "🔧",
@@ -91,7 +106,6 @@ def build_digest_html(
                 )
             parts.append("</ul>")
 
-    # ─── Hackathon section ────────────────────────────────────────────────────
     if hackathons:
         parts.append("<hr style='border:1px solid #e94560;margin:20px 0;'>")
         parts.append(f"<h3>🏆 Elite Hackathons & Competitions ({len(hackathons)})</h3>")
@@ -118,11 +132,16 @@ def build_digest_html(
             )
         parts.append("</table>")
 
-    # ─── Footer ───────────────────────────────────────────────────────────────
     source_summary = "10 internship sources + 3 hackathon platforms"
+    footer_bits = [
+        "Priority companies · CS-adjacent intern · batch 2028",
+        "each opening emailed max 2 times",
+        source_summary,
+    ]
+    if coverage:
+        footer_bits.append(coverage)
     parts.append(
-        f"<p><small>Priority companies · software/ML intern · batch 2028 · "
-        f"each opening emailed max 2 times · {source_summary} · — Internship + Hackathon Scout</small></p>"
+        f"<p><small>{' · '.join(footer_bits)} · — Internship + Hackathon Scout</small></p>"
     )
     return "\n".join(parts)
 
@@ -134,10 +153,15 @@ def build_digest_text(
     suppressed_count: int = 0,
     total_scanned: int = 0,
     hackathons: list | None = None,
+    portal_coverage=None,
 ) -> str:
     ist = datetime.now(ZoneInfo("Asia/Kolkata"))
     lines = [f"Internship + Hackathon Scout — {ist.strftime('%d %b %Y')}", ""]
     hackathons = hackathons or []
+    coverage = _portal_line(portal_coverage)
+    if coverage:
+        lines.append(f"Portal coverage: {coverage}")
+        lines.append("")
 
     if not jobs and not hackathons:
         lines.append("No new openings or hackathons for today.")
@@ -183,6 +207,7 @@ def send_digest(
     suppressed_count: int = 0,
     total_scanned: int = 0,
     hackathons: list | None = None,
+    portal_coverage=None,
 ) -> None:
     if not SMTP_APP_PASSWORD:
         raise RuntimeError(
@@ -192,7 +217,6 @@ def send_digest(
     hackathons = hackathons or []
     ist = datetime.now(ZoneInfo("Asia/Kolkata"))
 
-    # Build subject line
     parts = []
     if jobs:
         parts.append(f"{len(jobs)} internship{'s' if len(jobs) != 1 else ''}")
@@ -210,12 +234,20 @@ def send_digest(
     msg["To"] = RECIPIENT_EMAIL
 
     text = build_digest_text(
-        jobs, new_only=new_only, suppressed_count=suppressed_count,
-        total_scanned=total_scanned, hackathons=hackathons,
+        jobs,
+        new_only=new_only,
+        suppressed_count=suppressed_count,
+        total_scanned=total_scanned,
+        hackathons=hackathons,
+        portal_coverage=portal_coverage,
     )
     html = build_digest_html(
-        jobs, new_only=new_only, suppressed_count=suppressed_count,
-        total_scanned=total_scanned, hackathons=hackathons,
+        jobs,
+        new_only=new_only,
+        suppressed_count=suppressed_count,
+        total_scanned=total_scanned,
+        hackathons=hackathons,
+        portal_coverage=portal_coverage,
     )
     msg.attach(MIMEText(text, "plain"))
     msg.attach(MIMEText(html, "html"))

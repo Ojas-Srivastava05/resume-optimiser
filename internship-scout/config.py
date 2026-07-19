@@ -25,15 +25,16 @@ PRIORITY_SHEET_ID = os.getenv(
 
 MAX_EMAIL_SENDS = int(os.getenv("MAX_EMAIL_SENDS", "2"))
 
-# Rotated sources: career portals scrape CAREERS_MAX_SCRAPES firms/day (~10-day full cycle)
+# Rotated sources: LinkedIn/Unstop/Naukri use COMPANY_BATCH_SIZE.
+# Career portals: CAREERS_MAX_SCRAPES<=0 queues the full roster and stops on CAREERS_TIME_BUDGET_SEC.
 # Full-scan sources (every run): Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Oracle CX, LinkedIn broad, Unstop broad
 COMPANY_BATCH_SIZE = int(os.getenv("COMPANY_BATCH_SIZE", "120"))
 FETCH_WORKERS = int(os.getenv("FETCH_WORKERS", "16"))
 UNSTOP_MAX_COMPANIES = int(os.getenv("UNSTOP_MAX_COMPANIES", "80"))
 LINKEDIN_MAX_COMPANIES = int(os.getenv("LINKEDIN_MAX_COMPANIES", "80"))
-# Career portals: 100 companies/day → full 964-company cycle in ~10 days
-CAREERS_MAX_SCRAPES = int(os.getenv("CAREERS_MAX_SCRAPES", "100"))
-# CI guardrails — cap wall time and probes so email still sends on slow portal days
+# 0 = queue every company; time budget decides how many finish this run
+CAREERS_MAX_SCRAPES = int(os.getenv("CAREERS_MAX_SCRAPES", "0"))
+# Wall-clock cap for portal scraping (required when CAREERS_MAX_SCRAPES=0)
 CAREERS_TIME_BUDGET_SEC = int(os.getenv("CAREERS_TIME_BUDGET_SEC", "0"))
 CAREERS_MAX_URLS_PER_COMPANY = int(os.getenv("CAREERS_MAX_URLS_PER_COMPANY", "0"))
 CAREERS_HTTP_TIMEOUT = int(os.getenv("CAREERS_HTTP_TIMEOUT", "12"))

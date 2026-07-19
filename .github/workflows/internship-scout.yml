@@ -8,6 +8,11 @@ on:
     - cron: "0 7 * * *"
   workflow_dispatch:
     inputs:
+      dry_run:
+        description: "Dry run (fetch + preview, no SMTP)"
+        required: false
+        default: true
+        type: boolean
       full_scan:
         description: "Full scan (ignore send-count limit)"
         required: false
@@ -32,7 +37,8 @@ jobs:
       run:
         working-directory: internship-scout
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    # Careers fills until CAREERS_TIME_BUDGET_SEC; leave headroom for other sources + email
+    timeout-minutes: 40
 
     steps:
       - uses: actions/checkout@v4
@@ -67,13 +73,14 @@ jobs:
         env:
           FAST_MODE: "1"
           COMPANY_BATCH_SIZE: "120"
-          CAREERS_MAX_SCRAPES: "100"
-          CAREERS_TIME_BUDGET_SEC: "240"
-          CAREERS_MAX_URLS_PER_COMPANY: "1"
-          CAREERS_HTTP_TIMEOUT: "8"
-          ORACLE_PROBE_PER_RUN: "10"
+          # 0 = queue every company; scrape until time budget (as many as fit)
+          CAREERS_MAX_SCRAPES: "0"
+          CAREERS_TIME_BUDGET_SEC: "1500"
+          CAREERS_MAX_URLS_PER_COMPANY: "2"
+          CAREERS_HTTP_TIMEOUT: "12"
+          ORACLE_PROBE_PER_RUN: "20"
           MAX_EMAIL_SENDS: "2"
-          FETCH_WORKERS: "16"
+          FETCH_WORKERS: "24"
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
           SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
           SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
@@ -84,15 +91,20 @@ jobs:
         run: |
           echo "Trigger: ${{ github.event_name }} at $(date -u)"
           FLAGS="--fast --no-sync"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            FLAGS="$FLAGS --dry-run"
+          fi
           if [ "${{ github.event.inputs.full_scan }}" = "true" ]; then
             FLAGS="$FLAGS --full"
           fi
           if [ "${{ github.event.inputs.no_hackathons }}" = "true" ]; then
             FLAGS="$FLAGS --no-hackathons"
           fi
+          echo "Flags: $FLAGS"
           python scout.py $FLAGS
 
       - name: Upload seen jobs cache
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true }}
         uses: actions/upload-artifact@v4
         with:
           name: seen-jobs

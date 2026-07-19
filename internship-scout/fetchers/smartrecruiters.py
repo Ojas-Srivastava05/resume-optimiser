@@ -109,6 +109,11 @@ def fetch_smartrecruiters_jobs() -> list[Job]:
     return jobs
 
 
+def fetch_smartrecruiters_for_slug(company: str, slug: str) -> list[Job]:
+    """Direct SmartRecruiters fetch when the careers URL already has a company slug."""
+    return _fetch_slug(company, slug)
+
+
 def fetch_smartrecruiters_from_html(company: str, html: str) -> list[Job]:
     jobs: list[Job] = []
     seen: set[str] = set()

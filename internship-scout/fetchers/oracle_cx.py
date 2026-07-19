@@ -24,10 +24,24 @@ HEADERS = {
     ),
     "Accept": "application/json",
 }
-ORACLE_SITE_RE = re.compile(r"/sites/(CX_\d+)", re.I)
-ORACLE_API_RE = re.compile(r'data-apibaseurl="([^"]+)"', re.I)
-ORACLE_SITE_NUM_RE = re.compile(r'data-sitenumber="([^"]+)"', re.I)
-ORACLE_VANITY_RE = re.compile(r'data-vanitybaseurl="([^"]*)"', re.I)
+ORACLE_SITE_RE = re.compile(r"/sites/(CX_?\d+)", re.I)
+ORACLE_API_RE = re.compile(
+    r'data-apibaseurl=["\']([^"\']+)["\']|'
+    r'"apiBaseUrl"\s*:\s*"([^"]+)"|'
+    r'apibaseurl["\']?\s*[:=]\s*["\']([^"\']+)',
+    re.I,
+)
+ORACLE_SITE_NUM_RE = re.compile(
+    r'data-sitenumber=["\']([^"\']+)["\']|'
+    r'"siteNumber"\s*:\s*"([^"]+)"|'
+    r"/sites/(CX_?\d+)",
+    re.I,
+)
+ORACLE_VANITY_RE = re.compile(
+    r'data-vanitybaseurl=["\']([^"\']*)["\']|'
+    r'"vanityBaseUrl"\s*:\s*"([^"]*)"',
+    re.I,
+)
 SESSION = requests.Session()
 SESSION.headers.update(HEADERS)
 
@@ -55,16 +69,47 @@ def _jobs_page_url(portal: str) -> str:
 def _parse_oracle_meta(html: str, fallback_url: str) -> OracleBoard | None:
     api_m = ORACLE_API_RE.search(html)
     site_m = ORACLE_SITE_NUM_RE.search(html)
-    if not api_m or not site_m:
+    site_from_url = ORACLE_SITE_RE.search(fallback_url or "")
+
+    api_base = ""
+    if api_m:
+        api_base = next((g for g in api_m.groups() if g), "") or ""
+    site_number = ""
+    if site_m:
+        site_number = next((g for g in site_m.groups() if g), "") or ""
+    if not site_number and site_from_url:
+        site_number = site_from_url.group(1)
+
+    if not api_base:
+        # Derive API host from vanity / careers host when meta tags are missing
+        parsed = urlparse(fallback_url)
+        host = parsed.netloc.lower()
+        if "oraclecloud.com" in host or site_number:
+            # Common Oracle CX API base pattern
+            api_base = f"{parsed.scheme}://{parsed.netloc}"
+            # Prefer fa.*.oraclecloud.com style from page scripts
+            host_m = re.search(
+                r"https?://[a-z0-9.-]+\.oraclecloud\.com",
+                html,
+                re.I,
+            )
+            if host_m:
+                api_base = host_m.group(0)
+
+    if not api_base or not site_number:
         return None
+
     vanity_m = ORACLE_VANITY_RE.search(html)
-    vanity = (vanity_m.group(1) if vanity_m else "").strip().rstrip("/")
+    vanity = ""
+    if vanity_m:
+        vanity = next((g for g in vanity_m.groups() if g is not None), "") or ""
+    vanity = vanity.strip().rstrip("/")
     if not vanity:
         parsed = urlparse(fallback_url)
         vanity = f"{parsed.scheme}://{parsed.netloc}"
     return OracleBoard(
-        api_base=api_m.group(1).rstrip("/"),
-        site_number=site_m.group(1),
+        api_base=api_base.rstrip("/"),
+        site_number=site_number,
         vanity_base=vanity,
     )
 
@@ -97,65 +142,87 @@ def _fetch_board(company: str, board: OracleBoard) -> list[Job]:
     limit = 25
     total = None
     pages = 0
+    # Prefer keyword-filtered finder; fall back to full board listing
+    finders = [
+        f"findReqs;siteNumber={board.site_number};keyword=intern",
+        f"findReqs;siteNumber={board.site_number};keyword=internship",
+        f"findReqs;siteNumber={board.site_number}",
+    ]
 
-    while pages < 12:
-        try:
-            resp = SESSION.get(
-                f"{board.api_base}/hcmRestApi/resources/latest/recruitingCEJobRequisitions",
-                params={
-                    "onlyData": "true",
-                    "finder": f"findReqs;siteNumber={board.site_number}",
-                    "limit": limit,
-                    "offset": offset,
-                    "expand": "requisitionList",
-                },
-                timeout=25,
-            )
-            if resp.status_code != 200:
+    for finder in finders:
+        offset = 0
+        total = None
+        pages = 0
+        finder_jobs: list[Job] = []
+        while pages < 12:
+            try:
+                resp = SESSION.get(
+                    f"{board.api_base}/hcmRestApi/resources/latest/recruitingCEJobRequisitions",
+                    params={
+                        "onlyData": "true",
+                        "finder": finder,
+                        "limit": limit,
+                        "offset": offset,
+                        "expand": "requisitionList",
+                    },
+                    timeout=25,
+                )
+                if resp.status_code != 200:
+                    break
+                payload = resp.json()
+            except requests.RequestException:
                 break
-            payload = resp.json()
-        except requests.RequestException:
-            break
 
-        items = payload.get("items") or []
-        if not items:
-            break
-        item = items[0]
-        if total is None:
-            total = int(item.get("TotalJobsCount") or 0)
-        reqs = item.get("requisitionList") or []
-        if not reqs:
-            break
+            items = payload.get("items") or []
+            if not items:
+                break
+            item = items[0]
+            if total is None:
+                total = int(item.get("TotalJobsCount") or 0)
+            reqs = item.get("requisitionList") or []
+            if not reqs:
+                break
 
-        for req in reqs:
-            title = req.get("Title") or ""
-            loc = req.get("PrimaryLocation") or ""
-            country = req.get("PrimaryLocationCountry") or ""
-            if country and country not in {"IN", "India"}:
-                blob = f"{title} {loc}"
-                if not re.search(
-                    r"india|bangalore|bengaluru|hyderabad|mumbai|pune|gurgaon|gurugram|noida|chennai",
-                    blob,
-                    re.I,
-                ):
+            for req in reqs:
+                title = req.get("Title") or ""
+                loc = req.get("PrimaryLocation") or ""
+                country = str(req.get("PrimaryLocationCountry") or "")
+                blob = f"{title} {loc} {country}"
+                indiaish = bool(
+                    re.search(
+                        r"\b(IN|India|bangalore|bengaluru|hyderabad|mumbai|pune|"
+                        r"gurgaon|gurugram|noida|chennai|delhi)\b",
+                        blob,
+                        re.I,
+                    )
+                )
+                # Keep India-relevant roles; also keep intern titles with empty/global location
+                # for priority campus boards (filter layer still applies).
+                if country and country.upper() not in {"IN", "IND", "INDIA"} and not indiaish:
+                    if not re.search(r"intern|campus|graduate|trainee", title, re.I):
+                        continue
+                req_id = req.get("Id") or ""
+                if not req_id:
                     continue
-            req_id = req.get("Id") or ""
-            if not req_id:
-                continue
-            job = make_job(
-                title,
-                company,
-                loc,
-                _job_url(board, req_id),
-                "Oracle CX",
-                board_company=company,
-            )
-            if job:
-                jobs.append(job)
+                job = make_job(
+                    title,
+                    company,
+                    loc or ("India" if indiaish else loc),
+                    _job_url(board, req_id),
+                    "Oracle CX",
+                    board_company=company,
+                    india_platform=indiaish or not loc,
+                )
+                if job:
+                    finder_jobs.append(job)
 
-        offset += limit
-        pages += 1
-        if total is not None and offset >= total:
+            offset += limit
+            pages += 1
+            if total is not None and offset >= total:
+                break
+
+        if finder_jobs:
+            jobs.extend(finder_jobs)
             break
 
     return jobs

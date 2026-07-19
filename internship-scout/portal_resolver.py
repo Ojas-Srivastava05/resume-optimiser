@@ -195,7 +195,7 @@ def best_portal_url(entry: dict, *, infer_placeholders: bool = True) -> str | No
 
 
 def portal_candidates(entry: dict, *, infer_placeholders: bool = True) -> list[str]:
-    """Ordered URLs to probe for one company."""
+    """Ordered URLs to probe for one company (more candidates = higher portal yield)."""
     seen: set[str] = set()
     out: list[str] = []
 
@@ -211,18 +211,37 @@ def portal_candidates(entry: dict, *, infer_placeholders: bool = True) -> list[s
     add(best_portal_url(entry, infer_placeholders=infer_placeholders))
     portal = (entry.get("portal") or "").strip()
     add(portal)
+    if entry.get("gh_slug"):
+        add(f"https://boards.greenhouse.io/{entry['gh_slug']}")
+        add(f"https://job-boards.greenhouse.io/{entry['gh_slug']}")
 
     primary = out[0] if out else None
     if primary:
         try:
             parsed = urlparse(primary)
             root = f"{parsed.scheme}://{parsed.netloc}"
-            for suffix in ("/careers", "/jobs", "/campus", "/university"):
+            for suffix in (
+                "/careers",
+                "/jobs",
+                "/careers/jobs",
+                "/careers/students",
+                "/careers/university",
+                "/campus",
+                "/university",
+                "/students",
+                "/early-careers",
+                "/en/careers",
+                "/en/jobs",
+            ):
                 add(f"{root}{suffix}")
+            # India-focused query pages when the root is a searchable careers site
+            for q in ("intern", "internship", "software+intern", "campus"):
+                add(f"{root}/jobs?q={q}")
+                add(f"{root}/careers?keywords={q}")
         except Exception:
             pass
 
-    return out[:4]
+    return out[:8]
 
 
 def collect_workday_boards(companies: list[dict]) -> list[tuple[str, WorkdayBoard]]:

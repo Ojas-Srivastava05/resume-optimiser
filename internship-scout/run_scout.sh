@@ -7,12 +7,13 @@ mkdir -p logs
 
 export FAST_MODE=1
 export COMPANY_BATCH_SIZE=120
-export FETCH_WORKERS=16
+export FETCH_WORKERS=24
 export MAX_EMAIL_SENDS=2
-export CAREERS_MAX_SCRAPES=100
-export CAREERS_TIME_BUDGET_SEC=240
-export CAREERS_MAX_URLS_PER_COMPANY=1
-export CAREERS_HTTP_TIMEOUT=8
+# Queue all companies; stop when time budget hits
+export CAREERS_MAX_SCRAPES=0
+export CAREERS_TIME_BUDGET_SEC=1500
+export CAREERS_MAX_URLS_PER_COMPANY=2
+export CAREERS_HTTP_TIMEOUT=12
 
 # Load SMTP + Supabase from .env
 if [[ -f .env ]]; then

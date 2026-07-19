@@ -19,27 +19,44 @@ HEADERS = {
 SESSION = requests.Session()
 SESSION.headers.update(HEADERS)
 
-INTERN_QUERIES = ("intern india", "internship india", "software intern india", "campus india")
+INTERN_QUERIES = (
+    "intern india",
+    "internship india",
+    "software intern india",
+    "campus india",
+    "intern",
+    "internship",
+    "software intern",
+    "campus",
+    "graduate",
+    "technology intern",
+    "applied sciences",
+)
 
 
 def _fetch_board(company: str, board: WorkdayBoard) -> list[Job]:
     jobs: list[Job] = []
     seen_urls: set[str] = set()
-    for query in INTERN_QUERIES:
+    queries = list(INTERN_QUERIES)
+    # Empty search as a final sweep for boards that ignore searchText
+    queries.append("")
+    for query in queries:
         offset = 0
         limit = 50
         pages = 0
-        while pages < 2:
+        while pages < 3:
             try:
+                payload_body: dict = {
+                    "appliedFacets": {},
+                    "limit": limit,
+                    "offset": offset,
+                }
+                if query:
+                    payload_body["searchText"] = query
                 resp = SESSION.post(
                     board.jobs_api,
-                    json={
-                        "appliedFacets": {},
-                        "limit": limit,
-                        "offset": offset,
-                        "searchText": query,
-                    },
-                    timeout=20,
+                    json=payload_body,
+                    timeout=25,
                 )
                 if resp.status_code != 200:
                     break
@@ -53,19 +70,29 @@ def _fetch_board(company: str, board: WorkdayBoard) -> list[Job]:
 
             for item in postings:
                 title = item.get("title", "")
-                loc = item.get("locationsText", "")
+                loc = item.get("locationsText", "") or ""
                 path = item.get("externalPath", "")
                 url = f"{board.public_root}{path}" if path else board.public_root
                 if url in seen_urls:
                     continue
                 seen_urls.add(url)
+                # Campus Workday boards for India priority firms — allow soft India match
+                indiaish = bool(
+                    re.search(
+                        r"india|bangalore|bengaluru|hyderabad|mumbai|pune|"
+                        r"gurgaon|gurugram|noida|chennai|delhi|remote",
+                        f"{title} {loc}",
+                        re.I,
+                    )
+                )
                 job = make_job(
                     title,
                     company,
-                    loc,
+                    loc or ("India" if indiaish else loc),
                     url,
                     "Workday",
                     board_company=company,
+                    india_platform=indiaish or not loc,
                 )
                 if job:
                     jobs.append(job)
@@ -92,16 +119,24 @@ def fetch_workday_jobs() -> list[Job]:
     return jobs
 
 
+def fetch_workday_for_url(company: str, url: str) -> list[Job]:
+    """Direct Workday board fetch when the careers URL is already a myworkdayjobs link."""
+    board = parse_workday(url)
+    if not board:
+        return []
+    return _fetch_board(company, board)
+
+
 def fetch_workday_from_html(company: str, html: str) -> list[Job]:
     """Discover embedded Workday boards while scraping generic portals."""
     jobs: list[Job] = []
     seen: set[str] = set()
     for m in re.finditer(
-        r"https?://([^.]+)\.wd(\d+)\.myworkdayjobs\.com/([^/\"'\s<>]+)",
+        r"https?://([^.\"'\s]+)\.wd(\d+)\.myworkdayjobs\.com/([^/\"'\s<>?#]+)",
         html,
         re.I,
     ):
-        url = m.group(0)
+        url = m.group(0).rstrip(".,);'")
         board = parse_workday(url)
         if not board or board.key in seen:
             continue

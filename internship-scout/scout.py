@@ -50,16 +50,20 @@ def log_coverage_plan() -> None:
     log(f"  • Naukri: 10 broad + company rotation")
     log(f"  • Indeed India: 8 broad queries")
     log(f"  • Hackathons: Unstop + Devfolio + 19 direct MNC pages")
-    days = (n + CAREERS_MAX_SCRAPES - 1) // CAREERS_MAX_SCRAPES if CAREERS_MAX_SCRAPES else 0
-    log(f"ROTATED daily ({batch} companies/day for LinkedIn/Unstop/Naukri; career portals {CAREERS_MAX_SCRAPES}/day, ~{days} days full cycle):")
+    if CAREERS_MAX_SCRAPES <= 0:
+        portal_plan = f"all {n} companies queued, stop on time budget"
+    else:
+        days = (n + CAREERS_MAX_SCRAPES - 1) // CAREERS_MAX_SCRAPES if CAREERS_MAX_SCRAPES else 0
+        portal_plan = f"{CAREERS_MAX_SCRAPES}/day, ~{days}-day full cycle"
+    log(f"ROTATED daily ({batch} companies/day for LinkedIn/Unstop/Naukri; career portals: {portal_plan}):")
     log(f"  • LinkedIn per-company + Unstop per-company + Naukri per-company")
-    log(f"  • Career portals (HTML/JSON-LD/embedded ATS), infer placeholders when enabled")
+    log(f"  • Career portals (HTML/JSON-LD/embedded ATS) — fill until time budget")
     log(f"  → New postings on ATS/broad sources appear same day; company-specific")
     log(f"    sources rotate but broad queries catch the same live postings.")
     log(f"Email dedup: max {MAX_EMAIL_SENDS} sends per opening, then suppressed")
 
 
-def collect_jobs() -> list[Job]:
+def collect_jobs() -> tuple[list[Job], object | None]:
     collectors = [
         ("Greenhouse", fetch_greenhouse_jobs, "full"),
         ("Lever", fetch_lever_jobs, "full"),
@@ -74,7 +78,11 @@ def collect_jobs() -> list[Job]:
         ("Naukri", fetch_naukri_jobs, "broad+rotation"),
         ("Indeed", fetch_indeed_jobs, "broad"),
         # Careers last — slowest source; time-budgeted in CI so email still sends
-        ("Careers Web", fetch_careers_jobs, f"rotation ({CAREERS_MAX_SCRAPES}/day)"),
+        (
+            "Careers Web",
+            fetch_careers_jobs,
+            "full roster until time budget" if CAREERS_MAX_SCRAPES <= 0 else f"rotation ({CAREERS_MAX_SCRAPES}/day)",
+        ),
     ]
     all_jobs: list[Job] = []
     for name, fn, mode in collectors:
@@ -86,7 +94,10 @@ def collect_jobs() -> list[Job]:
         except Exception as exc:
             log(f"{name} FAILED: {exc}", level="ERROR")
             print(f"{name} ERROR: {exc}", file=sys.stderr)
-    return dedupe_jobs(all_jobs)
+    # LAST_PORTAL_COVERAGE is set inside fetch_careers_jobs
+    from fetchers import careers as careers_mod
+
+    return dedupe_jobs(all_jobs), careers_mod.LAST_PORTAL_COVERAGE
 
 
 def main() -> int:
@@ -132,8 +143,10 @@ def main() -> int:
     log(f"Today's rotation sample: {', '.join(batch[:5])} … ({len(batch)} total)")
 
     # ─── Internships ──────────────────────────────────────────────────────────
-    jobs = collect_jobs()
+    jobs, portal_coverage = collect_jobs()
     log(f"Total unique matches after dedup: {len(jobs)}")
+    if portal_coverage:
+        log(f"Portal coverage: {portal_coverage.line()}")
 
     records = load_send_records()
     to_send: list[Job] = []
@@ -190,6 +203,7 @@ def main() -> int:
                 suppressed_count=len(suppressed),
                 total_scanned=len(jobs),
                 hackathons=hackathons,
+                portal_coverage=portal_coverage,
             )
             if to_send or hackathons:
                 parts = []
