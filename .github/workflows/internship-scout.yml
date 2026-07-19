@@ -11,7 +11,7 @@ on:
       dry_run:
         description: "Dry run (fetch + preview, no SMTP)"
         required: false
-        default: true
+        default: false
         type: boolean
       full_scan:
         description: "Full scan (ignore send-count limit)"
