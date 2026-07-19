@@ -692,7 +692,7 @@
     "videonetics",
     "wtw"
   ],
-  "queue_index": 26,
+  "queue_index": 27,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -721,7 +721,8 @@
     "peloton": 1,
     "general-electric": 1,
     "ge-healthcare": 1,
-    "impact-analytics": 1
+    "impact-analytics": 1,
+    "the-trade-desk": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -804,7 +805,10 @@
     ],
     "impact-analytics": [
       "best-time-to-buy-and-sell-stock"
+    ],
+    "the-trade-desk": [
+      "find-the-length-of-the-longest-common-prefix|basic-calculator-ii"
     ]
   },
-  "last_run": "2026-07-18T04:53:48.454611+00:00"
+  "last_run": "2026-07-19T05:28:55.317751+00:00"
 }
