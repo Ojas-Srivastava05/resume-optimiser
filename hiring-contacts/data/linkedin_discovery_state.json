@@ -1,5 +1,5 @@
 {
-  "rotation_index": 536,
+  "rotation_index": 539,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -110,13 +110,16 @@
     "mgmotorindia": "2026-07-18T03:55:58+00:00",
     "microchip": "2026-07-19T09:06:59+00:00",
     "microntechnology": "2026-07-19T09:06:59+00:00",
-    "microsoftindia": "2026-07-19T09:06:59+00:00"
+    "microsoftindia": "2026-07-19T09:06:59+00:00",
+    "midjourney": "2026-07-19T09:44:23+00:00",
+    "mihoyo": "2026-07-19T09:44:23+00:00",
+    "millenium": "2026-07-19T09:44:23+00:00"
   },
   "stats": {
-    "total_runs": 39,
+    "total_runs": 40,
     "total_profiles_found": 0,
     "total_emails_verified": 106,
-    "last_run_at": "2026-07-19T09:06:59+00:00",
+    "last_run_at": "2026-07-19T09:44:23+00:00",
     "last_batch_profiles": 0
   }
 }
