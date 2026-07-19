@@ -41,12 +41,14 @@ def map_parallel(
     completed = 0
     logged_budget = False
     abandon_at: float | None = None
+    abandoned = False
 
     def under_budget() -> bool:
         return deadline is None or time.monotonic() < deadline
 
-    with ThreadPoolExecutor(max_workers=w) as pool:
-        futures: dict = {}
+    pool = ThreadPoolExecutor(max_workers=w)
+    futures: dict = {}
+    try:
 
         def submit_one() -> bool:
             nonlocal started
@@ -84,9 +86,10 @@ def map_parallel(
                     f"({completed}/{len(items)} completed)",
                     level="WARN",
                 )
+                abandoned = True
                 for fut in list(futures):
                     fut.cancel()
-                pool.shutdown(wait=False, cancel_futures=True)
+                futures.clear()
                 break
 
             done, _ = wait(set(futures.keys()), timeout=2.0, return_when=FIRST_COMPLETED)
@@ -105,5 +108,8 @@ def map_parallel(
                         print(f"[parallel:{label}] skip {item!r}: {exc}")
                 if can_start_more:
                     submit_one()
+    finally:
+        # wait=False after abandon so a stuck HTTP call cannot block the digest
+        pool.shutdown(wait=not abandoned, cancel_futures=True)
 
     return out
