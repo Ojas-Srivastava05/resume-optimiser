@@ -692,7 +692,7 @@
     "videonetics",
     "wtw"
   ],
-  "queue_index": 29,
+  "queue_index": 30,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -724,7 +724,8 @@
     "impact-analytics": 1,
     "the-trade-desk": 1,
     "nykaa": 1,
-    "etsy": 1
+    "etsy": 1,
+    "fico": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -816,7 +817,10 @@
     ],
     "etsy": [
       "special-positions-in-a-binary-matrix"
+    ],
+    "fico": [
+      "count-prefix-and-suffix-pairs-i"
     ]
   },
-  "last_run": "2026-07-20T05:46:28.524331+00:00"
+  "last_run": "2026-07-21T05:26:49.035415+00:00"
 }
