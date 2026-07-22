@@ -1,5 +1,5 @@
 {
-  "rotation_index": 551,
+  "rotation_index": 563,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -125,13 +125,25 @@
     "mobileye": "2026-07-20T04:36:03+00:00",
     "moeliscompany": "2026-07-20T04:36:03+00:00",
     "moelisindia": "2026-07-20T04:36:03+00:00",
-    "moj": "2026-07-20T04:36:03+00:00"
+    "moj": "2026-07-20T04:36:03+00:00",
+    "mondaycom": "2026-07-22T04:17:34+00:00",
+    "moneycontrol": "2026-07-22T04:17:34+00:00",
+    "moneytap": "2026-07-22T04:17:34+00:00",
+    "mongodb": "2026-07-22T04:17:34+00:00",
+    "monitordeloitte": "2026-07-22T04:17:34+00:00",
+    "monolithicpower": "2026-07-22T04:17:34+00:00",
+    "montecarlo": "2026-07-22T04:17:34+00:00",
+    "moonfroglabs": "2026-07-22T04:17:34+00:00",
+    "morganstanley": "2026-07-22T04:17:34+00:00",
+    "morganstanleyindia": "2026-07-22T04:17:34+00:00",
+    "motilaloswal": "2026-07-22T04:17:34+00:00",
+    "mozillacorporation": "2026-07-22T04:17:34+00:00"
   },
   "stats": {
-    "total_runs": 41,
+    "total_runs": 42,
     "total_profiles_found": 0,
     "total_emails_verified": 106,
-    "last_run_at": "2026-07-20T04:36:03+00:00",
+    "last_run_at": "2026-07-22T04:17:34+00:00",
     "last_batch_profiles": 0
   }
 }
