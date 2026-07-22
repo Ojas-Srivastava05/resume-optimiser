@@ -1417,13 +1417,33 @@
       "subject": "Summer 2027 SWE intern \u2014 Matillion",
       "dry_run": false,
       "sent_at": "2026-07-22T06:03:39.277613+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "brenna_gildner@mckinsey.com": {
+      "email": "brenna_gildner@mckinsey.com",
+      "company": "Mckinsey",
+      "name": "Brenna Gildner",
+      "role_title": "Recruiter",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.mckinsey.com/careers/home",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Mckinsey",
+      "dry_run": false,
+      "sent_at": "2026-07-22T10:01:03.942627+00:00",
       "followup_sent": false,
       "followup_count": 0,
       "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 75,
+    "total_sent": 76,
     "total_followups": 24
   },
   "daily_log": {
@@ -1538,15 +1558,17 @@
     "2026-07-22": {
       "emails": [
         "kaushal.r@swiggy.in",
-        "tamar.elan@matillion.com"
+        "tamar.elan@matillion.com",
+        "brenna_gildner@mckinsey.com"
       ],
       "companies": [
         "swiggy",
-        "matillion"
+        "matillion",
+        "mckinsey"
       ]
     }
   },
-  "last_live_send_at": "2026-07-22T06:03:39.277601+00:00",
+  "last_live_send_at": "2026-07-22T10:01:03.942616+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2044,7 +2066,14 @@
       "last_email": "tamar.elan@matillion.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "mckinsey": {
+      "company": "Mckinsey",
+      "last_contacted_at": "2026-07-22T10:01:03.942762+00:00",
+      "last_email": "brenna_gildner@mckinsey.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 20
+  "rotation_index": 21
 }
