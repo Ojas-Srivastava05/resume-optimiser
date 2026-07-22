@@ -1402,10 +1402,28 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "tamar.elan@matillion.com": {
+      "email": "tamar.elan@matillion.com",
+      "company": "Matillion",
+      "name": "Tamar Elan",
+      "role_title": "Chief Human Resources Officer",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.google.com/jobs/results/?q=Matillion",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Matillion",
+      "dry_run": false,
+      "sent_at": "2026-07-22T06:03:39.277613+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 74,
+    "total_sent": 75,
     "total_followups": 24
   },
   "daily_log": {
@@ -1519,14 +1537,16 @@
     },
     "2026-07-22": {
       "emails": [
-        "kaushal.r@swiggy.in"
+        "kaushal.r@swiggy.in",
+        "tamar.elan@matillion.com"
       ],
       "companies": [
-        "swiggy"
+        "swiggy",
+        "matillion"
       ]
     }
   },
-  "last_live_send_at": "2026-07-22T03:08:00.632388+00:00",
+  "last_live_send_at": "2026-07-22T06:03:39.277601+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2017,7 +2037,14 @@
       "last_email": "kaushal.r@swiggy.in",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "matillion": {
+      "company": "Matillion",
+      "last_contacted_at": "2026-07-22T06:03:39.277760+00:00",
+      "last_email": "tamar.elan@matillion.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 19
+  "rotation_index": 20
 }
