@@ -1462,10 +1462,28 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "ayush.dwivedi@delhivery.com": {
+      "email": "ayush.dwivedi@delhivery.com",
+      "company": "Delhivery",
+      "name": "Ayush Dwivedi",
+      "role_title": "Senior Director of Human Resources",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.delhivery.com/careers",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Delhivery",
+      "dry_run": false,
+      "sent_at": "2026-07-23T06:15:17.162352+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 77,
+    "total_sent": 78,
     "total_followups": 24
   },
   "daily_log": {
@@ -1579,14 +1597,16 @@
     },
     "2026-07-23": {
       "emails": [
-        "bill.munger@mariadb.com"
+        "bill.munger@mariadb.com",
+        "ayush.dwivedi@delhivery.com"
       ],
       "companies": [
-        "mariadb"
+        "mariadb",
+        "delhivery"
       ]
     }
   },
-  "last_live_send_at": "2026-07-23T03:07:31.818874+00:00",
+  "last_live_send_at": "2026-07-23T06:15:17.162338+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2098,7 +2118,14 @@
       "last_email": "bill.munger@mariadb.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "delhivery": {
+      "company": "Delhivery",
+      "last_contacted_at": "2026-07-23T06:15:17.162491+00:00",
+      "last_email": "ayush.dwivedi@delhivery.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 22
+  "rotation_index": 23
 }
