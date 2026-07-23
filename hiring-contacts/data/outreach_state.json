@@ -1477,13 +1477,33 @@
       "subject": "Summer 2027 SWE intern \u2014 Delhivery",
       "dry_run": false,
       "sent_at": "2026-07-23T06:15:17.162352+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "clay.cook@menlosecurity.com": {
+      "email": "clay.cook@menlosecurity.com",
+      "company": "Menlo Security",
+      "name": "Clay Cook",
+      "role_title": "Technical Recruiting Manager",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.google.com/jobs/results/?q=Menlo%20Security",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Menlo Security",
+      "dry_run": false,
+      "sent_at": "2026-07-23T10:00:44.415873+00:00",
       "followup_sent": false,
       "followup_count": 0,
       "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 78,
+    "total_sent": 79,
     "total_followups": 24
   },
   "daily_log": {
@@ -1598,15 +1618,17 @@
     "2026-07-23": {
       "emails": [
         "bill.munger@mariadb.com",
-        "ayush.dwivedi@delhivery.com"
+        "ayush.dwivedi@delhivery.com",
+        "clay.cook@menlosecurity.com"
       ],
       "companies": [
         "mariadb",
-        "delhivery"
+        "delhivery",
+        "menlosecurity"
       ]
     }
   },
-  "last_live_send_at": "2026-07-23T06:15:17.162338+00:00",
+  "last_live_send_at": "2026-07-23T10:00:44.415860+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2125,7 +2147,14 @@
       "last_email": "ayush.dwivedi@delhivery.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "menlosecurity": {
+      "company": "Menlo Security",
+      "last_contacted_at": "2026-07-23T10:00:44.416022+00:00",
+      "last_email": "clay.cook@menlosecurity.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 23
+  "rotation_index": 24
 }
