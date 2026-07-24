@@ -1,5 +1,5 @@
 {
-  "rotation_index": 563,
+  "rotation_index": 575,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -137,13 +137,25 @@
     "morganstanley": "2026-07-22T04:17:34+00:00",
     "morganstanleyindia": "2026-07-22T04:17:34+00:00",
     "motilaloswal": "2026-07-22T04:17:34+00:00",
-    "mozillacorporation": "2026-07-22T04:17:34+00:00"
+    "mozillacorporation": "2026-07-22T04:17:34+00:00",
+    "mphasis": "2026-07-24T04:15:43+00:00",
+    "mpl": "2026-07-24T04:15:43+00:00",
+    "msci": "2026-07-24T04:15:43+00:00",
+    "msiindia": "2026-07-24T04:15:43+00:00",
+    "musigma": "2026-07-24T04:15:43+00:00",
+    "mybillbook": "2026-07-24T04:15:43+00:00",
+    "myntra": "2026-07-24T04:15:43+00:00",
+    "nagaro": "2026-07-24T04:15:43+00:00",
+    "narayanahealth": "2026-07-24T04:15:43+00:00",
+    "nasdaq": "2026-07-24T04:15:43+00:00",
+    "nationwithnamo": "2026-07-24T04:15:43+00:00",
+    "natwest": "2026-07-24T04:15:43+00:00"
   },
   "stats": {
-    "total_runs": 42,
+    "total_runs": 43,
     "total_profiles_found": 0,
     "total_emails_verified": 106,
-    "last_run_at": "2026-07-22T04:17:34+00:00",
+    "last_run_at": "2026-07-24T04:15:43+00:00",
     "last_batch_profiles": 0
   }
 }
