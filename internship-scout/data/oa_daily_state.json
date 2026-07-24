@@ -692,7 +692,7 @@
     "videonetics",
     "wtw"
   ],
-  "queue_index": 32,
+  "queue_index": 33,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -727,7 +727,8 @@
     "etsy": 1,
     "fico": 1,
     "accolite": 1,
-    "sharechat": 1
+    "sharechat": 1,
+    "gameskraft": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -828,7 +829,10 @@
     ],
     "sharechat": [
       "maximum-count-of-positive-integer-and-negative-integer|amount-of-time-for-binary-tree-to-be-infected"
+    ],
+    "gameskraft": [
+      "count-valid-paths-in-a-tree|maximize-sum-of-weights-after-edge-removals"
     ]
   },
-  "last_run": "2026-07-23T05:31:14.363248+00:00"
+  "last_run": "2026-07-24T05:26:28.185914+00:00"
 }
