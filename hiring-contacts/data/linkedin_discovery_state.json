@@ -1,5 +1,5 @@
 {
-  "rotation_index": 575,
+  "rotation_index": 587,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -149,13 +149,25 @@
     "narayanahealth": "2026-07-24T04:15:43+00:00",
     "nasdaq": "2026-07-24T04:15:43+00:00",
     "nationwithnamo": "2026-07-24T04:15:43+00:00",
-    "natwest": "2026-07-24T04:15:43+00:00"
+    "natwest": "2026-07-24T04:15:43+00:00",
+    "naughtydog": "2026-07-25T04:12:03+00:00",
+    "navi": "2026-07-25T04:12:03+00:00",
+    "navitassemiconductor": "2026-07-25T04:12:03+00:00",
+    "nazaratechnologies": "2026-07-25T04:12:03+00:00",
+    "necindia": "2026-07-25T04:12:03+00:00",
+    "neogrowth": "2026-07-25T04:12:03+00:00",
+    "neondatabase": "2026-07-25T04:12:03+00:00",
+    "neophotonics": "2026-07-25T04:12:03+00:00",
+    "neptuneai": "2026-07-25T04:12:03+00:00",
+    "nestaway": "2026-07-25T04:12:03+00:00",
+    "nestle": "2026-07-25T04:12:03+00:00",
+    "netapp": "2026-07-25T04:12:03+00:00"
   },
   "stats": {
-    "total_runs": 43,
+    "total_runs": 44,
     "total_profiles_found": 0,
     "total_emails_verified": 106,
-    "last_run_at": "2026-07-24T04:15:43+00:00",
+    "last_run_at": "2026-07-25T04:12:03+00:00",
     "last_batch_profiles": 0
   }
 }
