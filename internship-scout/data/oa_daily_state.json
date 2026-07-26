@@ -692,7 +692,7 @@
     "videonetics",
     "wtw"
   ],
-  "queue_index": 28,
+  "queue_index": 35,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -723,7 +723,14 @@
     "ge-healthcare": 1,
     "impact-analytics": 1,
     "the-trade-desk": 1,
-    "nykaa": 1
+    "nykaa": 1,
+    "etsy": 1,
+    "fico": 1,
+    "accolite": 1,
+    "sharechat": 1,
+    "gameskraft": 1,
+    "purplle": 1,
+    "qualtrics": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -812,7 +819,28 @@
     ],
     "nykaa": [
       "reverse-words-in-a-string|largest-number"
+    ],
+    "etsy": [
+      "special-positions-in-a-binary-matrix"
+    ],
+    "fico": [
+      "count-prefix-and-suffix-pairs-i"
+    ],
+    "accolite": [
+      "longest-substring-without-repeating-characters|coin-change"
+    ],
+    "sharechat": [
+      "maximum-count-of-positive-integer-and-negative-integer|amount-of-time-for-binary-tree-to-be-infected"
+    ],
+    "gameskraft": [
+      "count-valid-paths-in-a-tree|maximize-sum-of-weights-after-edge-removals"
+    ],
+    "purplle": [
+      "maximum-element-sum-of-a-complete-subset-of-indices"
+    ],
+    "qualtrics": [
+      "count-square-sum-triples|asteroid-collision"
     ]
   },
-  "last_run": "2026-07-19T11:45:14.705509+00:00"
+  "last_run": "2026-07-26T05:37:54.520463+00:00"
 }

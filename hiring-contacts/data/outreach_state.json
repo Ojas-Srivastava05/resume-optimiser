@@ -1262,71 +1262,313 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "ashleikhanthaphixay@meta.com": {
+      "email": "ashleikhanthaphixay@meta.com",
+      "company": "Meta",
+      "name": "Ashlei Khanthaphixay",
+      "role_title": "Recruiter",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://metacareers.dejobs.org/jobs/",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Meta",
+      "dry_run": false,
+      "sent_at": "2026-07-20T03:45:12.375722+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "dsutton@pinterest.com": {
+      "email": "dsutton@pinterest.com",
+      "company": "Pinterest",
+      "name": "Doniel Sutton",
+      "role_title": "Chief Human Resources Officer",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "Create the career you love | Pinterest Careers",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Pinterest",
+      "dry_run": false,
+      "sent_at": "2026-07-20T06:30:51.557251+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "cwilliams@microsoft.com": {
+      "email": "cwilliams@microsoft.com",
+      "company": "Microsoft",
+      "name": "Cody Williams",
+      "role_title": "Senior Human Resources Manager",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.microsoft.com/",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Microsoft",
+      "dry_run": false,
+      "sent_at": "2026-07-20T10:26:20.144283+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "arpita@policybazaar.com": {
+      "email": "arpita@policybazaar.com",
+      "company": "PolicyBazaar",
+      "name": "Arpita Tiwari",
+      "role_title": "Human Resources Manager",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.policybazaar.com/careers/",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 PolicyBazaar",
+      "dry_run": false,
+      "sent_at": "2026-07-21T03:07:43.451218+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "eleanor.lai@mediatek.com": {
+      "email": "eleanor.lai@mediatek.com",
+      "company": "Mediatek",
+      "name": "Eleanor Lai",
+      "role_title": "Deputy Director of Human Resources",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.google.com/search?q=https://www.mediatek.com/about/careers",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Mediatek",
+      "dry_run": false,
+      "sent_at": "2026-07-21T06:14:03.174270+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "sarah.lye@postman.com": {
+      "email": "sarah.lye@postman.com",
+      "company": "Postman",
+      "name": "Sarah Lye",
+      "role_title": "Head of Human Resources",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.postman.com/company/careers/",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Postman",
+      "dry_run": false,
+      "sent_at": "2026-07-21T10:04:07.370911+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "kaushal.r@swiggy.in": {
+      "email": "kaushal.r@swiggy.in",
+      "company": "Swiggy",
+      "name": "Kaushal Rana",
+      "role_title": "Human Resources Manager",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.swiggy.com/list.html?loc=1&dept=Engineering",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Swiggy",
+      "dry_run": false,
+      "sent_at": "2026-07-22T03:08:00.632400+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "tamar.elan@matillion.com": {
+      "email": "tamar.elan@matillion.com",
+      "company": "Matillion",
+      "name": "Tamar Elan",
+      "role_title": "Chief Human Resources Officer",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.google.com/jobs/results/?q=Matillion",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Matillion",
+      "dry_run": false,
+      "sent_at": "2026-07-22T06:03:39.277613+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "brenna_gildner@mckinsey.com": {
+      "email": "brenna_gildner@mckinsey.com",
+      "company": "Mckinsey",
+      "name": "Brenna Gildner",
+      "role_title": "Recruiter",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.mckinsey.com/careers/home",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Mckinsey",
+      "dry_run": false,
+      "sent_at": "2026-07-22T10:01:03.942627+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "bill.munger@mariadb.com": {
+      "email": "bill.munger@mariadb.com",
+      "company": "MariaDB",
+      "name": "Bill Munger",
+      "role_title": "Vice President, Human Resources",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.google.com/jobs/results/?q=MariaDB",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 MariaDB",
+      "dry_run": false,
+      "sent_at": "2026-07-23T03:07:31.818887+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "ayush.dwivedi@delhivery.com": {
+      "email": "ayush.dwivedi@delhivery.com",
+      "company": "Delhivery",
+      "name": "Ayush Dwivedi",
+      "role_title": "Senior Director of Human Resources",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.delhivery.com/careers",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Delhivery",
+      "dry_run": false,
+      "sent_at": "2026-07-23T06:15:17.162352+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "clay.cook@menlosecurity.com": {
+      "email": "clay.cook@menlosecurity.com",
+      "company": "Menlo Security",
+      "name": "Clay Cook",
+      "role_title": "Technical Recruiting Manager",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.google.com/jobs/results/?q=Menlo%20Security",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Menlo Security",
+      "dry_run": false,
+      "sent_at": "2026-07-23T10:00:44.415873+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "jchristiansen@marvell.com": {
+      "email": "jchristiansen@marvell.com",
+      "company": "Marvell Technology",
+      "name": "Jennifer Christiansen",
+      "role_title": "Director, Human Resources",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.marvell.com/company/careers.html",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Marvell Technology",
+      "dry_run": false,
+      "sent_at": "2026-07-24T03:07:07.537549+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "amertes@plaid.com": {
+      "email": "amertes@plaid.com",
+      "company": "Plaid",
+      "name": "Alex Mertes",
+      "role_title": "Recruiting Manager",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://plaid.com/careers/",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 Plaid",
+      "dry_run": false,
+      "sent_at": "2026-07-24T06:13:32.593101+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "augusto.ferreira@thoughtworks.com": {
+      "email": "augusto.ferreira@thoughtworks.com",
+      "company": "ThougthWorks",
+      "name": "Augusto Ferreira",
+      "role_title": "Global Head of Campus Recruiting",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.thoughtworks.com/en-us/careers/jobs",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 ThougthWorks",
+      "dry_run": false,
+      "sent_at": "2026-07-24T09:57:24.415718+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
     }
   },
   "stats": {
-    "total_sent": 67,
+    "total_sent": 82,
     "total_followups": 24
   },
   "daily_log": {
-    "2026-07-03": {
-      "emails": [
-        "emergingtalent@samsung.com",
-        "talenthelp@am.sony.com"
-      ],
-      "companies": [
-        "samsung",
-        "sony"
-      ]
-    },
-    "2026-07-06": {
-      "emails": [
-        "accessiblecareers@splunk.com",
-        "ta-recruitment@tesla.com",
-        "accessibility@autodesk.com"
-      ],
-      "companies": [
-        "splunk",
-        "tesla",
-        "autodesk"
-      ]
-    },
-    "2026-07-07": {
-      "emails": [
-        "yourresourcingsupport@barclays.com",
-        "gursharan.kaur@cars24.com",
-        "tom@cerebras.net"
-      ],
-      "companies": [
-        "barclays",
-        "cars24",
-        "cerebras"
-      ]
-    },
-    "2026-07-08": {
-      "emails": [
-        "abhinavsingh.k@flipkart.com",
-        "future@groww.in",
-        "shubhi.verma@oyorooms.com"
-      ],
-      "companies": [
-        "flipkart",
-        "groww",
-        "oyo"
-      ]
-    },
-    "2026-07-09": {
-      "emails": [
-        "prakriti.goel@pw.live",
-        "tateam@practo.com",
-        "priyanka.deshmukh@zeptonow.com"
-      ],
-      "companies": [
-        "physicswallah",
-        "practo",
-        "zepto"
-      ]
-    },
     "2026-07-10": {
       "emails": [
         "batesj@amazon.com",
@@ -1386,9 +1628,69 @@
         "mamaearthhonasa",
         "mastek"
       ]
+    },
+    "2026-07-20": {
+      "emails": [
+        "ashleikhanthaphixay@meta.com",
+        "dsutton@pinterest.com",
+        "cwilliams@microsoft.com"
+      ],
+      "companies": [
+        "meta",
+        "pinterest",
+        "microsoft"
+      ]
+    },
+    "2026-07-21": {
+      "emails": [
+        "arpita@policybazaar.com",
+        "eleanor.lai@mediatek.com",
+        "sarah.lye@postman.com"
+      ],
+      "companies": [
+        "policybazaar",
+        "mediatek",
+        "postman"
+      ]
+    },
+    "2026-07-22": {
+      "emails": [
+        "kaushal.r@swiggy.in",
+        "tamar.elan@matillion.com",
+        "brenna_gildner@mckinsey.com"
+      ],
+      "companies": [
+        "swiggy",
+        "matillion",
+        "mckinsey"
+      ]
+    },
+    "2026-07-23": {
+      "emails": [
+        "bill.munger@mariadb.com",
+        "ayush.dwivedi@delhivery.com",
+        "clay.cook@menlosecurity.com"
+      ],
+      "companies": [
+        "mariadb",
+        "delhivery",
+        "menlosecurity"
+      ]
+    },
+    "2026-07-24": {
+      "emails": [
+        "jchristiansen@marvell.com",
+        "amertes@plaid.com",
+        "augusto.ferreira@thoughtworks.com"
+      ],
+      "companies": [
+        "marvelltechnology",
+        "plaid",
+        "thougthworks"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-17T09:17:12.032490+00:00",
+  "last_live_send_at": "2026-07-24T09:57:24.415706+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -1830,7 +2132,112 @@
       "last_email": "dhara.ajmera@mastek.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "meta": {
+      "company": "Meta",
+      "last_contacted_at": "2026-07-20T03:45:12.375850+00:00",
+      "last_email": "ashleikhanthaphixay@meta.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "pinterest": {
+      "company": "Pinterest",
+      "last_contacted_at": "2026-07-20T06:30:51.557375+00:00",
+      "last_email": "dsutton@pinterest.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "microsoft": {
+      "company": "Microsoft",
+      "last_contacted_at": "2026-07-20T10:26:20.144414+00:00",
+      "last_email": "cwilliams@microsoft.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "policybazaar": {
+      "company": "PolicyBazaar",
+      "last_contacted_at": "2026-07-21T03:07:43.451402+00:00",
+      "last_email": "arpita@policybazaar.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "mediatek": {
+      "company": "Mediatek",
+      "last_contacted_at": "2026-07-21T06:14:03.174404+00:00",
+      "last_email": "eleanor.lai@mediatek.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "postman": {
+      "company": "Postman",
+      "last_contacted_at": "2026-07-21T10:04:07.371011+00:00",
+      "last_email": "sarah.lye@postman.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "swiggy": {
+      "company": "Swiggy",
+      "last_contacted_at": "2026-07-22T03:08:00.632624+00:00",
+      "last_email": "kaushal.r@swiggy.in",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "matillion": {
+      "company": "Matillion",
+      "last_contacted_at": "2026-07-22T06:03:39.277760+00:00",
+      "last_email": "tamar.elan@matillion.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "mckinsey": {
+      "company": "Mckinsey",
+      "last_contacted_at": "2026-07-22T10:01:03.942762+00:00",
+      "last_email": "brenna_gildner@mckinsey.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "mariadb": {
+      "company": "MariaDB",
+      "last_contacted_at": "2026-07-23T03:07:31.819028+00:00",
+      "last_email": "bill.munger@mariadb.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "delhivery": {
+      "company": "Delhivery",
+      "last_contacted_at": "2026-07-23T06:15:17.162491+00:00",
+      "last_email": "ayush.dwivedi@delhivery.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "menlosecurity": {
+      "company": "Menlo Security",
+      "last_contacted_at": "2026-07-23T10:00:44.416022+00:00",
+      "last_email": "clay.cook@menlosecurity.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "marvelltechnology": {
+      "company": "Marvell Technology",
+      "last_contacted_at": "2026-07-24T03:07:07.537696+00:00",
+      "last_email": "jchristiansen@marvell.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "plaid": {
+      "company": "Plaid",
+      "last_contacted_at": "2026-07-24T06:13:32.593313+00:00",
+      "last_email": "amertes@plaid.com",
+      "status": "no_reply",
+      "touch_count": 2
+    },
+    "thougthworks": {
+      "company": "ThougthWorks",
+      "last_contacted_at": "2026-07-24T09:57:24.415834+00:00",
+      "last_email": "augusto.ferreira@thoughtworks.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 12
+  "rotation_index": 27
 }
