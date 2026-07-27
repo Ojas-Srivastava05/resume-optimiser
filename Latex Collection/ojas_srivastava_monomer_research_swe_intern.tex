@@ -1,0 +1,156 @@
+%-------------------------
+% Resume - Monomer Research | Software Engineer Intern
+% HFT/MFT firm --- modern C++ / Linux / low-latency / concurrency / networking
+% No OA Forge --- resume shortlisting signal: DSA + systems projects only
+% Apply: Resume Collection/ojas_srivastava_monomer_research_swe_intern.pdf
+% Public link: https://ojas-srivastava.vercel.app/Ojas-Srivastava-Monomer-Research.pdf
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{left=1.1cm, top=0.32cm, right=1.1cm, bottom=0.32cm}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.7cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3.5pt}{2.5pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{0.4mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & #4 \\
+    \textit{#3} & \textit{#2} \\
+  \end{tabularx}
+  \vspace{-0.4mm}%
+}
+
+\newcommand{\resumeProject}[4]{%
+  \vspace{0.4mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & \textit{#3} \\
+    \textit{#2} & #4 \\
+  \end{tabularx}
+  \vspace{-0.4mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=0.4pt, itemsep=-0.6pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[0.8mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.3mm]
+  \textbf{Software Engineer Intern --- Monomer Research} \\[0.2mm]
+  B.Tech Artificial Intelligence, SVNIT Surat \textbar{}
+  \textbf{Batch 2028} (Pre-final) \textbar{}
+  CGPA \textbf{9.20/10} \\[0.2mm]
+  \textbf{Modern C++ \textbar{} Linux \textbar{} DSA \textbar{} OS \textbar{} Computer Architecture \textbar{} Concurrency \textbar{} Networking}
+\end{center}
+
+\vspace{-0.8mm}
+
+\section{Summary}
+\small
+Pre-final-year \textbf{B.Tech} student (Batch \textbf{2028}), CGPA \textbf{9.20/10}, pursuing \textbf{Software Engineer Intern} at Monomer Research. Strong \textbf{C++} programmer (STL, C++17) who builds and optimizes \textbf{high-performance, reliable} software on \textbf{Linux}. Solid foundation in \textbf{Data Structures \& Algorithms}, \textbf{Operating Systems}, and \textbf{Computer Organization \& Architecture}; hands-on work on \textbf{latency}-sensitive systems, \textbf{concurrency}, and real-time \textbf{networking}. Experienced \textbf{debugging}, \textbf{testing}, and \textbf{optimizing} production code through profiling, automated validation, and peer \textbf{code review}. Familiar with core portfolio and performance ratios including \textbf{alpha}, \textbf{beta}, \textbf{Sortino}, Sharpe, Treynor, and related risk/return metrics. Strong analytical and problem-solving skills; excited to contribute to resilient, low-latency platform engineering.
+
+\section{Education}
+\small
+\resumeSubheading
+  {Bachelor of Technology in Artificial Intelligence}{Aug 2024 -- May 2028}
+  {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat, India}{CGPA: 9.20/10}
+\begin{itemize}
+  \item Pre-final year (3rd year), graduating \textbf{May 2028}; CGPA \textbf{9.20/10}
+  \item \textbf{Coursework:} \textbf{Data Structures \& Algorithms}, \textbf{Operating Systems}, \textbf{Computer Organization \& Architecture}, OOP (C++), Computer Networks (TCP/IP), DBMS, Distributed Systems, Probability \& Statistics
+\end{itemize}
+
+\section{Competitive Programming --- Modern C++}
+\small
+\begin{itemize}
+  \item \textbf{LeetCode Knight:} Max rating \textbf{2048}, \textbf{744} problems, 32 contests --- DSA implemented primarily in \textbf{C++} (\href{https://leetcode.com/Oju_Srivastava}{profile})
+  \item \textbf{Codeforces Specialist:} Max rating \textbf{1419}, \textbf{265} solved --- timed contest coding in \textbf{C++} (\href{https://codeforces.com/profile/Oju}{profile})
+  \item Focus: asymptotic complexity, memory/time trade-offs, correct fast implementations under pressure
+\end{itemize}
+
+\section{Projects (Performance / Concurrency / Systems)}
+\small
+
+\resumeProject
+  {LogiFlow --- Latency-Aware Large-Scale Pipeline (Google Solution Challenge 2026, Global Top 106)}
+  {C++, Python, Redis, SQL, FastAPI, caching, simulation-style validation}
+  {Apr 2026 -- Jun 2026}
+  {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app/}{Live}}
+\begin{itemize}
+  \item Built \textbf{high-performance} read paths (\textbf{100--400 ms}) across \textbf{580+ corridors} / \textbf{9,526 stations} by splitting hot-path \textbf{Redis} caching from heavy compute---latency vs throughput trade-off thinking.
+  \item Modeled delay risk on \textbf{15,650} train-day records (feature design + Gradient Boosting simulator, MAE \textbf{22.7 min}); locked correctness with \textbf{100/100} automated regression checks---stress-test / simulation mindset before trusting outputs.
+  \item Used \textbf{C++} and Python where each fit; owned modular service boundaries so performance changes stay isolatable and measurable.
+\end{itemize}
+
+\resumeProject
+  {AirHelp --- Concurrent Real-Time Services (PowerMind Hackathon 2026)}
+  {Python, FastAPI, WebSockets, NetworkX, A* graph search, Linux deploy}
+  {2026}
+  {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Shipped \textbf{concurrent} real-time services over \textbf{WebSocket} streams; profiled and tuned end-to-end latency to \textbf{1--3s} under \textbf{50--100 concurrent} connections.
+  \item Implemented graph-based \textbf{A*} navigation (algorithm design + complexity-aware coding) with \textbf{95\%+} path accuracy on custom walking graphs---DSA applied to a live networked system.
+\end{itemize}
+
+\resumeProject
+  {Community Hero --- Production Civic Reporting PWA (Vibe2Ship 2026, Global Top 20)}
+  {TypeScript, React, Express, Firebase, GCP Cloud Run, REST APIs}
+  {Jun 2026}
+  {\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
+\begin{itemize}
+  \item Solo-shipped a production web service on \textbf{Linux}/Cloud Run under tight deadlines---API design, auth, geo workflows, and deploy; practiced owning an end-to-end system in production.
+  \item Quickly learned an unfamiliar stack (Gemini, Maps) and delivered reliable user-facing behavior under ambiguous, fast-paced constraints.
+\end{itemize}
+
+\section{Experience}
+\small
+\resumeSubheading
+  {Software Engineering Intern}{Jun 2025 -- Jul 2025}
+  {IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj, India}{}
+\begin{itemize}
+  \item Designed, developed, \textbf{tested}, and deployed production services on \textbf{Linux} (Docker, CI/CD): \textbf{10+ REST APIs}, optimized SQL, structured logging, and production \textbf{debugging}.
+  \item Improved \textbf{reliability} through unit/integration tests and peer \textbf{code review}; communicated design trade-offs clearly in a collaborative engineering environment.
+\end{itemize}
+
+\section{Technical Skills}
+\small
+\begin{itemize}[label={}]
+  \item \textbf{Modern C++ / Linux:} C++17, STL, OOP, g++, debugging, Git; develop and run software on \textbf{Linux}
+  \item \textbf{Role-critical CS:} Data Structures \& Algorithms, Operating Systems, Computer Organization \& Architecture, complexity analysis
+  \item \textbf{Performance \& systems:} Latency optimization, caching (Redis), concurrency, real-time networking (WebSockets / TCP-style streams), profiling mindset
+  \item \textbf{Also:} Python, C, SQL, Docker, CI/CD, pytest, probability \& statistics foundations
+\end{itemize}
+
+\section{Leadership}
+\small
+\begin{itemize}
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 106} (LogiFlow); \textbf{Vibe2Ship 2026 --- Global Top 20} (Community Hero)
+  \item \textbf{Executive Member, ACM SVNIT} \& \textbf{Mentor, Nexus SVNIT} --- DSA workshops and contest mentoring in \textbf{C++}
+  \item Active personal interest in \textbf{financial markets} and \textbf{systematic trading} through equities/mutual-fund research and data-driven idea testing
+\end{itemize}
+
+\end{document}
