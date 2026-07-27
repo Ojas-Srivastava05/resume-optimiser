@@ -24,3 +24,4 @@ internship-scout/priority_companies.csv
 OA-Forge/.env.local
 OA-Forge/node_modules/
 OA-Forge/.next/
+scripts/bofa_reminder_preview.html

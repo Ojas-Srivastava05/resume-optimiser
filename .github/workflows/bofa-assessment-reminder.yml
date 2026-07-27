@@ -1,0 +1,75 @@
+name: BofA Assessment Reminder
+
+# Thrice daily IST until 31 Jul 2026 00:55 IST (3 days from invitation)
+# 09:00 / 14:00 / 20:00 IST = 03:30 / 08:30 / 14:30 UTC
+
+on:
+  schedule:
+    - cron: "30 3 * * *"   # 09:00 IST — morning
+    - cron: "30 8 * * *"   # 14:00 IST — afternoon
+    - cron: "30 14 * * *"  # 20:00 IST — evening
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (write preview only, no SMTP)"
+        required: false
+        default: "false"
+        type: boolean
+      force:
+        description: "Send even after deadline"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bofa-assessment-reminder
+  cancel-in-progress: false
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify Gmail SMTP credentials
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          SMTP_VERIFY_LABEL: bofa-assessment-reminder
+        run: python3 .github/scripts/verify-smtp.py
+
+      - name: Detect slot label
+        id: slot
+        run: |
+          HOUR_UTC=$(date -u +%H)
+          case "$HOUR_UTC" in
+            03) echo "name=morning" >> "$GITHUB_OUTPUT" ;;
+            08) echo "name=afternoon" >> "$GITHUB_OUTPUT" ;;
+            14) echo "name=evening" >> "$GITHUB_OUTPUT" ;;
+            *)  echo "name=manual" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - name: Send BofA assessment reminder
+        env:
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+        run: |
+          FLAGS="--slot ${{ steps.slot.outputs.name }}"
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            FLAGS="$FLAGS --dry-run"
+          fi
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            FLAGS="$FLAGS --force"
+          fi
+          python3 scripts/bofa_assessment_reminder.py $FLAGS
