@@ -1562,25 +1562,31 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "deepa.raja@manipalhospitals.com": {
+      "email": "deepa.raja@manipalhospitals.com",
+      "company": "Manipal Hospitals",
+      "name": "Deepa Raja",
+      "role_title": "Human Resources Manager",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.google.com/jobs/results/?q=Manipal%20Hospitals",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Manipal Hospitals",
+      "dry_run": false,
+      "sent_at": "2026-07-27T03:07:33.362451+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 82,
+    "total_sent": 83,
     "total_followups": 24
   },
   "daily_log": {
-    "2026-07-10": {
-      "emails": [
-        "batesj@amazon.com",
-        "abatchelor@atlassian.com",
-        "ashley.womack@alation.com"
-      ],
-      "companies": [
-        "amazon",
-        "atlassian",
-        "alation"
-      ]
-    },
     "2026-07-13": {
       "emails": [
         "abbas.hussein@ae.standardchartered.com",
@@ -1688,9 +1694,17 @@
         "plaid",
         "thougthworks"
       ]
+    },
+    "2026-07-27": {
+      "emails": [
+        "deepa.raja@manipalhospitals.com"
+      ],
+      "companies": [
+        "manipalhospitals"
+      ]
     }
   },
-  "last_live_send_at": "2026-07-24T09:57:24.415706+00:00",
+  "last_live_send_at": "2026-07-27T03:07:33.362440+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2237,7 +2251,14 @@
       "last_email": "augusto.ferreira@thoughtworks.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "manipalhospitals": {
+      "company": "Manipal Hospitals",
+      "last_contacted_at": "2026-07-27T03:07:33.362565+00:00",
+      "last_email": "deepa.raja@manipalhospitals.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 27
+  "rotation_index": 28
 }
