@@ -692,7 +692,7 @@
     "videonetics",
     "wtw"
   ],
-  "queue_index": 35,
+  "queue_index": 36,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -730,7 +730,8 @@
     "sharechat": 1,
     "gameskraft": 1,
     "purplle": 1,
-    "qualtrics": 1
+    "qualtrics": 1,
+    "natwest": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -840,7 +841,10 @@
     ],
     "qualtrics": [
       "count-square-sum-triples|asteroid-collision"
+    ],
+    "natwest": [
+      "longest-common-prefix|rotate-string"
     ]
   },
-  "last_run": "2026-07-26T05:37:54.520463+00:00"
+  "last_run": "2026-07-27T05:56:40.345507+00:00"
 }
