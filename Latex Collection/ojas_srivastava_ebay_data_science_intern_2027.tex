@@ -1,0 +1,145 @@
+%-------------------------
+% Resume - eBay | Data Science Intern | Bengaluru (Hybrid) | Summer
+% Graduating 2028 | SQL + Python + stats/ML + experimentation focus
+% Research: eBay DS screens hard on SQL, Python, A/B, product insights
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{left=1.05cm, top=0.30cm, right=1.05cm, bottom=0.30cm}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.6cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3.2pt}{2.2pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{0.35mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & #4 \\
+    \textit{#3} & \textit{#2} \\
+  \end{tabularx}
+  \vspace{-0.35mm}%
+}
+
+\newcommand{\resumeProject}[4]{%
+  \vspace{0.35mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & \textit{#3} \\
+    \textit{#2} & #4 \\
+  \end{tabularx}
+  \vspace{-0.35mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=0.3pt, itemsep=-0.7pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[0.7mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.25mm]
+  \textbf{Data Science Intern --- eBay \textbar{} Bengaluru (Hybrid)} \\[0.15mm]
+  B.Tech Artificial Intelligence, SVNIT Surat \textbar{}
+  CGPA \textbf{9.20/10} \textbar{}
+  Graduating \textbf{2028} \\[0.15mm]
+  \textbf{SQL \textbar{} Python \textbar{} Statistics \textbar{} Machine Learning \textbar{} Experimentation \textbar{} Product Analytics}
+\end{center}
+
+\vspace{-0.7mm}
+
+\section{Summary}
+\small
+Data science--oriented \textbf{B.Tech Artificial Intelligence} student (CS/Statistics--related), graduating \textbf{2028}, seeking eBay's \textbf{Data Science Intern} role in Bengaluru. Turns large structured datasets into decisions: sample $\rightarrow$ explore/visualize $\rightarrow$ model $\rightarrow$ communicate insights. Proficient in \textbf{SQL} and \textbf{Python} for wrangling, EDA, statistical analysis, and prototype ML models (segmentation, prediction, ranking-style trade-offs). Strong in \textbf{descriptive and inferential statistics}, experimental design (train/validation, metric definition, evaluation), and presenting actionable findings to technical and non-technical stakeholders. Familiar with \textbf{NoSQL} data stores (\textbf{Firebase/Firestore}) and large-scale data tooling patterns; eager to deepen warehouse-scale SQL and site experimentation (A/B) on marketplace problems.
+
+\section{Education}
+\small
+\resumeSubheading
+  {Bachelor of Technology in Artificial Intelligence}{Aug 2024 -- May 2028}
+  {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat, India}{CGPA: 9.20/10}
+\begin{itemize}
+  \item Currently enrolled bachelor's in Data Science / Computer Science / Statistics--related field; graduating \textbf{2028}; 0--3 years relevant experience band
+  \item \textbf{Coursework:} Probability \& Statistics, Machine Learning, Linear Algebra, DBMS/\textbf{SQL}, Data Structures \& Algorithms, Software Engineering
+\end{itemize}
+
+\section{Data Science Projects}
+\small
+
+\resumeProject
+  {LogiFlow --- Predictive Modeling \& Decision Analytics (Google Solution Challenge 2026, Global Top 106)}
+  {Python, SQL, Pandas, NumPy, Scikit-learn, feature engineering, cross-validation, Redis}
+  {Apr 2026 -- Jun 2026}
+  {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app/}{Live}}
+\begin{itemize}
+  \item Built end-to-end analytics on a \textbf{large structured dataset} (\textbf{15,650} train-day records / \textbf{9,526} stations): sampled, examined, and visualized delay drivers to form hypotheses and root-cause narratives.
+  \item Engineered features and trained \textbf{prototype ML models} (Gradient Boosting) with cross-validation---\textbf{MAE 22.7 min}, \textbf{81\%} within 30 min; used metrics to compare alternatives (cost/time/risk Pareto ranking) for product-style decisions.
+  \item Wrote \textbf{SQL}/Python pipelines to curate, join, and validate data; locked correctness with \textbf{100/100} automated business-rule checks---experimentation mindset (define metric $\rightarrow$ evaluate $\rightarrow$ iterate).
+\end{itemize}
+
+\resumeProject
+  {Community Hero --- Categorization \& Noisy User Data Pipeline (Vibe2Ship 2026, Global Top 20)}
+  {Python, TypeScript, Firebase/Firestore (NoSQL), Gemini API, descriptive analytics}
+  {Jun 2026}
+  {\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
+\begin{itemize}
+  \item Built an AI categorization pipeline over messy user-submitted reports; defined quality criteria, handled noisy inputs, and surfaced routing/priority insights for operational decisions.
+  \item Stored and queried event-style data in \textbf{Firestore} (NoSQL); communicated product outcomes clearly in demos and written documentation.
+\end{itemize}
+
+\resumeProject
+  {AirHelp --- Retrieval \& Decision-Support Prototype (PowerMind Hackathon 2026)}
+  {Python, NumPy, embeddings/RAG, FastAPI, evaluation under load}
+  {2026}
+  {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Prototyped an insight/retrieval system over structured + unstructured knowledge; iterated on indexing/chunking and evaluated quality under \textbf{50--100} concurrent users (latency \textbf{1--3s}).
+\end{itemize}
+
+\section{Experience}
+\small
+\resumeSubheading
+  {Software Engineering Intern (Data-Aware Production Systems)}{Jun 2025 -- Jul 2025}
+  {IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj, India}{}
+\begin{itemize}
+  \item Queried and prepared operational \textbf{MySQL/SQL} datasets for reporting and automation (\textbf{50+ daily} workflows); reviewed data quality (missing fields, duplicates, validation rules) before production use.
+  \item Partnered with cross-functional operations stakeholders to clarify requirements, deliver insights-driven tooling, and present progress clearly---bridging analytical findings to business process outcomes.
+\end{itemize}
+
+\section{Technical Skills}
+\small
+\begin{itemize}[label={}]
+  \item \textbf{Required stack:} \textbf{SQL} (joins, aggregations, window-function style analytics), \textbf{Python} (Pandas, NumPy, Scikit-learn, EDA, modeling, automation)
+  \item \textbf{Data science:} Descriptive \& inferential statistics, hypothesis-driven analysis, feature engineering, prototype ML models, segmentation/ranking metrics, experimental evaluation, root-cause analysis
+  \item \textbf{NoSQL / data platforms:} Firebase/\textbf{Firestore} (NoSQL document store); Redis; comfortable expanding into Hive/Spark-style large-data tooling
+  \item \textbf{Also:} Java, C++, Git, pytest, clear communication of insights to partners
+\end{itemize}
+
+\section{Achievements}
+\small
+\begin{itemize}
+  \item \textbf{LeetCode Knight:} \textbf{2048} peak, \textbf{744} solved, 32 contests; \textbf{Codeforces Specialist:} \textbf{1419}, \textbf{265} solved --- strong analytical problem-solving
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 106} (LogiFlow, Technical Co-Lead); \textbf{Vibe2Ship 2026 --- Global Top 20}
+  \item \textbf{McKinsey.org Forward Fellow (2026)}; ACM SVNIT Executive Member \& Nexus DSA Mentor --- presents technical ideas clearly
+\end{itemize}
+
+\end{document}

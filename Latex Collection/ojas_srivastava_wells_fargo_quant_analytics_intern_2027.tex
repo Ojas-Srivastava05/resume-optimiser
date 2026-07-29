@@ -1,0 +1,157 @@
+%-------------------------
+% Resume — Wells Fargo | 2027 Quantitative Analytics Program Intern
+% Bengaluru | R-558426 | May–Aug 2027 | Graduating Mar–Aug 2028
+% ATS-optimized for: Python, SQL, C++, statistical modeling, ML, quant finance
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{left=1.05cm, top=0.28cm, right=1.05cm, bottom=0.28cm}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.55cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{2.8pt}{1.8pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{0.3mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & #4 \\
+    \textit{#3} & \textit{#2} \\
+  \end{tabularx}
+  \vspace{-0.3mm}%
+}
+
+\newcommand{\resumeProject}[4]{%
+  \vspace{0.3mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & \textit{#3} \\
+    \textit{#2} & #4 \\
+  \end{tabularx}
+  \vspace{-0.3mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=0.2pt, itemsep=-0.7pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[0.55mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio}
+\end{center}
+
+\vspace{-0.5mm}
+
+\section{Education}
+\small
+\resumeSubheading
+  {Bachelor of Technology in Artificial Intelligence}{Aug 2024 -- May 2028}
+  {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat, India}{CGPA: 9.20/10}
+\begin{itemize}
+  \item Expected graduation \textbf{May 2028}; available for summer internship \textbf{May--Aug 2027}
+  \item \textbf{Coursework:} Probability \& Statistics, Linear Algebra, Machine Learning, Data Science, Deep Learning, Design \& Analysis of Algorithms, Discrete Mathematics, DBMS/\textbf{SQL}, Artificial Intelligence, Optimization Techniques
+\end{itemize}
+
+\resumeSubheading
+  {Senior Secondary (Class XII), CBSE}{2024}
+  {Shiv Jyoti Convent School, Kota, India}{95.80\%}
+
+\resumeSubheading
+  {Secondary Education (Class X), ICSE}{2022}
+  {St. Joseph's College, Prayagraj, India}{97.20\%}
+
+\section{Professional Experience}
+\small
+\resumeSubheading
+  {Software Engineering Intern --- Data-Aware Production Systems}{Jun 2025 -- Jul 2025}
+  {IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj, India}{}
+\begin{itemize}
+  \item Queried and prepared operational \textbf{MySQL/SQL} datasets for reporting and automation (\textbf{50+ daily} workflows); reviewed data quality (missing fields, duplicates, validation rules) before production use.
+  \item Built \textbf{10+ RESTful APIs} (Node.js/Express) with structured error handling and automated \textbf{pytest}-style validation; presented analytical findings and trade-offs to cross-functional stakeholders.
+  \item Managed parallel workstreams (development, testing, documentation, stakeholder updates); learned new systems quickly and adjusted to shifting priorities.
+\end{itemize}
+
+\section{Quantitative \& ML Projects}
+\small
+
+\resumeProject
+  {Options Pricing Model --- Monte Carlo \& Black-Scholes Engine}
+  {C++17, Stochastic Modeling, Geometric Brownian Motion, Greeks, Risk-Neutral Pricing}
+  {2026}
+  {\href{https://github.com/Ojas-Srivastava05/Options-Pricing-Model}{GitHub}}
+\begin{itemize}
+  \item Engineered Monte Carlo simulation engine in \textbf{C++} for European options pricing using \textbf{Geometric Brownian Motion} with \textbf{100,000} simulated paths, Mersenne Twister PRNG, and risk-neutral discounting.
+  \item Implemented Black-Scholes analytical pricer computing full \textbf{Greeks} (Delta, Gamma, Theta, Vega, Rho), \textbf{implied volatility}, and intrinsic value --- comprehensive risk assessment for derivatives valuation.
+\end{itemize}
+
+\resumeProject
+  {LogiFlow --- Predictive Modeling \& Multi-Objective Optimization (Google Solution Challenge 2026, Global Top 106)}
+  {Python, Scikit-learn, Pandas, NumPy, SQL, FastAPI, Redis, Cross-Validation}
+  {Apr 2026 -- Jun 2026}
+  {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
+\begin{itemize}
+  \item Trained \textbf{HistGradientBoosting} and \textbf{GradientBoosting} regressors on \textbf{15,650+} train-day records with \textbf{13 engineered features} (cyclical hour encoding, log-distance transform, junction flags); achieved \textbf{MAE $\leq$25 min}, \textbf{81\%} within 30-min window.
+  \item Designed \textbf{GroupKFold} cross-validation (grouped by train number to prevent leakage) and \textbf{leave-one-date-out backtesting}; auto-retuned model when R\textsuperscript{2} fell below 0.35.
+  \item Built \textbf{priority-weighted multi-objective optimizer} (cost/time/risk Pareto ranking) with cargo-aware dynamic weight adjustments and composite risk scoring from 5 weighted components (real delays, seasonal, weather, transfer, train-type).
+  \item Wrote \textbf{SQL}/Python ETL pipelines ingesting RailRadar API, scraped delay corpus, and weather data; validated with \textbf{100/100} automated business-rule checks.
+\end{itemize}
+
+\resumeProject
+  {AirHelp --- Retrieval \& Decision-Support System (PowerMind Hackathon 2026)}
+  {Python, NumPy, Embeddings/RAG, FastAPI, WebSockets}
+  {2026}
+  {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Built semantic retrieval system over structured + unstructured knowledge with embedding-based indexing; evaluated quality under \textbf{50--100} concurrent users (latency \textbf{1--3s}).
+\end{itemize}
+
+\section{Positions of Responsibility}
+\small
+\begin{itemize}
+  \item \textbf{Chairperson, Nexus SVNIT (2026--Present):} Head the departmental technical cell of SVNIT; organize workshops, coding contests, and mentoring programs for \textbf{500+} students across the department.
+  \item \textbf{Executive Member, ACM SVNIT:} Led competitive programming workshops and DSA boot-camps; assertive facilitation and peer mentoring.
+  \item \textbf{Technical Co-Lead, LogiFlow (Global Top 106):} Coordinated ML modeling, ETL, and deployment workstreams under a fixed deadline; presented to judges.
+  \item \textbf{McKinsey.org Forward Fellow (2026):} Structured problem-solving, analytical communication, and professional judgment program.
+\end{itemize}
+
+\section{Achievements}
+\small
+\begin{itemize}
+  \item \textbf{Machine Learning Specialization} (Andrew Ng, Stanford / DeepLearning.AI, Coursera, Mar 2026) --- supervised learning, neural networks, unsupervised learning, recommender systems, reinforcement learning \href{https://coursera.org/verify/specialization/L4B778ADFB7C}{[Verify]}
+  \item \textbf{LeetCode Knight:} peak rating \textbf{2048}, \textbf{744} problems solved, 32 contests; \textbf{Codeforces Specialist:} rating \textbf{1419}, \textbf{265} solved --- strong analytical and algorithmic problem-solving
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 106} (LogiFlow); \textbf{Vibe2Ship 2026 --- Global Top 20} (Community Hero)
+\end{itemize}
+
+\section{Technical Skills}
+\small
+\begin{itemize}[label={}]
+  \item \textbf{Languages:} \textbf{Python}, \textbf{C/C++}, \textbf{SQL}, Java, TypeScript/JavaScript
+  \item \textbf{Quantitative / ML:} Statistical modeling, \textbf{Scikit-learn}, Pandas, NumPy, feature engineering, cross-validation (GroupKFold, stratified), Gradient Boosting, stochastic simulation, derivatives pricing, Greeks
+  \item \textbf{Data \& Infra:} MySQL, Firebase/Firestore (NoSQL), Redis, FastAPI, REST APIs, ETL pipelines, \textbf{Big Data} awareness (Spark concepts)
+  \item \textbf{Tools:} Git, Docker, Linux, pytest, CI/CD (GitHub Actions), Excel
+  \item \textbf{Communication:} Good spoken and written English; effective at presenting technical concepts to non-technical stakeholders
+  \item \textbf{Approach:} Strong logical, analytical skills and a systematic problem-solving approach
+\end{itemize}
+
+\end{document}
