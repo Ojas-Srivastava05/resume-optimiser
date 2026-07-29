@@ -1,0 +1,150 @@
+%-------------------------
+% Resume — slice | SDE Intern | Bengaluru (On-Site)
+% Heavy Cursor/Claude AI-assisted engineering focus (using AI to ship, not training models)
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{left=1.05cm, top=0.28cm, right=1.05cm, bottom=0.28cm}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.55cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{2.8pt}{1.8pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{0.3mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & #4 \\
+    \textit{#3} & \textit{#2} \\
+  \end{tabularx}
+  \vspace{-0.3mm}%
+}
+
+\newcommand{\resumeProject}[4]{%
+  \vspace{0.3mm}
+  \noindent
+  \begin{tabularx}{\textwidth}[t]{L R}
+    \textbf{#1} & \textit{#3} \\
+    \textit{#2} & #4 \\
+  \end{tabularx}
+  \vspace{-0.3mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=0.2pt, itemsep=-0.7pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[0.55mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.2mm]
+  \textbf{SDE Intern --- slice \textbar{} Bengaluru (On-Site)} \\[0.1mm]
+  B.Tech Artificial Intelligence, SVNIT Surat \textbar{} CGPA \textbf{9.20/10} \textbar{} Graduating \textbf{2028} \\[0.1mm]
+  Daily \textbf{Cursor} + \textbf{Claude} user \textbar{} Prompt engineering \textbar{} AI-assisted shipping
+\end{center}
+
+\vspace{-0.5mm}
+
+\section{Summary}
+\small
+Self-starter who builds with \textbf{Cursor} as a primary IDE and \textbf{Claude}/\textbf{Cursor Agent} workflows to ship software faster---multi-file edits, test scaffolding, debugging loops, and docs---after writing clear specs and reviewing every change. Strong coding fundamentals (LeetCode Knight \textbf{2048}, \textbf{744} solved). Excited by \textbf{fintech} products and by teams exploring how AI tools change how software gets built.
+
+\section{AI-Assisted Engineering Practice (Cursor / Claude)}
+\small
+\begin{itemize}
+  \item \textbf{Daily Cursor power-user:} Agent/Composer mode for multi-file refactors, inline edit for targeted fixes, and iterative prompt $\rightarrow$ generate $\rightarrow$ review $\rightarrow$ harden loops on real repos (not demos).
+  \item \textbf{Prompt engineering for velocity:} Specs first (API contracts, edge cases, acceptance criteria), then AI for boilerplate, migrations, pytest scaffolding, and GitHub Actions---human-owned architecture, auth, and production data decisions.
+  \item \textbf{Tool stack:} Cursor, Claude, Gemini API (product features), GitHub Copilot-style autocomplete when useful; comfortable exploring new AI coding tools quickly.
+  \item \textbf{Automation mindset:} Uses AI to kill repetitive engineering work (scripts, CI digests, validation suites) so more time goes to design, correctness, and shipping.
+\end{itemize}
+
+\section{Education}
+\small
+\resumeSubheading
+  {Bachelor of Technology in Artificial Intelligence}{Aug 2024 -- May 2028}
+  {Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat, India}{CGPA: 9.20/10}
+\begin{itemize}
+  \item \textbf{Coursework:} Data Structures \& Algorithms, Object-Oriented Programming, Software Engineering, Operating Systems, DBMS/\textbf{SQL}, Computer Networks, Design \& Analysis of Algorithms
+\end{itemize}
+
+\section{Experience}
+\small
+\resumeSubheading
+  {Software Engineering Intern}{Jun 2025 -- Jul 2025}
+  {IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj, India}{}
+\begin{itemize}
+  \item Shipped production tools automating \textbf{50+ daily} workflows (\textbf{Node.js}, Express, \textbf{MySQL})---independent ownership after minimal ramp-up; mentor check-ins for direction, not step-by-step hand-holding.
+  \item Built \textbf{10+ RESTful APIs} with validation and structured error handling; debugged via logs/stack traces; communicated trade-offs to non-technical stakeholders.
+  \item Owned quality through testing, documentation, peer review, \textbf{Docker}, and \textbf{CI/CD} in a deadline-driven environment.
+\end{itemize}
+
+\section{Projects --- Shipped Software \& Hackathons}
+\small
+
+\resumeProject
+  {LogiFlow --- End-to-End Platform (Google Solution Challenge 2026, Global Top 106)}
+  {Python, FastAPI, TypeScript, Next.js, Redis, SQL, GCP Cloud Run, pytest, Cursor}
+  {Apr 2026 -- Jun 2026}
+  {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
+\begin{itemize}
+  \item Technical Co-Lead: co-owned backend design and shipping---\textbf{Redis}-backed read paths, modular \textbf{Cloud Run} services, live product.
+  \item Built \textbf{100/100} pytest business-rule suite; used \textbf{Cursor Agent} + \textbf{Claude} to draft tests/scaffolding after locking API contracts, then reviewed for leakage and edge cases before merge.
+\end{itemize}
+
+\resumeProject
+  {Community Hero --- Solo-Shipped PWA (Vibe2Ship 2026, Global Top 20)}
+  {TypeScript, React, Express, Firebase, Gemini API, GCP Cloud Run, Cursor}
+  {Jun 2026}
+  {\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
+\begin{itemize}
+  \item Solo-owned framing through production deploy; applied \textbf{prompt engineering} for Gemini categorization with validation guardrails.
+  \item Used Cursor for high-velocity UI/API boilerplate while keeping security rules, data model, and deploy path human-owned.
+\end{itemize}
+
+\resumeProject
+  {AirHelp --- AI Airport Assistant (PowerMind Hackathon 2026)}
+  {Python, FastAPI, React, WebSockets, RAG, prompt engineering}
+  {2026}
+  {\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Shipped under hackathon pressure; iterated retrieval/prompts; evaluated quality under \textbf{50--100} concurrent users (latency \textbf{1--3s}).
+\end{itemize}
+
+\section{Leadership \& Achievements}
+\small
+\begin{itemize}
+  \item \textbf{Chairperson, Nexus SVNIT:} Departmental technical cell; workshops/contests for \textbf{500+} students
+  \item \textbf{LeetCode Knight} \textbf{2048} (\textbf{744} solved); \textbf{Codeforces Specialist} \textbf{1419} (\textbf{265} solved)
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 106}; \textbf{Vibe2Ship 2026 --- Global Top 20}; McKinsey.org Forward Fellow; ACM SVNIT Executive Member
+\end{itemize}
+
+\section{Technical Skills}
+\small
+\begin{itemize}[label={}]
+  \item \textbf{AI coding tools:} \textbf{Cursor} (Agent, Composer, multi-file edit, rules/skills workflows), \textbf{Claude}, Gemini API, prompt engineering, AI-driven automation of repetitive engineering tasks
+  \item \textbf{Languages:} Python, TypeScript/JavaScript, Java, C++, SQL, C
+  \item \textbf{Engineering:} REST APIs, Node.js/Express, FastAPI, React/Next.js, MySQL, Redis, Firebase, Docker, CI/CD, Git, Linux, debugging, testing
+  \item \textbf{Approach:} Spec-first prompts; review every AI diff; self-starter in fast-paced teams; using AI to ship---not training ML models
+\end{itemize}
+
+\end{document}
