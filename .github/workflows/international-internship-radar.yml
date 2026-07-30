@@ -1,0 +1,107 @@
+name: First-World Internship Radar
+
+# Distinct from internship-scout.yml (India digest) and cold-outreach.yml (domestic SWE).
+# Sends "🌍 Radar:" digests about Summer 2027 first-world programmes only.
+
+on:
+  schedule:
+    # Daily 9:00 AM IST = 3:30 AM UTC
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (preview only, no SMTP)"
+        required: false
+        default: false
+        type: boolean
+      force:
+        description: "Ignore per-programme email caps"
+        required: false
+        default: false
+        type: boolean
+      priority:
+        description: "Max priority (1=best fit only, 2=default high-fit, 3=full horizon)"
+        required: false
+        default: "2"
+        type: choice
+        options:
+          - "1"
+          - "2"
+          - "3"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: international-internship-radar
+  cancel-in-progress: false
+
+jobs:
+  radar:
+    defaults:
+      run:
+        working-directory: internship-scout
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore international seen-state
+        uses: actions/cache@v4
+        with:
+          path: internship-scout/international/seen_international.json
+          key: intl-radar-seen-v1
+          restore-keys: |
+            intl-radar-seen-
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: internship-scout/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Verify Gmail SMTP credentials
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true }}
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          SMTP_VERIFY_LABEL: international-radar
+        run: python3 ../.github/scripts/verify-smtp.py
+
+      - name: Run First-World Internship Radar
+        env:
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+        run: |
+          FLAGS="--write-preview --drafts-only"
+          PRIO="${{ github.event.inputs.priority }}"
+          if [ -z "$PRIO" ]; then PRIO="2"; fi
+          FLAGS="$FLAGS --priority $PRIO"
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            FLAGS="$FLAGS --dry-run"
+          else
+            FLAGS="$FLAGS --send"
+          fi
+
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            FLAGS="$FLAGS --force"
+          fi
+
+          echo "Flags: $FLAGS"
+          python international_scout.py $FLAGS
+
+      - name: Upload preview artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: intl-radar-preview
+          path: |
+            internship-scout/international/previews/
+            internship-scout/international/seen_international.json
+          if-no-files-found: ignore

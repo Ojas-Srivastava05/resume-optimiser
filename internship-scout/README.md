@@ -8,6 +8,8 @@
 
 *Software · ML · AI · Backend · Full-stack · India*
 
+> **Also see:** [First-World Internship Radar](international/README.md) — separate Summer 2027 OECD/EU/US/CA/SG digests (`🌍 Radar:` subjects), not mixed into this India scout.
+
 [How it works](#how-it-works) · [Career portals](#career-portal-coverage) · [Setup](#setup--installation) · [Configuration](#configuration) · [Performance](#performance)
 
 </div>

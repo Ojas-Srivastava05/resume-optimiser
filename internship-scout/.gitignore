@@ -6,3 +6,5 @@ seen_jobs.json
 logs/
 sheet_*.csv
 priority_companies.csv
+international/seen_international.json
+international/previews/
