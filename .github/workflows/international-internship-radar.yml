@@ -7,6 +7,11 @@ on:
   schedule:
     # Daily 9:00 AM IST = 3:30 AM UTC
     - cron: "30 3 * * *"
+  push:
+    paths:
+      - "internship-scout/international/**"
+      - "internship-scout/international_scout.py"
+      - ".github/workflows/international-internship-radar.yml"
   workflow_dispatch:
     inputs:
       dry_run:
