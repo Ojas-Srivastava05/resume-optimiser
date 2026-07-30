@@ -1,0 +1,266 @@
+%-------------------------
+% D. E. Shaw Systems Intern — Full simulated interview + answers
+% Full question wording preserved; model answers included
+%-------------------------
+\documentclass[9.5pt,a4paper]{extarticle}
+\usepackage[margin=1.4cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\definecolor{des}{RGB}{0,51,102}
+\definecolor{muted}{RGB}{70,70,70}
+\definecolor{ans}{RGB}{0,90,50}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{des}\textbf{D.\ E.\ Shaw --- Systems Intern Mock (Full Q + Answers)}}
+\fancyhead[R]{\small Ojas Srivastava}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{des}}{}{0em}{}[\titlerule]
+\setlist[itemize]{leftmargin=*, itemsep=1pt, topsep=1pt, parsep=0pt}
+
+% #1 num  #2 full question  #3 probe  #4 answer
+\newcommand{\qans}[4]{%
+  \vspace{2.5mm}
+  \noindent\fbox{%
+    \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{%
+      \vspace{1mm}
+      \textbf{\color{des}Q#1.} #2\\[1.5mm]
+      {\small\color{muted}\textit{Interviewer probe:} #3}\\[1.5mm]
+      {\small\color{ans}\textbf{Strong answer (say roughly this --- then handle follow-ups):}}\\[1mm]
+      {\small #4}\\[1mm]
+    }%
+  }\par
+}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{des} D.\ E.\ Shaw India --- Systems Intern}\\[2pt]
+  {\large Full Simulated Technical Interview (20 Questions + Model Answers)}\\[4pt]
+  {\normalsize Ojas Srivastava \textbar{} B.Tech AI, SVNIT Surat \textbar{} CGPA 9.20/10}\\[2pt]
+  {\small\color{muted} Built from public Systems Intern / Systems FTE interview experiences + your DES resume}\\[2pt]
+  {\small\textit{Protocol: cover the green answer, speak 60--120s as if two interviewers are in the room, then uncover. Defend every line on your resume.}}
+\end{center}
+
+\vspace{2mm}
+\section*{How this mock maps to the real process}
+Research on recent \textbf{Systems Intern / Systems} loops at D.\ E.\ Shaw India consistently shows:
+\begin{itemize}
+  \item \textbf{OA:} DSA (graphs/DP/binary search common) + core CS MCQs (OS, DBMS, OOP, networks).
+  \item \textbf{Technical 1:} resume projects deep-dive + DBMS/OOP + light DSA; stack choices are stress-tested (SQL vs NoSQL is a frequent fail point).
+  \item \textbf{Technical 2:} deeper OS/networks, BFS/DFS or coding on paper/CodePair, backend/systems follow-ups, occasional brain teaser or failure scenario.
+\end{itemize}
+Interviewers care less about buzzwords and more about whether you can \textbf{explain trade-offs}, \textbf{debug}, and \textbf{own} IFFCO / LogiFlow / Community Hero / AirHelp end-to-end.
+
+\vspace{1mm}
+\noindent\textbf{Your attack surfaces (prepare defenses before Q1):}
+\begin{itemize}
+  \item B.Tech \textbf{AI} vs ``CS systems'' --- map coursework (OS, COA, DBMS, CN, DSA, OOP).
+  \item IFFCO was \textbf{$\sim$1 month} --- own concrete APIs, MySQL schema choices, production usage.
+  \item Redis ``100--400\,ms'', AirHelp ``50--100 concurrent'', pytest ``100/100'' --- know \textbf{how measured}, what broke, what you would redo.
+  \item Cursor/Claude on resume --- frame as drafting aid; you review, test, and merge.
+\end{itemize}
+
+\noindent{\small\textbf{Canonical numbers (stay consistent):} IFFCO Jun--Jul 2025; LogiFlow GSC Top 106 / Redis $\sim$100--400\,ms / 15{,}000+ rows / pytest 100; Community Hero Vibe2Ship Top 20; AirHelp 50--100 concurrent / $\sim$1--3s; LC Knight peak 2048; CF Specialist 1419.}
+
+%======================================================================
+\section{Opening (Warm-up) --- $\sim$5 min}
+%======================================================================
+
+\qans{1}
+{``Walk me through your background in 90 seconds --- then tell me why \textbf{Systems} at D.\ E.\ Shaw, not a pure ML/quant track.''}
+{Clarity, motivation, no arrogance. Tie CP (LeetCode Knight / CF Specialist) + backend/systems work (APIs, Redis, Docker, Cloud Run) to reliable infrastructure.}
+{I'm a pre-final year B.Tech Artificial Intelligence student at SVNIT Surat with CGPA 9.20, graduating May 2028. I've shipped production backend work: Software Engineering Intern at IFFCO (Jun--Jul 2025) building Node.js/Express/MySQL tools and REST APIs used in plant operational workflows. Outside that, my strongest systems-shaped projects are LogiFlow (FastAPI, SQL pipelines, Redis caching, GCP Cloud Run, Google Solution Challenge Global Top 106), Community Hero (Express + Firestore, Vibe2Ship Global Top 20), and AirHelp (FastAPI + WebSockets with load testing). On problem-solving I'm a LeetCode Knight (peak 2048) and Codeforces Specialist (1419).\\[1mm]
+I want \textbf{Systems} at D.\ E.\ Shaw because I care about making software \textbf{correct, fast, and debuggable} under real constraints --- APIs, data integrity, caching, deploy/ops --- more than training models for demos. DES Systems is where that reliability bar is highest. Competitive programming helps me reason about edge cases and complexity under time pressure, which maps to systems debugging, not just contest rankings.}
+
+\qans{2}
+{``You list Operating Systems, COA, DBMS, Networks on coursework. Pick \textbf{one} concept from each and give a one-sentence definition you would trust in production debugging.''}
+{Surface-level resume padding check. Prefer concrete: page fault, instruction vs data path, index vs full scan, TCP handshake.}
+{\textbf{OS:} A page fault means the CPU accessed a virtual page that is not currently mapped in RAM, so the OS must bring it in (or kill the process on an illegal access).\\
+\textbf{COA:} On the data path, a cache miss stalls the pipeline while memory services the load/store; the instruction path is still fetch/decode/execute.\\
+\textbf{DBMS:} Without a selective index, a filtered query can full-scan the table --- latency grows with row count (this is what \texttt{EXPLAIN} catches).\\
+\textbf{Networks:} A TCP three-way handshake (SYN / SYN-ACK / ACK) establishes a reliable ordered byte stream before HTTP; UDP just sends datagrams with no connection setup.}
+
+%======================================================================
+\section{Resume deep-dive --- Round~1 style ($\sim$18--20 min)}
+%======================================================================
+{\small\color{muted} Pattern from Systems Intern reports: start with a project, then attack database / API / auth choices. Answer as if they will interrupt with ``why not X?''}
+
+\qans{3}
+{``At IFFCO you built Node.js/Express/MySQL tools and 10+ REST APIs. Draw the request path for one real endpoint: client $\rightarrow$ validation $\rightarrow$ DB $\rightarrow$ response. Where did failures actually show up in logs?''}
+{Ownership under short internship. Expect status codes, validation, SQL errors, stack traces --- not ``we automated workflows.''}
+{Example path: client hits \texttt{POST /api/...} $\rightarrow$ Express parses JSON $\rightarrow$ validate required fields and types (reject with \textbf{400} if missing/invalid) $\rightarrow$ parameterized MySQL query through a connection pool $\rightarrow$ map rows to JSON $\rightarrow$ \textbf{200}, or structured \textbf{500} on unexpected errors.\\[1mm]
+Failures that actually showed up: (1) validation gaps letting bad types reach SQL; (2) MySQL constraint/connection errors in stack traces; (3) uncaught async errors becoming opaque 500s. Fix pattern: validate early, never string-concatenate SQL, log enough context (endpoint + error message), separate client mistakes from server bugs. Mentors reviewed before deploy; Git, Docker, and CI before production. I owned specific API slices in a one-month internship --- I won't claim I owned the whole plant IT stack.}
+
+\qans{4}
+{``Why MySQL for IFFCO instead of MongoDB/Firestore? When would you flip that choice? Compare consistency, joins, and write patterns.''}
+{Classic DES kill-shot (candidates fail Mongo vs MySQL). Relate to LogiFlow SQL joins vs Community Hero Firestore.}
+{IFFCO workflows were \textbf{relational}: entities linked by IDs, reports needing joins, updates that should stay consistent. MySQL gives schemas, transactions, and SQL the team already operated.\\[1mm]
+\textbf{Flip to Firestore/Mongo} when data is document-shaped, fields are sparse, product shape changes fast, most access is key/lookup by id, and you can accept weaker multi-document transactions --- that is Community Hero's citizen reports.\\
+\textbf{Keep SQL} (LogiFlow) when you need heavy joins, analytical filters, and pipeline validation of joins/nulls before serving APIs.\\
+Neither is universally better: match \textbf{consistency needs} and \textbf{query shape}. If they push ``which is faster?'' --- it depends on access pattern and indexing, not the brand name.}
+
+\qans{5}
+{``Difference between \textbf{authentication} and \textbf{authorization}. How would you add both to your IFFCO APIs without breaking plant workflows?''}
+{Directly reported in Systems Intern interviews. Give examples (login token vs role: operator vs admin).}
+{\textbf{Authentication:} prove who you are (login $\rightarrow$ session or JWT).\\
+\textbf{Authorization:} prove what you are allowed to do (operator submits readings; admin approves/deletes).\\[1mm]
+Add without breaking plant flow: login endpoint issues a short-lived token; middleware verifies the token on protected routes; a role claim gates routes (e.g.\ \texttt{requireRole('admin')}). If legacy started with a shared service account, migrate to named users rather than ripping out access overnight. Secrets stay off the frontend; auth failures are logged separately from validation errors. HTTP vs HTTPS matters here too --- credentials only over TLS.}
+
+\qans{6}
+{``LogiFlow: you cache corridor/route data in Redis and claim hot-path reads $\sim$100--400\,ms. What is the cache key design? What is your invalidation strategy when underlying SQL data changes?''}
+{Systems thinking on your strongest project. Stampede, TTL, write-through vs cache-aside, stale reads.}
+{Pattern: \textbf{cache-aside}. Key shaped like \texttt{route:\{corridor\_id\}:\{date\}} (or a stable hash of the query params). On miss: query SQL, \texttt{SET} value with a TTL matching how fresh corridor data must be. After caching, hot-path reads were in the $\sim$100--400\,ms band we measured --- I will not invent a tighter number I did not measure.\\[1mm]
+\textbf{Invalidation:} (1) TTL as a safety net; (2) on write/update of underlying corridor data, \texttt{DEL} matching keys, or use a version prefix \texttt{v\{n\}:} and bump $n$; (3) reduce stampede with a short lock / singleflight so thundering herds of misses do not hammer SQL.\\
+Stale reads can be acceptable for corridor metadata inside a bounded TTL; not acceptable for irreversible decisions without re-checking the source of truth.}
+
+\qans{7}
+{``You ran SQL/Python pipelines over 15{,}000+ train-day records. How did you detect bad joins or nulls before they hit FastAPI? What index(es) would you add if a filter on corridor+date became slow?''}
+{DBMS depth: validation, EXPLAIN mindset, composite indexes --- mirrors DES DBMS probing.}
+{Before FastAPI served results: cleaning/joining in SQL/Python --- flag or drop null keys, verify foreign-key presence after joins, assert row-count and value-range invariants, fail the job if checks break. The pytest suite had \textbf{100/100} business-rule checks so broken pricing/routing logic fails in CI before release.\\[1mm]
+If \texttt{WHERE corridor\_id = ? AND date = ?} is slow: add a composite index \texttt{(corridor\_id, date)} matching equality filters. Confirm with \texttt{EXPLAIN} --- want index lookup/range, not a full scan. Also avoid \texttt{SELECT *} on hot paths. 15k+ rows is small enough that bad queries still hurt under concurrency, so indexing and validation both matter.}
+
+\qans{8}
+{``Community Hero uses Firebase/Firestore. Defend NoSQL here. What query patterns are painful? How do you avoid inconsistent admin review state?''}
+{Forces SQL vs NoSQL trade-off on a live project. Consistency, security rules, fan-out.}
+{Reports are document-shaped (geo, text, status, timestamps). I solo-shipped under a hackathon deadline with mobile-friendly reads by collection/id --- Firestore fits that product shape.\\[1mm]
+\textbf{Painful patterns:} ad-hoc multi-field queries, OR across many fields, large aggregations, strong multi-document transactions.\\
+\textbf{Admin review consistency:} keep status on a single document (\texttt{pending / approved / rejected}) and update it atomically; security rules so only an admin role can change status; never trust a client-side ``I am admin'' flag. Gemini categorization is advisory with guard checks --- bad model output must not silently break routing.}
+
+\qans{9}
+{``AirHelp: why WebSockets instead of polling for alerts? What happens if the client disconnects mid-message? How did load testing at 50--100 concurrent users change your design?''}
+{Networks + concurrency on your resume. Backpressure, reconnect, bottleneck found.}
+{Alerts need low-latency push. Polling burns requests and adds delay. WebSockets upgrade from HTTP and keep a bidirectional channel.\\[1mm]
+On disconnect: detect close/error events; client reconnects with exponential backoff; server drops dead sockets; optionally replay recent alerts from a buffer/DB on reconnect (at-least-once delivery $\Rightarrow$ client de-duplicates by alert id).\\
+Load testing around \textbf{50--100} concurrent users with roughly \textbf{1--3s} responses exposed bottlenecks in retrieval/indexing --- we iterated chunking/indexing rather than only ``add more machines.'' Cap concurrency, set timeouts on slow handlers, and measure before claiming scale.}
+
+%======================================================================
+\section{Core CS --- OS / DBMS / Networks / OOP ($\sim$15 min)}
+%======================================================================
+{\small\color{muted} Systems FTE/Intern panels go deep on theory; expect follow-ups until you hit the edge of understanding. Say ``I don't know that detail yet'' rather than bluffing.}
+
+\qans{10}
+{``Explain virtual memory and demand paging. What is a page fault? How does thrashing start, and what can the OS do?''}
+{Repeated OS theme in DES tech rounds (paging, VM, fragmentation).}
+{Virtual memory gives each process a large contiguous address space mapped onto physical frames through page tables. \textbf{Demand paging} brings a page into RAM only when it is first touched.\\
+A \textbf{page fault} is a trap on access to a not-present page: the OS loads it from disk/swap, or kills the process if the access is illegal.\\
+\textbf{Thrashing} starts when the working sets of runnable processes exceed RAM --- the machine spends its time paging instead of doing useful work. Mitigations: reduce degree of multiprogramming, add memory, improve replacement policy, detect high fault rates and suspend some processes.}
+
+\qans{11}
+{``Process vs thread. Mutex vs semaphore. Give a bug you could introduce in a multi-threaded FastAPI/worker setup and how you would detect it.''}
+{Multithreading / sync --- common Systems panel topic. Tie to pytest or background jobs if relevant.}
+{\textbf{Process:} separate address space, stronger isolation. \textbf{Thread:} shares the process address space; cheaper context switch; needs synchronization.\\
+\textbf{Mutex:} exclusive lock for a critical section (ownership). \textbf{Semaphore:} a counter for signaling or N resource permits (a binary semaphore can act like a mutex, but the mental model differs).\\[1mm]
+Bug example: two worker threads increment a shared in-memory counter or mutate a shared cache dict without a lock $\rightarrow$ lost updates / torn reads. Detect with stress tests, race detectors, or by eliminating shared mutable globals (prefer per-request state; put shared state in Redis/DB with atomic operations). In FastAPI, be careful mixing threads and async; do not assume process-local memory is shared across Cloud Run instances.}
+
+\qans{12}
+{``ACID in one minute. Which property does a Redis cache \textbf{not} give you relative to MySQL? When is that OK for LogiFlow reads?''}
+{DBMS theory + resume link. Isolation levels bonus if they push.}
+{\textbf{Atomicity:} transaction is all-or-nothing.\\
+\textbf{Consistency:} constraints/invariants hold after commit.\\
+\textbf{Isolation:} concurrent transactions do not corrupt each other's view arbitrarily.\\
+\textbf{Durability:} committed data survives crashes.\\[1mm]
+A Redis cache is usually \textbf{not} the source of truth: durability depends on configuration, and cache-aside does not give you full transactional isolation with MySQL. That is OK for LogiFlow \textbf{read acceleration} of corridor/route data with a bounded TTL. It is \textbf{not} OK as the sole store for irreversible commits unless you write through to SQL and reason about failure modes.}
+
+\qans{13}
+{``What happens after you type a URL and press Enter --- DNS to TLS to HTTP response? Where do TCP and UDP differ, and which fits WebSockets?''}
+{Networking staple in Systems interviews (URL walkthrough, TCP/UDP).}
+{Browser parses the URL $\rightarrow$ DNS resolves the hostname to an IP $\rightarrow$ TCP connection (then TLS handshake for HTTPS) $\rightarrow$ HTTP request $\rightarrow$ server/CDN response $\rightarrow$ browser renders (possible redirects, cookies, additional asset fetches).\\[1mm]
+\textbf{TCP:} reliable, ordered, congestion-controlled byte stream. \textbf{UDP:} best-effort datagrams, lower overhead (DNS often uses UDP).\\
+WebSockets begin as HTTP, then \textbf{upgrade}, and the session runs over \textbf{TCP} (typically TLS as WSS). That is why AirHelp alerts use a persistent TCP-backed channel rather than fire-and-forget UDP.}
+
+\qans{14}
+{``Design a small OOP \texttt{DatabaseConnector} (or repository) in C++ or Python: connect, query, close. Show encapsulation; mention how you'd unit-test it without a live DB.''}
+{Reported OOP design prompt in Systems Intern round. Interfaces, RAII/context managers, mocks.}
+{Python: a class holds the DSN privately; use a context manager (\texttt{\_\_enter\_\_}/\texttt{\_\_exit\_\_}) or explicit \texttt{connect}/\texttt{close}; \texttt{execute(sql, params)} always uses parameterized queries; callers depend on the repository interface, not the driver.\\
+C++: RAII wrapper around the connection handle so destruction closes cleanly.\\[1mm]
+\textbf{Unit test without a live DB:} inject a fake/mock implementing the same interface returning canned rows (pytest monkeypatch/mock). Keep a smaller set of integration tests against a real test database in CI. Encapsulation means you can swap MySQL for a mock without rewriting business logic.}
+
+%======================================================================
+\section{DSA + systems scenario --- Round~2 style ($\sim$15--18 min)}
+%======================================================================
+{\small\color{muted} Expect CodePair/paper code. Speak approach and complexity before typing. They care about edge cases and communication --- not only AC.}
+
+\qans{15}
+{``Coding: given an array of integers and a target, return indices of two numbers that sum to target. Give brute $\rightarrow$ better $\rightarrow$ optimal. Complexity of each. Then: what if the array is sorted?''}
+{Literal Systems Intern DSA warm-up (Two Sum) --- use to show communication, not just the hash map.}
+{\textbf{Brute force:} try all pairs --- $O(n^2)$ time, $O(1)$ extra space.\\
+\textbf{Optimal (unsorted):} one-pass hash map from value $\rightarrow$ index; for each $x$ look up $target - x$ --- $O(n)$ time, $O(n)$ space.\\
+Call out edge cases: no solution, duplicates, cannot use the same index twice.\\[1mm]
+\textbf{If the array is sorted:} two pointers from left and right --- $O(n)$ time, $O(1)$ extra space. Say the sorted follow-up unprompted if you finish early; interviewers like that.}
+
+\qans{16}
+{``Coding: implement an LRU Cache (\texttt{get}/\texttt{put}, capacity). Explain why hashmap + doubly linked list. Complexity per op. Relate to Redis eviction intuition.''}
+{Systems-flavored DSA; connects to your Redis work. Handle capacity~1 and update-existing-key.}
+{Need $O(1)$ \texttt{get} and \texttt{put}: a \textbf{hash map} from key $\rightarrow$ node, plus a \textbf{doubly linked list} ordered by recency (head = most recent, tail = least recent).\\
+\texttt{get:} if present, move node to head and return value.\\
+\texttt{put:} update existing or insert at head; if size exceeds capacity, evict the tail.\\
+Edge cases: capacity 1; putting an existing key must update value and recency.\\[1mm]
+Redis \texttt{maxmemory} policies like \texttt{allkeys-lru} are the infrastructure version of the same idea: when memory is full, drop least-recently-used keys. Your application cache must also have an explicit eviction story.}
+
+\qans{17}
+{``Coding / graphs: given an undirected graph, return whether a path exists between nodes $s$ and $t$. BFS vs DFS --- when prefer which? What if the graph is huge and sparse?''}
+{BFS/DFS called out in Systems Intern R2 reports; OA also used graph BFS.}
+{Represent the graph as an adjacency list. Run BFS or DFS from $s$ with a visited set; return true if you reach $t$. Time $O(V+E)$, space $O(V)$.\\
+\textbf{BFS:} natural for shortest path in unweighted graphs; explores level by level.\\
+\textbf{DFS:} can use less memory in some cases; recursion depth can blow the stack on deep graphs --- prefer an explicit stack if worried.\\
+\textbf{Huge and sparse:} adjacency list (not matrix); iterative BFS; exit early on finding $t$; only search the component reachable from $s$.}
+
+\qans{18}
+{``Scenario: your LogiFlow FastAPI service on Cloud Run starts returning 5xx for 2 minutes, then recovers. How do you debug? What client-side and server-side protections would you add (timeouts, retries, idempotency)?''}
+{Resume + reliability. Failure takeover / WAL-style thinking shows up in Systems panels --- stay practical.}
+{\textbf{Debug:} Cloud Run logs and metrics (request latency, instance count, memory, cold starts); check whether a deploy lined up with the blip; hit a health endpoint; see if MySQL/Redis upstream timed out; reproduce one failing request and read the full stack trace.\\[1mm]
+\textbf{Protections:} timeouts on outbound calls; retries with exponential backoff + jitter only on \textbf{idempotent} GETs; do not blind-retry POSTs without idempotency keys; circuit breaker / fail fast; degrade by serving stale Redis if SQL is down; alert on elevated 5xx rate. Clients should show a retryable error instead of hanging. I will not overclaim a full distributed consensus design unless asked --- start with observability and safe retries.}
+
+%======================================================================
+\section{Close --- judgment \& fit ($\sim$5 min)}
+%======================================================================
+
+\qans{19}
+{``You used Cursor/Claude on projects. Where is AI assistance acceptable on a DES systems team, and where is it dangerous? Give one example of a bug an AI draft could introduce in an API or SQL migration.''}
+{Honesty check against your skills line. Ownership, review, tests.}
+{Acceptable: boilerplate, exploring unfamiliar APIs, drafting tests that \textbf{I} then edit --- matching how I used tools on LogiFlow: draft $\rightarrow$ review $\rightarrow$ test $\rightarrow$ I own the merge.\\
+Dangerous: unreviewed authz logic, concurrency, cryptography, or SQL migrations.\\[1mm]
+Concrete bug example: an AI draft string-interpolates user input into SQL, or drops a \texttt{WHERE} clause in a migration and updates/deletes far more rows than intended. Catch it with code review, parameterized queries, and CI gates (like LogiFlow's pytest business-rule suite). At DES I would treat AI like an untrusted junior --- never as the final authority.}
+
+\qans{20}
+{``What questions do you have for us? Also: if we only had one strong intern and one average intern this summer, what evidence from your work says you are the strong one?''}
+{Curiosity + evidence. Prefer specific questions on systems stack, mentorship, what interns ship. No salary-first.}
+{\textbf{Questions I would ask them (pick two):}
+\begin{itemize}
+  \item What does a successful Systems intern typically ship in the first month?
+  \item How do code review and mentorship work day-to-day on the team?
+  \item What reliability problems is the team focused on right now --- latency, correctness, deploy safety, observability?
+\end{itemize}
+\textbf{Why the strong intern (evidence, not ego):} production APIs at IFFCO with real failure modes in logs; Technical Co-Lead on LogiFlow to Global Top 106 with Redis, SQL validation, Cloud Run, and a 100/100 pytest gate; solo Global Top 20 on Community Hero; CP ratings show I can debug under time. I escalate uncertainty early and I do not claim systems I have not actually run.}
+
+\vspace{3mm}
+\section*{Interview day checklist}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\toprule
+\textbf{Area} & \textbf{Do this once more the night before} \\
+\midrule
+Projects & Re-open LogiFlow / Community Hero / AirHelp READMEs; restate architecture in 60s each. \\
+Numbers & Memorize only metrics you can defend (15k rows, Redis latency band, pytest 100, Top 106/20). \\
+OS & Paging, VM, process/thread, deadlock 4 conditions, scheduling basics. \\
+DBMS & Indexes, normalization 1NF--3NF, transactions/ACID, SQL vs NoSQL trade-offs. \\
+Networks & URL path, TCP/UDP, HTTP vs HTTPS, WebSocket basics. \\
+DSA & Two Sum, LRU, BFS/DFS path, one DP (knapsack/LIS) as backup; speak complexity aloud. \\
+CP signal & If asked about Knight/Specialist: ``contest speed + debugging under time,'' not rank flex. \\
+\bottomrule
+\end{tabularx}
+
+\vspace{2mm}
+\noindent{\small\color{muted} Sources: GeeksforGeeks Systems Intern experiences (project + MySQL/Mongo + auth + Two Sum + OOP connector); Systems Intern R2 (BFS/DFS, backend); Systems FTE panels (OS/networks depth, resume counters, failure scenarios); Technology Developer Intern 2025 (OS paging/VM, OOP, CodePair DSA). Full question wording restored; answers tailored to your DES resume.}
+
+\end{document}

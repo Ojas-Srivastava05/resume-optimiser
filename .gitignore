@@ -1,6 +1,9 @@
 # macOS
 .DS_Store
 
+# Local tooling
+.pdf-venv/
+
 # LaTeX build artifacts
 *.aux
 *.log
@@ -8,6 +11,12 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# Identity / sensitive personal docs (kept locally under Reference Collection/Personal)
+Reference Collection/Personal/Aadhar*
+Reference Collection/Personal/*Passport*
+Reference Collection/Personal/IMG_*
+Reference Collection/Personal/Passport Size Image.png
 
 # Internship Scout (see internship-scout/.gitignore for details)
 internship-scout/.env

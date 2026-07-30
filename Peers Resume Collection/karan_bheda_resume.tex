@@ -1,0 +1,124 @@
+%-------------------------
+% Karanbhai Bheda — filled exact 1-page resume (site-verified)
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\pagestyle{empty}
+\geometry{left=1.05cm, top=0.55cm, right=1.05cm, bottom=0.55cm}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{3pt}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3.3cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{11pt}{5pt}
+
+\newcommand{\entry}[4]{%
+  \vspace{1.4mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabularx}\par
+  \vspace{0.6mm}%
+}
+
+\newcommand{\proj}[2]{%
+  \vspace{1.8mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \\
+    \textit{\small #2} & \\
+  \end{tabularx}\par
+  \vspace{0.5mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Karanbhai Bheda}} \\[1.4mm]
+  \small
+  +91-9723976271 \textbar{}
+  \href{mailto:karanbheda29898@gmail.com}{karanbheda29898@gmail.com} \textbar{}
+  \href{https://github.com/KARANBHAI029}{GitHub} \textbar{}
+  \href{https://www.linkedin.com/in/karan-bheda-2a7483335/}{LinkedIn} \\[0.6mm]
+  B.Tech Artificial Intelligence, SVNIT Surat \textbar{} CGPA \textbf{8.75/10} \textbar{} 2024--2028
+\end{center}
+
+\section{Summary}
+\noindent\small
+Aspiring Software Engineer with strong foundations in Python, data structures, and full-stack development (MERN + Django).
+Builds production-style web products with authentication, interactive modules, and clean UI, and applies TensorFlow for practical ML tasks.
+Interested in scalable applications that combine reliable software engineering with applied AI.
+
+\section{Education}
+\entry{Sardar Vallabhbhai National Institute of Technology, Surat}{2024--2028}
+{B.Tech in Artificial Intelligence}{Surat}
+\begin{itemize}
+  \item CGPA: \textbf{8.75/10}
+  \item Focus areas: programming, web development, machine learning pipelines, and core CS fundamentals (DSA, OS, Linux).
+\end{itemize}
+
+\section{Experience}
+\entry{Artificial Intelligence Intern}{Mar--Apr 2025}{Personifwy}{Remote}
+\begin{itemize}
+  \item Built TensorFlow models for text classification, object detection, and pet face classification.
+  \item Implemented landmark detection for identifying key features in images during model experimentation.
+  \item Owned data preprocessing, training, and evaluation pipeline steps from raw inputs to measurable model outputs.
+\end{itemize}
+
+\section{Projects}
+\proj{\href{https://easy-book-kappa.vercel.app/}{EasyBook} --- Movie Ticket Booking Platform}
+{MongoDB, Express.js, React.js, Node.js \textbar{} \href{https://easy-book-kappa.vercel.app/}{Live}}
+\begin{itemize}
+  \item Developed a MERN booking app with movie browsing, theater listings, releases, trailers, and user login.
+  \item Implemented seat selection and booking workflow with a responsive UI for a complete ticket-booking journey.
+  \item Structured pages for Now Showing / Explore Movies flows so users can discover titles before booking.
+\end{itemize}
+
+\proj{\href{https://beneath-the-blue-1-3c6o.onrender.com/}{Beneath The Blue} --- Ocean Conservation \& Awareness}
+{Interactive web platform \textbar{} \href{https://beneath-the-blue-1-3c6o.onrender.com/}{Live}}
+\begin{itemize}
+  \item Built Posts, Explore, Species, Threats, Community, and Quiz modules to educate users on marine ecosystems.
+  \item Added deep-sea explorer style navigation plus pledge / idea / feedback flows to convert awareness into action.
+  \item Recognized as Finalist at Web Wonder Competition for the project.
+\end{itemize}
+
+\proj{\href{https://eduace.onrender.com/}{EduAce} --- AI-Powered Student Learning Companion}
+{HTML, CSS, JavaScript, Django \textbar{} \href{https://eduace.onrender.com/}{Live}}
+\begin{itemize}
+  \item Shipped Study Planner, calendar/deadlines, expense tracker, focus mode, and a curated resource aggregator.
+  \item Integrated AI Homework Helper (GPT / WolframAlpha-style support) with login and a unified student dashboard.
+  \item Combined productivity tools into one learning companion for planning, tracking, and focused study sessions.
+\end{itemize}
+
+\section{Technical Skills}
+\noindent\small
+\textbf{Languages:} C, C++, Python, JavaScript \\[0.5mm]
+\textbf{Frontend:} HTML, CSS, React.js \quad
+\textbf{Backend:} Node.js, Express.js, Django \quad
+\textbf{Databases:} MongoDB \\[0.5mm]
+\textbf{Core CS:} Data Structures \& Algorithms, Operating Systems, System Design, Linux \\[0.5mm]
+\textbf{Machine Learning:} TensorFlow, data preprocessing, model training \& evaluation \\[0.5mm]
+\textbf{Tools \& Deploy:} Git, GitHub, MERN stack, Vercel, Render
+
+\section{Achievements \& Leadership}
+\begin{itemize}
+  \item Finalist, Web Wonder Competition --- \textit{Beneath The Blue}
+  \item Core Member, Bureau of Indian Standards (BIS) Student Chapter, SVNIT Surat --- contributing to campus standards awareness and chapter activities
+\end{itemize}
+
+\end{document}

@@ -189,40 +189,40 @@ flowchart LR
 ```
 Resume Optimiser/
 │
-├── 🔭 internship-scout/     Job & hackathon scout · OA daily drill
-├── 📬 hiring-contacts/        Contact DB · cold email automation
-├── ⚔️  OA-Forge/               Mock OA web app (Next.js + Supabase)
+├── internship-scout/          Job & hackathon scout · OA daily drill
+├── hiring-contacts/           Contact DB · cold email automation
+├── OA-Forge/                  Mock OA web app (Next.js + Supabase)
 │
-├── 📄 Resume Collection/      Tailored PDF resumes & SOPs (Ojas)
-├── 📄 Cover Letter Collection/ Per-company cover letters
-├── 📄 Latex Collection/       LaTeX sources for resumes & SOPs
-├── 📄 Ananya Resume Collection/ Ananya's tailored PDF resumes
-├── 📄 Reference Collection/   Academic docs, NPTEL research, personal assets
+├── Resume Collection/         Compiled PDF resumes & SOPs (Ojas only)
+├── Cover Letter Collection/   Compiled cover letters (PDF / docx / txt)
+├── Latex Collection/          LaTeX sources only (.tex) — compile → collections above
+├── Peers Resume Collection/   Ananya, Karan, Vansh, Varun (not Ojas)
+├── Reference Collection/      Supporting docs (not application packages)
 │   ├── NPTEL/                 NPTEL stats, rankings, MOOC research PDFs
-│   ├── Academic/              Transcript, syllabus, semester PDFs
-│   ├── Personal/              Passport photo, LinkedIn about text
+│   ├── Academic/              Transcript, syllabus, Coursera, SOP samples
+│   ├── Personal/              Local-only identity docs + LinkedIn about (gitignored)
 │   ├── Screenshots/           Application form screenshots
-│   └── Planning/              Pipeline blueprints & notes
+│   └── Planning/              Pipeline blueprints & interview prep notes
 │
-├── ⚙️  scripts/               NPTEL PDF generators
-└── ⚙️  .github/workflows/     6 scheduled GitHub Actions
+├── scripts/                   NPTEL / interview PDF generators
+└── .github/workflows/         Scheduled GitHub Actions
 ```
 
 ---
 
 ## Resume & document collections
 
-Static, manually maintained application assets — not automated, but part of the same pipeline:
+Static application assets — not automated, but part of the same pipeline.
 
 | Folder | Contents |
 |--------|----------|
-| [`Resume Collection/`](Resume%20Collection/) | Company-tailored PDF resumes & SOPs (Ojas) |
-| [`Cover Letter Collection/`](Cover%20Letter%20Collection/) | Cover letters (tex / pdf / docx) |
-| [`Latex Collection/`](Latex%20Collection/) | LaTeX sources — Google, Microsoft, Cisco, Flipkart, EA, Amazon MLSS… |
-| [`Ananya Resume Collection/`](Ananya%20Resume%20Collection/) | Ananya's SAP UI5 / Fiori tailored PDF resumes |
-| [`Reference Collection/`](Reference%20Collection/) | NPTEL research, academic PDFs, personal assets, screenshots |
+| [`Resume Collection/`](Resume%20Collection/) | Ojas company-tailored PDF resumes & SOPs |
+| [`Cover Letter Collection/`](Cover%20Letter%20Collection/) | Ojas cover letters (pdf / docx / txt) |
+| [`Latex Collection/`](Latex%20Collection/) | LaTeX sources only — compile into the PDF collections |
+| [`Peers Resume Collection/`](Peers%20Resume%20Collection/) | Peer resumes (Ananya, Karan, Vansh, Varun) |
+| [`Reference Collection/`](Reference%20Collection/) | NPTEL, academic PDFs, screenshots, planning notes |
 
-Cold outreach attaches `ojas_srivastava_resume.pdf` from the Resume Collection.
+Cold outreach attaches `ojas_srivastava_resume.pdf` from the Resume Collection (path unchanged).
 
 ---
 

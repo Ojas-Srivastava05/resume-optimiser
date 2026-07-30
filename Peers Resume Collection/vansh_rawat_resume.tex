@@ -1,0 +1,119 @@
+%-------------------------
+% Vansh Rawat — 1-page resume
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\pagestyle{empty}
+\geometry{left=1.15cm, top=0.45cm, right=1.15cm, bottom=0.45cm}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{3pt}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.8cm}}
+
+\titleformat{\section}{\bfseries\large\uppercase}{}{0em}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{6pt}{3pt}
+
+\newcommand{\entry}[4]{%
+  \vspace{0.6mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabularx}\par
+}
+
+\setlist[itemize]{leftmargin=*, topsep=1pt, itemsep=1pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Vansh Rawat}} \\[1.2mm]
+  \small
+  Roll No.: U24AI035 \textbar{}
+  +91-9305571846 \textbar{}
+  \href{mailto:vanshrawat385@gmail.com}{vanshrawat385@gmail.com} \\[0.4mm]
+  \href{https://github.com/Vansh-ai406/}{GitHub} \textbar{}
+  \href{https://www.linkedin.com/in/vansh-rawat-020612337/}{LinkedIn} \\[0.4mm]
+  B.Tech Artificial Intelligence, SVNIT Surat \textbar{} CGPA \textbf{8.00} \textbar{} 2024--28
+\end{center}
+
+\section{Summary}
+\noindent\small
+Aspiring Software Engineer with foundations in Python, DSA, and full-stack web development (Django, React, JavaScript).
+Builds end-to-end products spanning authentication, interactive UIs, and AI-assisted study tools.
+Experienced in team leadership through Web Wonder (Finalist) and departmental coordination at Nexus, SVNIT.
+
+\section{Education}
+\entry{Sardar Vallabhbhai National Institute of Technology, Surat}{2024--28}
+{Bachelor of Technology --- Artificial Intelligence}{CGPA: \textbf{8.00}}
+
+\section{Personal Projects}
+\vspace{0.8mm}
+\noindent\textbf{\href{https://eduace.onrender.com/}{EduAce} (Web Application)}
+\hfill \href{https://eduace.onrender.com/}{\textit{\small Live}}\\
+\textit{\small Python, Django, HTML, CSS}\\[0.5mm]
+A web-based personalized study assistant with AI-driven academic support and productivity tools.
+\begin{itemize}
+  \item Facilitates students' learning without manually planning studies or searching for academic help.
+  \item Built study-assistant flows for planning support and academic productivity in one web app.
+\end{itemize}
+
+\vspace{1mm}
+\noindent\textbf{\href{https://beneath-the-blue-1-3c6o.onrender.com/}{Beneath The Blue} (Web Application)}
+\hfill \href{https://beneath-the-blue-1-3c6o.onrender.com/}{\textit{\small Live}}\\
+\textit{\small Python, Django, HTML, CSS, JavaScript, Bootstrap}\\[0.5mm]
+A Django-based platform to promote awareness of ocean and marine life conservation.
+\begin{itemize}
+  \item Implemented user authentication, dynamic quiz generation, and score tracking for engagement.
+  \item Built conservation-focused web features for awareness and interactive learning.
+\end{itemize}
+
+\section{Experience}
+\vspace{0.8mm}
+\noindent\textbf{Web Wonder Program --- Team Lead (Finalist)}
+\begin{itemize}
+  \item Led a team of four in a competitive web development program focused on real-world problem solving.
+  \item Designed and developed a web project on ocean and marine life conservation (\href{https://beneath-the-blue-1-3c6o.onrender.com/}{Beneath The Blue}).
+  \item Managed task allocation, feature planning, and coordinated the final project presentation.
+  \item Secured a Finalist position among multiple participating teams.
+\end{itemize}
+
+\vspace{0.8mm}
+\noindent\textbf{Academic Web Development Project --- Frontend Developer}
+\begin{itemize}
+  \item Worked on a faculty-assigned web development project as a Frontend Developer.
+  \item Designed responsive UIs using HTML, CSS, JavaScript, and Bootstrap.
+  \item Collaborated with backend teammates to integrate UI with application logic.
+\end{itemize}
+
+\section{Technical Skills and Interests}
+\noindent\small
+\textbf{Languages:} C/C++, Python, JavaScript, HTML+CSS \\[0.4mm]
+\textbf{Libraries:} C++ STL, Python Libraries, React.js \\[0.4mm]
+\textbf{Web Dev Tools:} Node.js, VS Code, Git, GitHub \\[0.4mm]
+\textbf{Frameworks:} React.js, Django \\[0.4mm]
+\textbf{Databases:} MongoDB, MySQL \\[0.4mm]
+\textbf{Relevant Coursework:} Data Structures \& Algorithms, Operating Systems, OOP, DBMS, Software Engineering \\[0.4mm]
+\textbf{Areas of Interest:} Web Design and Development, Competitive Programming, Data Structures \\[0.4mm]
+\textbf{Soft Skills:} Problem Solving, Self-learning, Presentation, Adaptability
+
+\section{Positions of Responsibility}
+\entry{Departmental Representative}{2026--Present}{Nexus --- Dept.\ of CSE \& AI, SVNIT}{}
+\begin{itemize}
+  \item Serving as a representative for the departmental student cell; coordinating between students and organizers.
+  \item Assisted in planning and execution of departmental technical and cultural events.
+\end{itemize}
+
+\end{document}
