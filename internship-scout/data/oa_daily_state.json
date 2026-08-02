@@ -693,7 +693,7 @@
     "wtw",
     "off-campus-natwest"
   ],
-  "queue_index": 41,
+  "queue_index": 42,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -737,7 +737,8 @@
     "zs-associates": 1,
     "envoy": 1,
     "wayve": 1,
-    "trexquant": 1
+    "trexquant": 1,
+    "porter": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -865,7 +866,10 @@
     ],
     "trexquant": [
       "max-difference-you-can-get-from-changing-an-integer|letter-combinations-of-a-phone-number"
+    ],
+    "porter": [
+      "minimum-limit-of-balls-in-a-bag|simplify-path"
     ]
   },
-  "last_run": "2026-08-01T05:33:14.776047+00:00"
+  "last_run": "2026-08-02T05:33:27.729619+00:00"
 }
