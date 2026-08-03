@@ -1,5 +1,5 @@
 {
-  "rotation_index": 635,
+  "rotation_index": 647,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -207,13 +207,25 @@
     "openairesearch": "2026-08-01T04:21:57+00:00",
     "oppoindiaranddcenter": "2026-08-01T04:21:57+00:00",
     "opstra": "2026-08-01T04:21:57+00:00",
-    "optiver": "2026-08-01T04:21:57+00:00"
+    "optiver": "2026-08-01T04:21:57+00:00",
+    "optym": "2026-08-03T04:31:30+00:00",
+    "oracle": "2026-08-03T04:31:30+00:00",
+    "oracleindia": "2026-08-03T04:31:30+00:00",
+    "orcasecurity": "2026-08-03T04:31:30+00:00",
+    "outreach": "2026-08-03T04:31:30+00:00",
+    "oyo": "2026-08-03T04:31:30+00:00",
+    "oreillymediatech": "2026-08-03T04:31:30+00:00",
+    "palantir": "2026-08-03T04:31:30+00:00",
+    "paloaltonetworks": "2026-08-03T04:31:30+00:00",
+    "panasonicindia": "2026-08-03T04:31:30+00:00",
+    "pantaloons": "2026-08-03T04:31:30+00:00",
+    "paynearby": "2026-08-03T04:31:30+00:00"
   },
   "stats": {
-    "total_runs": 48,
+    "total_runs": 49,
     "total_profiles_found": 0,
     "total_emails_verified": 106,
-    "last_run_at": "2026-08-01T04:21:57+00:00",
+    "last_run_at": "2026-08-03T04:31:30+00:00",
     "last_batch_profiles": 0
   }
 }
