@@ -693,7 +693,7 @@
     "wtw",
     "off-campus-natwest"
   ],
-  "queue_index": 48,
+  "queue_index": 49,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -744,7 +744,8 @@
     "blackrock": 1,
     "liftoff": 1,
     "hp": 1,
-    "epifi": 1
+    "epifi": 1,
+    "quantiphi": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -893,7 +894,10 @@
     ],
     "epifi": [
       "number-of-excellent-pairs"
+    ],
+    "quantiphi": [
+      "two-sum|koko-eating-bananas"
     ]
   },
-  "last_run": "2026-08-09T03:47:58.988328+00:00"
+  "last_run": "2026-08-10T04:02:00.905208+00:00"
 }
