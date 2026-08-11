@@ -1,0 +1,150 @@
+% GEP Intern -- Technology | QUESTION PRACTICE ROADMAP (FINAL --- freeze)
+\documentclass[a4paper,9pt]{extarticle}
+\usepackage[margin=0.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+
+\definecolor{ink}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{accent}{HTML}{0F766E}
+\definecolor{hot}{HTML}{B91C1C}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent,pdfborder={0 0 0}}
+
+\pagestyle{empty}
+\color{ink}
+\urlstyle{same}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.05em, topsep=0.35pt, itemsep=0.28pt, parsep=0pt}
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}[\vspace{0.4pt}{\color{accent}\hrule height 0.5pt}]
+\titlespacing{\section}{0pt}{4pt}{1.5pt}
+\titleformat{\subsection}{\bfseries\normalsize}{}{0em}{}
+\titlespacing{\subsection}{0pt}{2pt}{0.5pt}
+\newcommand{\tag}[1]{\textcolor{muted}{\small\textit{#1}}}
+
+\begin{document}
+\begin{center}
+  {\LARGE\textbf{GEP Intern -- Technology: Question Practice Roadmap}}\\[0.5pt]
+  {\small\color{hot}\textbf{FINAL --- do not revise; only tick and practice}}\\[1pt]
+  {\small Ojas \textbar{} Companion: \texttt{GEP\_Prep\_Roadmap.pdf}}\\[0.5pt]
+  {\footnotesize\color{muted}
+  Sudhanva BM + LeetCode 2026 + Harsh/Sarthak/GFG. iMocha has no full free public paper.}
+\end{center}
+
+\section{0) Anchors (read once, then practice)}
+\begin{itemize}
+  \item \href{https://leetcode.com/discuss/post/7161376/gep-worldwide-summer-internship-intervie-dvv5/}{LeetCode --- GEP Summer Intern 2026}
+  \item Sudhanva: AI MCQs major; OS/DBMS; Easy strings/hashing; JS fill-blanks; R1 named/Easy DSA + dry-run; R2 project depth
+  \item Sample OA codes: \texttt{abcde}+\texttt{10101}$\to$\texttt{AbCdE}; CSV max; \textbf{Kadane} (and others by name)
+\end{itemize}
+
+\section{1) OA blocks $\to$ links}
+\noindent\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Block} & \textbf{Do} \\
+\hline
+AI MCQs (MAJOR) & Link A --- once; intro only \\
+OS / DBMS MCQs & Links F, G \\
+DSA Easy coding & Sec 3--4 \\
+JS fill-in-blanks & Link B + Sec 5 \\
+Aptitude / soft (if any) & Links C, D, E \\
+\end{tabularx}
+
+\begin{enumerate}
+  \item[\textbf{A}] \href{https://www.javaguides.net/2024/05/ai-aptitude-test-25-mcq-questions.html}{AI aptitude --- 25 MCQs w/ answers}
+  \item[\textbf{B}] \href{https://www.w3schools.com/js/js_quiz.asp}{W3Schools JS Quiz}
+  \item[\textbf{C}] \href{https://help.imocha.io/kb/article/251/how-to-take-a-test-on-imocha}{How to take iMocha}
+  \item[\textbf{D}] IndiaBix --- timed 15--20 Q sets
+  \item[\textbf{E}] Free SJT (teamwork / deadlines / honesty)
+  \item[\textbf{F}] \href{https://www.examveda.com/computer-fundamentals/practice-mcq-question-on-operating-system/}{Examveda OS MCQs}
+        + \href{https://www.geeksforgeeks.org/operating-systems/operating-systems-interview-questions/}{GFG OS Interview Qs}
+  \item[\textbf{G}] \href{https://www.indiabix.com/database/questions-and-answers/}{IndiaBIX Database MCQs}
+        + \href{https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/}{GFG DBMS Interview Qs}
+\end{enumerate}
+\noindent\small Also: \href{https://www.w3schools.com/sql/sql_quiz.asp}{W3 SQL Quiz} \textbar{}
+\href{https://www.geeksforgeeks.org/quizzes/oop-concepts-gq/}{OOP Concepts quiz} \textbar{}
+\href{https://www.geeksforgeeks.org/interview-prep/oops-interview-questions/}{OOP Interview Qs}
+
+\subsection{AI intro checklist (no math spiral)}
+\begin{itemize}
+  \item $\square$ AI vs ML vs DL \quad $\square$ Supervised vs unsupervised idea
+  \item $\square$ Linear regression --- what it predicts (not derive)
+  \item $\square$ Where \textbf{CV} is used \quad $\square$ Where \textbf{RL} is used
+  \item $\square$ NLP 1-liner \quad $\square$ Data / bias awareness
+\end{itemize}
+
+\section{2) Core CS}
+\begin{itemize}
+  \item $\square$ F + G quizzes \quad $\square$
+        \href{https://www.geeksforgeeks.org/interview-prep/oops-interview-questions/}{GFG OOP Qs} +
+        \href{https://www.geeksforgeeks.org/quizzes/oop-concepts-gq/}{OOP Concepts quiz}
+  \item $\square$ SQL: INNER/LEFT JOIN; books by author X by hand
+\end{itemize}
+
+\section{3) Named algorithms (ask-by-name ready)}
+\tag{Each: 30s idea + when to use + dry-run/code if asked. \textbf{Not Kadane-only.}}
+\begin{itemize}
+  \item $\square$ Kadane (max subarray) \quad $\square$ Binary search
+  \item $\square$ Two pointers / sliding window \quad $\square$ BFS / DFS (level-order = BFS)
+  \item $\square$ Dijkstra (shortest path idea) \quad $\square$ Merge / Quick / Heap sort (time, stable?)
+  \item $\square$ Prefix sums \quad $\square$ Hashing (Two Sum / freq map)
+  \item $\square$ Light DP names: Fib / knapsack 1-liner
+  \item Skip unless on resume: B-Tree / Red-Black internals
+\end{itemize}
+
+\section{4) Coding list}
+\tag{One language. Speak + dry-run. Map to named algos above.}
+\begin{itemize}
+  \item $\square$ Maximum Subarray (Kadane) \quad $\square$ Binary Search template
+  \item $\square$ Case-map string \quad $\square$ First unique char \quad $\square$ Two Sum
+  \item $\square$ Sliding window Easy \quad $\square$ Valid parentheses
+  \item $\square$ Level-order (BFS) \quad $\square$ Number of islands (DFS/BFS)
+  \item STL / basics: \texttt{vector}, \texttt{map}/\texttt{unordered\_map}, \texttt{queue}, \texttt{string}
+  \item Optional coverage: NeetCode/LC 150 Easy--Medium filter; light Striver --- not endless grind
+\end{itemize}
+
+\section{5) JS fill-in}
+\begin{itemize}
+  \item $\square$ Link B once
+  \item $\square$ Snippet drills: \texttt{==}/\texttt{===}, loops, \texttt{map}/\texttt{filter}, string methods --- fill only what is asked
+\end{itemize}
+
+\section{6) Interview bank}
+\begin{itemize}
+  \item $\square$ ``Explain X algorithm'' for every name in Sec 3
+  \item $\square$ Kadane dry-run on \texttt{[-2,1,-3,4,-1,2,1,-5,4]}
+  \item $\square$ Projects: IFFCO / LogiFlow(+SSR) / Community Hero / AirHelp --- role, impact, 2--3 follow-ups deep
+  \item $\square$ OOP pillars; Stack vs Queue; Mongo vs Postgres; open to Angular/.NET?
+  \item $\square$ End Q for them: scale / AI agents / something real
+  \item $\square$ HR: layman pitch; confident replies; location \#1
+\end{itemize}
+
+\section{7) Execute order (tick down; stop when done bar green)}
+\begin{enumerate}
+  \item $\square$ A (AI) once
+  \item $\square$ F + G (OS/DBMS)
+  \item $\square$ Sec 3 named list --- speak each 30s
+  \item $\square$ Code Kadane + Binary Search + BFS + dry runs
+  \item $\square$ Four more Easy from Sec 4
+  \item $\square$ B (JS) + one fill-in snippet
+  \item $\square$ OOP quiz + SQL JOIN
+  \item $\square$ Project depth 20 min aloud
+  \item $\square$ Optional C aptitude samples
+  \item $\square$ One mini mock sitting (AI + Easy + JS blank)
+\end{enumerate}
+
+\section{8) Done bar (freeze when all checked)}
+\begin{itemize}
+  \item $\square$ A, F, G \quad $\square$ Named list spoken \quad $\square$ Kadane+BS+BFS coded
+  \item $\square$ $\geq$5 Easy ticks \quad $\square$ JS fill-in \quad $\square$ Projects deep \quad $\square$ Mini mock
+\end{itemize}
+
+\vspace{1mm}
+\noindent{\footnotesize\color{muted}
+No more doc updates. Only practice. Strategy stays in \texttt{GEP\_Prep\_Roadmap.pdf}.
+}
+\end{document}

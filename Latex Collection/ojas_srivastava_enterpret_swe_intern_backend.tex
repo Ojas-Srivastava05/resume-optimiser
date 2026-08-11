@@ -1,0 +1,118 @@
+%-------------------------
+% Resume — Enterpret | Software Engineering Intern (Backend, Onsite)
+% Bengaluru | AWS serverless, AI-native backend, Tier 1, prior internship
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\pagestyle{empty}
+\geometry{left=1.1cm, top=0.32cm, right=1.1cm, bottom=0.32cm}
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{4pt}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3.5cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{6pt}{3pt}
+
+\newcommand{\job}[4]{%
+  \vspace{1mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \\
+  \end{tabularx}\par
+  \vspace{0.5mm}%
+}
+
+\newcommand{\proj}[4]{%
+  \vspace{1.5mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabularx}\par
+  \vspace{0.5mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=1pt, itemsep=1.2pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[1.2mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.6mm]
+  Pre-final year \textbar{} B.Tech Artificial Intelligence, SVNIT Surat (NIT) \textbar{} CGPA \textbf{9.20/10} \textbar{} Graduating \textbf{May 2028} \\[0.4mm]
+  \textbf{Software Engineering Intern --- Backend (Enterpret)} \textbar{} Open to \textbf{Bengaluru Onsite}
+\end{center}
+
+\section{Education}
+\noindent
+{\renewcommand{\arraystretch}{1.25}%
+\begin{tabularx}{\textwidth}{@{}p{6.5cm} X >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.6cm}@{}}
+SVNIT Surat & B.Tech --- Artificial Intelligence & \textbf{9.20/10} & 2024--2028 \\
+Shiv Jyoti Convent School, Kota & Class XII (CBSE) & 95.80\% & 2024 \\
+St.\ Joseph's College, Prayagraj & Class X (ICSE) & 97.20\% & 2022 \\
+\end{tabularx}}
+\vspace{1.5mm}
+\noindent{\small\textit{Coursework:} Data Structures \& Algorithms, Distributed Systems foundations, DBMS, OS, Computer Networks, Machine Learning, Software Engineering.}
+
+\section{Experience}
+\job{Software Engineering Intern}{Jun--Jul 2025}{IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj}{}
+\begin{itemize}
+  \item Shipped production backend services (\textbf{Node.js}, \textbf{Express}, \textbf{MySQL}) automating \textbf{50+ daily} workflows---ownership from design through deploy.
+  \item Built \textbf{10+ REST APIs} with validation and structured errors; debugged messy real-world edge cases using logs and stack traces.
+  \item Practiced Docker, CI/CD, peer review, and documentation in a live engineering environment.
+\end{itemize}
+
+\section{Projects --- Backend, Scale \& AI}
+\proj{LogiFlow --- Scalable Backend + ML (Google Solution Challenge 2026, Global Top 106)}{Apr--Jun 2026}
+{Python, FastAPI, TypeScript, Redis, SQL, GCP Cloud Run, pytest}
+{\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
+\begin{itemize}
+  \item Co-led cloud-native backend on \textbf{GCP Cloud Run}; Redis caching for \textbf{100--400 ms} hot-path reads across large corridor graphs.
+  \item Built data/ML pipelines over \textbf{15,000+} records and a \textbf{100/100} pytest suite so broken logic fails in CI before production-like release.
+\end{itemize}
+
+\proj{AirHelp --- Backend + AI Inference Path (PowerMind Hackathon 2026)}{2026}
+{Python, FastAPI, RAG, ChromaDB, WebSockets, React}
+{\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Built FastAPI services for \textbf{RAG} retrieval and Q\&A; WebSocket alerts; load-tested \textbf{50--100} concurrent users (\textbf{1--3s} latency) and hardened failure modes.
+\end{itemize}
+
+\proj{Community Hero --- AI Feature to Production (Vibe2Ship 2026, Global Top 20)}{Jun 2026}
+{TypeScript, Express, Gemini API, Firebase, GCP Cloud Run}
+{\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
+\begin{itemize}
+  \item Solo-shipped LLM-backed categorization with guardrails from prototype to Cloud Run---backend supporting an AI product feature end to end.
+\end{itemize}
+
+\section{Skills}
+\noindent\small
+\textbf{Languages:} Python, TypeScript, JavaScript, C++, Java, SQL \\[0.6mm]
+\textbf{Backend:} REST APIs, FastAPI, Node.js/Express, Redis, MySQL/PostgreSQL/Firestore, WebSockets, Docker, CI/CD, Git \\[0.6mm]
+\textbf{AI + Systems:} RAG, LLM integration, embeddings, cloud deploy (GCP), debugging at the edge, open-source contribution mindset \\[0.6mm]
+\textbf{Foundations:} DSA (LeetCode Knight \textbf{2048}), systems thinking, ownership from design discussions to production
+
+\section{Achievements \& Leadership}
+\begin{itemize}
+  \item \textbf{Chairperson, Nexus SVNIT}; \textbf{Google Solution Challenge 2026 --- Global Top 106}; \textbf{Vibe2Ship 2026 --- Global Top 20}
+  \item \textbf{LeetCode Knight:} peak \textbf{2048}, \textbf{744+} solved; \textbf{Codeforces Specialist:} \textbf{1419}
+\end{itemize}
+
+\end{document}

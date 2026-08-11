@@ -1,0 +1,213 @@
+% GEP Intern -- Technology | 5-DAY SPRINT PLAN
+% All hrefs curl-verified 2026-08-01 (no dead GFG quiz-hub redirects)
+\documentclass[a4paper,9pt]{extarticle}
+\usepackage[margin=0.65cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{xurl}
+
+\definecolor{ink}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{accent}{HTML}{0F766E}
+\definecolor{hot}{HTML}{B91C1C}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=accent,
+  urlcolor=accent,
+  citecolor=accent,
+  pdfborder={0 0 0},
+  breaklinks=true
+}
+
+\pagestyle{empty}
+\color{ink}
+\urlstyle{same}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.05em, topsep=0.2pt, itemsep=0.15pt, parsep=0pt}
+\setlist[enumerate]{leftmargin=1.2em, topsep=0.2pt, itemsep=0.15pt, parsep=0pt}
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}[\vspace{0.25pt}{\color{accent}\hrule height 0.5pt}]
+\titlespacing{\section}{0pt}{2.8pt}{0.9pt}
+\titleformat{\subsection}{\bfseries\normalsize}{}{0em}{}
+\titlespacing{\subsection}{0pt}{1.3pt}{0.3pt}
+\newcommand{\tick}{$\square$\ }
+% Label + full clickable/copyable URL (avoids silent dead redirects)
+\newcommand{\Res}[2]{\textbf{#1}\\{\footnotesize\url{#2}}}
+
+\begin{document}
+\begin{center}
+  {\LARGE\textbf{GEP Intern -- Technology: 5-Day Sprint Plan}}\\[0.35pt]
+  {\small\color{hot}\textbf{Execute only --- topics + verified links (click or copy URL)}}\\[0.7pt]
+  {\small Ojas Srivastava \textbar{} SVNIT Surat \textbar{} Batch 2028 \textbar{} Hyderabad / Mumbai}\\[0.35pt]
+  {\footnotesize\color{muted}
+  Anchors: \texttt{GEP\_Prep\_Roadmap.pdf} + \texttt{GEP\_Question\_Practice\_Roadmap.pdf}
+  \textbar{} $\sim$6--7 hrs/day \textbar{} Day 1 = DBMS rebuild}
+\end{center}
+
+\section{How to use}
+\begin{itemize}
+  \item Each day: \textbf{Topics} $\to$ \textbf{Read} $\to$ \textbf{Practice}. Tick and move on.
+  \item Every resource shows the \textbf{full URL} under the title --- if a PDF click fails, copy-paste into browser.
+  \item Old GFG \texttt{/quizzes/...-gq/} links are dead (Quiz Hub). Not used here.
+\end{itemize}
+
+\section{Day 1 --- AI (light) + DBMS depth rebuild + OOP}
+\subsection{Block A --- AI MCQs ($\sim$2 h)}
+\noindent\textbf{Topics:} AI vs ML vs DL; supervised / unsupervised; LR \emph{idea}; CV / RL use-cases; NLP 1-liner.\\
+\noindent\textbf{Read:}
+\begin{itemize}
+  \item \Res{AI vs ML vs DL vs NN}{https://www.geeksforgeeks.org/machine-learning/ai-vs-machine-learning-vs-deep-learning-vs-neural-networks/}
+  \item \Res{Intro to Machine Learning}{https://www.geeksforgeeks.org/machine-learning/introduction-machine-learning/}
+  \item \Res{Linear Regression}{https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/}
+  \item \Res{Computer Vision}{https://www.geeksforgeeks.org/computer-vision/computer-vision/}
+  \item \Res{Reinforcement Learning}{https://www.geeksforgeeks.org/machine-learning/what-is-reinforcement-learning/}
+\end{itemize}
+\noindent\textbf{Practice:}
+\begin{itemize}
+  \item \tick \Res{AI aptitude --- 25 MCQs w/ answers}{https://www.javaguides.net/2024/05/ai-aptitude-test-25-mcq-questions.html}
+\end{itemize}
+
+\subsection{Block B --- DBMS depth rebuild ($\sim$3.5--4 h) --- DO NOT SKIP}
+\noindent\textbf{Topics (in order):} DBMS vs files; keys (super/candidate/PK/FK); ER; SQL DDL/DML;
+INNER/LEFT/RIGHT/FULL joins; \texttt{GROUP BY}/\texttt{HAVING}; 1NF--3NF; indexing idea; ACID; concurrency names.
+
+\noindent\textbf{Read (this order):}
+\begin{itemize}
+  \item \Res{Intro to DBMS}{https://www.geeksforgeeks.org/dbms/introduction-of-dbms-database-management-system-set-1/}
+  \item \Res{Types of Keys}{https://www.geeksforgeeks.org/dbms/types-of-keys-in-relational-model-candidate-super-primary-alternate-and-foreign/}
+  \item \Res{ER Model}{https://www.geeksforgeeks.org/dbms/introduction-of-er-model/}
+  \item \Res{SQL command types (DDL/DML/...)}{https://www.geeksforgeeks.org/sql/sql-ddl-dql-dml-dcl-tcl-commands/}
+  \item \Res{SQL Joins}{https://www.geeksforgeeks.org/sql/sql-join-set-1-inner-left-right-and-full-joins/}
+  \item \Res{SQL GROUP BY}{https://www.geeksforgeeks.org/sql/sql-group-by/}
+  \item \Res{Normal Forms}{https://www.geeksforgeeks.org/dbms/normal-forms-in-dbms/}
+  \item \Res{Indexing}{https://www.geeksforgeeks.org/dbms/indexing-in-databases-set-1/}
+  \item \Res{ACID}{https://www.geeksforgeeks.org/dbms/acid-properties-in-dbms/}
+  \item \Res{Concurrency (skim)}{https://www.geeksforgeeks.org/dbms/concurrency-control-in-dbms/}
+  \item \Res{DBMS Tutorial hub (if lost)}{https://www.geeksforgeeks.org/dbms/dbms/}
+\end{itemize}
+
+\noindent\textbf{Practice:}
+\begin{itemize}
+  \item \tick \Res{IndiaBIX --- Database MCQs}{https://www.indiabix.com/database/questions-and-answers/}
+  \item \tick \Res{GFG --- DBMS Interview Qs}{https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/}
+  \item \tick \Res{GFG quiz --- Normal Forms}{https://www.geeksforgeeks.org/quizzes/normal-forms/}
+  \item \tick \Res{W3Schools --- SQL Quiz}{https://www.w3schools.com/sql/sql_quiz.asp}
+  \item \tick By hand: 2 INNER + 2 LEFT JOIN queries; speak ``2NF vs 3NF'' and ``ACID'' aloud
+\end{itemize}
+
+\subsection{Block C --- OOP ($\sim$30--40 min)}
+\begin{itemize}
+  \item \tick \Res{GFG --- OOP Concepts quiz}{https://www.geeksforgeeks.org/quizzes/oop-concepts-gq/}
+  \item \tick \Res{GFG --- OOP Interview Qs}{https://www.geeksforgeeks.org/interview-prep/oops-interview-questions/}
+  \item Speak 4 pillars $<$2 min
+\end{itemize}
+
+\noindent\textbf{Done bar:} AI once \textbar{} DBMS reads ticked \textbar{} IndiaBIX + interview Qs + SQL quiz \textbar{} 4 JOINs by hand \textbar{} OOP spoken
+
+\section{Day 2 --- Named algos + Easy coding + JS}
+\subsection{Topics}
+Kadane; Binary Search; BFS/DFS; hashing / Two Sum; strings; JS \texttt{==}/\texttt{===}, \texttt{map}/\texttt{filter}.
+Speak 30s: Kadane, BS, BFS/DFS, Dijkstra idea, Merge/Quick, hashing, prefix sums.
+
+\subsection{Read (only if stuck)}
+\begin{itemize}
+  \item \Res{Kadane explained}{https://www.geeksforgeeks.org/dsa/largest-sum-contiguous-subarray/}
+  \item \Res{GEP Summer Intern 2026 write-up}{https://leetcode.com/discuss/post/7161376/gep-worldwide-summer-internship-intervie-dvv5/}
+\end{itemize}
+
+\subsection{Practice (code + dry-run aloud)}
+\begin{itemize}
+  \item \tick \Res{LC --- Maximum Subarray}{https://leetcode.com/problems/maximum-subarray/}
+  \item \tick \Res{LC --- Binary Search}{https://leetcode.com/problems/binary-search/}
+  \item \tick \Res{LC --- Level Order (BFS)}{https://leetcode.com/problems/binary-tree-level-order-traversal/}
+  \item \tick \Res{LC --- Two Sum}{https://leetcode.com/problems/two-sum/}
+  \item \tick \Res{LC --- First Unique Character}{https://leetcode.com/problems/first-unique-character-in-a-string/}
+  \item \tick \Res{LC --- Valid Parentheses}{https://leetcode.com/problems/valid-parentheses/}
+  \item \tick \Res{W3Schools --- JS Quiz}{https://www.w3schools.com/js/js_quiz.asp}
+\end{itemize}
+
+\noindent\textbf{Done bar:} Kadane + BS + BFS coded \textbar{} $\geq$3 more Easy \textbar{} JS quiz \textbar{} named list spoken
+
+\section{Day 3 --- OS + SQL drills + Projects + more Easy}
+\subsection{Block A --- OS ($\sim$1.5--2 h)}
+\noindent\textbf{Topics:} process vs thread; scheduling names; deadlock (4 conditions); paging idea; mutex/semaphore 1-liner.\\
+\noindent\textbf{Read:}
+\begin{itemize}
+  \item \Res{OS Intro}{https://www.geeksforgeeks.org/operating-systems/introduction-of-operating-system-set-1/}
+  \item \Res{Process Management}{https://www.geeksforgeeks.org/operating-systems/introduction-of-process-management/}
+  \item \Res{Deadlock}{https://www.geeksforgeeks.org/operating-systems/introduction-of-deadlock-in-operating-system/}
+  \item \Res{Paging}{https://www.geeksforgeeks.org/operating-systems/paging-in-operating-system/}
+  \item \Res{OS Tutorial hub}{https://www.geeksforgeeks.org/operating-systems/operating-systems/}
+\end{itemize}
+\noindent\textbf{Practice:}
+\begin{itemize}
+  \item \tick \Res{Examveda --- OS MCQs}{https://www.examveda.com/computer-fundamentals/practice-mcq-question-on-operating-system/}
+  \item \tick \Res{GFG --- OS Interview Qs}{https://www.geeksforgeeks.org/operating-systems/operating-systems-interview-questions/}
+\end{itemize}
+
+\subsection{Block B --- SQL hand drills (DBMS retention) ($\sim$1 h)}
+\begin{itemize}
+  \item \tick Write cold: INNER + LEFT JOIN; one \texttt{GROUP BY}+\texttt{HAVING}
+  \item \tick Re-do Day 1 IndiaBIX / SQL quiz wrongs only
+  \item \tick \Res{W3Schools --- SQL Exercises}{https://www.w3schools.com/sql/sql_exercises.asp}
+\end{itemize}
+
+\subsection{Block C --- Projects + Easy}
+\begin{itemize}
+  \item \tick Speak: IFFCO, LogiFlow(+SSR), Community Hero, AirHelp --- role, impact, 2--3 follow-ups
+  \item \tick \Res{LC --- Number of Islands}{https://leetcode.com/problems/number-of-islands/}
+  \item \tick \Res{LC --- Buy/Sell Stock}{https://leetcode.com/problems/best-time-to-buy-and-sell-stock/}
+\end{itemize}
+
+\noindent\textbf{Done bar:} OS MCQs + interview Qs \textbar{} JOIN cold \textbar{} 4 projects deep \textbar{} $\geq$5 Easy total
+
+\section{Day 4 --- Full mock OA}
+\subsection{Platform feel}
+\begin{itemize}
+  \item \Res{How to take iMocha}{https://help.imocha.io/kb/article/251/how-to-take-a-test-on-imocha}
+\end{itemize}
+
+\subsection{Mock sitting ($\sim$70--90 min)}
+\begin{enumerate}
+  \item AI checklist / Day 1 wrongs --- 15 min
+  \item DBMS flash: keys, joins, 1--3NF, ACID (speak) --- 15 min
+  \item One Easy timed (strings/hashing) --- 25 min
+  \item JS fill-in --- 15 min
+  \item OS weak spots --- 15 min
+\end{enumerate}
+
+\noindent\textbf{Done bar:} one full mock; note only misses
+
+\section{Day 5 --- Interview + HR + warm-up}
+\subsection{Topics}
+R1: clarify $\to$ approach $\to$ code $\to$ dry-run. R2: projects.
+HR: Hyd/Mum \#1. Company: AI procurement / supply chain; Quantum, SMART, NEXXE.
+Open to Angular/.NET. End-Q: scale / AI agents / stack.
+
+\subsection{Warm-up}
+\begin{itemize}
+  \item \tick Re-solve 2 Easy from Day 2
+  \item \tick Kadane dry-run on \texttt{[-2,1,-3,4,-1,2,1,-5,4]}
+  \item \tick Speak: one algo + one project + ``ACID in one minute''
+  \item \tick Print resume: \texttt{ojas\_srivastava\_gep\_technology\_intern.pdf}
+\end{itemize}
+
+\noindent\textbf{Done bar:} resume printed \textbar{} location + end-Q \textbar{} sleep
+
+\section{Final ready bar}
+\begin{itemize}
+  \item \tick AI once \quad \tick DBMS depth + IndiaBIX/SQL quiz \quad \tick OS MCQs \quad \tick OOP quiz
+  \item \tick Named algos spoken \quad \tick Kadane + BS + BFS coded
+  \item \tick $\geq$5 Easy \quad \tick JS quiz \quad \tick Projects deep \quad \tick Mock OA
+\end{itemize}
+
+\vspace{0.6mm}
+\noindent{\footnotesize\color{muted}
+Links re-verified. Avoid GFG \texttt{*-gq} quiz URLs --- they redirect to empty Quiz Hub.
+}
+\end{document}

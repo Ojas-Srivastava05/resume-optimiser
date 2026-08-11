@@ -1,0 +1,127 @@
+%-------------------------
+% Resume — GEP Worldwide | Intern – Technology
+% Same clean layout as D. E. Shaw Systems Intern (education table + 10th/12th)
+% Tuned for shortlist + interview deep-dives: OOP, SQL, REST, full-stack product work
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\pagestyle{empty}
+\geometry{left=1.1cm, top=0.32cm, right=1.1cm, bottom=0.32cm}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{4pt}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3.5cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{6pt}{3pt}
+
+\newcommand{\job}[4]{%
+  \vspace{1mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \\
+  \end{tabularx}\par
+  \vspace{0.5mm}%
+}
+
+\newcommand{\proj}[4]{%
+  \vspace{1.5mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabularx}\par
+  \vspace{0.5mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=1pt, itemsep=1.2pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[1.2mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.6mm]
+  Pre-final year \textbar{} B.Tech Artificial Intelligence, SVNIT Surat \textbar{} CGPA \textbf{9.20/10} \textbar{} Graduating \textbf{May 2028} \\[0.4mm]
+  \textbf{Intern -- Technology --- GEP Worldwide} \textbar{} Open to \textbf{Hyderabad} / \textbf{Mumbai}
+\end{center}
+
+\section{Education}
+\noindent
+{\renewcommand{\arraystretch}{1.25}%
+\begin{tabularx}{\textwidth}{@{}p{6.5cm} X >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.6cm}@{}}
+SVNIT Surat & B.Tech --- Artificial Intelligence & \textbf{9.20/10} & 2024--Present \\
+Shiv Jyoti Convent School, Kota & Class XII (CBSE) & 95.80\% & 2024 \\
+St.\ Joseph's College, Prayagraj & Class X (ICSE) & 97.20\% & 2022 \\
+\end{tabularx}}
+\vspace{1.5mm}
+\noindent{\small\textit{Coursework:} Object-Oriented Programming, DBMS/SQL, Data Structures \& Algorithms, Design \& Analysis of Algorithms, Operating Systems, Computer Networks, Software Engineering, Computer Organization \& Architecture.}
+
+\section{Experience}
+\job{Software Engineering Intern}{Jun--Jul 2025}{IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj}{}
+\begin{itemize}
+  \item Built production tools with \textbf{Node.js}, \textbf{Express}, and \textbf{MySQL} that automated \textbf{50+ daily} operational workflows for plant stakeholders.
+  \item Developed \textbf{10+ REST APIs} with input validation, SQL queries, and structured error handling; debugged broken flows using logs and stack traces.
+  \item Used \textbf{Git}, \textbf{Docker}, and \textbf{CI/CD} before deployment; wrote short docs and updated mentors/managers on progress and trade-offs.
+\end{itemize}
+
+\section{Projects}
+\proj{LogiFlow --- Google Solution Challenge 2026 (Global Top 106)}{Apr--Jun 2026}
+{Python, FastAPI, TypeScript, Next.js, Redis, SQL, GCP Cloud Run, pytest}
+{\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
+\begin{itemize}
+  \item Technical Co-Lead: designed REST APIs in \textbf{FastAPI} and a \textbf{Next.js} frontend so route/decision results were queryable and visible in a live web app.
+  \item Built SQL/Python pipelines over \textbf{15,000+} train-day records---cleaning, joining, and validating inputs before they reached the services.
+  \item Added \textbf{Redis} caching for frequently read corridor/route data; deployed backend services on \textbf{GCP Cloud Run}; measured hot-path reads around \textbf{100--400 ms} after caching.
+  \item Wrote a \textbf{pytest} regression suite with \textbf{100/100} business-rule checks so broken pricing/routing logic fails in CI before release; documented API endpoints for teammates.
+\end{itemize}
+
+\proj{Community Hero --- Vibe2Ship 2026 (Global Top 20)}{Jun 2026}
+{TypeScript, React, Express, Firebase, Gemini API, GCP Cloud Run}
+{\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
+\begin{itemize}
+  \item Solo-owned end-to-end delivery: React/Express app, Firebase/\textbf{Firestore} data model, Cloud Run deploy, and live demo for a global Top-20 finish.
+  \item Implemented geo-tagged citizen reporting and an admin review panel; wrote API handlers with validation for empty/noisy submissions.
+  \item Integrated \textbf{Gemini API} for report categorization with guard checks so bad model output does not break routing; exercised mobile-friendly UI paths before release.
+\end{itemize}
+
+\proj{AirHelp --- PowerMind Hackathon 2026}{2026}
+{Python, FastAPI, React, WebSockets}
+{\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Built a FastAPI backend and React UI for airport-style Q\&A using a retrieval pipeline over structured + unstructured knowledge.
+  \item Added \textbf{WebSocket} channels for live-style alerts; load-tested with about \textbf{50--100} concurrent users and fixed bottlenecks found during the hackathon.
+\end{itemize}
+
+\section{Skills}
+\noindent\small
+\textbf{Languages:} C, C++, Python, Java, SQL, TypeScript, JavaScript \\[0.6mm]
+\textbf{Core CS:} OOP, DBMS/SQL, DSA, Operating Systems, Computer Networks \\[0.6mm]
+\textbf{Backend \& Data:} REST APIs, FastAPI, Node.js/Express, MySQL, Redis, Firebase/Firestore, SQL/Python validation \\[0.6mm]
+\textbf{Frontend \& Deploy:} React, Next.js, GCP Cloud Run, Docker, CI/CD, Linux basics, Git, pytest
+
+\section{Achievements \& Leadership}
+\begin{itemize}
+  \item \textbf{LeetCode Knight:} peak \textbf{2048}, \textbf{744} solved, 32 contests; \textbf{Codeforces Specialist:} \textbf{1419}, \textbf{265} solved
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 106}; \textbf{Vibe2Ship 2026 --- Global Top 20}
+  \item \textbf{Chairperson, Nexus SVNIT} --- departmental technical cell; workshops/mentoring for \textbf{500+} students
+  \item \textbf{Executive Member, ACM SVNIT}; \textbf{McKinsey.org Forward Fellow (2026)}
+\end{itemize}
+
+\end{document}

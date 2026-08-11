@@ -1,0 +1,121 @@
+%-------------------------
+% Resume — HARMAN | Intern – Build & Integration
+% Job ID: R-55075-2026 | Bangalore | 6 months
+% Tuned: CI/CD, Docker, Git, Python/Shell, automation, cloud builds
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\pagestyle{empty}
+\geometry{left=1.1cm, top=0.32cm, right=1.1cm, bottom=0.32cm}
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{4pt}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3.5cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{6pt}{3pt}
+
+\newcommand{\job}[4]{%
+  \vspace{1mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \\
+  \end{tabularx}\par
+  \vspace{0.5mm}%
+}
+
+\newcommand{\proj}[4]{%
+  \vspace{1.5mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabularx}\par
+  \vspace{0.5mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=1pt, itemsep=1.2pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[1.2mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.6mm]
+  Pre-final year \textbar{} B.Tech Artificial Intelligence, SVNIT Surat \textbar{} CGPA \textbf{9.20/10} \textbar{} Graduating \textbf{May 2028} \\[0.4mm]
+  \textbf{Intern --- Build \& Integration (HARMAN)} \textbar{} Job ID \textbf{R-55075-2026} \textbar{} Open to \textbf{Bangalore}
+\end{center}
+
+\section{Education}
+\noindent
+{\renewcommand{\arraystretch}{1.25}%
+\begin{tabularx}{\textwidth}{@{}p{6.5cm} X >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.6cm}@{}}
+SVNIT Surat & B.Tech --- Artificial Intelligence & \textbf{9.20/10} & 2024--2028 \\
+Shiv Jyoti Convent School, Kota & Class XII (CBSE) & 95.80\% & 2024 \\
+St.\ Joseph's College, Prayagraj & Class X (ICSE) & 97.20\% & 2022 \\
+\end{tabularx}}
+\vspace{1.5mm}
+\noindent{\small\textit{Coursework:} Operating Systems, Computer Networks, Software Engineering, DBMS, Data Structures \& Algorithms, OOP. Available for \textbf{6-month} fixed-term internship in Bangalore.}
+
+\section{Experience}
+\job{Software Engineering Intern}{Jun--Jul 2025}{IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj}{}
+\begin{itemize}
+  \item Owned design-to-deploy of production tools (\textbf{Node.js}, \textbf{Express}, \textbf{MySQL}); practiced \textbf{Git}-based collaboration, peer review, and release handoff.
+  \item Used \textbf{Docker} and \textbf{CI/CD} before deployment; debugged broken builds/flows with logs and stack traces; wrote short runbooks for mentors.
+  \item Automated \textbf{50+ daily} operational workflows via \textbf{10+ REST APIs}---focus on reliability, validation, and maintainable delivery.
+\end{itemize}
+
+\section{Projects --- Build, Automation \& Delivery}
+\proj{LogiFlow --- Multi-Service Delivery on Cloud (Google Solution Challenge 2026, Global Top 106)}{Apr--Jun 2026}
+{Python, FastAPI, TypeScript, Redis, GCP Cloud Run, Docker, pytest, GitHub Actions}
+{\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
+\begin{itemize}
+  \item Technical Co-Lead: integrated multi-repo frontend/backend services; deployed containerized backends on \textbf{GCP Cloud Run}; tuned caching for \textbf{100--400 ms} hot paths.
+  \item Built \textbf{pytest} regression suite (\textbf{100/100} checks) wired into CI so broken logic fails before release; documented build/run steps for teammates.
+  \item Managed dependency and environment consistency across Python/TypeScript services; improved reliability through structured logging and integration fixes.
+\end{itemize}
+
+\proj{Community Hero --- Production Deploy (Vibe2Ship 2026, Global Top 20)}{Jun 2026}
+{TypeScript, Express, Firebase, GCP Cloud Run, Git}
+{\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
+\begin{itemize}
+  \item Solo-owned build-to-production: packaging, Cloud Run deploy, config, and smoke checks for a live PWA under contest timelines.
+\end{itemize}
+
+\proj{AirHelp --- Service Integration (PowerMind Hackathon 2026)}{2026}
+{Python, FastAPI, React, WebSockets, Shell}
+{\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Integrated FastAPI + React + WebSocket services; scripted local run/setup; load-tested \textbf{50--100} concurrent users and fixed bottlenecks.
+\end{itemize}
+
+\section{Skills}
+\noindent\small
+\textbf{Automation \& Scripting:} Python, Shell, JavaScript/TypeScript, SQL, C++ \\[0.6mm]
+\textbf{Source Control \& CI:} Git, GitHub, GitHub Actions, peer code review, release documentation \\[0.6mm]
+\textbf{Containers \& Cloud:} Docker, GCP Cloud Run, Linux basics, environment/config management \\[0.6mm]
+\textbf{Practices:} Build troubleshooting, integration testing (pytest), dependency management, Agile-style iteration
+
+\section{Achievements \& Leadership}
+\begin{itemize}
+  \item \textbf{Chairperson, Nexus SVNIT} --- departmental technical cell; mentoring for \textbf{500+} students
+  \item \textbf{LeetCode Knight:} peak \textbf{2048}; \textbf{Codeforces Specialist:} \textbf{1419}
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 106}; \textbf{Vibe2Ship 2026 --- Global Top 20}
+\end{itemize}
+
+\end{document}

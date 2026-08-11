@@ -1,0 +1,126 @@
+SLB AI Intern (Req 19084) — Skills Form Answers
+Ojas Srivastava | Copy-paste ready
+
+============================================================
+PYTHON
+============================================================
+Describe how you used this skill in your career:
+Used Python as the primary language for AirHelp (RAG + FastAPI backend), LogiFlow (ML pipelines, APIs, and data processing on 15,000+ train-day records), and model evaluation scripts.
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+TYPESCRIPT
+============================================================
+Describe how you used this skill in your career:
+Built typed Next.js/React frontends and Express services for LogiFlow and Community Hero, including API clients, UI flows, and Cloud Run–deployed TypeScript backends.
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+JAVASCRIPT
+============================================================
+Describe how you used this skill in your career:
+Developed production Node.js/Express REST APIs at IFFCO to automate 50+ daily workflows, and used JavaScript/React for user-facing UIs across hackathon projects.
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+LLMs / GENERATIVE AI
+============================================================
+Describe how you used this skill in your career:
+Integrated Gemini LLM for citizen-report categorization in Community Hero (Global Top 20) and for human-readable routing explainability in LogiFlow (Google Solution Challenge Global Top 106).
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+RAG (RETRIEVAL-AUGMENTED GENERATION)
+============================================================
+Describe how you used this skill in your career:
+Built AirHelp’s RAG Q&A prototype using Sentence Transformers embeddings and ChromaDB retrieval over structured and unstructured airport knowledge, served via FastAPI.
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+PROMPT ENGINEERING
+============================================================
+Describe how you used this skill in your career:
+Designed and iterated Gemini prompts for Community Hero report categorization, adding guard checks so empty or noisy submissions did not break routing or produce unsafe outputs.
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+REST APIs
+============================================================
+Describe how you used this skill in your career:
+Designed and shipped 10+ production REST APIs at IFFCO with validation and error handling; also built FastAPI REST services for LogiFlow and AirHelp.
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+FASTAPI
+============================================================
+Describe how you used this skill in your career:
+Implemented FastAPI backends for LogiFlow (ML inference + routing APIs) and AirHelp (RAG endpoints, WebSocket alerts), including validation and service lifecycle management.
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+VECTOR DATABASES (CHROMADB)
+============================================================
+Describe how you used this skill in your career:
+Used ChromaDB in AirHelp to store embeddings and retrieve relevant airport knowledge for semantic search and grounded RAG responses.
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+SCIKIT-LEARN
+============================================================
+Describe how you used this skill in your career:
+Trained and evaluated Gradient Boosting delay-prediction models for LogiFlow using train–validation splits, feature engineering, and error analysis on logistics data.
+
+When was the last time you used this skill?
+June 2026
+
+============================================================
+GIT
+============================================================
+Describe how you used this skill in your career:
+Used Git daily for version control during my IFFCO internship and across all projects—branching, commits, code review, and collaborative delivery.
+
+When was the last time you used this skill?
+August 2026 (ongoing)
+
+============================================================
+DOCKER
+============================================================
+Describe how you used this skill in your career:
+Containerized and supported deployment of production services during my IFFCO internship using Docker alongside CI/CD and Git-based workflows.
+
+When was the last time you used this skill?
+July 2025
+
+------------------------------------------------------------
+SHORT ONE-LINERS (if the form has a small text box)
+------------------------------------------------------------
+Python — RAG/ML APIs for AirHelp & LogiFlow | Last: Jun 2026
+TypeScript — Full-stack LogiFlow & Community Hero | Last: Jun 2026
+JavaScript — IFFCO production APIs + React UIs | Last: Jun 2026
+LLMs/GenAI — Gemini categorization & explainability | Last: Jun 2026
+RAG — Embeddings + ChromaDB Q&A (AirHelp) | Last: Jun 2026
+Prompt Engineering — Gemini prompts with guardrails | Last: Jun 2026
+REST APIs — IFFCO + FastAPI services | Last: Jun 2026
+FastAPI — LogiFlow & AirHelp backends | Last: Jun 2026
+Vector DBs — ChromaDB retrieval (AirHelp) | Last: Jun 2026
+Scikit-learn — Delay models (LogiFlow) | Last: Jun 2026
+Git — All projects & internship | Last: Aug 2026 (ongoing)
+Docker — IFFCO containerization/deploy | Last: Jul 2025
