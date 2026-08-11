@@ -690,9 +690,10 @@
     "tcs-nqt",
     "trinamix-inc",
     "videonetics",
-    "wtw"
+    "wtw",
+    "off-campus-natwest"
   ],
-  "queue_index": 39,
+  "queue_index": 50,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -734,7 +735,18 @@
     "natwest": 1,
     "xing": 1,
     "zs-associates": 1,
-    "envoy": 1
+    "envoy": 1,
+    "wayve": 1,
+    "trexquant": 1,
+    "porter": 1,
+    "shopup": 1,
+    "spotify": 1,
+    "blackrock": 1,
+    "liftoff": 1,
+    "hp": 1,
+    "epifi": 1,
+    "quantiphi": 1,
+    "docusign": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -856,7 +868,40 @@
     ],
     "envoy": [
       "maximum-population-year"
+    ],
+    "wayve": [
+      "intervals-between-identical-elements"
+    ],
+    "trexquant": [
+      "max-difference-you-can-get-from-changing-an-integer|letter-combinations-of-a-phone-number"
+    ],
+    "porter": [
+      "minimum-limit-of-balls-in-a-bag|simplify-path"
+    ],
+    "shopup": [
+      "complex-number-multiplication"
+    ],
+    "spotify": [
+      "valid-parentheses|analyze-user-website-visit-pattern"
+    ],
+    "blackrock": [
+      "happy-number"
+    ],
+    "liftoff": [
+      "n-queens-ii|diagonal-traverse-ii"
+    ],
+    "hp": [
+      "longest-palindrome|minimum-cost-homecoming-of-a-robot-in-a-grid"
+    ],
+    "epifi": [
+      "number-of-excellent-pairs"
+    ],
+    "quantiphi": [
+      "two-sum|koko-eating-bananas"
+    ],
+    "docusign": [
+      "lru-cache|design-authentication-manager"
     ]
   },
-  "last_run": "2026-07-30T05:14:48.581611+00:00"
+  "last_run": "2026-08-11T03:49:45.284024+00:00"
 }
