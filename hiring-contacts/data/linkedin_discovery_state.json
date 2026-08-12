@@ -1,5 +1,5 @@
 {
-  "rotation_index": 702,
+  "rotation_index": 714,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -252,13 +252,25 @@
     "qualtrics": "2026-08-10T03:11:50+00:00",
     "qualys": "2026-08-10T03:11:50+00:00",
     "quantiphi": "2026-08-10T03:11:50+00:00",
-    "quantitativesystems": "2026-08-10T03:11:50+00:00"
+    "quantitativesystems": "2026-08-10T03:11:50+00:00",
+    "quantlab": "2026-08-12T03:23:43+00:00",
+    "quberesearchtechnologies": "2026-08-12T03:23:43+00:00",
+    "qubole": "2026-08-12T03:23:43+00:00",
+    "quicko": "2026-08-12T03:23:43+00:00",
+    "radixtrading": "2026-08-12T03:23:43+00:00",
+    "railway": "2026-08-12T03:23:43+00:00",
+    "railyatri": "2026-08-12T03:23:43+00:00",
+    "rakuten": "2026-08-12T03:23:43+00:00",
+    "ramcosystems": "2026-08-12T03:23:43+00:00",
+    "rapid7": "2026-08-12T03:23:43+00:00",
+    "rapido": "2026-08-12T03:23:43+00:00",
+    "rario": "2026-08-12T03:23:43+00:00"
   },
   "stats": {
-    "total_runs": 53,
+    "total_runs": 54,
     "total_profiles_found": 0,
     "total_emails_verified": 106,
-    "last_run_at": "2026-08-10T03:11:50+00:00",
+    "last_run_at": "2026-08-12T03:23:43+00:00",
     "last_batch_profiles": 0
   }
 }
