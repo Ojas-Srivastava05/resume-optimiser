@@ -693,7 +693,7 @@
     "wtw",
     "off-campus-natwest"
   ],
-  "queue_index": 50,
+  "queue_index": 51,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -746,7 +746,8 @@
     "hp": 1,
     "epifi": 1,
     "quantiphi": 1,
-    "docusign": 1
+    "docusign": 1,
+    "anthropic": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -901,7 +902,10 @@
     ],
     "docusign": [
       "lru-cache|design-authentication-manager"
+    ],
+    "anthropic": [
+      "web-crawler|exclusive-time-of-functions"
     ]
   },
-  "last_run": "2026-08-11T03:49:45.284024+00:00"
+  "last_run": "2026-08-12T04:12:33.074626+00:00"
 }
