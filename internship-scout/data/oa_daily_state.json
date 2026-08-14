@@ -693,7 +693,7 @@
     "wtw",
     "off-campus-natwest"
   ],
-  "queue_index": 52,
+  "queue_index": 53,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -748,7 +748,8 @@
     "quantiphi": 1,
     "docusign": 1,
     "anthropic": 1,
-    "rally-health": 1
+    "rally-health": 1,
+    "ey": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -909,7 +910,10 @@
     ],
     "rally-health": [
       "two-sum"
+    ],
+    "ey": [
+      "two-sum"
     ]
   },
-  "last_run": "2026-08-13T04:16:58.692955+00:00"
+  "last_run": "2026-08-14T04:14:01.027716+00:00"
 }
