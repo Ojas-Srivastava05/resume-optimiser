@@ -1582,131 +1582,41 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "astha.singh@razorpay.com": {
+      "email": "astha.singh@razorpay.com",
+      "company": "RazorpayX",
+      "name": "Astha Singh",
+      "role_title": "Talent Acquisition Associate",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://razorpay.com/careers",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 RazorpayX",
+      "dry_run": false,
+      "sent_at": "2026-08-14T03:07:57.652922+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 83,
+    "total_sent": 84,
     "total_followups": 24
   },
   "daily_log": {
-    "2026-07-13": {
+    "2026-08-14": {
       "emails": [
-        "abbas.hussein@ae.standardchartered.com",
-        "brijesh.sequeira@mphasis.com",
-        "chaitrashree.hegde.con@hotstar.com"
+        "astha.singh@razorpay.com"
       ],
       "companies": [
-        "standardchartered",
-        "mphasis",
-        "disneyhotstar"
-      ]
-    },
-    "2026-07-14": {
-      "emails": [
-        "namrata.patil@pinelabs.com",
-        "cclemens@google.com",
-        "anvay.nagarkatti@razorpay.com"
-      ],
-      "companies": [
-        "pinelabs",
-        "google",
-        "razorpay"
-      ]
-    },
-    "2026-07-16": {
-      "emails": [
-        "kosuna@marqeta.com",
-        "ewa.boardman@mathworks.com",
-        "aarushi.gupta@zomato.com"
-      ],
-      "companies": [
-        "marqeta",
-        "mathworks",
-        "zomato"
-      ]
-    },
-    "2026-07-17": {
-      "emails": [
-        "anju_vinay@mcafee.com",
-        "deepa.k@honasa.in",
-        "dhara.ajmera@mastek.com"
-      ],
-      "companies": [
-        "mcafee",
-        "mamaearthhonasa",
-        "mastek"
-      ]
-    },
-    "2026-07-20": {
-      "emails": [
-        "ashleikhanthaphixay@meta.com",
-        "dsutton@pinterest.com",
-        "cwilliams@microsoft.com"
-      ],
-      "companies": [
-        "meta",
-        "pinterest",
-        "microsoft"
-      ]
-    },
-    "2026-07-21": {
-      "emails": [
-        "arpita@policybazaar.com",
-        "eleanor.lai@mediatek.com",
-        "sarah.lye@postman.com"
-      ],
-      "companies": [
-        "policybazaar",
-        "mediatek",
-        "postman"
-      ]
-    },
-    "2026-07-22": {
-      "emails": [
-        "kaushal.r@swiggy.in",
-        "tamar.elan@matillion.com",
-        "brenna_gildner@mckinsey.com"
-      ],
-      "companies": [
-        "swiggy",
-        "matillion",
-        "mckinsey"
-      ]
-    },
-    "2026-07-23": {
-      "emails": [
-        "bill.munger@mariadb.com",
-        "ayush.dwivedi@delhivery.com",
-        "clay.cook@menlosecurity.com"
-      ],
-      "companies": [
-        "mariadb",
-        "delhivery",
-        "menlosecurity"
-      ]
-    },
-    "2026-07-24": {
-      "emails": [
-        "jchristiansen@marvell.com",
-        "amertes@plaid.com",
-        "augusto.ferreira@thoughtworks.com"
-      ],
-      "companies": [
-        "marvelltechnology",
-        "plaid",
-        "thougthworks"
-      ]
-    },
-    "2026-07-27": {
-      "emails": [
-        "deepa.raja@manipalhospitals.com"
-      ],
-      "companies": [
-        "manipalhospitals"
+        "razorpayx"
       ]
     }
   },
-  "last_live_send_at": "2026-07-27T03:07:33.362440+00:00",
+  "last_live_send_at": "2026-08-14T03:07:57.652909+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2260,7 +2170,14 @@
       "last_email": "deepa.raja@manipalhospitals.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "razorpayx": {
+      "company": "RazorpayX",
+      "last_contacted_at": "2026-08-14T03:07:57.653071+00:00",
+      "last_email": "astha.singh@razorpay.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 28
+  "rotation_index": 29
 }
