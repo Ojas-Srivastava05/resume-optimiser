@@ -1,0 +1,119 @@
+%-------------------------
+% Resume — Quantbot Technologies | Quantitative Researcher Internship - 2027
+% Hong Kong | 10 weeks June–August 2027
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\pagestyle{empty}
+\geometry{left=1.1cm, top=0.32cm, right=1.1cm, bottom=0.32cm}
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{4pt}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3.5cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{5pt}{2pt}
+
+\newcommand{\job}[4]{%
+  \vspace{0.8mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \\
+  \end{tabularx}\par
+  \vspace{0.4mm}%
+}
+
+\newcommand{\proj}[4]{%
+  \vspace{1.2mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabularx}\par
+  \vspace{0.4mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=0.8pt, itemsep=1pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[1mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.5mm]
+  Pre-final year \textbar{} B.Tech Artificial Intelligence, SVNIT Surat \textbar{} CGPA \textbf{9.20/10} \textbar{} Graduating \textbf{May 2028} \\[0.3mm]
+  \textbf{Quantitative Researcher Internship --- 2027 (Quantbot)} \textbar{} Available \textbf{Jun--Aug 2027} \textbar{} Open to \textbf{Hong Kong}
+\end{center}
+
+\section{Education}
+\noindent
+{\renewcommand{\arraystretch}{1.2}%
+\begin{tabularx}{\textwidth}{@{}p{6.5cm} X >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.6cm}@{}}
+SVNIT Surat & B.Tech --- Artificial Intelligence & \textbf{9.20/10} & 2024--2028 \\
+Shiv Jyoti Convent School, Kota & Class XII (CBSE) & 95.80\% & 2024 \\
+St.\ Joseph's College, Prayagraj & Class X (ICSE) & 97.20\% & 2022 \\
+\end{tabularx}}
+\vspace{1.2mm}
+\noindent{\small\textit{Coursework:} Probability \& Statistics, Linear Algebra, Machine Learning, Data Structures \& Algorithms, DBMS, Operating Systems. Penultimate year; STEM bachelor's.}
+
+\section{Research-Oriented Projects}
+\proj{LogiFlow --- Predictive Modeling \& Experimental Evaluation (Google Solution Challenge 2026, Global Top 106)}{Apr--Jun 2026}
+{Python, Scikit-learn, Pandas, NumPy, SQL, cross-validation, pytest}
+{\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
+\begin{itemize}
+  \item Framed delay risk as a research question; engineered features from timetable, route, and history on \textbf{15,650} train-day records.
+  \item Trained \textbf{Gradient Boosting} models with train/validation loops (\textbf{MAE 22.7 min}; \textbf{81\%} of predictions within 30 min); iterated on features and error analysis.
+  \item Built a \textbf{100/100} automated validation suite and multi-objective (Pareto) ranking tooling---hypothesis $\rightarrow$ model $\rightarrow$ measured evaluation.
+  \item Documented methods and presented results to teammates/judges; Technical Co-Lead for Neural Foundry.
+\end{itemize}
+
+\proj{AirHelp --- Retrieval Models \& Large Unstructured Knowledge (PowerMind Hackathon 2026)}{2026}
+{Python, embeddings, ChromaDB, RAG, NumPy, FastAPI}
+{\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Built data-driven retrieval workflows over structured + unstructured knowledge; evaluated latency/quality under concurrent load (\textbf{50--100} users, \textbf{1--3s}).
+\end{itemize}
+
+\proj{Community Hero --- Noisy Real-World Data Pipelines (Vibe2Ship 2026, Global Top 20)}{Jun 2026}
+{Python, TypeScript, Gemini API, Firestore}
+{\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub}}
+\begin{itemize}
+  \item Designed categorization over messy user submissions with quality checks and guardrails; owned framing through evaluation under a fixed timeline.
+\end{itemize}
+
+\section{Experience}
+\job{Software Engineering Intern}{Jun--Jul 2025}{IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj}{}
+\begin{itemize}
+  \item Prepared and queried operational \textbf{datasets} (MySQL/SQL) for reporting and automation of \textbf{50+} daily processes; reviewed data quality before use.
+  \item Shipped production services with testing and iterative feedback---ownership from problem framing through deployment.
+\end{itemize}
+
+\section{Skills}
+\noindent\small
+\textbf{Languages:} Python, C/C++, SQL \\[0.5mm]
+\textbf{Quantitative / ML:} Statistical modeling, feature engineering, Gradient Boosting, cross-validation, Scikit-learn, Pandas, NumPy, experimental design \\[0.5mm]
+\textbf{Data \& Research Tooling:} Large structured datasets, SQL, pytest, data quality checks, Git, Linux, research documentation \& presentation \\[0.5mm]
+\textbf{Foundations:} Probability \& statistics, linear algebra, algorithms; competitive programming (LeetCode Knight \textbf{2048}, Codeforces \textbf{1419})
+
+\section{Additional}
+\begin{itemize}
+  \item Personal markets interest: invested in Indian equities/mutual funds \textbf{3+} years; Python tooling for portfolio logging, attribution, and screening (finance helpful, not assumed).
+  \item \textbf{Chairperson, Nexus SVNIT}; Executive Member, ACM SVNIT; McKinsey.org Forward Fellow (2026)
+\end{itemize}
+
+\end{document}

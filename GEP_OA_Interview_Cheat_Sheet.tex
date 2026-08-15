@@ -1,0 +1,172 @@
+% GEP Intern -- Technology | OA + Interview Cheat Sheet
+\documentclass[a4paper,9pt]{extarticle}
+\usepackage[margin=0.75cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\definecolor{ink}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{accent}{HTML}{0F766E}
+\definecolor{hot}{HTML}{B91C1C}
+\color{ink}
+\setlength{\parskip}{0pt}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\setlist[itemize]{leftmargin=1.05em, topsep=0.35pt, itemsep=0.28pt, parsep=0pt}
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}[\vspace{0.4pt}{\color{accent}\hrule height 0.5pt}]
+\titlespacing{\section}{0pt}{4pt}{1.5pt}
+\titleformat{\subsection}{\bfseries\normalsize}{}{0em}{}
+\titlespacing{\subsection}{0pt}{2pt}{0.5pt}
+
+\begin{document}
+\begin{center}
+  {\LARGE\textbf{GEP Intern -- Technology: OA \& Interview Cheat Sheet}}\\[0.5pt]
+  {\small\color{hot}\textbf{Print this --- desk reference for OA + R1 + R2}}\\[1pt]
+  {\small Ojas Srivastava \textbar{} Mon 17 Aug 3PM PPT + OA \textbar{} R1 Tue 18 \textbar{} R2 Wed 19 \textbar{} Hyd / Mumbai}
+\end{center}
+
+\section{1) Drive schedule}
+\begin{itemize}
+  \item \textbf{Mon 17:} PPT 3PM $\to$ proctored OA same day (MCQ + coding)
+  \item \textbf{Tue 18:} R1 technical (DSA, OOP, resume)
+  \item \textbf{Wed 19:} R2 functional / projects (+ HR)
+  \item Before OA: print resume, webcam, stable net, warm-up 1 Easy + Kadane dry-run
+\end{itemize}
+
+\section{2) OA --- section map}
+\noindent\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{3.4cm} X@{}}
+AI MCQs (MAJOR) & $\sim$12--20 Q. Intro only: AI vs ML vs DL, supervised / unsupervised, linear regression idea, where CV / RL / NLP is used. Coursera-level. Do not overstudy. \\
+OS + DBMS & Process vs thread, deadlock (4 conditions), paging, mutex vs semaphore. Keys, JOINs, GROUP BY, 1NF--3NF, ACID. \\
+Coding & 1 LC Easy--Medium: strings, hashing, Kadane, Two Sum. Comment approach; check edges. \\
+JavaScript & Code given --- fill in the blanks. \texttt{==} vs \texttt{===}, map / filter, loops, strings. \\
+Also possible & Aptitude (SI/CI, profit-loss, DI) + soft-skills / SJT. Time-box if present. \\
+\end{tabularx}
+
+\section{3) AI MCQs (intro only --- no math)}
+\begin{itemize}
+  \item \textbf{AI} = broad field. \textbf{ML} = learn from data. \textbf{DL} = neural nets.
+  \item \textbf{Supervised:} labeled data (classification / regression). \textbf{Unsupervised:} clusters / patterns (no labels).
+  \item \textbf{Linear regression:} predicts a continuous value (price, delay) --- it does not classify.
+  \item \textbf{CV:} images / video (face, OCR). \textbf{RL:} agent + reward (games, robotics). \textbf{NLP:} text / speech (chatbots, translation).
+  \item Bias = skewed training data. First instinct is enough --- do not spiral into ML theory.
+\end{itemize}
+
+\section{4) OS flash}
+\begin{itemize}
+  \item Process = program in execution. Thread = lightweight unit inside a process.
+  \item \textbf{Deadlock (all 4):} mutual exclusion, hold \& wait, no preemption, circular wait.
+  \item \textbf{Paging:} memory split into fixed pages / frames --- reduces external fragmentation.
+  \item \textbf{Mutex:} one thread at a time. \textbf{Semaphore:} count-based access.
+  \item Context switch = save / restore CPU state. Scheduling: preemptive vs non-preemptive.
+\end{itemize}
+
+\section{5) DBMS flash}
+\begin{itemize}
+  \item \textbf{PK} uniquely identifies a row. \textbf{FK} references a PK. Candidate key = minimal unique set.
+  \item \textbf{1NF} atomic columns. \textbf{2NF} no partial dependency on PK. \textbf{3NF} no transitive dependency.
+  \item \textbf{ACID:} Atomicity, Consistency, Isolation, Durability.
+  \item \textbf{Index:} faster reads, slower writes. B-tree idea for ordered lookup.
+  \item \textbf{INNER JOIN} = matching rows both sides. \textbf{LEFT JOIN} = all left rows + match or NULL.
+  \item \textbf{GROUP BY + HAVING:} aggregate, then filter groups. WHERE cannot filter on aggregates.
+\end{itemize}
+
+\section{6) OOP ($<$2 min spoken)}
+\begin{itemize}
+  \item \textbf{Encapsulation} hide data. \textbf{Abstraction} what, not how. \textbf{Inheritance} reuse. \textbf{Polymorphism} same interface, different behavior.
+  \item Access: public / private / protected.
+  \item Stack = LIFO. Queue = FIFO. Linked list: O(1) insert at head, O(n) middle.
+  \item BST: left $<$ root $<$ right. Graph: BFS = shortest unweighted path. DFS = explore / islands.
+\end{itemize}
+
+\section{7) Named algorithms --- 30s each}
+\begin{itemize}
+  \item \textbf{Kadane:} max subarray. Add to running sum; if sum $<$ 0, reset to 0; track max.
+  \item \textbf{Binary search:} sorted array; lo / hi / mid; O(log n).
+  \item \textbf{Two Sum:} hash map of complement; O(n).
+  \item \textbf{BFS:} queue; level-order; shortest path on unweighted graph.
+  \item \textbf{DFS:} stack / recursion; islands, connectivity.
+  \item \textbf{Sliding window:} fixed or variable window on array / string.
+  \item \textbf{Prefix sum:} precompute for range queries. \textbf{Dijkstra:} weighted shortest path (greedy + priority queue).
+  \item \textbf{Sorting:} Merge O(n log n) stable extra space. Quick avg O(n log n) pivot matters. Heap O(n log n) in-place. Selection O(n$^2$) min swaps.
+\end{itemize}
+
+\section{8) Kadane dry-run (memorize this)}
+\begin{itemize}
+  \item Array: \texttt{[-2, 1, -3, 4, -1, 2, 1, -5, 4]} $\to$ max = \textbf{6}, subarray \texttt{[4, -1, 2, 1]}
+  \item Running sum: $-2$, $1$, $-2$, $4$, $3$, $5$, $6$, $1$, $5$. Max tracks $1$, $4$, $5$, $6$.
+\end{itemize}
+
+\section{9) Sample OA patterns + JS + SQL}
+\begin{itemize}
+  \item \textbf{Alt case:} \texttt{abcde} + \texttt{10101} $\to$ \texttt{AbCdE} (1 = upper, 0 = lower)
+  \item First unique char: freq map, one pass. Valid parens: stack. Reverse: two pointers.
+  \item Primes 1--100: sieve or trial division. Fib in a range: iterate; watch overflow.
+  \item \textbf{JS:} \texttt{==} coerces; \texttt{===} strict. \texttt{map} new array; \texttt{filter} subset; \texttt{reduce} aggregate. Read the full snippet before filling blanks.
+  \item \textbf{SQL:} INNER JOIN authors a, books b ON a.id = b.author\_id. LEFT JOIN keeps authors with 0 books.
+  \item \texttt{SELECT dept, COUNT(*) FROM emp GROUP BY dept HAVING COUNT(*) > 5}
+\end{itemize}
+
+\section{10) Aptitude (only if the section appears)}
+\begin{itemize}
+  \item SI $= PRT/100$. CI: amount $= P(1+r/100)^n$; CI $=$ amount $-$ principal.
+  \item Profit \% $= (SP-CP)/CP \times 100$. Speed $=$ distance / time. Opposite direction: add speeds.
+  \item Blood relation: draw a family tree. Venn: sketch sets, do not guess.
+\end{itemize}
+
+\newpage
+\setlist[itemize]{leftmargin=1.05em, topsep=0.6pt, itemsep=2.2pt, parsep=0pt}
+\titlespacing{\section}{0pt}{8pt}{2.5pt}
+\section{11) Coding interview loop --- never silent}
+\begin{itemize}
+  \item Clarify input / output + constraints $\to$ brute force (say complexity) $\to$ optimize (hash, two pointers, BS, Kadane)
+  \item Code cleanly $\to$ dry-run 2 examples + edges (empty, one element, duplicates) $\to$ time / space
+  \item If stuck: repeat the problem, start brute force, ask for a hint on approach. Partial credit beats silence.
+\end{itemize}
+
+\section{12) R1 likely questions}
+\begin{itemize}
+  \item OOP pillars. Stack vs queue vs list vs tree. Middle of linked list: slow / fast pointers.
+  \item Merge vs Quick --- when to use which. Python vs Java (typing, JVM, speed, use-case).
+  \item Write: reverse array, primes to 100, Fibonacci in a range. Explain Kadane / Binary Search by name + dry-run.
+  \item Binary search: \texttt{lo=0, hi=n-1; while lo <= hi: mid=(lo+hi)//2 \ldots}
+  \item Level-order BFS: queue the root; pop; visit; push left then right.
+  \item STL: vector, string, map / unordered\_map, set, queue, stack. Python: dict, deque for BFS.
+\end{itemize}
+
+\section{13) Projects --- role + follow-ups}
+\begin{itemize}
+  \item \textbf{IFFCO:} 10+ REST APIs, 50+ daily workflows, Node / Express / MySQL, Docker / CI/CD. Follow-ups: validation? indexing? how do you debug prod?
+  \item \textbf{LogiFlow:} co-lead; 15k records; Redis 100--400ms; pytest 100/100; GCP. Follow-ups: why Redis? what breaks without cache?
+  \item \textbf{Community Hero:} solo; Gemini categorization + guardrails; Firestore; Top 20. Follow-ups: bad LLM output? why Firestore?
+  \item \textbf{AirHelp:} RAG + ChromaDB; WebSockets; 50--100 users, 1--3s latency. Follow-ups: retrieval vs generation? bottlenecks?
+  \item \textbf{Cursor (if asked):} daily Agent / Composer. Resume Optimiser: 966 companies, 10.7k+ contacts, OA Forge 14k+ questions / 5.5k+ tests, 8 CI workflows, 28k+ Python LOC, 69 resumes + 26 cover letters, 446 commits.
+\end{itemize}
+
+\section{14) GEP pitch + HR}
+\begin{itemize}
+  \item GEP = AI-powered \textbf{procurement \& supply chain} (software + consulting + managed services).
+  \item Products: \textbf{Quantum Intelligence}, \textbf{SMART}, \textbf{NEXXE} (Azure SaaS). Open to Angular / .NET / Azure.
+  \item Why SWE from AI: I ship production systems; AI is how I add intelligence on top.
+  \item \textbf{Location:} pick Hyderabad or Mumbai and stick. Strength: ownership design $\to$ deploy. Weakness: one real one + how you manage it.
+  \item End Q: ``How do interns contribute to AI agent workflows on procurement data?''
+  \item Layman pitch: ``I build tools that automate daily work and turn messy data into decisions.''
+\end{itemize}
+
+\section{15) Proctoring + Mon morning 15 min}
+\begin{itemize}
+  \item Charged laptop, webcam / mic, quiet room, ID, stable net. No tab switch, no phone, no discussing OA.
+  \item No new research tabs day-of. No hard CP grind. No resume lies. Sleep well Monday night --- R1 is Tuesday.
+  \item Warm-up: Two Sum or first unique char (10 min). Kadane dry-run aloud (3 min). OOP pillars + one JOIN (2 min). Location locked.
+  \item Defend every buzzword you say: Node.js, Express, FastAPI, Redis, pytest, GCP, Firestore, Gemini, RAG, ChromaDB, Docker, CI/CD, WebSockets, JOIN, ACID.
+\end{itemize}
+
+\vspace{1mm}
+\noindent{\footnotesize\color{hot}\textbf{Golden rule:} Clarify $\to$ approach $\to$ code $\to$ dry-run $\to$ complexity. Never silent.}
+\end{document}

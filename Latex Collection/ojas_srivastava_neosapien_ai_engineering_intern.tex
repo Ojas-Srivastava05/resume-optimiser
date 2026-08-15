@@ -1,0 +1,122 @@
+%-------------------------
+% Resume — NeoSapien | AI Engineering Intern | Bangalore Onsite
+% Tuned: LLMs, RAG, memory retrieval, NLP, agentic workflows, Python/FastAPI
+% Product: Neo 1 personal AI wearable / second brain
+%-------------------------
+\documentclass[a4paper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\pagestyle{empty}
+\geometry{left=1.1cm, top=0.30cm, right=1.1cm, bottom=0.30cm}
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{4pt}
+\setlength{\parskip}{0pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3.5cm}}
+
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{5pt}{2pt}
+
+\newcommand{\job}[4]{%
+  \vspace{0.8mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \\
+  \end{tabularx}\par
+  \vspace{0.4mm}%
+}
+
+\newcommand{\proj}[4]{%
+  \vspace{1.2mm}
+  \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+    \textbf{#1} & \textit{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabularx}\par
+  \vspace{0.4mm}%
+}
+
+\setlist[itemize]{leftmargin=*, topsep=0.8pt, itemsep=1pt, parsep=0pt, partopsep=0pt}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+  {\LARGE \textbf{Ojas Srivastava}} \\[1mm]
+  \small
+  +91-7424978046 \textbar{}
+  \href{mailto:srivastavaojas454@gmail.com}{srivastavaojas454@gmail.com} \textbar{}
+  \href{https://linkedin.com/in/ojas-srivastava05}{LinkedIn} \textbar{}
+  \href{https://github.com/Ojas-Srivastava05}{GitHub} \textbar{}
+  \href{https://ojas-srivastava.vercel.app}{Portfolio} \\[0.5mm]
+  Pre-final year \textbar{} B.Tech Artificial Intelligence, SVNIT Surat \textbar{} CGPA \textbf{9.20/10} \textbar{} Graduating \textbf{May 2028} \\[0.3mm]
+  \textbf{AI Engineering Intern --- NeoSapien} \textbar{} Open to \textbf{Bangalore (Onsite)} \textbar{} Available \textbf{2+ months}
+\end{center}
+
+\section{Education}
+\noindent
+{\renewcommand{\arraystretch}{1.2}%
+\begin{tabularx}{\textwidth}{@{}p{6.5cm} X >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.6cm}@{}}
+SVNIT Surat & B.Tech --- Artificial Intelligence & \textbf{9.20/10} & 2024--2028 \\
+Shiv Jyoti Convent School, Kota & Class XII (CBSE) & 95.80\% & 2024 \\
+St.\ Joseph's College, Prayagraj & Class X (ICSE) & 97.20\% & 2022 \\
+\end{tabularx}}
+\vspace{1.2mm}
+\noindent{\small\textit{Coursework:} Machine Learning, Deep Learning, NLP foundations, Probability \& Statistics, Linear Algebra, DSA, DBMS, Software Engineering.}
+
+\section{Experience}
+\job{Software Engineering Intern}{Jun--Jul 2025}{IFFCO (Indian Farmers Fertiliser Cooperative), Phulpur Unit, Prayagraj}{}
+\begin{itemize}
+  \item Shipped production APIs and tools (\textbf{Node.js}, \textbf{Express}, \textbf{MySQL}) automating \textbf{50+ daily} workflows---ownership from design through deploy.
+  \item Built \textbf{10+ REST APIs} with validation and structured errors; practiced Git, Docker, CI/CD, and clear handoff docs with mentors.
+\end{itemize}
+
+\section{AI Engineering Projects}
+\proj{AirHelp --- Memory Retrieval \& Contextual Q\&A (PowerMind Hackathon 2026)}{2026}
+{Python, FastAPI, RAG, ChromaDB, Sentence Transformers, embeddings, WebSockets}
+{\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\begin{itemize}
+  \item Built an intelligent \textbf{memory/retrieval} stack: embeddings + \textbf{ChromaDB} over structured and unstructured knowledge for grounded, contextual answers.
+  \item Designed conversation-style Q\&A with layered memory; load-tested \textbf{50--100} concurrent users (\textbf{1--3s} latency) and hardened failure modes.
+  \item Added graph-based \textbf{A*} indoor navigation on custom walking graphs---practice combining retrieval with structured knowledge for user guidance.
+\end{itemize}
+
+\proj{Community Hero --- LLM Pipelines \& Personalization Signals (Vibe2Ship 2026, Global Top 20)}{Jun 2026}
+{TypeScript, Python-adjacent tooling, Gemini API, Express, Firestore, prompt engineering}
+{\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
+\begin{itemize}
+  \item Solo-shipped an \textbf{LLM} categorization workflow (Gemini) with \textbf{prompt engineering} and guardrails for noisy real-world text.
+  \item Built end-to-end AI feature path: ingest $\rightarrow$ model decision $\rightarrow$ routing/admin review; evaluated model vs rule-based fallbacks before production deploy.
+\end{itemize}
+
+\proj{LogiFlow --- ML + Contextual Explainability (Google Solution Challenge 2026, Global Top 106)}{Apr--Jun 2026}
+{Python, FastAPI, Scikit-learn, Gemini, Redis, SQL, GCP Cloud Run}
+{\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
+\begin{itemize}
+  \item Trained Gradient Boosting models on \textbf{15,650+} records; built multi-objective ranking and \textbf{GenAI} explainability for human-readable decisions.
+  \item Deployed FastAPI services with Redis caching (\textbf{100--400 ms} hot paths); wrote \textbf{pytest} suite (\textbf{100/100} checks) for reliable AI+backend release.
+\end{itemize}
+
+\section{Skills}
+\noindent\small
+\textbf{AI / NLP:} LLMs, RAG, embeddings, vector databases (ChromaDB), prompt engineering, contextual retrieval, conversation memory, model evaluation \\[0.5mm]
+\textbf{Languages:} Python, TypeScript, JavaScript, C++, SQL \\[0.5mm]
+\textbf{Backend for AI:} FastAPI, REST APIs, Node.js/Express, Redis, Firestore/MySQL, Docker, Git, CI/CD \\[0.5mm]
+\textbf{Practices:} Agentic-style multi-step AI workflows (retrieve $\rightarrow$ reason $\rightarrow$ act), PoCs to production, documentation \& demos
+
+\section{Achievements \& Leadership}
+\begin{itemize}
+  \item \textbf{Chairperson, Nexus SVNIT} --- departmental technical cell; mentoring for \textbf{500+} students
+  \item \textbf{Google Solution Challenge 2026 --- Global Top 106}; \textbf{Vibe2Ship 2026 --- Global Top 20}
+  \item \textbf{LeetCode Knight:} peak \textbf{2048}; \textbf{Codeforces Specialist:} \textbf{1419}
+\end{itemize}
+
+\end{document}
