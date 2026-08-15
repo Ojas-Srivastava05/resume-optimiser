@@ -1,5 +1,5 @@
 {
-  "rotation_index": 727,
+  "rotation_index": 739,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -276,13 +276,25 @@
     "remote": "2026-08-14T03:24:15+00:00",
     "renaissancetechnologies": "2026-08-14T03:24:15+00:00",
     "renaultindia": "2026-08-14T03:24:15+00:00",
-    "renaultnissantech": "2026-08-14T03:24:15+00:00"
+    "renaultnissantech": "2026-08-14T03:24:15+00:00",
+    "render": "2026-08-15T02:13:52+00:00",
+    "renesas": "2026-08-15T02:13:52+00:00",
+    "replicate": "2026-08-15T02:13:52+00:00",
+    "replit": "2026-08-15T02:13:52+00:00",
+    "retool": "2026-08-15T02:13:52+00:00",
+    "revolut": "2026-08-15T02:13:52+00:00",
+    "riotgames": "2026-08-15T02:13:52+00:00",
+    "rippling": "2026-08-15T02:13:52+00:00",
+    "rivian": "2026-08-15T02:13:52+00:00",
+    "rivigo": "2026-08-15T02:13:52+00:00",
+    "robinhood": "2026-08-15T02:13:52+00:00",
+    "roblox": "2026-08-15T02:13:52+00:00"
   },
   "stats": {
-    "total_runs": 55,
+    "total_runs": 56,
     "total_profiles_found": 0,
-    "total_emails_verified": 114,
-    "last_run_at": "2026-08-14T03:24:15+00:00",
-    "last_batch_profiles": 8
+    "total_emails_verified": 134,
+    "last_run_at": "2026-08-15T02:13:52+00:00",
+    "last_batch_profiles": 20
   }
 }
