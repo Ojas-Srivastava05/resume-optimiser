@@ -65,7 +65,6 @@
     "sprinklr",
     "applied-intuition",
     "general-motors",
-    "ixigo",
     "netflix",
     "deepmind",
     "singlestore",
@@ -178,7 +177,6 @@
     "sumologic",
     "intuit",
     "deutsche-bank",
-    "electronic-arts",
     "ubisoft",
     "arista-networks",
     "de-shaw",
@@ -281,7 +279,6 @@
     "slice",
     "confluent",
     "mcdonalds",
-    "checkpoint",
     "nasdaq",
     "wix",
     "blend",
@@ -341,7 +338,6 @@
     "zendesk",
     "appfolio",
     "allincall",
-    "lenskart",
     "compass",
     "bridgewater-associates",
     "kla-tencor",
@@ -387,7 +383,6 @@
     "stripe",
     "ponyai",
     "soti",
-    "chalo",
     "buyhatke",
     "blinkit",
     "postmates",
@@ -395,7 +390,6 @@
     "nerdwallet",
     "netapp",
     "datadog",
-    "npci",
     "aurora",
     "cloudera",
     "gainsight",
@@ -473,7 +467,6 @@
     "scaler",
     "garmin",
     "fallible",
-    "practo",
     "fourkites",
     "patreon",
     "zoox",
@@ -573,7 +566,6 @@
     "axon",
     "iit-bombay",
     "elitmus",
-    "coveo",
     "otterai",
     "machine-zone",
     "zip",
@@ -691,9 +683,20 @@
     "trinamix-inc",
     "videonetics",
     "wtw",
-    "off-campus-natwest"
+    "off-campus-natwest",
+    "devsinc",
+    "gep",
+    "glean",
+    "hexaware",
+    "nebius",
+    "remotestate",
+    "rupeek",
+    "techolution",
+    "toyota",
+    "unifyapps",
+    "usaa"
   ],
-  "queue_index": 54,
+  "queue_index": 55,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -750,7 +753,8 @@
     "anthropic": 1,
     "rally-health": 1,
     "ey": 1,
-    "thoughtworks": 1
+    "thoughtworks": 1,
+    "ramp-2": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -917,7 +921,10 @@
     ],
     "thoughtworks": [
       "maximize-the-number-of-partitions-after-operations|number-of-subarrays-that-match-a-pattern-ii"
+    ],
+    "ramp-2": [
+      "simple-bank-system|time-based-key-value-store"
     ]
   },
-  "last_run": "2026-08-15T02:56:51.520235+00:00"
+  "last_run": "2026-08-16T03:06:04.405687+00:00"
 }
