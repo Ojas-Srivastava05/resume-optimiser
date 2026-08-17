@@ -1677,13 +1677,33 @@
       "subject": "Summer 2027 SWE intern \u2014 Rivigo",
       "dry_run": false,
       "sent_at": "2026-08-17T04:27:44.292871+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "aiden.sun@replit.com": {
+      "email": "aiden.sun@replit.com",
+      "company": "Replit",
+      "name": "Aiden Sun",
+      "role_title": "Recruiting Coordinator (Via Talentful)",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.google.com/jobs/results/?q=Replit",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Replit",
+      "dry_run": false,
+      "sent_at": "2026-08-17T08:08:06.772699+00:00",
       "followup_sent": false,
       "followup_count": 0,
       "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 88,
+    "total_sent": 89,
     "total_followups": 24
   },
   "daily_log": {
@@ -1702,15 +1722,17 @@
     "2026-08-17": {
       "emails": [
         "chan@riotgames.com",
-        "akash.saxena@rivigo.com"
+        "akash.saxena@rivigo.com",
+        "aiden.sun@replit.com"
       ],
       "companies": [
         "riotgames",
-        "rivigo"
+        "rivigo",
+        "replit"
       ]
     }
   },
-  "last_live_send_at": "2026-08-17T04:27:44.292858+00:00",
+  "last_live_send_at": "2026-08-17T08:08:06.772685+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2299,7 +2321,14 @@
       "last_email": "akash.saxena@rivigo.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "replit": {
+      "company": "Replit",
+      "last_contacted_at": "2026-08-17T08:08:06.772857+00:00",
+      "last_email": "aiden.sun@replit.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 33
+  "rotation_index": 34
 }
