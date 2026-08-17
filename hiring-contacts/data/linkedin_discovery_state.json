@@ -1,5 +1,5 @@
 {
-  "rotation_index": 739,
+  "rotation_index": 751,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -288,13 +288,25 @@
     "rivian": "2026-08-15T02:13:52+00:00",
     "rivigo": "2026-08-15T02:13:52+00:00",
     "robinhood": "2026-08-15T02:13:52+00:00",
-    "roblox": "2026-08-15T02:13:52+00:00"
+    "roblox": "2026-08-15T02:13:52+00:00",
+    "roboflow": "2026-08-17T02:19:47+00:00",
+    "rocheindia": "2026-08-17T02:19:47+00:00",
+    "rockstarindia": "2026-08-17T02:19:47+00:00",
+    "rockwellautomation": "2026-08-17T02:19:47+00:00",
+    "rolandberger": "2026-08-17T02:19:47+00:00",
+    "rolta": "2026-08-17T02:19:47+00:00",
+    "rothschild": "2026-08-17T02:19:47+00:00",
+    "rovio": "2026-08-17T02:19:47+00:00",
+    "royalenfield": "2026-08-17T02:19:47+00:00",
+    "rsm": "2026-08-17T02:19:47+00:00",
+    "rubrik": "2026-08-17T02:19:47+00:00",
+    "runway": "2026-08-17T02:19:47+00:00"
   },
   "stats": {
-    "total_runs": 56,
+    "total_runs": 57,
     "total_profiles_found": 0,
-    "total_emails_verified": 134,
-    "last_run_at": "2026-08-15T02:13:52+00:00",
-    "last_batch_profiles": 20
+    "total_emails_verified": 147,
+    "last_run_at": "2026-08-17T02:19:47+00:00",
+    "last_batch_profiles": 13
   }
 }
