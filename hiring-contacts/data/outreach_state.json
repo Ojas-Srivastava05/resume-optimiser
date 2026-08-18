@@ -1722,10 +1722,28 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "mahadev.patil@rolta.com": {
+      "email": "mahadev.patil@rolta.com",
+      "company": "Rolta",
+      "name": "Mahadev Patil",
+      "role_title": "Human Resources Manager",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://careers.google.com/jobs/results/?q=Rolta",
+      "quality_score": 90,
+      "subject": "Summer 2027 SWE intern \u2014 Rolta",
+      "dry_run": false,
+      "sent_at": "2026-08-18T04:33:54.334926+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 90,
+    "total_sent": 91,
     "total_followups": 24
   },
   "daily_log": {
@@ -1755,14 +1773,16 @@
     },
     "2026-08-18": {
       "emails": [
-        "justin@render.com"
+        "justin@render.com",
+        "mahadev.patil@rolta.com"
       ],
       "companies": [
-        "render"
+        "render",
+        "rolta"
       ]
     }
   },
-  "last_live_send_at": "2026-08-18T03:14:12.284509+00:00",
+  "last_live_send_at": "2026-08-18T04:33:54.334914+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2365,7 +2385,14 @@
       "last_email": "justin@render.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "rolta": {
+      "company": "Rolta",
+      "last_contacted_at": "2026-08-18T04:33:54.335092+00:00",
+      "last_email": "mahadev.patil@rolta.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 35
+  "rotation_index": 36
 }
