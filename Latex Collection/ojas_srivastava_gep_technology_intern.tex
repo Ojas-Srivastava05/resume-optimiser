@@ -1,7 +1,9 @@
 %-------------------------
 % Resume — GEP Worldwide | Intern – Technology
 % Same clean layout as D. E. Shaw Systems Intern (education table + 10th/12th)
-% Tuned for shortlist + interview deep-dives: OOP, SQL, REST, full-stack product work
+% Tuned for interview: authentic overlap only (Node/React/SQL/CI, Gemini, Cursor,
+% scheduled pipelines). Career Automation Stack replaces AirHelp --- workflow
+% automation he actually owns. No GEP stack stuffing (no Angular/Kafka/LangGraph/Azure claims).
 %-------------------------
 \documentclass[a4paper,10pt]{article}
 \usepackage[empty]{fullpage}
@@ -14,38 +16,39 @@
 \usepackage{array}
 
 \pagestyle{empty}
-\geometry{left=1.1cm, top=0.32cm, right=1.1cm, bottom=0.32cm}
+\geometry{left=1.15cm, top=0.40cm, right=1.15cm, bottom=0.40cm}
 
 \urlstyle{same}
 \raggedright
-\setlength{\tabcolsep}{4pt}
+\setlength{\tabcolsep}{6pt}
 \setlength{\parskip}{0pt}
 
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3.5cm}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3.4cm}}
+\newcolumntype{K}{>{\bfseries\raggedright\arraybackslash}p{3.15cm}}
 
-\titleformat{\section}{\bfseries\large}{}{0em}{}[\vspace{1pt}\titlerule]
-\titlespacing{\section}{0pt}{6pt}{3pt}
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\vspace{2pt}{\titlerule}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
 
 \newcommand{\job}[4]{%
-  \vspace{1mm}
+  \vspace{1.4mm}
   \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
     \textbf{#1} & \textit{\small #2} \\
     \textit{\small #3} & \\
   \end{tabularx}\par
-  \vspace{0.5mm}%
+  \vspace{0.7mm}%
 }
 
 \newcommand{\proj}[4]{%
-  \vspace{1.5mm}
+  \vspace{1.6mm}
   \noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
     \textbf{#1} & \textit{\small #2} \\
-    \textit{\small #3} & \textit{\small #4} \\
   \end{tabularx}\par
+  {\small\textit{#3}\hfill\textit{#4}}\par
   \vspace{0.5mm}%
 }
 
-\setlist[itemize]{leftmargin=*, topsep=1pt, itemsep=1.2pt, parsep=0pt, partopsep=0pt}
+\setlist[itemize]{leftmargin=1.2em, labelsep=0.45em, topsep=1pt, itemsep=1.35pt, parsep=0pt, partopsep=0pt}
 
 \begin{document}
 \fontfamily{cmr}\selectfont
@@ -64,13 +67,13 @@
 
 \section{Education}
 \noindent
-{\renewcommand{\arraystretch}{1.25}%
-\begin{tabularx}{\textwidth}{@{}p{6.5cm} X >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.6cm}@{}}
+{\renewcommand{\arraystretch}{1.22}%
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{6.4cm} L >{\raggedleft\arraybackslash}p{2.1cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
 SVNIT Surat & B.Tech --- Artificial Intelligence & \textbf{9.20/10} & 2024--Present \\
 Shiv Jyoti Convent School, Kota & Class XII (CBSE) & 95.80\% & 2024 \\
 St.\ Joseph's College, Prayagraj & Class X (ICSE) & 97.20\% & 2022 \\
 \end{tabularx}}
-\vspace{1.5mm}
+\vspace{1.6mm}
 \noindent{\small\textit{Coursework:} Object-Oriented Programming, DBMS/SQL, Data Structures \& Algorithms, Design \& Analysis of Algorithms, Operating Systems, Computer Networks, Software Engineering, Computer Organization \& Architecture.}
 
 \section{Experience}
@@ -82,14 +85,13 @@ St.\ Joseph's College, Prayagraj & Class X (ICSE) & 97.20\% & 2022 \\
 \end{itemize}
 
 \section{Projects}
-\proj{LogiFlow --- Google Solution Challenge 2026 (Global Top 106)}{Apr--Jun 2026}
+\proj{LogiFlow --- Supply-Chain Routing (Google Solution Challenge 2026, Global Top 106)}{Apr--Jun 2026}
 {Python, FastAPI, TypeScript, Next.js, Redis, SQL, GCP Cloud Run, pytest}
 {\href{https://github.com/Ojas-Srivastava05/LogiFlow-Solution-Challenge-2026}{GitHub} \textbar{} \href{https://logi-flow-solution-challenge-2026.vercel.app}{Live}}
 \begin{itemize}
-  \item Technical Co-Lead: designed REST APIs in \textbf{FastAPI} and a \textbf{Next.js} frontend so route/decision results were queryable and visible in a live web app.
-  \item Built SQL/Python pipelines over \textbf{15,000+} train-day records---cleaning, joining, and validating inputs before they reached the services.
-  \item Added \textbf{Redis} caching for frequently read corridor/route data; deployed backend services on \textbf{GCP Cloud Run}; measured hot-path reads around \textbf{100--400 ms} after caching.
-  \item Wrote a \textbf{pytest} regression suite with \textbf{100/100} business-rule checks so broken pricing/routing logic fails in CI before release; documented API endpoints for teammates.
+  \item Technical Co-Lead: ranked logistics corridors on \textbf{time, cost, and delay risk} so operators could pick a route under real constraints---\textbf{580+} corridors from \textbf{15,000+} train-day operational records.
+  \item Built SQL/Python pipelines to clean, join, and validate those records; FastAPI + Next.js so ranked routes were queryable in a live app.
+  \item Cached hot corridor reads in \textbf{Redis} (\textbf{100--400 ms}) on \textbf{GCP Cloud Run}; \textbf{pytest} suite with \textbf{100/100} business-rule checks so broken pricing/routing logic fails in CI before release.
 \end{itemize}
 
 \proj{Community Hero --- Vibe2Ship 2026 (Global Top 20)}{Jun 2026}
@@ -97,31 +99,34 @@ St.\ Joseph's College, Prayagraj & Class X (ICSE) & 97.20\% & 2022 \\
 {\href{https://github.com/Ojas-Srivastava05/community-hero}{GitHub} \textbar{} \href{https://community-hero-987477089222.asia-south1.run.app}{Live}}
 \begin{itemize}
   \item Solo-owned end-to-end delivery: React/Express app, Firebase/\textbf{Firestore} data model, Cloud Run deploy, and live demo for a global Top-20 finish.
-  \item Implemented geo-tagged citizen reporting and an admin review panel; wrote API handlers with validation for empty/noisy submissions.
-  \item Integrated \textbf{Gemini API} for report categorization with guard checks so bad model output does not break routing; exercised mobile-friendly UI paths before release.
+  \item Integrated \textbf{Gemini API} for report categorization with guard checks so bad model output does not break routing; validated empty/noisy submissions before they hit the model.
 \end{itemize}
 
-\proj{AirHelp --- PowerMind Hackathon 2026}{2026}
-{Python, FastAPI, React, WebSockets}
-{\href{https://github.com/Ojas-Srivastava05/AirHelp-AI-Airport-Assistant}{GitHub}}
+\proj{Career Automation Stack --- Internship Scout, Hiring Scout, OA Forge}{Jun 2026--Present}
+{Python, TypeScript, Next.js, C++17, PostgreSQL/Supabase, GitHub Actions}
+{\href{https://github.com/Ojas-Srivastava05/automation-workflows}{GitHub}}
 \begin{itemize}
-  \item Built a FastAPI backend and React UI for airport-style Q\&A using a retrieval pipeline over structured + unstructured knowledge.
-  \item Added \textbf{WebSocket} channels for live-style alerts; load-tested with about \textbf{50--100} concurrent users and fixed bottlenecks found during the hackathon.
+  \item Solo-built scheduled pipelines: Internship Scout over \textbf{966} companies (ingest $\to$ dedup $\to$ HTML digest email) and Hiring Scout over \textbf{10.7k+} public contacts (\textbf{8.7k+} outreach-ready) with rate-limited SMTP---\textbf{8} \textbf{GitHub Actions} workflows.
+  \item OA Forge: company-specific OA practice with \textbf{14k+} evidence-tracked questions, \textbf{5.5k+} test cases, a hybrid \textbf{C++} judge (\texttt{g++}, subprocess limits), and timed mock sessions.
 \end{itemize}
 
 \section{Skills}
 \noindent\small
-\textbf{Cursor (AI IDE):} Daily Agent/Composer user (primary IDE). Built \textbf{Resume Optimiser} in Cursor: \textbf{966} company scout, \textbf{10.7k+} hiring contacts (\textbf{8.7k+} outreach-ready), OA Forge (\textbf{14k+} questions, \textbf{5.5k+} tests), \textbf{8} GitHub Actions workflows, \textbf{28k+} Python LOC, \textbf{69} resumes + \textbf{26} cover letters, \textbf{446} commits. \\[0.6mm]
-\textbf{Languages:} C, C++, Python, Java, SQL, TypeScript, JavaScript \\[0.6mm]
-\textbf{Core CS:} OOP, DBMS/SQL, DSA, Operating Systems, Computer Networks \\[0.6mm]
-\textbf{Backend \& Data:} REST APIs, FastAPI, Node.js/Express, MySQL, Redis, Firebase/Firestore, SQL/Python validation \\[0.6mm]
-\textbf{Frontend \& Deploy:} React, Next.js, GCP Cloud Run, Docker, CI/CD, Linux basics, Git, pytest
+{\renewcommand{\arraystretch}{1.28}%
+\begin{tabularx}{\textwidth}{@{}K >{\raggedright\arraybackslash}X@{}}
+Cursor & Daily \textbf{Agent/Composer} (primary IDE). \textbf{28k+} Python LOC, \textbf{446} commits; I spec and review every merge. \\
+MCP / plugins & GitHub, Supabase, Vercel, Firebase, Redis, Stitch, \textbf{Miro}. \\
+Languages & C, C++, Python, Java, SQL, TypeScript, JavaScript \\
+Core CS & OOP, DBMS/SQL, DSA, Operating Systems, Computer Networks \\
+Backend \& Data & REST APIs, FastAPI, Node.js/Express, MySQL, Redis, PostgreSQL/Supabase, Firebase/Firestore \\
+Frontend \& Deploy & React, Next.js, GCP Cloud Run, Docker, GitHub Actions, CI/CD, Linux basics, Git, pytest \\
+Applied AI & Gemini API with input/output guard checks. \\
+\end{tabularx}}
 
 \section{Achievements \& Leadership}
 \begin{itemize}
-  \item \textbf{Chairperson, Nexus --- NIT Surat} (Aug 2026--Present); previously Mentor, Representative, Social Media Coordinator, Member (Nov 2024--Present; \textbf{1 yr 10 mos}); workshops/mentoring for \textbf{500+} students
-  \item \textbf{LeetCode Knight:} peak \textbf{2048}, \textbf{744} solved, 32 contests; \textbf{Codeforces Specialist:} \textbf{1419}, \textbf{265} solved
-  \item \textbf{Google Solution Challenge 2026 --- Global Top 106}; \textbf{Vibe2Ship 2026 --- Global Top 20}
+  \item \textbf{Chairperson, Nexus SVNIT} (Aug 2026--Present): own planning and delivery of departmental tech initiatives---workshops, contests, and mentoring for \textbf{500+} students; journey Member $\to$ Social Media Coordinator $\to$ Academic Mentor $\to$ Technical Representative $\to$ Chairperson over \textbf{2 years}
+  \item \textbf{LeetCode Knight:} peak \textbf{2048}, \textbf{750+} solved, 32 contests; \textbf{Codeforces Specialist:} \textbf{1419}, \textbf{270} solved
   \item \textbf{McKinsey.org Forward Fellow (2026)}
 \end{itemize}
 
