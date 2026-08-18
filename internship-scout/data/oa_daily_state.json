@@ -696,7 +696,7 @@
     "unifyapps",
     "usaa"
   ],
-  "queue_index": 56,
+  "queue_index": 57,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -755,7 +755,8 @@
     "ey": 1,
     "thoughtworks": 1,
     "ramp-2": 1,
-    "tinder": 1
+    "tinder": 1,
+    "hopper": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -928,7 +929,10 @@
     ],
     "tinder": [
       "find-median-from-data-stream"
+    ],
+    "hopper": [
+      "reconstruct-itinerary"
     ]
   },
-  "last_run": "2026-08-17T03:05:20.243305+00:00"
+  "last_run": "2026-08-18T03:01:09.262764+00:00"
 }
