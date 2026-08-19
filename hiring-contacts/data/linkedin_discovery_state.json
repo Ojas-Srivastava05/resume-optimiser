@@ -1,5 +1,5 @@
 {
-  "rotation_index": 751,
+  "rotation_index": 763,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -300,13 +300,25 @@
     "royalenfield": "2026-08-17T02:19:47+00:00",
     "rsm": "2026-08-17T02:19:47+00:00",
     "rubrik": "2026-08-17T02:19:47+00:00",
-    "runway": "2026-08-17T02:19:47+00:00"
+    "runway": "2026-08-17T02:19:47+00:00",
+    "rupifi": "2026-08-19T02:18:35+00:00",
+    "salesforce": "2026-08-19T02:18:35+00:00",
+    "salesforceindia": "2026-08-19T02:18:35+00:00",
+    "sambanova": "2026-08-19T02:18:35+00:00",
+    "samsung": "2026-08-19T02:18:35+00:00",
+    "samsungrd": "2026-08-19T02:18:35+00:00",
+    "samsungrdinstituteindia": "2026-08-19T02:18:35+00:00",
+    "sanofiindia": "2026-08-19T02:18:35+00:00",
+    "santamonicastudio": "2026-08-19T02:18:35+00:00",
+    "sap": "2026-08-19T02:18:35+00:00",
+    "sas": "2026-08-19T02:18:35+00:00",
+    "sbisecurities": "2026-08-19T02:18:35+00:00"
   },
   "stats": {
-    "total_runs": 57,
+    "total_runs": 58,
     "total_profiles_found": 0,
-    "total_emails_verified": 147,
-    "last_run_at": "2026-08-17T02:19:47+00:00",
-    "last_batch_profiles": 13
+    "total_emails_verified": 159,
+    "last_run_at": "2026-08-19T02:18:35+00:00",
+    "last_batch_profiles": 12
   }
 }
