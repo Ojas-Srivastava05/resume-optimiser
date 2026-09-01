@@ -1762,37 +1762,31 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "lauren@runwayml.com": {
+      "email": "lauren@runwayml.com",
+      "company": "Runway",
+      "name": "Lauren Saltus",
+      "role_title": "Recruiter",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://runwayml.com/careers",
+      "quality_score": 95,
+      "subject": "Summer 2027 SWE intern \u2014 Runway",
+      "dry_run": false,
+      "sent_at": "2026-09-01T12:42:01.772942+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 92,
+    "total_sent": 93,
     "total_followups": 24
   },
   "daily_log": {
-    "2026-08-14": {
-      "emails": [
-        "astha.singh@razorpay.com",
-        "gabrielle.christy@renesas.com",
-        "katsiaryna.savik@revolut.com"
-      ],
-      "companies": [
-        "razorpayx",
-        "renesas",
-        "revolut"
-      ]
-    },
-    "2026-08-17": {
-      "emails": [
-        "chan@riotgames.com",
-        "akash.saxena@rivigo.com",
-        "aiden.sun@replit.com"
-      ],
-      "companies": [
-        "riotgames",
-        "rivigo",
-        "replit"
-      ]
-    },
     "2026-08-18": {
       "emails": [
         "justin@render.com",
@@ -1804,9 +1798,17 @@
         "rolta",
         "retool"
       ]
+    },
+    "2026-09-01": {
+      "emails": [
+        "lauren@runwayml.com"
+      ],
+      "companies": [
+        "runway"
+      ]
     }
   },
-  "last_live_send_at": "2026-08-18T08:03:51.986384+00:00",
+  "last_live_send_at": "2026-09-01T12:42:01.772932+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2423,7 +2425,14 @@
       "last_email": "matthew@retool.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "runway": {
+      "company": "Runway",
+      "last_contacted_at": "2026-09-01T12:42:01.773129+00:00",
+      "last_email": "lauren@runwayml.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 37
+  "rotation_index": 38
 }
