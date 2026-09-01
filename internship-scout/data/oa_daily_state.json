@@ -696,7 +696,7 @@
     "unifyapps",
     "usaa"
   ],
-  "queue_index": 58,
+  "queue_index": 59,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -757,7 +757,8 @@
     "ramp-2": 1,
     "tinder": 1,
     "hopper": 1,
-    "houzz": 1
+    "houzz": 1,
+    "coupa": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -936,7 +937,10 @@
     ],
     "houzz": [
       "remove-9|basic-calculator-iii"
+    ],
+    "coupa": [
+      "merge-intervals"
     ]
   },
-  "last_run": "2026-08-19T03:03:02.514168+00:00"
+  "last_run": "2026-09-01T07:37:10.368206+00:00"
 }
