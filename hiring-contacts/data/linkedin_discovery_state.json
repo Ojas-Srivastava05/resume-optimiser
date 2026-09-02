@@ -1,5 +1,5 @@
 {
-  "rotation_index": 763,
+  "rotation_index": 775,
   "probed": {
     "1mg": "2026-07-13T14:03:55+00:00",
     "1password": "2026-07-13T14:03:55+00:00",
@@ -312,13 +312,25 @@
     "santamonicastudio": "2026-08-19T02:18:35+00:00",
     "sap": "2026-08-19T02:18:35+00:00",
     "sas": "2026-08-19T02:18:35+00:00",
-    "sbisecurities": "2026-08-19T02:18:35+00:00"
+    "sbisecurities": "2026-08-19T02:18:35+00:00",
+    "scaleai": "2026-09-02T05:31:00+00:00",
+    "schlumberger": "2026-09-02T05:31:00+00:00",
+    "schneiderelectric": "2026-09-02T05:31:00+00:00",
+    "schonfeld": "2026-09-02T05:31:00+00:00",
+    "scotiabank": "2026-09-02T05:31:00+00:00",
+    "segment": "2026-09-02T05:31:00+00:00",
+    "sembly": "2026-09-02T05:31:00+00:00",
+    "sensibull": "2026-09-02T05:31:00+00:00",
+    "sentinelone": "2026-09-02T05:31:00+00:00",
+    "servicenow": "2026-09-02T05:31:00+00:00",
+    "setu": "2026-09-02T05:31:00+00:00",
+    "shadowfax": "2026-09-02T05:31:00+00:00"
   },
   "stats": {
-    "total_runs": 58,
+    "total_runs": 59,
     "total_profiles_found": 0,
-    "total_emails_verified": 159,
-    "last_run_at": "2026-08-19T02:18:35+00:00",
-    "last_batch_profiles": 12
+    "total_emails_verified": 174,
+    "last_run_at": "2026-09-02T05:31:00+00:00",
+    "last_batch_profiles": 15
   }
 }
