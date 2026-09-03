@@ -1877,13 +1877,33 @@
       "subject": "Summer 2027 SWE intern \u2014 SentinelOne",
       "dry_run": false,
       "sent_at": "2026-09-03T07:55:18.938259+00:00",
+      "followup_sent": true,
+      "followup_count": 1,
+      "reply_status": "no_reply",
+      "followup_cancelled": true,
+      "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "burcak.tuncer@rolandberger.com": {
+      "email": "burcak.tuncer@rolandberger.com",
+      "company": "Roland Berger",
+      "name": "Bur\u00e7ak Tun\u00e7er",
+      "role_title": "Human Resources Expert",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.rolandberger.com/en/Join/",
+      "quality_score": 95,
+      "subject": "Summer 2027 SWE intern \u2014 Roland Berger",
+      "dry_run": false,
+      "sent_at": "2026-09-03T12:12:57.082037+00:00",
       "followup_sent": false,
       "followup_count": 0,
       "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 98,
+    "total_sent": 99,
     "total_followups": 24
   },
   "daily_log": {
@@ -1911,14 +1931,16 @@
     },
     "2026-09-03": {
       "emails": [
-        "colleeng@sentinelone.com"
+        "colleeng@sentinelone.com",
+        "burcak.tuncer@rolandberger.com"
       ],
       "companies": [
-        "sentinelone"
+        "sentinelone",
+        "rolandberger"
       ]
     }
   },
-  "last_live_send_at": "2026-09-03T07:55:18.938248+00:00",
+  "last_live_send_at": "2026-09-03T12:12:57.082027+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2577,7 +2599,14 @@
       "last_email": "colleeng@sentinelone.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "rolandberger": {
+      "company": "Roland Berger",
+      "last_contacted_at": "2026-09-03T12:12:57.082213+00:00",
+      "last_email": "burcak.tuncer@rolandberger.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 43
+  "rotation_index": 44
 }
