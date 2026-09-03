@@ -1862,10 +1862,28 @@
       "reply_status": "no_reply",
       "followup_cancelled": true,
       "followup_cancel_reason": "policy:no_reply_followups_disabled"
+    },
+    "colleeng@sentinelone.com": {
+      "email": "colleeng@sentinelone.com",
+      "company": "SentinelOne",
+      "name": "Colleen Gallagher",
+      "role_title": "Senior Director of Recruiting",
+      "contact_type": "recruiter",
+      "confidence": "verified",
+      "in_scout_list": true,
+      "source_id": "linkedin:hunter_verified",
+      "career_portal": "https://www.sentinelone.com/careers/",
+      "quality_score": 100,
+      "subject": "Summer 2027 SWE intern \u2014 SentinelOne",
+      "dry_run": false,
+      "sent_at": "2026-09-03T07:55:18.938259+00:00",
+      "followup_sent": false,
+      "followup_count": 0,
+      "reply_status": "no_reply"
     }
   },
   "stats": {
-    "total_sent": 97,
+    "total_sent": 98,
     "total_followups": 24
   },
   "daily_log": {
@@ -1890,9 +1908,17 @@
         "rockwellautomation",
         "schonfeld"
       ]
+    },
+    "2026-09-03": {
+      "emails": [
+        "colleeng@sentinelone.com"
+      ],
+      "companies": [
+        "sentinelone"
+      ]
     }
   },
-  "last_live_send_at": "2026-09-02T16:47:36.811179+00:00",
+  "last_live_send_at": "2026-09-03T07:55:18.938248+00:00",
   "companies": {
     "meesho": {
       "company": "Meesho",
@@ -2544,7 +2570,14 @@
       "last_email": "dchyla@schonfeld.com",
       "status": "no_reply",
       "touch_count": 2
+    },
+    "sentinelone": {
+      "company": "SentinelOne",
+      "last_contacted_at": "2026-09-03T07:55:18.938435+00:00",
+      "last_email": "colleeng@sentinelone.com",
+      "status": "no_reply",
+      "touch_count": 2
     }
   },
-  "rotation_index": 42
+  "rotation_index": 43
 }
