@@ -696,7 +696,7 @@
     "unifyapps",
     "usaa"
   ],
-  "queue_index": 61,
+  "queue_index": 62,
   "cycles": 0,
   "company_visits": {
     "microsoft": 1,
@@ -760,7 +760,8 @@
     "houzz": 1,
     "coupa": 1,
     "poynt": 1,
-    "uber": 1
+    "uber": 1,
+    "sprinklr": 1
   },
   "sent_pairs": {
     "microsoft": [
@@ -948,7 +949,10 @@
     ],
     "uber": [
       "first-unique-number|squares-of-a-sorted-array"
+    ],
+    "sprinklr": [
+      "gas-station"
     ]
   },
-  "last_run": "2026-09-03T07:04:28.334680+00:00"
+  "last_run": "2026-09-04T07:08:21.293483+00:00"
 }
