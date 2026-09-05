@@ -82,6 +82,7 @@ jobs:
           MAX_EMAIL_SENDS: "2"
           FETCH_WORKERS: "24"
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          EXTRA_RECIPIENTS: ${{ secrets.EXTRA_RECIPIENTS }}
           SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
           SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

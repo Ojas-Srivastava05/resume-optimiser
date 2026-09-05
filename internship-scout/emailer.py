@@ -6,8 +6,18 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from zoneinfo import ZoneInfo
 
-from config import RECIPIENT_EMAIL, SMTP_APP_PASSWORD, SMTP_EMAIL
+from config import EXTRA_RECIPIENTS, RECIPIENT_EMAIL, SMTP_APP_PASSWORD, SMTP_EMAIL
 from filters import Job
+
+
+def digest_recipients() -> list[str]:
+    """Primary + extras, de-duplicated, order preserved."""
+    recipients: list[str] = []
+    for addr in (RECIPIENT_EMAIL, *EXTRA_RECIPIENTS):
+        addr = (addr or "").strip()
+        if addr and addr not in recipients:
+            recipients.append(addr)
+    return recipients
 
 
 def _group_by_source(jobs: list[Job]) -> dict[str, list[Job]]:
@@ -208,11 +218,16 @@ def send_digest(
     total_scanned: int = 0,
     hackathons: list | None = None,
     portal_coverage=None,
-) -> None:
+) -> list[str]:
+    """Send identical digest to all configured recipients. Returns emails sent to."""
     if not SMTP_APP_PASSWORD:
         raise RuntimeError(
             "SMTP_APP_PASSWORD missing. Copy .env.example to .env and add a Gmail app password."
         )
+
+    recipients = digest_recipients()
+    if not recipients:
+        raise RuntimeError("No recipients configured (RECIPIENT_EMAIL / EXTRA_RECIPIENTS)")
 
     hackathons = hackathons or []
     ist = datetime.now(ZoneInfo("Asia/Kolkata"))
@@ -227,11 +242,6 @@ def send_digest(
         subject = f"Scout: {' + '.join(parts)} — {ist.strftime('%d %b')}"
     else:
         subject = f"Scout: No new openings today — {ist.strftime('%d %b')}"
-
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = subject
-    msg["From"] = SMTP_EMAIL
-    msg["To"] = RECIPIENT_EMAIL
 
     text = build_digest_text(
         jobs,
@@ -249,20 +259,35 @@ def send_digest(
         hackathons=hackathons,
         portal_coverage=portal_coverage,
     )
-    msg.attach(MIMEText(text, "plain"))
-    msg.attach(MIMEText(html, "html"))
 
+    hint = (
+        "Gmail rejected login. SMTP_APP_PASSWORD must be a 16-character "
+        "Gmail *App Password*, not your normal Gmail password.\n"
+        "Create one: Google Account → Security → 2-Step Verification → "
+        "App passwords → Mail → copy the 16-char code into .env"
+    )
+    sent_to: list[str] = []
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as server:
-            server.login(SMTP_EMAIL, SMTP_APP_PASSWORD)
-            server.sendmail(SMTP_EMAIL, [RECIPIENT_EMAIL], msg.as_string())
+            try:
+                server.login(SMTP_EMAIL, SMTP_APP_PASSWORD)
+            except smtplib.SMTPAuthenticationError as exc:
+                if b"Application-specific password required" in getattr(exc, "smtp_error", b""):
+                    raise RuntimeError(hint) from exc
+                raise RuntimeError(f"Gmail auth failed. {hint}") from exc
+
+            for recipient in recipients:
+                msg = MIMEMultipart("alternative")
+                msg["Subject"] = subject
+                msg["From"] = SMTP_EMAIL
+                msg["To"] = recipient
+                msg.attach(MIMEText(text, "plain"))
+                msg.attach(MIMEText(html, "html"))
+                server.sendmail(SMTP_EMAIL, [recipient], msg.as_string())
+                sent_to.append(recipient)
     except smtplib.SMTPAuthenticationError as exc:
-        hint = (
-            "Gmail rejected login. SMTP_APP_PASSWORD must be a 16-character "
-            "Gmail *App Password*, not your normal Gmail password.\n"
-            "Create one: Google Account → Security → 2-Step Verification → "
-            "App passwords → Mail → copy the 16-char code into .env"
-        )
         if b"Application-specific password required" in getattr(exc, "smtp_error", b""):
             raise RuntimeError(hint) from exc
         raise RuntimeError(f"Gmail auth failed. {hint}") from exc
+
+    return sent_to

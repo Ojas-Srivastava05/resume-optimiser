@@ -8,11 +8,27 @@ from dotenv import load_dotenv
 ROOT = Path(__file__).resolve().parent
 load_dotenv(ROOT / ".env")
 
-RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL", "srivastavaojas454@gmail.com")
-SMTP_EMAIL = os.getenv("SMTP_EMAIL", RECIPIENT_EMAIL)
-SMTP_APP_PASSWORD = os.getenv("SMTP_APP_PASSWORD", "").replace(" ", "")
-ADZUNA_APP_ID = os.getenv("ADZUNA_APP_ID", "")
-ADZUNA_APP_KEY = os.getenv("ADZUNA_APP_KEY", "")
+def _getenv(key: str, default: str = "") -> str:
+    """Treat unset or blank env (e.g. empty CI secret) as default."""
+    raw = os.getenv(key)
+    if raw is None:
+        return default
+    raw = raw.strip()
+    return raw if raw else default
+
+
+RECIPIENT_EMAIL = _getenv("RECIPIENT_EMAIL", "srivastavaojas454@gmail.com")
+SMTP_EMAIL = _getenv("SMTP_EMAIL", RECIPIENT_EMAIL)
+SMTP_APP_PASSWORD = _getenv("SMTP_APP_PASSWORD", "").replace(" ", "")
+# Extra digests every run (comma-separated). Default: Vansh + Jatin.
+_DEFAULT_EXTRA = "rawatvans94@gmail.com,jatinnigam2118@gmail.com"
+EXTRA_RECIPIENTS = [
+    addr.strip()
+    for addr in _getenv("EXTRA_RECIPIENTS", _DEFAULT_EXTRA).split(",")
+    if addr.strip()
+]
+ADZUNA_APP_ID = _getenv("ADZUNA_APP_ID", "")
+ADZUNA_APP_KEY = _getenv("ADZUNA_APP_KEY", "")
 
 SEEN_JOBS_PATH = ROOT / "seen_jobs.json"
 GRAD_BATCH_YEAR = os.getenv("GRAD_BATCH_YEAR", "2028")

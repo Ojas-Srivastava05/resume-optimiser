@@ -197,7 +197,7 @@ def main() -> int:
 
     if not args.no_email:
         try:
-            send_digest(
+            recipients = send_digest(
                 to_send,
                 new_only=not args.full,
                 suppressed_count=len(suppressed),
@@ -205,17 +205,19 @@ def main() -> int:
                 hackathons=hackathons,
                 portal_coverage=portal_coverage,
             )
+            to_line = ", ".join(recipients) if recipients else "configured recipient"
             if to_send or hackathons:
                 parts = []
                 if to_send:
                     parts.append(f"{len(to_send)} internship listings")
                 if hackathons:
                     parts.append(f"{len(hackathons)} hackathons")
-                log(f"Email sent: {' + '.join(parts)} → configured recipient")
+                log(f"Email sent: {' + '.join(parts)} → {to_line}")
             else:
                 log(
                     f"Email sent: No new openings today "
-                    f"({len(suppressed)} suppressed at 2-send cap, {len(jobs)} total scanned)"
+                    f"({len(suppressed)} suppressed at 2-send cap, {len(jobs)} total scanned) "
+                    f"→ {to_line}"
                 )
         except RuntimeError as exc:
             log(f"Email failed: {exc}", level="ERROR")
