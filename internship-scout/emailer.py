@@ -276,15 +276,18 @@ def send_digest(
                     raise RuntimeError(hint) from exc
                 raise RuntimeError(f"Gmail auth failed. {hint}") from exc
 
-            for recipient in recipients:
-                msg = MIMEMultipart("alternative")
-                msg["Subject"] = subject
-                msg["From"] = SMTP_EMAIL
-                msg["To"] = recipient
-                msg.attach(MIMEText(text, "plain"))
-                msg.attach(MIMEText(html, "html"))
-                server.sendmail(SMTP_EMAIL, [recipient], msg.as_string())
-                sent_to.append(recipient)
+            # One SMTP transaction for everyone. Envelope RCPT TO includes all
+            # addresses; To: header lists them so Sent Mail proves delivery targets.
+            msg = MIMEMultipart("alternative")
+            msg["Subject"] = subject
+            msg["From"] = SMTP_EMAIL
+            msg["To"] = ", ".join(recipients)
+            msg.attach(MIMEText(text, "plain"))
+            msg.attach(MIMEText(html, "html"))
+            refused = server.sendmail(SMTP_EMAIL, recipients, msg.as_string())
+            if refused:
+                raise RuntimeError(f"Gmail refused some recipients: {refused}")
+            sent_to = list(recipients)
     except smtplib.SMTPAuthenticationError as exc:
         if b"Application-specific password required" in getattr(exc, "smtp_error", b""):
             raise RuntimeError(hint) from exc
