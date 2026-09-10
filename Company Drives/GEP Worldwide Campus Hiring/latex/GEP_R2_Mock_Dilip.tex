@@ -1,0 +1,178 @@
+% GEP R2 Mock --- Dilip Yadav profile --- 30 min
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm,top=1.9cm,bottom=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{1.5pt}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{0F5C4C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{soft}{HTML}{F3F6F5}
+\definecolor{qcol}{HTML}{9F1239}
+\definecolor{you}{HTML}{166534}
+\definecolor{youbg}{HTML}{ECFDF5}
+\definecolor{rulec}{HTML}{D7E3DE}
+\definecolor{tag}{HTML}{B45309}
+\definecolor{timec}{HTML}{1D4ED8}
+\definecolor{ivbg}{HTML}{FEF2F2}
+
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}GEP Intern -- Technology}
+\fancyhead[R]{\small\color{accent}\textbf{R2 Mock --- Dilip}}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{rulec}\hrule height 0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{12pt}{5pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{8pt}{3pt}
+
+\newcommand{\card}[1]{%
+  \par\vspace{4pt}%
+  \noindent\colorbox{soft}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{5pt}#1\vspace{5pt}}%
+  }\par\vspace{5pt}%
+}
+\newcommand{\IV}[1]{\par\vspace{4pt}\noindent\textcolor{qcol}{\textbf{Dilip.}}~\textit{#1}\par}
+\newcommand{\You}[1]{%
+  \par\vspace{2pt}%
+  \noindent\colorbox{youbg}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{3pt}\textcolor{you}{\textbf{\small You say.}}~#1\vspace{3pt}}%
+  }\par}
+\newcommand{\clk}[1]{\noindent\textcolor{timec}{\textbf{#1}}\quad}
+\newcommand{\src}[1]{\noindent{\footnotesize\color{tag}\textbf{Profile basis:} #1}\par\vspace{2pt}}
+\newcommand{\note}[1]{\noindent{\small\color{muted}\textit{#1}}\par\vspace{2pt}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{accent}R2 Mock --- Dilip Yadav}\\[5pt]
+  {\color{muted}30 minutes $\cdot$ Technical II $\cdot$ Ojas Srivastava}\\[3pt]
+  {\footnotesize\color{muted}Simulated from public profile: 10+ yrs GEP Mumbai, engineering mentor, ownership-focused R2.}
+\end{center}
+
+\src{GEP Software Engineer, Airoli, since Jun 2016. Public mentions as manager/mentor; engages with GEP Techathon (AI Agents). No public strictness reviews --- mock assumes firm-but-fair senior engineer.}
+
+\textit{Interviewer tone: calm, listens fully, then drills one level deeper. \textbf{First time you meet him} --- he has your resume (and may have R1 notes from another panelist), but treat this as a fresh conversation.}
+
+\card{
+\textbf{How to use.} Set a 30-minute timer. Read Dilip's line out loud (or have someone read it). Answer in the green boxes \textbf{without looking} until the block ends. Then compare.\\[4pt]
+\textbf{R2 intro (40 sec) --- not R1:}\\
+Good afternoon. I am Ojas Srivastava, pre-final year B.Tech AI at SVNIT Surat, 9.20. I actively compete in hackathons. On LogiFlow --- Google Solution Challenge Global Top 106 --- I was technical co-lead; I owned the railway, comparator, and hybrid pipelines and the test suite: 580-plus corridors, Redis caching, pytest 100 out of 100. I solo-built Community Hero for Vibe2Ship --- Global Top 20 --- end to end. I am Chairperson of Nexus --- core team of sixteen, initiatives for 500-plus students. I own the outcome on everything I build.\\[4pt]
+\textbf{Rules:} Say co-lead, not ``main lead.'' Every noun is a follow-up. If stuck: ``Closest I have used is \_\_\_.''
+}
+
+\section{Clock}
+
+\begin{tabular}{@{}clp{8.5cm}@{}}
+\clk{0:00--3:00} & Fresh open & First meeting. Full R2 intro (he has not heard you speak yet). \\
+\clk{3:00--15:00} & LogiFlow deep & Product pitch, your code, trade-offs, what broke. \\
+\clk{15:00--22:00} & Ownership + team & Nexus, conflict story, new stack, layman pitch. \\
+\clk{22:00--27:00} & Light technical & One easy follow-up (Fibonacci or purpose of OOP). \\
+\clk{27:00--30:00} & Close & Your question + thank you. \\
+\end{tabular}
+
+\section{Script}
+
+\subsection*{0:00 --- Opening}
+
+\IV{Hi Ojas, good afternoon. I am Dilip from the engineering team at GEP Mumbai. I have your resume here --- we have not met before. Tell me about yourself, keep it concise.}
+
+\You{R2 intro above. Then stop.}
+
+\IV{LogiFlow --- Global Top 106. That is what caught my eye. Before we go technical, explain it to me like I am a product manager. No code. What problem, who uses it, what do they get?}
+
+\You{A planner has freight to move. They set constraints --- budget, delivery window, acceptable delay risk --- and LogiFlow ranks corridors on time, cost, and delay so they pick one route, not guess. The product is the ranking and the trade-offs, not just a map. Without it, they call three brokers and hope.}
+
+\note{If he nods but stays silent, stop. Do not keep talking.}
+
+\subsection*{3:00 --- LogiFlow: your code vs team's}
+
+\IV{You said co-lead. In a team of four, what did \emph{you} personally write? Be specific. I will ask follow-ups on whatever you say.}
+
+\You{Railway pipeline: geometry, reads, ranking into the API, tests. Comparator and hybrid pipelines so the user sees trade-offs across modes. pytest suite --- 100 of 100 on pricing and routing rules. Frontend was shared; I do not claim every React file. Data ingest was shared.}
+
+\IV{Why Redis? Why not hit SQL every time? And be honest --- what happens when Redis is down?}
+
+\You{Corridor metadata is read-heavy. First version recomputed every request --- seconds of latency. Cache-aside: check Redis, miss then SQL, compute, SET with TTL. 100--400 ms. If Redis is down, FastAPI falls back to SQL --- slower but correct. Redis is never the source of truth.}
+
+\IV{You chose FastAPI and Next.js. At GEP we often work with C\# and Angular. Why that stack for LogiFlow, and would you be okay learning ours?}
+
+\You{Python because the pipelines are data-heavy --- pandas, sklearn for delay signal. FastAPI for typed async APIs. Next.js so the map can load with data already rendered. Trade-off: GEP's stack is enterprise-typed; I have not used C\# or Angular in production, but I picked up FastAPI and Cloud Run in weeks for LogiFlow. I would rather learn the team's stack than force mine.}
+
+\IV{SQL, not MongoDB. Why?}
+
+\You{Routing data is relational --- corridors join stations, legs, tariffs. I need joins and foreign keys. Mongo or Firestore fits self-contained blobs --- that is why Community Hero uses Firestore. LogiFlow needs ACID on tariff updates.}
+
+\subsection*{15:00 --- Ownership, Nexus, behavioral}
+
+\IV{You are Chairperson of Nexus --- sixteen people, five hundred students. That sounds like a title. What do you \emph{actually} own day to day?}
+
+\You{Planning and delivery of workshops, contests, mentoring for CSE and AI. Sixteen is the core third-year team; 500-plus is event reach across years, not daily headcount. We sit down, divide ownership per event, and I am accountable if something does not ship --- same habit as code.}
+
+\IV{LogiFlow was a team project. Tell me about a disagreement with a teammate and how you resolved it.}
+
+\You{We disagreed on cache layer --- API-level vs pipeline-level. I wanted API-level for simpler invalidation; teammate wanted pipeline-level for granularity. We benchmarked both on a branch. API-level won on simplicity with no latency difference. Evidence decided it, not ego.}
+
+\IV{Explain LogiFlow to my parents at dinner. No Redis, no FastAPI, no pytest.}
+
+\You{If you need to send goods from one city to another, you can use train, truck, or both. Each option costs different, takes different time, and some routes are more likely to be late. LogiFlow lists your options clearly --- cheapest, fastest, most reliable --- so you pick what fits your budget and deadline. Like Google Maps for shipping, but it shows trade-offs, not just one fastest line.}
+
+\subsection*{22:00 --- Light technical (may be skipped if time short)}
+
+\IV{Quick one --- print Fibonacci numbers between 5 and 50. Then tell me a second way if you have time.}
+
+\You{Iterative: a=0, b=1, loop while a $\leq$ 50, print if a $\geq$ 5. O(n) time, O(1) space. Second way: recursion with memo map --- also O(n) but O(n) space. Plain recursion without memo is exponential; I would not ship that.}
+
+\noindent{\small\textbf{Dry run.} 5, 8, 13, 21, 34. Stop at 55.}
+
+\IV{What is the purpose of OOP --- not the four pillars, the \emph{purpose}?}
+
+\You{Model a system as objects that own data and behaviour. Change stays local --- I can swap the railway pipeline without breaking the ranker. Reuse is a side effect, not the goal.}
+
+\subsection*{27:00 --- Close (HR may blend here)}
+
+\IV{Where do you see yourself in five years?}
+
+\You{At GEP, owning a piece of the system end to end --- not just writing code, but taking a requirement, breaking it down, shipping with a team, and being the person who answers for that deliverable. Still building when something in production breaks.}
+
+\IV{Hyderabad or Mumbai?}
+
+\You{Open to both. No family constraint. I will go where the team is.}
+
+\IV{Any questions for me?}
+
+\You{What does a good intern look like in the first eight weeks on your team? And how do interns typically contribute --- more on procurement software or supply-chain workflows?}
+
+\IV{Thank you, Ojas. We will get back to you through the campus process.}
+
+\You{Thank you, sir. I enjoyed the conversation.}
+
+\section{Score this mock}
+
+Rate each area \textbf{/10}. Pass bar: \textbf{7+} average.
+
+\begin{tabular}{@{}p{3.2cm}p{9cm}c@{}}
+\textbf{Intro} & Under 45s? Proof on LogiFlow (pipelines, numbers)? Stopped? & \rule{1.4cm}{0.4pt} \\
+\textbf{Product pitch} & Explained without code? User + problem + outcome? & \rule{1.4cm}{0.4pt} \\
+\textbf{Ownership} & Co-lead honest? Named \emph{your} files/pipelines? Nexus not inflated? & \rule{1.4cm}{0.4pt} \\
+\textbf{Trade-offs} & Redis, SQL, stack --- each had a ``why not the other''? & \rule{1.4cm}{0.4pt} \\
+\textbf{Behavioral} & Conflict story with resolution, not drama? Layman pitch clean? & \rule{1.4cm}{0.4pt} \\
+\textbf{Close} & 5-year answer grounded? Location both? Smart question? & \rule{1.4cm}{0.4pt} \\
+\end{tabular}
+
+\vspace{8pt}
+\card{\textbf{Pass bar.} You never said ``I led everything.'' You gave numbers only you can defend. You stayed calm when he drilled ``what did \emph{you} write?''\\[4pt]
+Next: \texttt{GEP\_R2\_Mock\_LeetCode.pdf} --- same timer, no notes.}
+
+\end{document}

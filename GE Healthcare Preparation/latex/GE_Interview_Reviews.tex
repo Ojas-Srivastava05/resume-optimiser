@@ -1,0 +1,161 @@
+% GE HealthCare --- what candidates were actually asked (scraped + senior intel)
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm,top=1.9cm,bottom=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{0B4F6C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{soft}{HTML}{EFF6FF}
+\definecolor{qcol}{HTML}{9F1239}
+\definecolor{rulec}{HTML}{BFDBFE}
+\definecolor{tag}{HTML}{B45309}
+
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}GE HealthCare EID / EEDP}
+\fancyhead[R]{\small\color{accent}\textbf{Interview reviews}}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{rulec}\hrule height 0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{15pt}{7pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{10pt}{4pt}
+\setlist[itemize]{leftmargin=1.15em, topsep=3pt, itemsep=3pt, parsep=0pt}
+
+\newcommand{\tg}[1]{\textcolor{tag}{\textbf{\footnotesize #1}}}
+\newcommand{\rnd}[1]{\textcolor{accent}{\textbf{#1}}}
+\newcommand{\q}[1]{\textcolor{qcol}{#1}}
+\newcommand{\card}[1]{%
+  \par\vspace{5pt}%
+  \noindent\colorbox{soft}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{6pt}#1\vspace{6pt}}%
+  }\par\vspace{7pt}%
+}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{accent}GE HealthCare --- what people were asked}\\[5pt]
+  {\color{muted}GFG + senior SVNIT + repo intel. No invented questions.}
+\end{center}
+
+\vspace{4pt}
+\card{
+\textbf{Labels.} \tg{Confirmed} = multiple reports. \tg{Repeated} = 2+ reports. \tg{One-off} = single post --- useful, not a promise.\\
+Full links: \texttt{sources/SCRAPED\_SOURCES.md}
+}
+
+\section{Process map (SVNIT-style, 2024--2025)}
+\begin{itemize}
+  \item \textbf{5 rounds} reported by senior + EEDP FTE write-ups: OA $\rightarrow$ HireVue $\rightarrow$ Tech $\rightarrow$ HR $\rightarrow$ Personality. \tg{Confirmed}
+  \item EEDP summer intern at SVNIT (Aug 2024): CGPA $>$ 7; CSE/ECE/Electrical eligible; 2-month internship.
+  \item Stipend EID 2027 form: \textbf{INR 40,000/month}, 8 weeks; PPO pathway to EEDP + 6-month spring intern.
+  \item Location: often \textbf{Bengaluru} (JFW Technology Centre) for software tracks.
+\end{itemize}
+
+\section{Senior SVNIT --- 2025 (highest signal for your batch)}
+\card{
+\rnd{Round 1 --- OA.} \textbf{2 DSA} + \textbf{20 MCQs} CS fundamentals (OS, DBMS, CN, OOP).\\[4pt]
+\rnd{Round 2 --- HireVue.} $\sim$5 recorded Qs; 30--60s think time; \textbf{3 attempts} each. Intro, why GE, etc.\\[4pt]
+\rnd{Round 3 --- Technical.} \textbf{Panel-dependent}. Senior: 75 min. Mostly \textbf{logic}, not always live hardcoding. Heavy \textbf{project} depth (accuracy, architecture, improvements). One panel: \textbf{design testing software} (hints given).\\[4pt]
+\rnd{Round 4 --- HR.} $\sim$15 min. Hobbies, clubs, teamwork.\\[4pt]
+\rnd{Round 5 --- Personality.} 100 situational (untimed) + 3 timed puzzle games (simple).\\[4pt]
+\textbf{Prep:} GFG fundamentals; Striver DSA; every resume project cold.
+}
+
+\section{PCON --- EID Intern 2024 (named EID role)}
+\card{
+\rnd{OA (90 min, 3 sections).} Reasoning + CS MCQs (OOP, CN, OS) + \textbf{2 Med--Hard coding} (trees / graphs / DP).\\[4pt]
+\rnd{Technical (45--60 min).} Intro $\rightarrow$ DSA + CS fundamentals.\\
+\q{Two Sum} and \q{Sum of Leaf Nodes} --- must implement using \textbf{OOP concepts} (classes/methods), not bare functions.\\
+Then DBMS, OS, OOP fundamentals.\\[4pt]
+\rnd{HR.} Strengths/weaknesses with reasons; challenges during college semesters.\\[3pt]
+\textbf{Tip from selected candidate:} implement interview coding with OOP; ask interviewer questions; know company values.\\
+\href{https://pcon-app.vercel.app/blogs/cltfdffwe0003k1a1zpsw2i5g}{PCON EID Intern 2024 write-up}
+}
+
+\section{GFG --- SDE Intern, SVNIT Aug 2024}
+\card{
+\rnd{OA (2 hr).} Coding + English + logical reasoning + aptitude. \textbf{Coding unique per student.}\\[3pt]
+\q{248-digit problem:} count numbers in $[1,n]$ where digits 2, 4, 8 appear with equal \textbf{nonzero} frequency. \tg{One-off}\\
+\q{Pencils:} min height after cut operations on pencil lengths. \tg{One-off}\\
+Peers also saw: zig-zag tree traversal, Euler cycle.\\[4pt]
+\rnd{Technical (30 min).} C++ OOP: copy constructor, virtual functions, overriding. MERN projects. \q{ChatGPT uses which type of ML?}\\[4pt]
+\rnd{HR.} Competitors, relocation, GE products. \textbf{Rejected at HR} despite clearing tech --- take HR seriously.
+}
+
+\section{GFG --- On-Campus SVNIT (on-campus-3)}
+\card{
+\rnd{OA.} Math + DSA MCQ + English + \textbf{2 coding} (one easy, one \textbf{DP}).\\[4pt]
+\rnd{Technical (30--35 min).} Expected MERN deep-dive; got \textbf{3 DSA} instead:\\
+\q{All diagonals of N$\times$N matrix} \quad \q{LL insert \& delete} \quad math problem.\\[3pt]
+Then OOP, DBMS (ACID), Java polymorphism compile vs runtime.\\[4pt]
+\rnd{HR.} Strengths/weaknesses, why GE HealthCare, challenge STAR story.
+}
+
+\section{GFG --- EEDP FTE On-Campus (5 rounds)}
+\card{
+\rnd{Round 1.} 50 MCQs (OOP, DBMS, OS, CN, aptitude) in 50 min + 2 coding in 45 min.\\[3pt]
+\rnd{Round 2.} Pymetrics personality games (similar to situational + games).\\[3pt]
+\rnd{Round 3 --- Technical (up to 90 min).} Why GE; \textbf{implement runtime polymorphism live}; implement vector (with hints); \textbf{OSI 7 layers in depth}; Fibonacci; DB normalization; race conditions \& locks; threads vs processes; project questions.\\[3pt]
+\rnd{Round 4 --- Manager.} GE website research; hobbies; technologies worked on.\\[3pt]
+\rnd{Round 5 --- HR.} Projects; why GE; prove teamwork with example; other offers.
+}
+
+\section{GFG --- Off-Campus 2021 (Cocubes)}
+\card{
+\rnd{OA (3 sections, one sitting).} Aptitude + logical + grammar $\rightarrow$ technical MCQs $\rightarrow$ \textbf{2 coding}. Must clear cutoff per section.\\[4pt]
+\rnd{Technical.} CRUD; OOP with \textbf{live examples}; array reverse; stack/queue; tree traversals; prefix/postfix; REST/JSON vs XML; JDBC; 3-tier architecture; OSI; DHCP.\\[4pt]
+\rnd{Manager.} Project every detail; hackathon X-factor; SQL \q{third highest salary}; DevOps early-release scenario; IPv4 vs IPv6; cloud SaaS/PaaS/IaaS. \textit{``Every line of code touches 250M lives''}.\\[4pt]
+\rnd{HR.} GE history (Edison); career domain; compensation.
+}
+
+\section{InterviewSense --- SE Intern Summer 2026 (US signal)}
+\card{
+Not India campus --- still useful for \textbf{coding pattern} rehearsal.\\[3pt]
+\rnd{OA / coding.} 2 LC-medium in $\sim$70 min. Reported: \q{longest substring without repeating characters}, \q{group anagrams}, \q{merge overlapping intervals}, sliding-window follow-ups.\\[3pt]
+\rnd{Light system design.} Rate limiter; notification fan-out --- know failure modes, not enterprise architecture.\\[3pt]
+\href{https://www.interviewsense.org/opportunities/ge-healthcare-software-engineering-intern-summer-2026-salt-lake-city-ut/}{InterviewSense SE Intern Summer 2026}
+}
+
+\section{Repo intel --- recurring OA / PI probes}
+\begin{itemize}
+  \item MCQ: TCP/IP, OOP, normalization, indexing. \tg{Repeated}
+  \item Coding: Two Sum (hash map); array manipulation; tree level-order. \tg{Repeated}
+  \item PI: OOP encapsulation/inheritance/polymorphism + \textbf{code it}. \tg{Confirmed}
+  \item PI: Deep project walkthrough; demo link broken? error handling. \tg{Repeated}
+  \item SDLC, unit vs integration testing, regulated-environment mindset (medical-adjacent software). \tg{Repeated for SW intern JDs}
+\end{itemize}
+
+\section{What to prepare (priority order)}
+\begin{enumerate}
+  \item \textbf{Resume projects} --- workflow, auth, backend logic, improvements (see \texttt{GE\_Project\_Drill.pdf})
+  \item \textbf{DSA logic} --- Striver Easy/Medium; explain approach before code
+  \item \textbf{CS fundamentals} --- OOP (code), OS, DBMS, CN (GFG MCQ sets)
+  \item \textbf{HireVue scripts} --- intro, why GE, why healthcare (see \texttt{GE\_HireVue\_Prep.pdf})
+  \item \textbf{HR} --- clubs (Nexus), Web Wonder team lead, teamwork STAR
+  \item \textbf{Personality games} --- stay consistent; don't overthink situational section
+\end{enumerate}
+
+\section{Interview tactics}
+\begin{itemize}
+  \item \textbf{Drive toward strengths:} mention Django auth, quiz logic, team leadership early.
+  \item \textbf{Logic $>$ syntax:} narrate approach; ask clarifying questions.
+  \item \textbf{OOP + DSA:} if asked to code Two Sum / tree sum, wrap in a class (EID 2024 pattern).
+  \item \textbf{Stuck on design?} Think aloud; ask for hints --- senior's interviewer helped.
+  \item \textbf{Don't assume live demo} --- but know URLs and 2-min demo script anyway.
+  \item \textbf{Healthcare angle:} reliability, testing, clear documentation --- even without PHI data.
+\end{itemize}
+
+\end{document}

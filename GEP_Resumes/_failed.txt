@@ -1,0 +1,34 @@
+# GEP internship resumes that could not be downloaded
+
+U24AI066	Arti Jangid	failed	gdrive failed id=17yg3XFsGuFqham37sIMeuvI9hDq7eWu_: html from https://docs.google.com/uc?export=download&id=17yg3XFsGuFqham37sIMeuvI9hDq7eWu_ status=200 len=1242928	https://drive.google.com/file/d/17yg3XFsGuFqham37sIMeuvI9hDq7eWu_/view?usp=drivesdk
+u24ai058	Md Aftab Siddiqui	failed	gdrive failed id=1j17INhUUettUkwHgXHTFNF_Tyga6iCvL: html from https://docs.google.com/uc?export=download&id=1j17INhUUettUkwHgXHTFNF_Tyga6iCvL status=404 len=1652	https://drive.google.com/file/d/1j17INhUUettUkwHgXHTFNF_Tyga6iCvL/view?usp=drive_link
+U24AI088	Patel Suhaniben Hasmukhbhai	failed	overleaf download failed: http 404 for https://www.overleaf.com/read/tkjgkmngxtdh/download	https://www.overleaf.com/read/tkjgkmngxtdh#48415b
+u24ai050	Neha Sharma	failed	overleaf download failed: http 404 for https://www.overleaf.com/read/qpbmdymhxcwx/download	https://www.overleaf.com/read/qpbmdymhxcwx#11c4f2
+U24AI055	Zaid Ajmeri	failed	gdrive failed id=1pvJa4OUtsC0gQFwIlrClAgjenx66yypu: html from https://docs.google.com/uc?export=download&id=1pvJa4OUtsC0gQFwIlrClAgjenx66yypu status=200 len=1241538	https://drive.google.com/file/d/1pvJa4OUtsC0gQFwIlrClAgjenx66yypu/view?usp=drivesdk
+u24ai096	Sonali	failed	overleaf download failed: http 404 for https://www.overleaf.com/read/jgjbddpxzptx/download	https://www.overleaf.com/read/jgjbddpxzptx#01ed24
+U24AI124	Neeharika Tera	skipped	local file path, not a URL	file:///D:/Resume/14-7-26%20SDE%20roles.pdf
+U24MC015	Ved Sen	failed	gdrive failed id=1orj5QL1nq-oYOHzURmhNOfNBeunU4xMF: html from https://docs.google.com/uc?export=download&id=1orj5QL1nq-oYOHzURmhNOfNBeunU4xMF status=200 len=1241623	https://drive.google.com/file/d/1orj5QL1nq-oYOHzURmhNOfNBeunU4xMF/view?usp=drivesdk
+U24AI105	Bandari srujan	failed	got html from https://go.fliplink.me/view/CE2E4C26-EADB-4EDB-A58C-5C86F1A403C3 (48412 bytes)	https://go.fliplink.me/view/CE2E4C26-EADB-4EDB-A58C-5C86F1A403C3
+U24AI078	Vishva Trivedi	failed	got html from https://canva.link/m0x91z5nma8fbku (290006 bytes)	https://canva.link/m0x91z5nma8fbku
+U24ai122	Vrunda patel	failed	gdrive failed id=1TgLryFlSOHvcPch6RksH64D68H3SHatY: html from https://docs.google.com/uc?export=download&id=1TgLryFlSOHvcPch6RksH64D68H3SHatY status=200 len=1241755	https://drive.google.com/file/d/1TgLryFlSOHvcPch6RksH64D68H3SHatY/view?usp=sharing
+U24AI106	Kasha Ashwith	failed	overleaf download failed: http 404 for https://www.overleaf.com/read/qxjpxztpbfqc/download	https://www.overleaf.com/read/qxjpxztpbfqc#61c265
+U24AI111	Yarlagadda Sarath Chaitanya	failed	overleaf download failed: http 404 for https://www.overleaf.com/read/qdnsjkqjsnbq/download	https://www.overleaf.com/read/qdnsjkqjsnbq#42faba
+U24AI025	Raja Rathan Paida	failed	gdrive failed id=10n76Wz3K0OmCaQatRCBg_-2PdBnExTuN: html from https://docs.google.com/uc?export=download&id=10n76Wz3K0OmCaQatRCBg_-2PdBnExTuN status=200 len=1241712	https://drive.google.com/file/d/10n76Wz3K0OmCaQatRCBg_-2PdBnExTuN/view?usp
+U24CS151	Purvaa Trivedi	failed	gdrive failed id=1pPlByFSJKhYTgokdsivPdUtXlOcgtLsZ: html from https://docs.google.com/uc?export=download&id=1pPlByFSJKhYTgokdsivPdUtXlOcgtLsZ status=200 len=1241725	https://drive.google.com/file/d/1pPlByFSJKhYTgokdsivPdUtXlOcgtLsZ/view?usp=sharing
+U24CS128	Pratiksha Himatlal Jani	failed	gdrive failed id=1tv2FqNnIrSdf1bqFA7lRGFK0i6nkwz8T: html from https://docs.google.com/uc?export=download&id=1tv2FqNnIrSdf1bqFA7lRGFK0i6nkwz8T status=200 len=1241514	https://drive.google.com/file/d/1tv2FqNnIrSdf1bqFA7lRGFK0i6nkwz8T/view?usp=drive_link
+U23CS077	HARSHIT RAJNEESH SINGHAL	skipped	empty link	
+U24CS061	Vaishali Dak	failed	gdrive failed id=1aGRkNo3txaL2nG7hpv8R_dR8zCeIUgtU: html from https://docs.google.com/uc?export=download&id=1aGRkNo3txaL2nG7hpv8R_dR8zCeIUgtU status=200 len=1241632	https://drive.google.com/file/d/1aGRkNo3txaL2nG7hpv8R_dR8zCeIUgtU/view?usp=drive_link
+U24CS072	Pal Ravikumar Thakkar	failed	gdrive failed id=1AEnPeSLSY5jBFCPSZDRmTQfRFVrlG_7G: html from https://docs.google.com/uc?export=download&id=1AEnPeSLSY5jBFCPSZDRmTQfRFVrlG_7G status=200 len=1241575	https://drive.google.com/file/d/1AEnPeSLSY5jBFCPSZDRmTQfRFVrlG_7G/view?usp=drive_link
+U24CS040	Umesh Chandra Pinninti	failed	gdrive failed id=1Y2D8pCRfPRxoaXgQA2uldoqR-3KneWXc: html from https://docs.google.com/uc?export=download&id=1Y2D8pCRfPRxoaXgQA2uldoqR-3KneWXc status=200 len=1241726	https://drive.google.com/file/d/1Y2D8pCRfPRxoaXgQA2uldoqR-3KneWXc/view?usp=drive_link
+U24CS035	Rupesh Chaudhary	failed	gdrive failed id=1txCn9AU590CvAH7mJN2nclzpFH0gL2FY: html from https://docs.google.com/uc?export=download&id=1txCn9AU590CvAH7mJN2nclzpFH0gL2FY status=200 len=1241774	https://drive.google.com/file/d/1txCn9AU590CvAH7mJN2nclzpFH0gL2FY/view?usp=drivesdk
+U24CS069	Varshit Bollam	skipped	empty link	
+U24CS163	Kranthi Kiran Parlapalli	skipped	not a url: Kranthi	Kranthi
+U24CS074	Rudra Patni	failed	overleaf download failed: http 404 for https://www.overleaf.com/project/6a6f624b0df2d4aa967a7428/output/output.pdf	https://www.overleaf.com/project/6a6f624b0df2d4aa967a7428
+U24CS004	Shyamkumar Harkhani	failed	OneDrive requires Microsoft sign-in	https://1drv.ms/w/c/75FADC5305BC40DD/AeroleeZ8_1JuOif6qrMVZw?e=lMjYp3
+U24CS027	Tarun Vadivelan	skipped	empty link	
+U24CS063	Meet Jadav	failed	gdrive failed id=1uZJvZVT47qWkFTiHUi4tog5x9kX0TyCO: html from https://docs.google.com/uc?export=download&id=1uZJvZVT47qWkFTiHUi4tog5x9kX0TyCO status=200 len=1242118	https://drive.google.com/file/d/1uZJvZVT47qWkFTiHUi4tog5x9kX0TyCO/view?usp=drive_link
+U24CS010	Joann Joseph	failed	gdrive failed id=1JXqtoemlPHkvYEarcfD7wI9JuczhpcJd: html from https://docs.google.com/uc?export=download&id=1JXqtoemlPHkvYEarcfD7wI9JuczhpcJd status=200 len=1241999	https://drive.google.com/file/d/1JXqtoemlPHkvYEarcfD7wI9JuczhpcJd/view?usp=drivesdk
+U24CS096	Jerome Amuthan	skipped	empty link	
+U24MC022	Samarth Nageshi	failed	gdrive failed id=1Joan9oEQvAsxYcEqR1rDagDWNtclvjxT: html from https://docs.google.com/uc?export=download&id=1Joan9oEQvAsxYcEqR1rDagDWNtclvjxT status=200 len=1241605	https://drive.google.com/file/d/1Joan9oEQvAsxYcEqR1rDagDWNtclvjxT/view?usp=drivesdk
+U24MC026	Kalsariya Prince	failed	gdrive failed id=1P7l3WmHhUmksKvE9xO0IKrSMtvmkjjk_: html from https://docs.google.com/uc?export=download&id=1P7l3WmHhUmksKvE9xO0IKrSMtvmkjjk_ status=200 len=1241502	https://drive.google.com/file/d/1P7l3WmHhUmksKvE9xO0IKrSMtvmkjjk_/view?usp=drivesdk
+U24MC018	Jignal Gamit	failed	gdrive failed id=1Jk1n6GRYrW1Vlbx78oOwG5YIuujVl_Qq: html from https://docs.google.com/uc?export=download&id=1Jk1n6GRYrW1Vlbx78oOwG5YIuujVl_Qq status=200 len=1241911	https://drive.google.com/file/d/1Jk1n6GRYrW1Vlbx78oOwG5YIuujVl_Qq/view?usp=drivesdk

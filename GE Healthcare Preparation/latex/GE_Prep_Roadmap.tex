@@ -1,0 +1,122 @@
+% GE HealthCare EID --- Prep Roadmap
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.4cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{0B4F6C}
+\definecolor{must}{HTML}{B91C1C}
+\definecolor{should}{HTML}{B45309}
+\color{black}
+
+\titleformat{\section}{\bfseries\large\color{accent}}{\thesection.}{0.5em}{}
+\setlist[itemize]{leftmargin=1.2em, itemsep=2pt}
+
+\begin{document}
+\begin{center}
+  {\LARGE\bfseries GE HealthCare EID --- Prep Roadmap}\\[4pt]
+  {\small Companion: \texttt{GE\_Question\_Practice\_Roadmap.pdf} (if created) \textbar{} Sources: \texttt{sources/SCRAPED\_SOURCES.md}}
+\end{center}
+
+\section{What you're preparing for}
+\textbf{Edison Internship Development (EID) 2027 --- Software (SW).}\\
+8-week summer internship; INR 40k/month; high performers considered for PPO into \textbf{EEDP}.
+
+\textbf{Likely pipeline (SVNIT 2025 senior + GFG 2024--25):}
+\begin{enumerate}
+  \item OA (2 DSA + CS MCQs)
+  \item HireVue (recorded behavioral)
+  \item Technical (projects + DSA + fundamentals)
+  \item HR (15 min)
+  \item Personality assessment (situational + games)
+\end{enumerate}
+
+\section{Priority matrix}
+\noindent\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Priority} & \textbf{Topic} & \textbf{Resource} \\
+\hline
+\textcolor{must}{MUST} & Striver Easy/Medium DSA & Striver SDE sheet \\
+\textcolor{must}{MUST} & OS, DBMS, OOP, CN MCQs & GeeksforGeeks \\
+\textcolor{must}{MUST} & EduAce + Beneath The Blue deep-dive & GE\_Project\_Drill.pdf \\
+\textcolor{must}{MUST} & HireVue scripts & GE\_HireVue\_Prep.pdf \\
+\textcolor{should}{SHOULD} & OOP live coding (polymorphism) & C++ or Python classes \\
+\textcolor{should}{SHOULD} & Testing / SDLC vocabulary & Cheat sheet S7 \\
+\textcolor{should}{SHOULD} & GE company research & gehealthcare.com \\
+\hline
+\end{tabular}
+
+\section{5-day crash plan (if OA is soon)}
+\subsection{Day 1 --- OA coding}
+\begin{itemize}
+  \item Striver: Arrays (Two Sum, Kadane, prefix sum), Strings (first unique, anagram)
+  \item 2 timed mocks: 45 min each, 2 problems
+  \item Read \texttt{GE\_OA\_Interview\_Cheat\_Sheet.pdf} once
+\end{itemize}
+
+\subsection{Day 2 --- CS fundamentals MCQ}
+\begin{itemize}
+  \item GFG: OOP, OS, DBMS, CN --- 30 MCQs each topic
+  \item Flash: ACID, deadlock, OSI layers, JOIN types
+\end{itemize}
+
+\subsection{Day 3 --- Projects}
+\begin{itemize}
+  \item Complete \texttt{GE\_Project\_Drill.pdf} out loud
+  \item Draw 3-tier architecture for EduAce and Beneath The Blue
+  \item Prepare ``how to improve'' and ``testing strategy'' for each project
+\end{itemize}
+
+\subsection{Day 4 --- HireVue + HR}
+\begin{itemize}
+  \item Record 5 HireVue answers on phone (3 takes each)
+  \item HR: hobbies, Nexus, Web Wonder teamwork story
+  \item Research 2 GE HealthCare products + 1 competitor
+\end{itemize}
+
+\subsection{Day 5 --- Mock + rest}
+\begin{itemize}
+  \item 60-min mock: 10 min intro/projects, 20 min DSA logic, 15 min OOP/OS/DBMS, 15 min HR
+  \item Light review only; sleep well before OA
+\end{itemize}
+
+\section{Technical round --- question types to rehearse}
+\begin{itemize}
+  \item Explain project workflow end-to-end (2 min each project)
+  \item Django auth: login, session, protected routes
+  \item DSA: matrix diagonals, LL ops, tree BFS --- \textbf{explain logic first}
+  \item OOP: inheritance + polymorphism with code sketch
+  \item DBMS: ACID, normalization, simple SQL
+  \item OS: thread vs process, deadlock, race condition + lock
+  \item Design: testing tool / 3-tier / API --- think aloud, ask hints
+  \item ML lite: supervised vs unsupervised; ChatGPT = generative LLM (not hard ML math)
+\end{itemize}
+
+\section{Striver sheet --- minimum set}
+\textbf{Arrays:} Two Sum, Max Subarray, Contains Duplicate, Move Zeroes\\
+\textbf{Strings:} Valid Anagram, First Unique Character, Valid Parentheses\\
+\textbf{Linked List:} Reverse, Merge Two Lists\\
+\textbf{Trees:} Level Order, Max Depth\\
+\textbf{DP:} Climbing Stairs\\
+\textbf{Graph:} Number of Islands (BFS/DFS)
+
+\section{Links}
+\begin{itemize}
+  \item LeetCode: \url{https://leetcode.com/u/Rawat_987/}
+  \item EduAce: \url{https://eduace.onrender.com/}
+  \item Beneath The Blue: \url{https://beneath-the-blue-1-3c6o.onrender.com/}
+  \item GitHub: \url{https://github.com/Vansh-ai406/}
+\end{itemize}
+
+\section{Do NOT skip}
+\begin{itemize}
+  \item HR round --- SVNIT 2024 report: cleared tech, rejected HR
+  \item Personality consistency --- don't game situational tests
+  \item Panel variance --- prepare fundamentals even if you expect project-only
+\end{itemize}
+
+\end{document}

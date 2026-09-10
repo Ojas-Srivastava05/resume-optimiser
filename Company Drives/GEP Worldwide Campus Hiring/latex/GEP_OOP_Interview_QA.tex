@@ -1,0 +1,201 @@
+% GEP campus OOP interview Q&A --- questions actually asked
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm,top=1.9cm,bottom=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{1.5pt}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{0F5C4C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{soft}{HTML}{F3F6F5}
+\definecolor{qcol}{HTML}{9F1239}
+\definecolor{you}{HTML}{166534}
+\definecolor{youbg}{HTML}{ECFDF5}
+\definecolor{rulec}{HTML}{D7E3DE}
+\definecolor{tag}{HTML}{B45309}
+
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}GEP Intern -- Technology}
+\fancyhead[R]{\small\color{accent}\textbf{OOP Q\&A}}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{rulec}\hrule height 0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{12pt}{5pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{9pt}{3pt}
+\setlist[itemize]{leftmargin=1.1em, topsep=2pt, itemsep=2pt, parsep=0pt}
+
+\newcommand{\card}[1]{%
+  \par\vspace{4pt}%
+  \noindent\colorbox{soft}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{5pt}#1\vspace{5pt}}%
+  }\par\vspace{5pt}%
+}
+\newcommand{\Q}[1]{\par\vspace{5pt}\noindent\textcolor{qcol}{\textbf{Q.}}~\textbf{#1}\par}
+\newcommand{\T}[1]{\noindent{\small\color{muted}\textit{Typical: #1}}\par\vspace{1pt}}
+\newcommand{\You}[1]{%
+  \par\vspace{1pt}%
+  \noindent\colorbox{youbg}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{3pt}\textcolor{you}{\textbf{\small You say.}}~#1\vspace{3pt}}%
+  }\par}
+\newcommand{\src}[1]{\par\noindent{\footnotesize\color{tag}\textbf{Asked at GEP:} #1}\par\vspace{2pt}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{accent}GEP OOP interview Q\&A}\\[5pt]
+  {\color{muted}Ojas Srivastava $\cdot$ Only questions from real GEP / on-campus reports}\\[3pt]
+  {\footnotesize\color{muted}Sarthak Chauhan (SVNIT $\rightarrow$ PPO) $\cdot$ GFG intern/SDE-1 $\cdot$ TalentBattle Airoli}
+\end{center}
+
+\card{
+\textbf{How GEP runs OOP (10 min is common).}\\
+They do not want textbook lists. They pick \textbf{one pillar}, push for a \textbf{real-world example}, then jump to \textbf{polymorphism + inheritance}. Round 2 adds \textbf{design a bank / Zoomcar} and keyword drills (static, friend, access specifiers).\\
+\textbf{Rule:} every answer gets a LogiFlow or IFFCO example. Speak in 2--4 sentences, then stop.
+}
+
+\section{The four pillars --- with real-world examples}
+
+\src{Sarthak Chauhan, R1 --- ``Explain pillars of OOP'' + heavy follow-up on polymorphism and inheritance.}
+
+\Q{Explain the four pillars of OOP with real-world examples.}
+\T{Lists four words and stops.}
+\You{Encapsulation --- my route service hides Redis; callers only see \texttt{getRoutes()}. Abstraction --- a steering wheel: you turn it without knowing the rack. Inheritance --- \texttt{Vehicle} $\rightarrow$ \texttt{Car}/\texttt{Truck} share start/stop, each adds its own behaviour. Polymorphism --- I call \texttt{cost()} and a railway route and a road route compute it differently.}
+
+\Q{Go deeper on polymorphism and inheritance.}
+\T{Repeats definitions louder.}
+\You{Inheritance is ``is-a'' reuse --- three LogiFlow pipelines share the same output shape. Polymorphism is one interface, many behaviours --- compile-time is overloading, runtime is overriding through a base type. The ranker calls the same method on railway, comparator and hybrid output; it only cares about time, cost and delay.}
+
+\Q{What is the purpose of OOP?}
+\src{GFG intern, R2 (10 min round).}
+\T{``To make code reusable.''}
+\You{To model a system as objects that own data and behaviour. Change stays local --- I can swap the railway pipeline without touching the ranker. Reuse is a side effect; the goal is a system you can reason about and change safely.}
+
+\Q{Abstraction vs abstract class vs encapsulation.}
+\src{GFG SDE-1, R2 --- OOP-heavy round.}
+\T{Uses abstraction and encapsulation interchangeably.}
+\You{Abstraction is the design idea --- show what, hide how. An abstract class is the language tool --- cannot be instantiated, can hold unimplemented methods. Encapsulation bundles data with methods and restricts direct access. Abstraction hides complexity; encapsulation hides data.}
+
+\Q{Access specifiers --- public, private, protected.}
+\src{TalentBattle ASE, Airoli 2023.}
+\T{Names three words, no scope.}
+\You{Public --- visible everywhere. Private --- only inside the class. Protected --- class and subclasses. In Java, default is package-private. I keep fields private and expose behaviour through methods, not raw state.}
+
+\section{Keywords they drill}
+
+\Q{What does \texttt{static} mean?}
+\src{GFG SDE-1, R2.}
+\T{``It means constant.''}
+\You{Static belongs to the class, not any object --- one copy shared by all instances. A static method runs without creating an object, so it cannot touch instance fields. I use it for utility helpers and shared counters.}
+
+\Q{What is a \texttt{friend} function? (C++)}
+\src{GFG SDE-1, R2.}
+\T{Silence or confuses with inheritance.}
+\You{A function declared inside a class but not a member --- allowed to access private and protected data. Used for operator overloading across two classes. It deliberately breaks encapsulation, so it should be rare. C++ has it; Java does not.}
+
+\Q{Why is \texttt{main} public? Why \texttt{String[] args}?}
+\src{GFG Associate SD, R2.}
+\T{``Because Java requires it.''}
+\You{Public because the JVM calls it from outside the class. Static so it runs without creating an object. \texttt{String[] args} holds command-line arguments --- an array because there can be many.}
+
+\Q{Difference between class and object.}
+\T{``Class is blueprint, object is instance'' with no example.}
+\You{A class is the template; an object is one live instance with its own field values. \texttt{Route} is the class; one corridor from Mumbai to Delhi with cost 1200 is an object. Many objects, one class definition.}
+
+\Q{Method overloading vs overriding.}
+\T{Mixes them up.}
+\You{Overloading --- same method name, different parameters, resolved at compile time. Overriding --- subclass replaces a parent method, resolved at runtime through the actual object type. Overloading is convenience; overriding is polymorphism.}
+
+\Q{Interface vs abstract class.}
+\T{``They are the same.''}
+\You{An interface is a pure contract --- methods without implementation (pre-Java 8). An abstract class can have both abstract and concrete methods plus fields. I use an interface when unrelated classes must share behaviour; abstract class when they share code too.}
+
+\Q{Composition vs inheritance.}
+\T{``Always inherit.''}
+\You{Inheritance is ``is-a''; composition is ``has-a''. A \texttt{Ranker} \emph{has} pipeline objects rather than inheriting from them --- easier to swap railway for hybrid without a deep hierarchy. Prefer composition when behaviour varies at runtime.}
+
+\section{OOP design questions --- whiteboard style}
+
+\src{GFG SDE-1, R2: ``Design a bank using OOP.'' GFG SDE-1, R1: ``Design Zoomcar.''}
+
+\Q{Design a bank account system using OOP.}
+\T{One giant \texttt{Bank} class with everything inside.}
+\You{Abstract \texttt{Account} with private balance, \texttt{deposit()} and \texttt{withdraw()}. \texttt{Savings} and \texttt{Current} extend it and override \texttt{withdraw()} for different overdraft rules --- runtime polymorphism. Balance changes only through methods so I can validate, log and reject. A \texttt{Transaction} class records each operation for audit.}
+
+\Q{Design Zoomcar / a car rental system.}
+\T{Jumps to SQL tables with no classes.}
+\You{Entities: \texttt{User}, \texttt{Car}, \texttt{Location}, \texttt{Booking}, \texttt{Payment}. A \texttt{Booking} links user, car and time range; the constraint is no overlapping bookings for the same car. Search by location and window --- index on car ID plus start time. For double-booking I use a transaction lock or a unique constraint on the slot.}
+
+\Q{Design a timetable using OOP + database.}
+\src{GFG Associate SD --- timetable DB design.}
+\T{One table with teacher, subject, room, batch as columns repeated everywhere.}
+\You{Classes: \texttt{Teacher}, \texttt{Subject}, \texttt{Room}, \texttt{Batch}, \texttt{Slot} (day + period). \texttt{TimetableEntry} references all four plus slot. Uniqueness rules enforce one teacher per slot, one room per slot. That is encapsulation of scheduling rules in the schema and service layer.}
+
+\Q{Two users grab the last item in a cart at the same time --- what happens?}
+\src{GFG SDE-1, R2 --- race condition.}
+\T{``The second user gets an error.''}
+\You{Race condition --- both read stock as 1, both write 0. Fix: atomic check-and-decrement --- a transaction with row lock, or \texttt{UPDATE ... SET stock = stock - 1 WHERE stock > 0} and check rows affected. Loser gets ``out of stock.'' Same pattern as LogiFlow: SQL is source of truth, Redis cache never decides inventory.}
+
+\section{OOP tied to your projects}
+
+\Q{How did you use OOP in LogiFlow?}
+\T{``We used FastAPI so it was object-oriented.''}
+\You{Separate pipeline objects produce corridor candidates; a ranker object scores them on time, cost and delay. Each pipeline encapsulates its own data fetch and transform --- the ranker only sees a common result interface. That let us add hybrid without rewriting railway.}
+
+\Q{How did you do login and authentication? (project follow-up pattern)}
+\src{Sarthak Chauhan, R1 --- deep dive on login/auth in his project.}
+\T{``Firebase login button.''}
+\You{On Community Hero: Firebase Auth issues a token on the client; Express verifies it on every protected route before Firestore. Roles are checked server-side --- a citizen cannot hit admin endpoints. Encapsulation: auth logic lives in middleware, routes never trust the client.}
+
+\Q{Give a real-world OOP example from your internship.}
+\T{Vague about ``building APIs.''}
+\You{At IFFCO I built Express route handlers as separate modules --- each endpoint encapsulated validation, SQL and error handling. Shared middleware handled auth and logging so individual routes stayed small. That is separation of concerns through object/module boundaries.}
+
+\section{Language comparison (OOP context)}
+
+\Q{Python vs Java --- when do you pick each?}
+\src{TalentBattle ASE, Airoli 2023.}
+\T{``Python is easier.''}
+\You{Python is dynamically typed and fast to write --- my FastAPI backend. Java is statically typed, bytecode-compiled, catches type errors at compile time and runs faster on large systems. Python for data pipelines and APIs; Java when the team needs strict contracts at scale.}
+
+\Q{MySQL vs MongoDB --- and have you used Mongo?}
+\src{TalentBattle ASE, Airoli 2023.}
+\T{Bluffs Mongo experience.}
+\You{MySQL is relational --- fixed schema, joins, ACID. MongoDB is document-based --- flexible schema, horizontal scale, no joins. I have not used Mongo; closest is Firestore on Community Hero. Relational work is MySQL at IFFCO and SQL in LogiFlow.}
+
+\section{Quick reference --- say this if stuck}
+
+\card{
+\begin{tabular}{@{}p{3.2cm}p{10.5cm}@{}}
+\textbf{Encapsulation} & Hide internal state; expose behaviour through methods. \\
+\textbf{Abstraction} & Show essential operations; hide implementation detail. \\
+\textbf{Inheritance} & Reuse and extend --- ``is-a'' relationship. \\
+\textbf{Polymorphism} & One interface, many implementations --- overloading vs overriding. \\
+\textbf{Static} & Belongs to class, not instance; no instance fields. \\
+\textbf{Private fields} & Always; validate in setters and business methods. \\
+\end{tabular}
+}
+
+\section{Last check before OOP round}
+\card{
+\begin{itemize}
+  \item Lead with a \textbf{LogiFlow example} within the first two sentences.
+  \item If they say ``go deeper,'' give \textbf{one more sentence}, not a lecture.
+  \item Design questions: name \textbf{classes first}, then one constraint, then one edge case.
+  \item Never say static means constant. Never mix abstraction and encapsulation.
+  \item If you do not know (friend in Java): say what language has it and move on.
+\end{itemize}
+}
+
+\end{document}

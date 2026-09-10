@@ -5,7 +5,12 @@ from pathlib import Path
 
 from fpdf import FPDF
 
-OUT_DIR = Path(__file__).resolve().parents[1] / "Adobe University Hackathon 2026" / "Team Case Studies"
+OUT_DIR = (
+    Path(__file__).resolve().parents[1]
+    / "Company Drives"
+    / "Adobe University Hackathon 2026"
+    / "Team Case Studies"
+)
 
 
 class Doc(FPDF):

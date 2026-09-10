@@ -1,0 +1,376 @@
+% Your GEP interview prep --- only real questions, mapped to Ojas
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm,top=1.9cm,bottom=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{1.5pt}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{0F5C4C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{soft}{HTML}{F3F6F5}
+\definecolor{qcol}{HTML}{9F1239}
+\definecolor{you}{HTML}{166534}
+\definecolor{youbg}{HTML}{ECFDF5}
+\definecolor{rulec}{HTML}{D7E3DE}
+
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}GEP Intern -- Technology}
+\fancyhead[R]{\small\color{accent}\textbf{Your prep}}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{rulec}\hrule height 0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{11pt}{4pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{8pt}{2pt}
+\setlist[itemize]{leftmargin=1.1em, topsep=1pt, itemsep=1pt, parsep=0pt}
+
+\newcommand{\card}[1]{%
+  \par\vspace{3pt}%
+  \noindent\colorbox{soft}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{5pt}#1\vspace{5pt}}%
+  }\par\vspace{4pt}%
+}
+\newcommand{\Q}[1]{\par\vspace{4pt}\noindent\textcolor{qcol}{\textbf{Q.}}~\textbf{#1}\par\vspace{0pt}}
+\newcommand{\T}[1]{\noindent{\small\color{muted}\textit{Typical: #1}}\par\vspace{1pt}}
+\newcommand{\You}[1]{%
+  \par\vspace{1pt}%
+  \noindent\colorbox{youbg}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{3pt}\textcolor{you}{\textbf{\small You say.}}~#1\vspace{3pt}}%
+  }\par}
+\newcommand{\M}[1]{\noindent{\small\textbf{\color{accent}Method.}~#1}\par\vspace{1pt}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{accent}Your GEP interview prep}\\[5pt]
+  {\color{muted}Ojas Srivastava $\cdot$ SVNIT Surat $\cdot$ Intern -- Technology}\\[3pt]
+  {\footnotesize\color{muted}Every question here was actually asked in a public candidate report. Nothing invented.}
+\end{center}
+
+\section{Your locked intro --- say this, then stop}
+\card{
+Good afternoon sir, ma'am. I am Ojas Srivastava. I am a pre-final year B.Tech student in Artificial Intelligence at SVNIT Surat, with a CGPA of 9.20.\\[4pt]
+Coursework: OOP, DBMS, OS, CN, DAA.\\[4pt]
+Google Solution Challenge 2026 Global rank 106 --- LogiFlow, supply-chain routing. Vibe2Ship 2026 Global Top 20 --- Community Hero, civic issue reporting PWA.\\[4pt]
+Coding workflow: Cursor, MCP and plugins. Spec and review every merge.\\[4pt]
+Chairperson Nexus SVNIT, CSE+AI departmental cell, manage and mentor 500+ students.\\[4pt]
+I own the outcome. GEP works on AI-powered procurement and supply chain. That is the kind of work I have already started on --- taking operational data to a decision, and owning it till it ships.
+}
+
+\noindent{\small\color{qcol}\textbf{Do NOT volunteer in R1:}} {\small location, intern title, IFFCO (unless they open the resume), MCP server names, LangGraph, Azure, or ``I led the whole team.'' AirHelp is not on the resume --- never bring it up.}
+
+\section{Round 1 --- minute map}
+\begin{itemize}
+  \item \textbf{0--3 min:} the locked intro. Then stop talking and let them pick.
+  \item \textbf{3--13 min:} OOP. Pillars, then polymorphism and inheritance with a \textbf{real-world} example. Expect this.
+  \item \textbf{13--25 min:} one project deep dive --- almost always LogiFlow. Have the architecture and one hard bug ready.
+  \item \textbf{25--40 min:} one Easy--Medium DSA. Strings or an array with a hashmap. Speak the approach before you type.
+  \item \textbf{40--45 min:} ``difficulties you faced,'' then your questions for them.
+\end{itemize}
+
+\section{Round 2 --- minute map}
+\begin{itemize}
+  \item It may be \textbf{10 minutes or 40}. Answer completely on the first pass; assume no second chance.
+  \item Opens with a fundamentals volley: purpose of OOP, DS vs algorithms, favourite data structure.
+  \item \textbf{Say graph} when asked your favourite --- it maps to the BFS question they ask next. Then stay there.
+  \item One DSA, often with \textbf{``now do it another way.''} Fibonacci two ways is quoted verbatim in a real report.
+  \item A puzzle: divide and conquer, 12 balls, or two buckets.
+\end{itemize}
+
+\section{Intro and OOP}
+
+\Q{Tell me about yourself.}
+\T{Rambles through school marks and every course taken.}
+\You{The locked intro on page 1, verbatim. Then stop.}
+
+\Q{Explain the pillars of OOP --- with real-world examples.}
+\T{``Encapsulation, abstraction, inheritance, polymorphism'' and nothing else.}
+\You{Encapsulation --- a route service hides Redis; callers only see \texttt{getRoutes()}. Abstraction --- a car's steering wheel; you turn it without knowing the rack. Inheritance --- Vehicle $\rightarrow$ Car and Truck share start/stop, each adds its own behaviour. Polymorphism --- I call \texttt{cost()} and a railway route and a road route each compute it differently.}
+
+\Q{Go deeper on polymorphism and inheritance.}
+\T{Repeats the definition louder.}
+\You{Inheritance is ``is-a'' reuse; polymorphism is one interface, many behaviours. Compile-time is overloading; runtime is overriding through a base type. In LogiFlow three pipelines --- railway, comparator, hybrid --- all feed the same ranker. The ranker does not care which pipeline produced the corridor; it only ranks on time, cost and delay.}
+
+\Q{What is the purpose of OOP?}
+\T{``To make code reusable.''}
+\You{To model a system as objects that own their own data and behaviour. It keeps change local --- I can swap the railway pipeline without touching the ranker. Reuse is a side effect, not the goal.}
+
+\Q{Abstraction vs abstract class vs encapsulation.}
+\T{Mixes up abstraction and encapsulation.}
+\You{Abstraction is a design idea --- show what it does, hide how. An abstract class is the language tool --- it cannot be instantiated and can hold unimplemented methods. Encapsulation is bundling data with the methods that touch it and restricting direct access. Abstraction hides complexity; encapsulation hides data.}
+
+\Q{Access specifiers.}
+\T{``Public, private, protected'' with no scope detail.}
+\You{Public is visible everywhere, private only inside the class, protected inside the class and its subclasses. In Java, default is package-private. I keep fields private and expose behaviour, not state.}
+
+\Q{What does static mean?}
+\T{``It means constant.''}
+\You{Static belongs to the class, not to any object --- one copy shared by all instances. A static method can be called without creating an object, so it cannot touch instance fields. I use it for helpers and counters.}
+
+\Q{What is a friend function? (C++)}
+\T{Silence.}
+\You{A friend function is declared inside a class but is not a member, and it is allowed to access private and protected data. It is used for things like operator overloading across two classes. It breaks encapsulation deliberately, so it should be rare. C++ has it; Java does not.}
+
+\Q{Why is main public? Why String[] args?}
+\T{``Because Java needs it.''}
+\You{Public because the JVM calls it from outside the class, so it must be visible. Static so it can run without creating an object. \texttt{String[] args} carries the command-line arguments, and it is an array because there can be many.}
+
+\Q{Difference between data structures and algorithms.}
+\T{``Both are coding topics.''}
+\You{A data structure is how data is stored and organised --- an array, a hashmap, a graph. An algorithm is the sequence of steps that operates on it. The structure decides what the algorithm can do cheaply: a hashmap makes lookup O(1), so my array problem becomes one pass instead of two loops.}
+
+\Q{Stack vs queue vs list vs tree.}
+\T{Only defines stack and stops.}
+\You{Stack is LIFO --- undo, function calls. Queue is FIFO --- BFS, job scheduling. A list is linear ordered access; array is contiguous with O(1) index, linked list is O(1) insert. A tree is hierarchical, and a balanced one gives O(log n) search.}
+
+\Q{Python vs Java.}
+\T{``Python is easier.''}
+\You{Python is dynamically typed and interpreted --- faster to write, which is why my FastAPI service is Python. Java is statically typed and compiled to bytecode, so the compiler catches type errors and it runs faster. Java for large typed systems, Python for data and ML work.}
+
+\Q{MySQL vs MongoDB.}
+\T{Fakes Mongo experience.}
+\You{MySQL is relational --- fixed schema, joins, strong ACID guarantees. MongoDB is document-based --- flexible schema, scales horizontally, no joins. I have not used Mongo; the closest I have worked with is Firestore, which is also document-based. My relational work is MySQL at IFFCO.}
+
+\Q{Primary key vs foreign key.}
+\T{``Primary key is the ID.''}
+\You{A primary key uniquely identifies a row --- unique, not null, one per table. A foreign key points to a primary key in another table and enforces referential integrity. In a routing schema, corridor id would be the PK; a route-leg table would FK to it so you cannot store a leg for a corridor that does not exist.}
+
+\Q{What is your favourite data structure?}
+\T{Says ``tree,'' then cannot explain rotations.}
+\You{Graph. My whole routing problem is a graph --- stations as nodes, corridors as edges weighted by time, cost and delay. I use adjacency lists because the graph is sparse, and BFS when every hop counts equally. Dijkstra when the edges carry real weights.}
+
+\Q{How would you know what language a website is built in without reading its code?}
+\T{``You cannot.''}
+\You{Check the response headers --- \texttt{Server} and \texttt{X-Powered-By} often leak it. File extensions and URL patterns give it away, like \texttt{.php} or Next.js's \texttt{\_next} paths. Cookie names too --- \texttt{JSESSIONID} means Java, \texttt{PHPSESSID} means PHP. Or the error page style.}
+
+\Q{Design a bank account system using OOP.}
+\T{Writes one giant class.}
+\You{An abstract \texttt{Account} with balance, \texttt{deposit()} and \texttt{withdraw()}. \texttt{Savings} and \texttt{Current} extend it and override \texttt{withdraw()} for different overdraft rules --- that is polymorphism. Balance stays private, changed only through methods, so I can validate and log every change. A \texttt{Transaction} class records each operation.}
+
+\Q{Design Zoomcar / a car rental system.}
+\T{Jumps straight to database columns.}
+\You{Core entities: User, Car, Location, Booking, Payment. A Booking links user, car and a time range, and the key constraint is no two bookings overlapping for the same car. Search is by location and time window, so I index on car ID plus start time. For the double-booking case I take a lock or use a unique constraint on the slot.}
+
+\Q{Design a timetable database.}
+\T{One table with everything in it.}
+\You{Tables: Teacher, Subject, Room, Batch, and a Slot table with day and period. The timetable row references teacher, subject, room, batch and slot. The uniqueness rules do the work --- one teacher cannot be in two rooms in the same slot, and one room cannot hold two classes.}
+
+\Q{Two users grab the last item in a cart at the same time. What happens?}
+\T{``The second one gets an error.''}
+\You{That is a race condition --- both read stock as 1 and both write 0. The fix is to make check-and-decrement atomic: a transaction with a row lock, or a conditional update like \texttt{SET stock = stock - 1 WHERE stock > 0} and check rows affected. Whoever loses gets ``out of stock.'' In LogiFlow I hit the same idea with Redis --- SQL stays the source of truth, the cache never decides.}
+
+\section{Projects --- they ask only what is on your resume}
+
+\Q{Explain the key projects you have implemented.}
+\T{Lists six projects with no depth on any.}
+\You{Two. LogiFlow --- supply-chain route optimisation, Google Solution Challenge global rank 106, I was technical co-lead. Community Hero --- a civic issue reporting PWA I built solo, Vibe2Ship global top 20. I would start with LogiFlow since it is closest to what GEP does.}
+
+\Q{Walk me through LogiFlow.}
+\T{``It uses AI to optimise logistics.''}
+\You{It ranks freight routes on time, cost and delay so a planner can pick one. Three pipelines --- railway, comparator and hybrid --- feed one ranker, built on 15,000-plus train-days across 580-plus corridors. Stack is FastAPI, Next.js and Redis, responses land in 100 to 400 milliseconds. Test suite is 100 of 100 passing on pytest.}
+
+\Q{What difficulties did you face in the project?}
+\T{``Time management was hard.''}
+\You{Latency. The first version recomputed rankings on every request and took seconds. I moved to cache-aside with Redis --- check the cache, on a miss compute and store with a TTL, and SQL stays the source of truth. That took it to 100--400 milliseconds.}
+
+\Q{Why Redis? What happens if the cache is stale?}
+\T{``Redis is fast.''}
+\You{Redis is in-memory, so a lookup is sub-millisecond, and my ranking inputs do not change per request. I use cache-aside with a TTL, and I invalidate on write. If Redis is down the request still works --- it just recomputes from SQL, which is always the source of truth.}
+
+\Q{Which algorithms did you actually use?}
+\T{Name-drops ``machine learning.''}
+\You{Graph search over the corridor network --- BFS when hops are uniform, weighted shortest path when they are not. Then a scoring pass that ranks candidate routes on time, cost and delay. The heavy lifting is the graph plus the ranking, not a model.}
+
+\Q{Tell me about your AI project. (Community Hero)}
+\T{``I called the Gemini API.''}
+\You{It is a civic issue reporting PWA --- a citizen photographs a problem and it gets routed to the right department. I built it solo on React, Express, Firestore and Cloud Run. Gemini classifies the report into a category, with guardrails on the output. If the model is unsure or unavailable, it falls back to a manual admin queue.}
+
+\Q{How did you do login and authentication?}
+\T{``I used Firebase login.''}
+\You{Firebase Auth issues a token on the client; my Express layer verifies it on every protected route before touching Firestore. Roles are checked server-side, so a citizen cannot hit an admin endpoint. I never trust the client for authorisation.}
+
+\Q{Tell me about your internship. (only if they open the resume)}
+\T{Vague on what was actually built.}
+\You{IFFCO, June to July 2025. I built backend services on Node, Express and MySQL --- 10-plus REST endpoints supporting 50-plus daily workflows. I containerised it with Docker and put it on a CI/CD pipeline. That is where I learned to write for someone else's team.}
+
+\Q{What is Career Automation? (only if they open the resume)}
+\T{Oversells it as a product.}
+\You{A personal automation stack. One part reaches 966 companies and 10,700 contacts over rate-limited SMTP. The other is OA Forge --- 14,000-plus practice questions with 5,500-plus tests, judged by a C++ g++ runner. The public GitHub repo is the YAML workflows only.}
+
+\Q{Tell me about Nexus. (only if they open the resume)}
+\T{``I lead 500 people.''}
+\You{Nexus is the CSE and AI departmental cell at SVNIT. I am Chairperson --- I run the events and mentor the students who come through them; 500-plus is event reach, not daily headcount. I got there over about two years: Member, SMC, Academic Mentor, Tech Rep, then Chairperson.}
+
+\Q{Have you used MongoDB / C\# / Angular / Hadoop?}
+\T{Bluffs, then gets caught two questions later.}
+\You{Mongo --- I have not used it; the closest is Firestore, which is also document-based. C\# and Angular --- I have not used them, but I can pick them up. Hadoop --- I have not run a cluster; I know MapReduce is a map step then a reduce step over distributed data. I would rather say that than guess.}
+
+\section{DSA --- exactly what has been asked}
+
+\Q{First non-repeating character in a string.}
+\T{Nested loops, O(n\textsuperscript{2}), no counting.}
+\M{Pass 1 --- count each character in a hashmap or a 256-size array. Pass 2 --- walk the string left to right, return the first character whose count is 1. If none, return a sentinel.}
+\noindent{\small\textbf{Dry run.} \texttt{"swiss"} $\rightarrow$ counts s=3, w=1, i=1. Scanning: s (3, skip), \textbf{w} (1) $\rightarrow$ answer \texttt{w}. Time O(n), space O(1) for fixed alphabet.}
+\You{Two passes. Count characters in a map, then scan the string in order and return the first with count one. For ``swiss'' that gives w. O(n) time, constant space for a fixed alphabet.}
+
+\Q{Remove repeating characters and print the result.}
+\T{Uses a nested loop and mangles the order.}
+\M{Keep a \texttt{seen} set. Walk the string once; if the character is not in \texttt{seen}, append it to the output and add it. Order is preserved because you never look backwards.}
+\noindent{\small\textbf{Dry run.} \texttt{"programming"} $\rightarrow$ \texttt{"progamin"}. Time O(n), space O(k).}
+\You{One pass with a seen set. Append a character only the first time I meet it, so the original order survives. ``programming'' becomes ``progamin''. O(n) time.}
+
+\Q{Find the number of seconds between two given times.}
+\T{Subtracts hours and minutes separately, gets negatives.}
+\M{Convert each time to total seconds: \texttt{h*3600 + m*60 + s}. Subtract. If the result is negative, the second time is next day --- add 86400.}
+\noindent{\small\textbf{Dry run.} 23:50:00 $\rightarrow$ 00:10:00 gives $600 - 85800 = -85200$; add 86400 $\rightarrow$ \textbf{1200} seconds. O(1).}
+\You{Normalise both times to seconds since midnight, then subtract. If it comes out negative the second time crossed midnight, so I add 86400. Constant time, and it removes all the borrow bugs.}
+
+\Q{Array problem --- solve it using a map.}
+\T{Two nested loops.}
+\M{One pass, hashmap as memory. For pair-sum: for each \texttt{x}, look up \texttt{target - x} in the map; if present you have the pair, else store \texttt{x} with its index. Same trick for duplicates, frequencies and subarray sums.}
+\noindent{\small Time O(n), space O(n) --- you are trading memory for the inner loop.}
+\You{The map replaces the inner loop. For two-sum I ask the map for target minus the current value before I insert the current value, so it is one pass. O(n) time, O(n) space instead of O(n squared).}
+
+\Q{Maximum subarray sum. (Kadane --- not quoted, but Easy array is confirmed)}
+\T{Tries every subarray.}
+\M{Track \texttt{cur} and \texttt{best}. For each element: \texttt{cur = max(x, cur + x)} --- either extend the running subarray or restart at x. Then \texttt{best = max(best, cur)}.}
+\noindent{\small\textbf{Dry run} on $[-2, 1, -3, 4, -1, 2, 1, -5, 4]$:\\
+\texttt{cur}: -2, 1, -2, 4, 3, 5, \textbf{6}, 1, 5 \quad$\cdot$\quad \texttt{best}: -2, 1, 1, 4, 4, 5, \textbf{6}, 6, 6 \quad$\rightarrow$ answer \textbf{6} (the subarray $[4,-1,2,1]$). O(n) time, O(1) space.}
+\You{Kadane. At each element I either extend the current subarray or start fresh at that element, whichever is larger, and I keep the best seen. On the standard array it gives 6, from 4, -1, 2, 1. One pass, constant space.}
+
+\Q{Print Fibonacci numbers in a given range --- now do it a second way.}
+\T{Writes plain recursion and freezes when asked for another way.}
+\M{\textbf{Method 1 --- iterative.} Keep \texttt{a=0, b=1}; loop, print when the value falls in [L, R], stop past R. O(n) time, O(1) space.\\
+\textbf{Method 2 --- recursion with memoisation.} \texttt{fib(n)} returns from a map if computed, else \texttt{fib(n-1)+fib(n-2)} and store. O(n) time, O(n) space. Plain recursion without the map is O(2\textsuperscript{n}) --- say that out loud.}
+\You{Two ways. Iteratively I hold the last two numbers and roll forward, printing anything inside the range --- O(n) time, constant space. Or recursion with a memo map, which is also O(n) but costs O(n) space for the stack and the table. Plain recursion is exponential, so I would not ship it.}
+
+\Q{Alt+Tab --- move the k-th item to the front.}
+\T{Sorts the list.}
+\M{Take the element at index \texttt{k-1}, remove it, insert it at index 0; the rest shift right by one. Guard first: if \texttt{k > n} or \texttt{k <= 0}, either wrap with \texttt{k = ((k-1) \% n) + 1} or return the list unchanged --- ask which they want.}
+\noindent{\small\textbf{Dry run.} n=4, \{1,2,3,4\}, k=3 $\rightarrow$ pull \texttt{3} $\rightarrow$ \{3,1,2,4\}. Time O(n), space O(1) in place.}
+\You{Pull the k-th element out and put it at the front; everything before it shifts one right. For 1,2,3,4 with k equal to 3 that gives 3,1,2,4. I would confirm the edge case first --- if k is at least n, do I wrap it with a modulo or leave the list as it is?}
+
+\Q{Find the middle of a linked list.}
+\T{Counts the length, then loops again.}
+\M{Slow and fast pointers from head. Move slow one step, fast two. When fast or \texttt{fast.next} is null, slow is at the middle. For an even length this lands on the second middle --- move fast's start back one if they want the first.}
+\noindent{\small One pass, O(n) time, O(1) space.}
+\You{Two pointers --- slow moves one node, fast moves two. When fast hits the end, slow is at the middle. One pass, no length count, constant space.}
+
+\Q{Write binary search.}
+\T{Writes \texttt{(lo+hi)/2} and an infinite loop.}
+\M{\texttt{lo = 0, hi = n-1}; while \texttt{lo <= hi}: \texttt{mid = lo + (hi-lo)/2}; if \texttt{a[mid] == x} return mid; if \texttt{a[mid] < x} then \texttt{lo = mid+1} else \texttt{hi = mid-1}; return -1. Array must be sorted.}
+\noindent{\small O(log n) time, O(1) space. \texttt{lo + (hi-lo)/2} avoids integer overflow.}
+\You{The array has to be sorted. I keep a low and high bound and check the midpoint each time, dropping the half that cannot hold the target. I write mid as low plus half the gap to avoid overflow. O(log n).}
+
+\Q{Print prime numbers from 1 to 100.}
+\T{Checks divisibility up to n for every number.}
+\M{Sieve of Eratosthenes: mark an array of size 101 true, set 0 and 1 false. For \texttt{i} from 2 while \texttt{i*i <= 100}, if \texttt{i} is still true mark every multiple from \texttt{i*i} as false. Print what remains.}
+\noindent{\small O(n log log n). There are \textbf{25} primes below 100. If they want a single number check, trial-divide only up to $\sqrt{n}$.}
+\You{Sieve of Eratosthenes --- start with everything marked prime, then cross out multiples of each prime starting from its square. Below 100 that leaves 25 primes. It is n log log n, much better than testing each number separately.}
+
+\Q{Time complexities of the sorting algorithms.}
+\T{``All of them are n log n.''}
+\M{Quick: average O(n log n), worst O(n\textsuperscript{2}), in place, not stable. Merge: O(n log n) always, stable, O(n) extra space. Heap: O(n log n) always, in place, not stable. Insertion: O(n\textsuperscript{2}), but O(n) on nearly sorted data. Bubble: O(n\textsuperscript{2}).}
+\You{Merge and heap are n log n in every case; quicksort is n log n on average but n squared if the pivots are bad. Merge is stable and needs O(n) extra space, heap and quick are in place. Insertion is n squared but linear on nearly sorted input.}
+
+\Q{BFS --- and its complexity.}
+\T{Says BFS uses recursion.}
+\M{Queue plus a visited set. Push the source and mark it. While the queue is not empty: pop a node, and for each unvisited neighbour mark it and push it. Level order falls out naturally --- process the queue one level's worth at a time.}
+\noindent{\small O(V + E) time with an adjacency list, O(V) space. DFS uses a stack or recursion; BFS uses a queue.}
+\You{BFS uses a queue and a visited set --- pop a node, push its unvisited neighbours, mark as you push. That gives level order and the shortest path in an unweighted graph. O(V plus E) time, O(V) space with an adjacency list.}
+
+\Q{Chocolates --- pick a range, boxes divisible by M, maximise per box. (OA)}
+\T{Brute-forces every range.}
+\M{Prefix sums so any range total is O(1). The per-box value is the range total divided by M, so you want the maximum range total that M divides. Sweep ranges with the prefix array, or binary search the answer and check feasibility.}
+\noindent{\small O(n) prefix build; O(n log n) with the binary search. First question to ask: is the range contiguous?}
+\You{Prefix sums first, so I get any range total in constant time. Then the per-box amount is the range total over M, so I am really maximising the range total that M divides cleanly. Before coding I would confirm whether the range has to be contiguous --- that changes the whole approach.}
+
+\section{Puzzles}
+
+\Q{A divide-and-conquer puzzle.}
+\T{Starts guessing numbers.}
+\You{The pattern is always the same --- split the input in half, solve each half, then combine. Merge sort splits, sorts and merges in n log n. Binary search only needs one half each time, so it is log n. I say the recurrence out loud and solve it.}
+
+\Q{Twelve balls, one is faulty. Find it.}
+\T{Says four weighings.}
+\You{Three weighings on a balance. Split into three groups of four and weigh two of them --- if they balance the odd ball is in the third group, otherwise it is on the heavier or lighter side. That leaves four, and I split those to find the group of one or two. Each weighing has three outcomes, so three weighings cover 27 cases and 12 fits.}
+
+\Q{Two buckets --- measure an exact quantity.}
+\T{Keeps pouring at random.}
+\You{With a 5 and a 3 litre bucket to get 4: fill the 5, pour into the 3, and 2 litres are left. Empty the 3, move those 2 into it, refill the 5, then top up the 3 --- it only takes 1 more. That leaves exactly 4 in the big bucket.}
+
+\section{HR --- the exact questions people were asked}
+
+\Q{What do you know about GEP?}
+\T{``It is a good company in procurement.''}
+\You{GEP works in procurement and supply chain across three arms --- software, consulting and managed services. The software is SMART for source-to-pay, NEXXE for supply chain, with Quantum Intelligence as the AI layer across them. It is that mix of consulting judgement and shipped product that drew me.}
+
+\Q{How did you apply / how did you hear about us?}
+\T{``My placement cell told me.''}
+\You{Through the campus process at SVNIT, after the pre-placement talk. I read up on GEP afterwards and the procurement and supply-chain focus lined up with what I was already building.}
+
+\Q{Are you willing to relocate to Mumbai?}
+\T{Hesitates, then negotiates.}
+\You{Yes. I am open to both Mumbai and Hyderabad --- whichever office the team is in.}
+
+\Q{What is your location preference?}
+\T{``Somewhere near home.''}
+\You{Both work for me. Mumbai or Hyderabad, no preference --- I would rather be where the team is.}
+
+\Q{What are your hobbies / interests?}
+\T{``Coding.''}
+\You{I build things outside coursework --- that is how LogiFlow and Community Hero happened. Outside that I run and I read. And I enjoy the mentoring side of Nexus more than I expected to.}
+
+\Q{Where do you see yourself in five years / what is your future goal?}
+\T{``In a managerial position.''}
+\You{Still building, but owning a system end to end rather than a feature. I want to be the person a team asks when something in production breaks. Long term, applied AI on real operational data --- which is where GEP already works.}
+
+\Q{Tell me about your family.}
+\T{Overshares for two minutes.}
+\You{I am from a supportive family that has backed my choice to study AI. They are fine with me relocating for work. That has made it easy for me to focus on building things.}
+
+\Q{Tell me about your college.}
+\T{Recites the ranking.}
+\You{SVNIT Surat, an NIT. I am in the B.Tech AI programme, currently pre-final year with a 9.20 CGPA. Alongside coursework I chair Nexus, our CSE and AI departmental cell.}
+
+\Q{What is your favourite subject?}
+\T{``All of them.''}
+\You{DBMS, and OOP close behind. DBMS because indexing and transaction design showed up immediately in my own projects --- the race-condition and caching decisions in LogiFlow came straight out of it.}
+
+\Q{Strengths and weaknesses.}
+\T{``My weakness is I work too hard.''}
+\You{Strength --- I own outcomes; if something breaks in my project it is mine to fix, whoever wrote it. Weakness --- I used to go too deep on polish before shipping. I fix it now by setting a scope and a date up front and reviewing every merge against it.}
+
+\Q{Why are you moving from AI to software engineering?}
+\T{``AI jobs are hard to get.''}
+\You{I am not moving away from it --- the AI only matters once it is inside a working system. Most of my time on LogiFlow went into the API, the caching and the tests, not the model. I want to build the product that the intelligence sits inside, and GEP does exactly that.}
+
+\Q{What are your expectations / when can you join?}
+\T{Starts negotiating stipend.}
+\You{I am looking for real ownership --- a piece of the system that is mine to ship. On timing I am fully available for the internship window and I can start whenever the team needs me.}
+
+\section{Last check before you walk in}
+\card{
+\begin{itemize}
+  \item Intro verbatim, then \textbf{stop}. Silence is theirs to fill.
+  \item Every claim on the resume is a question. LogiFlow, Community Hero, IFFCO, Career Automation, Nexus --- know the numbers.
+  \item Favourite data structure $\rightarrow$ \textbf{graph}. Do not switch mid-answer.
+  \item Not used it? Say so, then say the nearest thing you have used. Mongo $\rightarrow$ Firestore. Hadoop $\rightarrow$ map then reduce.
+  \item Speak the approach and the complexity \textbf{before} you write code.
+  \item ``Now do it another way'' is coming. Have the second method ready for Fibonacci especially.
+  \item Location: yes to both Mumbai and Hyderabad. Answer it in one sentence.
+\end{itemize}
+}
+
+\end{document}

@@ -1,0 +1,94 @@
+% GE HealthCare --- HireVue prep
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{0B4F6C}
+\definecolor{q}{HTML}{9F1239}
+\definecolor{a}{HTML}{166534}
+
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}
+\setlist[itemize]{leftmargin=1.2em, itemsep=3pt}
+
+\newcommand{\Q}[1]{\textbf{\color{q}#1}}
+\newcommand{\Say}[1]{\begin{quote}\small #1\end{quote}}
+
+\begin{document}
+\begin{center}
+  {\LARGE\bfseries GE HealthCare HireVue Prep}\\[4pt]
+  {\small $\sim$5 questions \textbar{} 30--60s think \textbar{} 3 recording attempts each \textbar{} Senior SVNIT 2025}
+\end{center}
+
+\section{How HireVue works here}
+\begin{itemize}
+  \item Browser-based recorded interview (no live human)
+  \item Short prep time, then you record video/audio answer
+  \item \textbf{3 attempts} per question --- use attempt 1 as rehearsal if needed
+  \item AI/human reviewers score clarity, structure, confidence
+\end{itemize}
+
+\section{Setup checklist}
+\begin{itemize}
+  \item Plain background, face well-lit, camera at eye level
+  \item Quiet room; phone on silent
+  \item Business casual (collared shirt)
+  \item Bullet notes on sticky note \textbf{off camera} --- don't read verbatim
+  \item Speak 90--120 seconds max per answer unless prompt says shorter
+\end{itemize}
+
+\section{Question bank + scripts}
+
+\subsection{\Q{1. Tell me about yourself.} (60--90 sec)}
+\Say{
+Good morning. I'm Vansh Rawat, second-year B.Tech Artificial Intelligence at SVNIT Surat with a CGPA of 8.0. I'm a full-stack developer focused on Python and Django --- I built EduAce, an AI-assisted study platform, and Beneath The Blue, a conservation awareness web app with authentication and interactive quizzes. I led a team of four in the Web Wonder program as a finalist, where I owned task planning and our final demo. I'm also a departmental representative at Nexus, where I coordinate technical events for CSE and AI students. I'm applying to GE HealthCare's EID program because I want to work on software with real-world impact in healthcare, and I'm ready to learn from experienced engineers on live product teams.
+}
+
+\subsection{\Q{2. Why GE HealthCare?} (45--60 sec)}
+\Say{
+GE HealthCare sits at the intersection of engineering and patient outcomes --- software here isn't just features, it's reliability in environments where mistakes matter. The EID program gives hands-on work on live engineering priorities with a clear pathway to EEDP, which fits how I learn: ship, get feedback, improve. I've already built and deployed full-stack projects end-to-end; I want that same ownership mindset inside a medical-technology company where testing and quality are taken seriously.
+}
+
+\subsection{\Q{3. Why software / why this internship?} (45 sec)}
+\Say{
+I chose software because I like owning a problem from idea to deployment. In my projects I handled backend logic, authentication, UI, and deployment --- not just assignments. This internship is the next step: working on a real engineering backlog, learning professional practices like code review and testing, and contributing to healthcare technology I can be proud of.
+}
+
+\subsection{\Q{4. Greatest strength?} (45 sec)}
+\Say{
+My strength is structured ownership under deadlines. As Web Wonder team lead, I split features across four people, set integration checkpoints, and we reached the finalist stage with a deployed demo. I don't wait for perfect specs --- I clarify, build, and iterate. That same habit helped me ship EduAce and Beneath The Blue to production on Render.
+}
+
+\subsection{\Q{5. Tell me about a challenge.} (STAR, 90 sec)}
+\Say{
+\textbf{Situation:} In Web Wonder, we had two weeks to deliver a full Django app with auth and quizzes.\\
+\textbf{Task:} I was team lead and the only member strong on backend integration.\\
+\textbf{Action:} I mapped features to owners, built the auth and quiz API first so frontend could parallelize, and ran daily 15-minute syncs. When quiz scoring had edge-case bugs, I added validation on both client and server.\\
+\textbf{Result:} We deployed on time, reached finalist, and I learned to front-load integration risk instead of leaving it for the last day.
+}
+
+\subsection{\Q{6. Why healthcare / medical technology?} (optional)}
+\Say{
+Healthcare software has to work for diverse users and fail safely. That discipline appeals to me --- clear requirements, testing, documentation. I'm not from a clinical background, but I care about building tools that help people, and GE HealthCare is where that impact is measurable at scale.
+}
+
+\section{Practice drill}
+\begin{enumerate}
+  \item Record each answer once --- watch without sound (body language check)
+  \item Record again --- aim for \textbf{no filler} (um, basically, like)
+  \item Third pass --- time each answer; cut if over 2 min
+\end{enumerate}
+
+\section{Avoid}
+\begin{itemize}
+  \item Memorized robotic delivery --- use bullets, not script
+  \item Badmouthing college/teammates
+  \item ``I just need any internship'' --- show GE-specific motivation
+  \item Reading from screen --- eyes darting kills HireVue scores
+\end{itemize}
+
+\end{document}

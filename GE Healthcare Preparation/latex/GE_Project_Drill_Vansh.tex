@@ -1,0 +1,134 @@
+% GE HealthCare --- Project drill (Vansh Rawat)
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.4cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{0B4F6C}
+\definecolor{q}{HTML}{9F1239}
+
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}
+\titleformat{\subsection}{\bfseries\normalsize}{}{0em}{}
+\setlist[itemize]{leftmargin=1.2em, itemsep=2pt}
+
+\newcommand{\Say}[1]{\begin{quote}\small #1\end{quote}}
+
+\begin{document}
+\begin{center}
+  {\LARGE\bfseries GE HealthCare --- Project Deep-Dive Drill}\\[4pt]
+  {\small Vansh Rawat \textbar{} EduAce + Beneath The Blue + Web Wonder}
+\end{center}
+
+\section{How GE asks about projects (senior + GFG)}
+Prepare for \textbf{any} of these on \textbf{every} resume project:
+\begin{itemize}
+  \item Walk through \textbf{workflow} (user journey)
+  \item \textbf{Backend logic} --- views, models, APIs
+  \item \textbf{Authentication \& authorization} --- who can access what
+  \item \textbf{Architecture} --- client, server, database (3-tier)
+  \item \textbf{Accuracy / metrics} (if AI) --- how measured, how improved
+  \item \textbf{What you'd improve} at scale or for production
+  \item \textbf{Testing} --- unit/integration; edge cases
+  \item \textbf{Design question} --- e.g. testing software (senior report)
+\end{itemize}
+
+\textbf{Tactic:} Mention auth + quiz logic early to steer conversation to your strengths.
+
+\section{EduAce --- AI-Assisted Study Platform}
+\textit{Stack: Python, Django, HTML/CSS \textbar{} Live: \url{https://eduace.onrender.com/}}
+
+\subsection{30-second pitch}
+\Say{EduAce is a web-based study assistant I built with Django. It helps students plan academic work and access AI-assisted study support in one place instead of juggling multiple tools. I owned the full stack from models and views to deployment on Render.}
+
+\subsection{Workflow (be able to draw)}
+\begin{enumerate}
+  \item User opens site $\rightarrow$ register/login (Django auth)
+  \item Dashboard / study flows $\rightarrow$ user inputs goals or topics
+  \item Backend processes request $\rightarrow$ business logic + optional AI call
+  \item Response rendered in templates $\rightarrow$ user sees plan/feedback
+\end{enumerate}
+
+\subsection{Likely follow-ups}
+\begin{itemize}
+  \item \textbf{Why Django?} Batteries included --- ORM, auth, admin, fast MVP for hackathon-style delivery
+  \item \textbf{Auth flow?} User model; password hashed; session cookie; login\_required on views
+  \item \textbf{AI integration?} API call to model service; validate input before call; handle API failure gracefully
+  \item \textbf{Accuracy?} If AI: don't claim fake metrics --- say you'd add logging, user feedback thumbs up/down, guardrails on output
+  \item \textbf{Improvements?} pytest unit tests; API rate limits; PostgreSQL instead of SQLite for prod; caching
+  \item \textbf{Healthcare analogy?} Input validation before processing; fail-safe defaults; audit trail of user actions
+\end{itemize}
+
+\section{Beneath The Blue --- Conservation Platform}
+\textit{Stack: Python, Django, JS, Bootstrap \textbar{} Live: \url{https://beneath-the-blue-1-3c6o.onrender.com/}}
+
+\subsection{30-second pitch}
+\Say{Beneath The Blue promotes ocean conservation through an interactive Django web app. Users authenticate, take dynamically generated quizzes, and track scores. I implemented auth, quiz generation, and score tracking, and this project also became our Web Wonder finalist submission.}
+
+\subsection{Architecture (3-tier --- say this clearly)}
+\begin{itemize}
+  \item \textbf{Presentation:} HTML templates + Bootstrap + JavaScript
+  \item \textbf{Business logic:} Django views --- quiz generation, scoring rules, auth
+  \item \textbf{Data:} Django ORM $\rightarrow$ SQLite/Postgres (User, Quiz, Score models)
+\end{itemize}
+
+\subsection{Auth deep-dive (expect this)}
+\begin{itemize}
+  \item Registration: validate input $\rightarrow$ create User $\rightarrow$ hash password (never store plain)
+  \item Login: verify credentials $\rightarrow$ create session
+  \item Authorization: logged-in users access quiz; anonymous users limited pages
+  \item Logout: destroy session
+\end{itemize}
+
+\subsection{Quiz logic deep-dive}
+\begin{itemize}
+  \item Generate question set (from bank or rules)
+  \item Store user answers; compute score server-side (don't trust client score)
+  \item Edge cases: empty submission, duplicate submit, tie scores
+\end{itemize}
+
+\subsection{Likely follow-ups}
+\begin{itemize}
+  \item \textbf{Dynamic quiz generation?} Explain data structure (question bank / random sample)
+  \item \textbf{Security?} CSRF tokens (Django default), server-side validation, auth on POST routes
+  \item \textbf{Improvements?} Leaderboard, admin analytics, REST API layer, mobile-responsive tests
+  \item \textbf{Testing software design?} Unit test scoring function; integration test auth + quiz flow; CI on GitHub Actions
+\end{itemize}
+
+\section{Web Wonder --- Team Lead (Finalist)}
+\subsection{30-second pitch}
+\Say{I led a team of four in Web Wonder, a competitive web development program. We delivered Beneath The Blue under deadline --- I owned task breakdown, integration schedule, and the final presentation. We placed as finalists.}
+
+\subsection{STAR for leadership}
+\begin{itemize}
+  \item \textbf{Task allocation:} Frontend vs backend vs content vs demo script
+  \item \textbf{Risk:} Integration late --- mitigated by API-first backend
+  \item \textbf{Conflict:} Use daily standup; decide by deadline impact
+\end{itemize}
+
+\section{Nexus --- Departmental Representative}
+\begin{itemize}
+  \item Coordinate students and organizers for technical/cultural events
+  \item HR angle: teamwork, communication, reliability
+\end{itemize}
+
+\section{``Open project / live demo?''}
+Senior: \textbf{not guaranteed}. Still prepare:
+\begin{itemize}
+  \item URLs work; test 10 min before interview
+  \item 2-min demo script: login $\rightarrow$ one quiz $\rightarrow$ show score
+  \item If link fails: explain architecture on whiteboard, don't panic
+\end{itemize}
+
+\section{Coding vs logic}
+Senior: \textbf{mostly logic}. Still be ready to write:
+\begin{itemize}
+  \item Pseudocode for quiz scoring
+  \item Class diagram for User / Quiz / Score
+  \item Simple Python/C++ polymorphism example
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,141 @@
+% GEP R1 Mock 3 --- Project-first pressure --- 20 min
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm,top=1.9cm,bottom=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{1.5pt}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{0F5C4C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{soft}{HTML}{F3F6F5}
+\definecolor{qcol}{HTML}{9F1239}
+\definecolor{you}{HTML}{166534}
+\definecolor{youbg}{HTML}{ECFDF5}
+\definecolor{rulec}{HTML}{D7E3DE}
+\definecolor{tag}{HTML}{B45309}
+\definecolor{timec}{HTML}{1D4ED8}
+
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}GEP Intern -- Technology}
+\fancyhead[R]{\small\color{accent}\textbf{R1 Mock 3}}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{rulec}\hrule height 0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{12pt}{5pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{8pt}{3pt}
+
+\newcommand{\card}[1]{%
+  \par\vspace{4pt}%
+  \noindent\colorbox{soft}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{5pt}#1\vspace{5pt}}%
+  }\par\vspace{5pt}%
+}
+\newcommand{\IV}[1]{\par\vspace{4pt}\noindent\textcolor{qcol}{\textbf{Interviewer.}}~\textit{#1}\par}
+\newcommand{\You}[1]{%
+  \par\vspace{2pt}%
+  \noindent\colorbox{youbg}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{3pt}\textcolor{you}{\textbf{\small You say.}}~#1\vspace{3pt}}%
+  }\par}
+\newcommand{\clk}[1]{\noindent\textcolor{timec}{\textbf{#1}}\quad}
+\newcommand{\src}[1]{\noindent{\footnotesize\color{tag}\textbf{From reports:} #1}\par\vspace{2pt}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{accent}R1 Mock 3 --- Project-first pressure}\\[5pt]
+  {\color{muted}20 minutes $\cdot$ Ojas Srivastava $\cdot$ Intern -- Technology}\\[3pt]
+  {\footnotesize\color{muted}Morning-of mock. No notes. They interrupt.}
+\end{center}
+
+\src{Shivam Kumar (ex-GEP intern, campus SDE): questions from intro, code, resume. AmbitionBox: ``Explain key projects.'' GFG intern R1: project difficulties + string DSA. Sarthak: login/auth follow-up pattern.}
+
+\textit{Interviewer tone: opens on projects, interrupts, squeezes OOP later.}
+
+\card{
+\textbf{How to use.} Set a 20-minute timer. Cover the green boxes. Lead with LogiFlow without waiting for an OOP prompt.\\[4pt]
+\textbf{Do NOT volunteer:} location, IFFCO (unless they open resume), MCP names, AirHelp, ``I led the whole team.'' Do not say ranking by ``type of goods.''\\[4pt]
+\textbf{Locked intro --- say verbatim, then stop:}\\
+Good afternoon sir, ma'am. I am Ojas Srivastava. Pre-final B.Tech AI, SVNIT Surat, CGPA 9.20. Coursework: OOP, DBMS, OS, CN, DAA. Google Solution Challenge 2026 Global rank 106 --- LogiFlow, supply-chain routing. Vibe2Ship 2026 Global Top 20 --- Community Hero, civic issue reporting PWA. Coding workflow: Cursor, MCP and plugins; spec and review every merge. Chairperson Nexus SVNIT, CSE+AI cell, manage and mentor 500+ students. I own the outcome. GEP works on AI-powered procurement and supply chain --- operational data to a decision, owned till it ships.
+}
+
+\section{Clock}
+
+\begin{tabular}{@{}clp{8.8cm}@{}}
+\clk{0:00--2:00} & Intro & Locked intro. Pick LogiFlow. They interrupt. \\
+\clk{2:00--10:00} & LogiFlow & Ranking, pipelines, tests, Community Hero auth. \\
+\clk{10:00--14:00} & OOP & Compressed --- composition, overloading vs overriding. \\
+\clk{14:00--18:00} & DSA & Remove repeating characters. Bonus: seconds between times. \\
+\clk{18:00--20:00} & Close & Difficulty faced. They cut you off. \\
+\end{tabular}
+
+\section{Script}
+
+\subsection*{0:00 --- Intro + project pick}
+\IV{Tell me about yourself. Pick one project --- I'll interrupt.}
+\You{Intro, then: ``I'd start with LogiFlow --- closest to GEP's supply chain work.''}
+
+\subsection*{2:00 --- LogiFlow first}
+\IV{What does LogiFlow rank on? How do you define delay risk?}
+\You{Time, cost, delay risk. Delay from historical delay patterns on corridor train-day records --- operational data, not guessed.}
+
+\IV{Railway vs comparator vs hybrid --- difference?}
+\You{Railway = rail-specific path. Comparator = compares modes/options. Hybrid = combines sources. All feed same ranker interface.}
+
+\IV{pytest 100/100 --- what kind of tests?}
+\You{Business-rule regression --- broken pricing/routing fails in CI before release. Not just smoke tests.}
+
+\IV{Community Hero on resume --- how did you do auth?}
+\You{Firebase token on client; Express verifies on every protected route. Roles server-side. Never trust client for authorisation.}
+
+\subsection*{10:00 --- OOP (compressed)}
+\IV{How did you use OOP in LogiFlow?}
+\You{Pipeline objects + ranker object. Each pipeline encapsulates fetch/transform. Ranker sees common interface.}
+
+\IV{Inheritance vs composition --- which did you prefer?}
+\You{Composition --- Ranker \emph{has} pipelines, does not inherit. Easier to swap railway for hybrid at runtime.}
+
+\IV{Overloading vs overriding?}
+\You{Overloading = compile-time, different signatures. Overriding = runtime, subclass replaces parent.}
+
+\subsection*{14:00 --- DSA}
+\IV{Remove repeating characters, keep first-occurrence order.}
+\You{One pass + \texttt{seen} set. ``programming'' $\rightarrow$ ``progamin''. O(n).}
+
+\IV{Bonus if fast: seconds between 23:50:00 and 00:10:00?}
+\You{Convert to seconds, subtract; if negative add 86400 $\rightarrow$ \textbf{1200 seconds}.}
+
+\subsection*{18:00 --- Close}
+\IV{What difficulty did you face?}
+\You{Latency. First version recomputed every request. Cache-aside Redis, SQL as source of truth --- 100--400 ms.}
+
+\IV{We're out of time. Thank you.}
+
+\section{Score this mock}
+
+Rate each area \textbf{/10}. Pass bar: \textbf{7+} average.
+
+\begin{tabular}{@{}p{3cm}p{9.5cm}c@{}}
+\textbf{Intro} & Picked LogiFlow without rambling? Stopped when interrupted? & \rule{1.4cm}{0.4pt} \\
+\textbf{OOP} & Composition over inheritance? Overload vs override correct? & \rule{1.4cm}{0.4pt} \\
+\textbf{LogiFlow} & Delay from records, not ``type of goods''? 100/100 = business rules? & \rule{1.4cm}{0.4pt} \\
+\textbf{DSA} & One-pass + seen set? Midnight wrap = 1200s if asked? & \rule{1.4cm}{0.4pt} \\
+\textbf{Close} & Latency story complete in two sentences? & \rule{1.4cm}{0.4pt} \\
+\end{tabular}
+
+\vspace{8pt}
+\card{\textbf{Pass bar.} Led with LogiFlow without waiting for an OOP prompt. String DSA one-pass with complexity.\\[4pt]
+If this is the morning of: stop here. Do not cram more PDFs.}
+
+\end{document}

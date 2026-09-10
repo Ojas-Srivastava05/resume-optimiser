@@ -1,0 +1,121 @@
+% GE HealthCare EID --- Question Practice Roadmap
+\documentclass[a4paper,9pt]{extarticle}
+\usepackage[margin=0.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\definecolor{ink}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{accent}{HTML}{0B4F6C}
+\definecolor{hot}{HTML}{B91C1C}
+
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+\color{ink}
+\setlist[itemize]{leftmargin=1.05em, topsep=0.35pt, itemsep=0.28pt, parsep=0pt}
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}[\vspace{0.4pt}{\color{accent}\hrule height 0.5pt}]
+\newcommand{\tag}[1]{\textcolor{muted}{\small\textit{#1}}}
+
+\begin{document}
+\begin{center}
+  {\LARGE\textbf{GE HealthCare EID: Question Practice Roadmap}}\\[0.5pt]
+  {\small\color{hot}\textbf{Tick boxes as you practice}}\\[1pt]
+  {\small Vansh Rawat \textbar{} Companion: \texttt{GE\_Prep\_Roadmap.pdf}}\\[0.5pt]
+  {\footnotesize\color{muted}
+  GFG SVNIT + PCON EID 2024 + senior 2025 + InterviewSense SE 2026. No dedicated LC GE India 2026 thread.}
+\end{center}
+
+\section{0) Anchors (read once)}
+\begin{itemize}
+  \item \href{https://pcon-app.vercel.app/blogs/cltfdffwe0003k1a1zpsw2i5g}{PCON --- EID Intern 2024 (OOP-wrapped DSA)}
+  \item \href{https://www.geeksforgeeks.org/interview-experiences/ge-healthcare-interview-experience-sde-internship-on-campus/}{GFG --- SDE Intern SVNIT Aug 2024}
+  \item \href{https://www.geeksforgeeks.org/interview-experiences/ge-healthcare-interview-experience-on-campus-3/}{GFG --- On-Campus (matrix diagonals, LL)}
+  \item \href{https://www.geeksforgeeks.org/interview-experiences/ge-healthcare-interview-experience-for-fte-eedp-on-campus/}{GFG --- EEDP FTE (50 MCQ + polymorphism live)}
+  \item Senior 2025: 2 DSA OA + 20 CS MCQ $\rightarrow$ HireVue $\rightarrow$ Tech $\rightarrow$ HR $\rightarrow$ Personality
+\end{itemize}
+
+\section{1) OA blocks $\to$ links}
+\noindent\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Block} & \textbf{Do} \\
+\hline
+CS MCQs (OS/DBMS/CN/OOP) & Links A--D \\
+DSA Easy--Medium coding & Sec 3--4 \\
+Aptitude / English (if any) & Links E, F \\
+HireVue scripts & \texttt{GE\_HireVue\_Prep.pdf} \\
+\end{tabularx}
+
+\begin{enumerate}
+  \item[\textbf{A}] \href{https://www.geeksforgeeks.org/operating-systems/operating-systems-interview-questions/}{GFG OS Interview Qs}
+  \item[\textbf{B}] \href{https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/}{GFG DBMS Interview Qs}
+  \item[\textbf{C}] \href{https://www.geeksforgeeks.org/computer-networks/computer-networks-interview-questions/}{GFG CN Interview Qs}
+  \item[\textbf{D}] \href{https://www.geeksforgeeks.org/quizzes/oop-concepts-gq/}{GFG OOP Concepts quiz}
+  \item[\textbf{E}] \href{https://www.indiabix.com/aptitude/questions-and-answers/}{IndiaBIX Aptitude}
+  \item[\textbf{F}] \href{https://www.indiabix.com/verbal-ability/questions-and-answers/}{IndiaBIX Verbal / English}
+\end{enumerate}
+
+\section{2) Core CS checklist}
+\begin{itemize}
+  \item $\square$ OOP: encapsulation, inheritance, polymorphism (compile-time vs runtime)
+  \item $\square$ OS: process vs thread, deadlock (4 conditions), mutex/semaphore
+  \item $\square$ DBMS: ACID, normalization (1NF--3NF idea), INNER vs LEFT JOIN
+  \item $\square$ CN: OSI 7 layers (names + 1-line purpose each)
+  \item $\square$ SQL: third-highest salary; GROUP BY + HAVING
+\end{itemize}
+
+\section{3) Named algorithms (logic-first)}
+\tag{Senior: mostly logic. EID 2024: also code Easy DSA inside OOP classes.}
+\begin{itemize}
+  \item $\square$ Kadane (max subarray) \quad $\square$ Two Sum (hash map) \textbf{+ OOP class wrap}
+  \item $\square$ Sum of leaf nodes (tree) \textbf{+ OOP} \quad $\square$ First unique character
+  \item $\square$ Valid parentheses \quad $\square$ Group anagrams \quad $\square$ Longest substring no repeat
+  \item $\square$ Matrix diagonals (N$\times$N) \quad $\square$ LL insert + delete \quad $\square$ Merge intervals
+  \item $\square$ Level-order / zig-zag traversal \quad $\square$ BFS/DFS (islands)
+  \item $\square$ Prefix sum \quad $\square$ Sliding window \quad $\square$ Climbing stairs
+  \item $\square$ Sieve of Eratosthenes \quad $\square$ Tower of Hanoi (explain + code) \quad $\square$ BST insert/delete
+\end{itemize}
+
+\section{4) Striver / LeetCode list}
+\tag{https://leetcode.com/u/Rawat\_987/}
+\begin{itemize}
+  \item $\square$ Two Sum \quad $\square$ Maximum Subarray \quad $\square$ Contains Duplicate
+  \item $\square$ First Unique Character \quad $\square$ Valid Anagram \quad $\square$ Group Anagrams
+  \item $\square$ Valid Parentheses \quad $\square$ Longest Substring Without Repeating Characters
+  \item $\square$ Reverse Linked List \quad $\square$ Merge Two Sorted Lists \quad $\square$ Merge Intervals
+  \item $\square$ Binary Tree Level Order \quad $\square$ Maximum Depth \quad $\square$ Sum of Left/Leaf Nodes style
+  \item $\square$ Number of Islands \quad $\square$ Climbing Stairs \quad $\square$ Best Time to Buy/Sell Stock
+\end{itemize}
+
+\section{5) Technical interview bank}
+\begin{itemize}
+  \item $\square$ LogiFlow: team role, multimodal idea, what you owned, tradeoffs
+  \item $\square$ EduAce: workflow, Django auth, AI integration, improvements
+  \item $\square$ Beneath The Blue: 3-tier arch, quiz scoring server-side, CSRF
+  \item $\square$ Web Wonder: team lead STAR story
+  \item $\square$ OOP live: Animal/Dog polymorphism in C++ or Python
+  \item $\square$ \textbf{OOP+DSA:} Two Sum class + Sum-of-leaves class (EID 2024)
+  \item $\square$ Design: testing software / unit vs integration tests
+  \item $\square$ ML lite: supervised vs unsupervised; how you'd measure accuracy
+\end{itemize}
+
+\section{6) HR + personality}
+\begin{itemize}
+  \item $\square$ Hobbies, Nexus role, teamwork example
+  \item $\square$ Why GE HealthCare + one product (MRI, ultrasound, Edison platform)
+  \item $\square$ Competitor awareness (Siemens Healthineers, Philips) --- SVNIT 2024 HR
+  \item $\square$ Personality: answer situational Qs consistently (no gaming)
+  \item $\square$ Puzzle games: practice simple pattern/logic games under time
+\end{itemize}
+
+\section{7) Mock schedule}
+\begin{itemize}
+  \item $\square$ OA mock: 45 min --- 2 problems + 20 MCQ flash review
+  \item $\square$ HireVue: record 5 answers, 3 takes each
+  \item $\square$ Tech mock: 60 min --- projects 20 min + DSA logic 20 min + CS 20 min
+\end{itemize}
+
+\end{document}

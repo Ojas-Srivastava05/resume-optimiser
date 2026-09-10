@@ -1,0 +1,178 @@
+% GEP R2 Mock --- LeetCode Sep 2025 on-campus report --- 30 min
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm,top=1.9cm,bottom=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{1.5pt}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{0F5C4C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{soft}{HTML}{F3F6F5}
+\definecolor{qcol}{HTML}{9F1239}
+\definecolor{you}{HTML}{166534}
+\definecolor{youbg}{HTML}{ECFDF5}
+\definecolor{rulec}{HTML}{D7E3DE}
+\definecolor{tag}{HTML}{B45309}
+\definecolor{timec}{HTML}{1D4ED8}
+
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}GEP Intern -- Technology}
+\fancyhead[R]{\small\color{accent}\textbf{R2 Mock --- LeetCode}}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{rulec}\hrule height 0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{12pt}{5pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{8pt}{3pt}
+
+\newcommand{\card}[1]{%
+  \par\vspace{4pt}%
+  \noindent\colorbox{soft}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{5pt}#1\vspace{5pt}}%
+  }\par\vspace{5pt}%
+}
+\newcommand{\IV}[1]{\par\vspace{4pt}\noindent\textcolor{qcol}{\textbf{Interviewer.}}~\textit{#1}\par}
+\newcommand{\You}[1]{%
+  \par\vspace{2pt}%
+  \noindent\colorbox{youbg}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{3pt}\textcolor{you}{\textbf{\small You say.}}~#1\vspace{3pt}}%
+  }\par}
+\newcommand{\clk}[1]{\noindent\textcolor{timec}{\textbf{#1}}\quad}
+\newcommand{\src}[1]{\noindent{\footnotesize\color{tag}\textbf{From report:} #1}\par\vspace{2pt}}
+\newcommand{\note}[1]{\noindent{\small\color{muted}\textit{#1}}\par\vspace{2pt}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{accent}R2 Mock --- LeetCode 2025 Report}\\[5pt]
+  {\color{muted}30 minutes $\cdot$ Technical Interview 2 $\cdot$ Summer Intern 2026}\\[3pt]
+  {\footnotesize\color{muted}Mapped to your resume. Verdict in report: Selected, Mumbai, Rs.\ 50k/month.}
+\end{center}
+
+\src{LeetCode Discuss, Sep 2025: R2 = brief intro, casual tone, deep resume/projects, design choices + challenges, behavioral (team, conflicts, new stack), balanced technical + cultural. No hard DSA in R2. HR later asked layman project explanation.}
+
+\textit{Interviewer tone: starts casual, puts you at ease, then goes deep on whatever is on the resume.}
+
+\card{
+\textbf{How to use.} 30-minute timer. Answer out loud first; green boxes are the target answers mapped to \textbf{your} projects.\\[4pt]
+\textbf{R2 intro:} Same 40-second version as Dilip mock (LogiFlow pipelines + Community Hero + Nexus sixteen).\\[4pt]
+\textbf{This mock covers R2 only.} R1 topics (SSR, SQL join, max-in-string) appear in the bonus appendix if R1 and R2 blur on your drive day.
+}
+
+\section{Clock (matches report structure)}
+
+\begin{tabular}{@{}clp{8.5cm}@{}}
+\clk{0:00--3:00} & Intro + rapport & Brief intro; casual chat to settle in. \\
+\clk{3:00--12:00} & Resume / LogiFlow & Tech stack, design choices, challenges. \\
+\clk{12:00--18:00} & Community Hero & Solo project, AI, auth, trade-offs. \\
+\clk{18:00--25:00} & Behavioral & Team conflict, new stack, collaboration. \\
+\clk{25:00--30:00} & Wrap-up & Your questions; thank you. \\
+\end{tabular}
+
+\section{Script --- Technical Interview 2}
+
+\subsection*{0:00 --- Opening}
+
+\IV{Hi Ojas, how are you doing? Hope round one went okay. I will keep this relaxed --- just want to understand your projects and how you work in a team. Quick intro?}
+
+\You{R2 intro. Stop.}
+
+\IV{Nice. Let us start with LogiFlow. Walk me through the tech stack and \emph{why} you picked each piece.}
+
+\You{Backend Python + FastAPI --- data pipelines and sklearn delay model. Frontend TypeScript + Next.js --- map UI with faster first load. SQL as source of truth for corridors and tariffs. Redis cache-aside for hot reads, 100--400 ms. pytest 100/100 business rules in CI. Deployed on GCP Cloud Run. Each choice matched the constraint: data + ranking on the backend, read-heavy API, tests as contracts.}
+
+\IV{What was the hardest challenge while building it?}
+
+\You{Latency. First version recomputed rankings on every request --- seconds. I moved to cache-aside with Redis and kept SQL as source of truth. That took responses to 100--400 milliseconds. Second challenge was team alignment on what ``co-lead'' owns --- we fixed it by naming pipeline owners in the README.}
+
+\IV{LogiFlow was a team project. Any conflict with a teammate? How did you handle it?}
+
+\You{Cache placement --- API layer vs pipeline layer. We built both on a branch, benchmarked, picked API-level for simpler invalidation with the same latency. No personal conflict; we let data decide.}
+
+\IV{Design choice question: why SQL database, not a document store like MongoDB?}
+
+\You{Corridors, legs, and tariffs are relational --- joins and foreign keys. One tariff update is one row, not thousands of denormalized documents. Mongo fits flexible blobs; my Community Hero reports are exactly that, so that project uses Firestore instead.}
+
+\subsection*{12:00 --- Second project (they often switch)}
+
+\IV{Community Hero --- you said you built it solo. Tell me about that. Tech stack and why.}
+
+\You{Civic issue reporting PWA. React + Express, Firestore for geo-tagged reports, Cloud Run deploy, Gemini for category classification. Solo because hackathon timeline --- I owned spec to deploy. Firestore because each report is a self-contained document with nested fields; schema was still moving. Gemini behind guard checks --- bad output falls back to manual admin review.}
+
+\IV{What if Gemini is wrong or the API is down?}
+
+\You{Treat the model as untrusted. Validate input before the call. If output is not a known category, store raw text and flag for admin. Prefer a missed auto-tag over a wrong auto-route. If Gemini is down, reports still save; routing goes to manual queue.}
+
+\IV{How did you handle login and authentication?}
+
+\You{Firebase Auth on the client issues a token. Express verifies it on every protected route before Firestore. Roles checked server-side --- a citizen cannot hit admin endpoints. I never trust the client for authorisation.}
+
+\subsection*{18:00 --- Behavioral (quoted in report)}
+
+\IV{Would you prefer to keep working in Python and React, or are you open to a completely new tech stack in a corporate setting?}
+
+\You{Open to a new stack. GEP often uses C\#, Angular, SQL Server --- I have not shipped those, but I learned FastAPI, Redis, and Cloud Run under deadline for LogiFlow. The habits transfer: APIs, data, tests, ownership. I would rather learn the product stack than insist on mine.}
+
+\IV{How do you collaborate on tasks when the team is under deadline?}
+
+\You{Name owners early --- on LogiFlow we split pipelines by person and shared a ranker interface. Daily sync on blockers, PR reviews before merge. On Nexus, sixteen-person core team --- divide events, one owner per deliverable. I do not merge what I have not reviewed.}
+
+\IV{If I asked you to explain one project to someone with zero technical background, which would you pick and how?}
+
+\You{LogiFlow. ``You need to ship goods from city A to B. Train, truck, or both --- different price, time, and delay risk. LogiFlow shows all options ranked so you pick what fits your budget and deadline --- like Google Maps for freight, but you see trade-offs, not just one fastest route.''}
+
+\note{Report says this layman question appeared in \textbf{HR}; it may come in R2 if time allows. Have it ready either way.}
+
+\subsection*{25:00 --- Wrap-up}
+
+\IV{That is most of what I had. Anything you want to ask me?}
+
+\You{For technology interns, what does the first month look like --- shadowing, or contributing to a live module? And what separates interns who get a PPO from those who do not?}
+
+\IV{Good questions. Thank you, Ojas --- HR will connect with you on next steps.}
+
+\You{Thank you. I enjoyed this.}
+
+\section{Bonus --- if R1 topics repeat (from same LeetCode report)}
+
+\card{\textbf{R1 was 30 min in the report.} If your drive merges rounds or Dilip asks R1-style questions, drill these once:}
+
+\IV{What is SSR in Next.js?}
+\You{Server renders React to HTML before sending to the browser, so the user sees content immediately. Plain React sends empty HTML + JS first, then fetches data --- blank screen longer. LogiFlow map benefits from data in the first paint.}
+
+\IV{Stack vs Queue?}
+\You{Stack LIFO --- undo, DFS, call stack. Queue FIFO --- BFS, job scheduling. LogiFlow graph search uses a queue for BFS on corridors.}
+
+\IV{SQL: books and authors --- find books by author X.}
+\You{\texttt{SELECT b.name FROM book b JOIN author a ON b.author\_id = a.author\_id WHERE a.name = 'X';}}
+
+\IV{String s = ``1,2,3,4,5'' --- find maximum integer.}
+\You{Split on comma, parse each token to int, track max in one pass. O(n) time, O(1) extra if split in place. Watch empty string and non-numeric tokens --- ask if input is guaranteed clean.}
+
+\section{Score this mock}
+
+\begin{tabular}{@{}p{3.2cm}p{9cm}c@{}}
+\textbf{Rapport} & Short intro, not a monologue? Comfortable tone? & \rule{1.4cm}{0.4pt} \\
+\textbf{LogiFlow} & Stack + why each? Challenge + fix? SQL vs NoSQL? & \rule{1.4cm}{0.4pt} \\
+\textbf{Community Hero} & Solo ownership clear? Gemini guards + fallback? & \rule{1.4cm}{0.4pt} \\
+\textbf{Behavioral} & New stack = yes + example? Conflict = evidence? & \rule{1.4cm}{0.4pt} \\
+\textbf{Layman} & No jargon in dinner-table explanation? & \rule{1.4cm}{0.4pt} \\
+\textbf{Close} & Two thoughtful questions, not stipend? & \rule{1.4cm}{0.4pt} \\
+\end{tabular}
+
+\vspace{8pt}
+\card{\textbf{Report reminder.} Selected candidate: R2 had \textbf{no} heavy coding. Real filter was project depth + team fit. HR asked family + layman project --- prep those even if R2 feels ``easy.''\\[4pt]
+Pair with: \texttt{GEP\_R2\_Mock\_Dilip.pdf} and \texttt{GEP\_R2\_LogiFlow\_Prep.pdf}.}
+
+\end{document}

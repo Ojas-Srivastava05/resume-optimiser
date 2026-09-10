@@ -1,0 +1,260 @@
+% GEP campus interviews --- what people were actually asked
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm,top=1.9cm,bottom=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{0F5C4C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{soft}{HTML}{F3F6F5}
+\definecolor{qcol}{HTML}{9F1239}
+\definecolor{you}{HTML}{166534}
+\definecolor{youbg}{HTML}{ECFDF5}
+\definecolor{rulec}{HTML}{D7E3DE}
+\definecolor{tag}{HTML}{B45309}
+
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}GEP Intern -- Technology}
+\fancyhead[R]{\small\color{accent}\textbf{Candidate reviews}}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{rulec}\hrule height 0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{15pt}{7pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{10pt}{4pt}
+\setlist[itemize]{leftmargin=1.15em, topsep=3pt, itemsep=3pt, parsep=0pt}
+
+\newcommand{\tg}[1]{\textcolor{tag}{\textbf{\footnotesize #1}}}
+\newcommand{\rnd}[1]{\textcolor{accent}{\textbf{#1}}}
+\newcommand{\q}[1]{\textcolor{qcol}{#1}}
+\newcommand{\card}[1]{%
+  \par\vspace{5pt}%
+  \noindent\colorbox{soft}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{6pt}#1\vspace{6pt}}%
+  }\par\vspace{7pt}%
+}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{accent}GEP campus interviews --- what people were asked}\\[5pt]
+  {\color{muted}Public candidate write-ups, quoted round by round. No invented questions.}
+\end{center}
+
+\vspace{4pt}
+\card{
+\textbf{How to read the labels.}\\[3pt]
+\tg{Confirmed} --- shows up across several independent reports.\quad
+\tg{Repeated} --- two or more reports, campuses differ.\quad
+\tg{One-off} --- a single post. Useful, not a promise.\\[4pt]
+Everything below is what a real candidate said they were asked. Where a report is paywalled or vague, it says so instead of guessing.
+}
+
+\section{Official process (GEP campus, India)}
+\begin{itemize}
+  \item Sequence: \textbf{PPT $\rightarrow$ OA $\rightarrow$ 2 technical rounds $\rightarrow$ HR}. \tg{Confirmed}
+  \item Process closes fast --- results typically in \textbf{1--2 days}.
+  \item Offices: \textbf{Mumbai} (CJB / Airoli) and \textbf{Hyderabad} (Madhapur).
+  \item Internship length: \textbf{8--10 weeks}.
+  \item A fail carries a \textbf{6-month cooling period}.
+  \item Both \textbf{Technology intern} and \textbf{Technology AI} tracks exist.
+  \item Source: gep.com campus connect, India.
+\end{itemize}
+
+\section{Sarthak Chauhan --- SVNIT, GEP intern $\rightarrow$ PPO}
+\card{
+\rnd{OA.} Aptitude + maths + MCQs + \textbf{2 medium DSA} problems.\\[5pt]
+\rnd{Technical 1.}
+\begin{itemize}
+  \item \q{Tell me about yourself.}
+  \item \q{Explain the pillars of OOP} --- with heavy follow-up on \textbf{polymorphism and inheritance}, and he was pushed for \textbf{real-world examples} of each, not textbook definitions.
+  \item Deep dive on his finance-manager project, specifically \q{how did you do login and authentication?}
+\end{itemize}
+\vspace{3pt}
+\rnd{Technical 2.}
+\begin{itemize}
+  \item \q{What is your favourite data structure?} He said \textbf{trees} --- and then got a long grilling on tree internals and traversals.
+  \item \q{Give a real-world problem you solved with a tree} --- he answered with \textbf{BFS / level-order}.
+  \item A \textbf{divide-and-conquer} puzzle.
+\end{itemize}
+\vspace{3pt}
+\rnd{HR.} \q{What are your hobbies?} \quad \q{Are you willing to relocate to Mumbai?}
+}
+\tg{Most relevant report in this document --- same college, same role.}
+
+\section{Shivam Kumar --- campus SDE 2025, ex-GEP intern}
+\card{
+\rnd{Format.} 2 technical rounds + HR.\\[4pt]
+\rnd{Each technical round.} One \textbf{Easy--Medium DSA} problem (arrays or graphs) plus a \textbf{deep project discussion}.\\[4pt]
+\rnd{Key point he stressed.} Every question came out of \textbf{his own intro, his own code, and his own resume}. They probe \textbf{internals}, not hard competitive programming.\\[4pt]
+\rnd{Timeline.} Offer in roughly \textbf{3 days}.
+}
+\tg{Confirmed} --- matches the Sarthak and GFG reports on "questions come from your resume."
+
+\section{GeeksforGeeks --- Intern, on-campus}
+\card{
+\rnd{OA.}
+\begin{itemize}
+  \item Aptitude with image-based questions.
+  \item \textbf{SQL}, including a \textbf{conflict-resolution} question.
+  \item Coding: \q{find the number of seconds between two given times.}
+  \item Roughly \textbf{25 of 70} cleared.
+\end{itemize}
+\vspace{3pt}
+\rnd{Technical 1 (about 22--25 minutes).}
+\begin{itemize}
+  \item \q{Find the first non-repeating character in a string.}
+  \item \q{Remove the repeating characters and print the result.}
+  \item \q{What difficulties did you face in your project?}
+\end{itemize}
+\vspace{3pt}
+\rnd{Technical 2 (about 10 minutes --- short round).}
+\begin{itemize}
+  \item \q{What is the purpose of OOP?}
+  \item \q{Difference between data structures and algorithms.}
+  \item \q{How would you know what language a website is built in, without reading its code?}
+  \item \q{Where do you see yourself in 5 years?}
+\end{itemize}
+\vspace{3pt}
+\rnd{HR.} \q{What do you know about GEP?} \quad \q{How did you apply?} \quad \q{What is your future goal?}
+}
+\tg{One-off} --- that same post claimed everyone who reached HR got the intern offer. Treat that as one campus's outcome, not a rule.
+
+\section{GeeksforGeeks --- SDE}
+\card{
+\rnd{OA --- 90 minutes, 4 sections.}
+\begin{itemize}
+  \item Logical reasoning.
+  \item Fast maths: simple interest, profit and loss, data interpretation.
+  \item OS + DBMS.
+  \item One \textbf{medium} coding problem.
+\end{itemize}
+\vspace{3pt}
+\rnd{Technical 1 (about 1 hour).}
+\begin{itemize}
+  \item \textbf{OOP for the first 10 minutes.}
+  \item \q{MongoDB} questions --- purely because Mongo was on his resume.
+  \item His \textbf{ML project} for about 15 minutes.
+  \item An array DSA problem \textbf{solved using a map}.
+  \item A puzzle.
+\end{itemize}
+\vspace{3pt}
+\rnd{Technical 2 (about 40 minutes).}
+\begin{itemize}
+  \item More depth on the ML project.
+  \item \q{Print Fibonacci numbers in a given range --- now do it a second way.} \textbf{Two methods demanded.}
+\end{itemize}
+\vspace{3pt}
+\rnd{HR.} \q{Why are you shifting from data science to software?} \quad Family background. \quad Location preference.
+}
+\tg{Confirmed} --- resume-driven grilling and "solve it another way" both recur.
+
+\section{GeeksforGeeks --- SDE-1, on-campus (around 2020)}
+\card{
+\rnd{OA --- quoted problem.} N people have chocolates; you pick a range; the boxes must be divisible by M; maximise the number per box.\\[5pt]
+\rnd{Technical 1.}
+\begin{itemize}
+  \item Algorithms used during his internship.
+  \item Full project discussion.
+  \item \q{Design Zoomcar} --- 10 to 15 minutes of system design.
+\end{itemize}
+\vspace{3pt}
+\rnd{Technical 2 --- the OOP-heavy round.}
+\begin{itemize}
+  \item \q{Abstraction vs abstract class vs encapsulation.}
+  \item \q{Friend} keyword. \quad \q{Static} keyword.
+  \item \q{Design a bank using OOP.}
+  \item \q{Two users grab the last item in a cart at the same time --- what happens?} (race condition)
+  \item Puzzle: \textbf{12 balls, one faulty} --- find it.
+  \item Puzzle: \textbf{two buckets}, measure a required quantity.
+\end{itemize}
+\vspace{3pt}
+\rnd{HR --- short.} Family. \quad College. \quad Location. \quad Expectations.
+}
+
+\section{GeeksforGeeks --- Associate Software Developer}
+\card{
+\rnd{OA.} 15 questions on \textbf{C\# / Angular / .NET}, plus one coding problem:\\[3pt]
+\q{Alt+Tab behaviour} --- given n = 4 and the list \{1, 2, 3, 4\} with k = 3, output \{3, 1, 2, 4\}. Must handle the case where k $\geq$ n.\\[5pt]
+\rnd{Technical 2 --- he called this the toughest round.}
+\begin{itemize}
+  \item His project: \textbf{AJAX, jQuery, MVC}.
+  \item Timetable \textbf{database} design.
+  \item \q{Why is main public?}
+  \item \q{Why String[] args?}
+  \item \q{Complexity of BFS.}
+\end{itemize}
+}
+\tg{One-off on the stack} --- the C\#/.NET section is for the associate developer role, not the AI/technology intern track.
+
+\section{TalentBattle --- ASE, Airoli, 2023}
+\card{
+\rnd{Technical.}
+\begin{itemize}
+  \item Introduce yourself. \quad Internships you have done.
+  \item OOP concepts. \quad \textbf{Access specifiers.}
+  \item \q{Stack vs queue vs list vs tree.}
+  \item \q{Find the middle of a linked list.}
+  \item \q{Binary search.}
+  \item \q{Print prime numbers from 1 to 100.}
+  \item \q{Time complexity of sorting algorithms.}
+  \item \q{Python vs Java.}
+  \item \q{MySQL vs MongoDB.}
+  \item \q{Primary key vs foreign key.}
+\end{itemize}
+\vspace{3pt}
+\rnd{HR.} Family. \quad Goals. \quad What do you know about GEP. \quad Interests. \quad Schedule / availability. \quad Strengths and weaknesses. \quad Favourite subject.
+}
+\tg{Confirmed} --- this is the single best list of the "small, fast, fundamentals" questions.
+
+\section{Maanya Jain --- AI Intern, Thapar 2024}
+\card{
+\rnd{Sequence.} PPT $\rightarrow$ OA $\rightarrow$ Preliminary $\rightarrow$ Functional $\rightarrow$ HR.\\[5pt]
+\rnd{OA.} Time and space \textbf{complexity}; \textbf{Python} error-spotting; \textbf{SQL}; \textbf{Hadoop}; one \textbf{medium DSA} problem.\\[5pt]
+\rnd{Shortlist.} 12 candidates.\\[5pt]
+\rnd{Interviews.} The write-up is \textbf{paywalled}. The actual interview questions are not public --- nothing is reconstructed here.
+}
+\tg{Closest AI-track report} --- the OA content is real, the interview content is unknown.
+
+\section{Sanjay Gupta --- 2023}
+\card{
+Intern role was based in \textbf{Mumbai}; the full-time role could be \textbf{Mumbai or Hyderabad}.\\[4pt]
+Confirms \textbf{Hadoop MCQs} appearing on the OA.
+}
+\tg{Repeated} --- Hadoop on the OA also shows up in the Thapar AI report.
+
+\section{AmbitionBox --- aggregated}
+\card{
+Software Engineer, most-quoted question: \q{Explain the key projects you have implemented.}\\[4pt]
+Full-time SE stack questions skew to \textbf{C\# / Angular / SQL}.\\[4pt]
+\textbf{Caution.} The consulting guesstimate questions on AmbitionBox belong to GEP's consulting loop. They are \textbf{not} part of this technology intern process.
+}
+
+\section{What this means for a 2026 Technology intern}
+\card{
+There is \textbf{no public 2026 question dump} for the combined SE + AI intern loop. Nobody has posted it. Anything claiming otherwise is invented.\\[6pt]
+What the reports agree on, for \textbf{two rounds after the OA}:
+\begin{itemize}
+  \item \textbf{Your resume is the question bank.} Mongo on the resume $\rightarrow$ Mongo questions. ML project on the resume $\rightarrow$ 15 minutes of ML. Do not list what you cannot defend.
+  \item \textbf{OOP is near-guaranteed} in at least one round --- pillars, polymorphism and inheritance with real-world examples, abstraction vs encapsulation, access specifiers, static.
+  \item \textbf{One Easy--Medium DSA per round}, usually strings, arrays with a hashmap, linked list, or a BFS-flavoured graph problem. Not hard competitive programming.
+  \item \textbf{"Now solve it another way"} is a live pattern --- Fibonacci two ways is quoted directly.
+  \item \textbf{A puzzle} is common in round 2: divide and conquer, 12 balls, two buckets.
+  \item \textbf{"What is your favourite data structure?"} is a trap --- whatever you say becomes the next 10 minutes.
+  \item \textbf{HR is short and predictable}: what do you know about GEP, family, location, hobbies, 5-year goal, strengths and weaknesses.
+  \item \textbf{Rounds can be short.} One report had a 10-minute second round. Answer fast and completely; do not wait for a long runway.
+\end{itemize}
+}
+
+\end{document}

@@ -1,0 +1,141 @@
+% GEP R1 Mock 2 --- OOP keywords + cache --- 20 min
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm,top=1.9cm,bottom=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{1.5pt}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{0F5C4C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{soft}{HTML}{F3F6F5}
+\definecolor{qcol}{HTML}{9F1239}
+\definecolor{you}{HTML}{166534}
+\definecolor{youbg}{HTML}{ECFDF5}
+\definecolor{rulec}{HTML}{D7E3DE}
+\definecolor{tag}{HTML}{B45309}
+\definecolor{timec}{HTML}{1D4ED8}
+
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}GEP Intern -- Technology}
+\fancyhead[R]{\small\color{accent}\textbf{R1 Mock 2}}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{rulec}\hrule height 0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{12pt}{5pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{8pt}{3pt}
+
+\newcommand{\card}[1]{%
+  \par\vspace{4pt}%
+  \noindent\colorbox{soft}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{5pt}#1\vspace{5pt}}%
+  }\par\vspace{5pt}%
+}
+\newcommand{\IV}[1]{\par\vspace{4pt}\noindent\textcolor{qcol}{\textbf{Interviewer.}}~\textit{#1}\par}
+\newcommand{\You}[1]{%
+  \par\vspace{2pt}%
+  \noindent\colorbox{youbg}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{3pt}\textcolor{you}{\textbf{\small You say.}}~#1\vspace{3pt}}%
+  }\par}
+\newcommand{\clk}[1]{\noindent\textcolor{timec}{\textbf{#1}}\quad}
+\newcommand{\src}[1]{\noindent{\footnotesize\color{tag}\textbf{From reports:} #1}\par\vspace{2pt}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{accent}R1 Mock 2 --- OOP keywords + cache}\\[5pt]
+  {\color{muted}20 minutes $\cdot$ Ojas Srivastava $\cdot$ Intern -- Technology}\\[3pt]
+  {\footnotesize\color{muted}No notes. Faster interviewer. Twenty minutes is tight.}
+\end{center}
+
+\src{GFG SDE-1 R2: access specifiers, static, bank design. TalentBattle: favourite DS. GFG intern / SDE: array + map. Resume-driven Redis follow-up.}
+
+\textit{Interviewer tone: jumps topics. Answer completely on the first pass.}
+
+\card{
+\textbf{How to use.} Set a 20-minute timer. Cover the green boxes. Answer out loud.\\[4pt]
+\textbf{Do NOT volunteer:} location, IFFCO (unless they open resume), MCP names, AirHelp, ``I led the whole team.''\\[4pt]
+\textbf{Locked intro --- say verbatim, then stop:}\\
+Good afternoon sir, ma'am. I am Ojas Srivastava. Pre-final B.Tech AI, SVNIT Surat, CGPA 9.20. Coursework: OOP, DBMS, OS, CN, DAA. Google Solution Challenge 2026 Global rank 106 --- LogiFlow, supply-chain routing. Vibe2Ship 2026 Global Top 20 --- Community Hero, civic issue reporting PWA. Coding workflow: Cursor, MCP and plugins; spec and review every merge. Chairperson Nexus SVNIT, CSE+AI cell, manage and mentor 500+ students. I own the outcome. GEP works on AI-powered procurement and supply chain --- operational data to a decision, owned till it ships.
+}
+
+\section{Clock}
+
+\begin{tabular}{@{}clp{8.8cm}@{}}
+\clk{0:00--2:00} & Intro & Locked intro, 60 seconds. Then silence. \\
+\clk{2:00--8:00} & OOP & Access specifiers, static, abstraction, bank design. \\
+\clk{8:00--14:00} & LogiFlow & Redis internals, algorithms, favourite DS = graph. \\
+\clk{14:00--18:00} & DSA & Two-sum with a map. One pass. \\
+\clk{18:00--20:00} & Close & Why GEP. \\
+\end{tabular}
+
+\section{Script}
+
+\subsection*{0:00 --- Intro}
+\IV{Hi Ojas. Quick intro --- 60 seconds.}
+\You{Locked intro, same content, slightly tighter pace. Still hit LogiFlow, Community Hero, Nexus, GEP bridge. Stop.}
+
+\subsection*{2:00 --- OOP keywords}
+\IV{Access specifiers --- public, private, protected. Where do you use private?}
+\You{Fields private; behaviour through methods. LogiFlow: cache keys and DB handles not exposed --- callers use \texttt{getRoutes()} only.}
+
+\IV{What does static mean? Same as constant?}
+\You{Belongs to class, not instance. Static method cannot touch instance fields. \textbf{Not} constant.}
+
+\IV{Abstraction vs encapsulation --- people confuse these.}
+\You{Abstraction hides complexity (what vs how). Encapsulation bundles data and restricts access. Different ideas.}
+
+\IV{Design a bank account in OOP --- 90 seconds, classes only.}
+\You{Abstract \texttt{Account}: balance, \texttt{deposit()}, \texttt{withdraw()}. \texttt{Savings}/\texttt{Current} override withdraw rules. \texttt{Transaction} for audit. Balance private.}
+
+\subsection*{8:00 --- LogiFlow (resume-driven)}
+\IV{Redis on your resume. Explain exactly how you used it.}
+\You{Cache-aside on hot corridor reads. Key from query params. TTL. Invalidate on write. SQL source of truth.}
+
+\IV{Two users, same corridor, both cache miss --- problem?}
+\You{Both recompute --- wasteful but OK for reads. Thundering herd possible; could add lock or single-flight. Not inventory-critical like cart stock.}
+
+\IV{Which algorithms? Do not say ML unless you can defend it.}
+\You{Graph over corridor network. BFS when hops uniform; weighted shortest path when not. Scoring on time, cost, delay.}
+
+\IV{Favourite data structure?}
+\You{Graph --- stations nodes, corridors edges. Adjacency list (sparse). BFS for unweighted / level-order. Stay on graph if they grill internals.}
+
+\subsection*{14:00 --- DSA}
+\IV{Array and target --- return indices of two numbers that sum to target. One pass.}
+\You{For each \texttt{x}, check \texttt{target - x} in map \textbf{before} inserting \texttt{x}. Avoids using same element twice. O(n) time, O(n) space.}
+
+\noindent{\small\textbf{Why check before insert?} For \texttt{[3,3]}, target 6 --- cannot use index 0 twice.}
+
+\subsection*{18:00 --- Close}
+\IV{Why GEP?}
+\You{Procurement + supply chain --- operational data to a decision. Same shape as LogiFlow. SMART, NEXXE, Quantum Intelligence --- product plus consulting judgement.}
+
+\section{Score this mock}
+
+Rate each area \textbf{/10}. Pass bar: \textbf{7+} average.
+
+\begin{tabular}{@{}p{3cm}p{9.5cm}c@{}}
+\textbf{Intro} & Under 60s? Stopped? No location / IFFCO / MCP names? & \rule{1.4cm}{0.4pt} \\
+\textbf{OOP} & Static $\neq$ constant? Bank design under 90s? & \rule{1.4cm}{0.4pt} \\
+\textbf{LogiFlow} & SQL is source of truth --- not ``Redis is fast''? Graph, not tree? & \rule{1.4cm}{0.4pt} \\
+\textbf{DSA} & Check map before insert? Complexity stated? & \rule{1.4cm}{0.4pt} \\
+\textbf{Close} & Why GEP in two sentences, no stipend talk? & \rule{1.4cm}{0.4pt} \\
+\end{tabular}
+
+\vspace{8pt}
+\card{\textbf{Pass bar.} Bank design under 90 seconds. Redis answer shows SQL-as-truth.\\[4pt]
+Next: \texttt{GEP\_R1\_Mock\_3.pdf} --- morning of interview, no notes.}
+
+\end{document}

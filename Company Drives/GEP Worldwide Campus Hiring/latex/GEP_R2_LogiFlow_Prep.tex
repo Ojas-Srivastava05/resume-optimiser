@@ -1,0 +1,223 @@
+% GEP R2 LogiFlow Prep --- every likely LogiFlow question for Round 2
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm,top=1.9cm,bottom=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{1.5pt}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{0F5C4C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{soft}{HTML}{F3F6F5}
+\definecolor{qcol}{HTML}{9F1239}
+\definecolor{you}{HTML}{166534}
+\definecolor{youbg}{HTML}{ECFDF5}
+\definecolor{rulec}{HTML}{D7E3DE}
+\definecolor{tag}{HTML}{B45309}
+\definecolor{timec}{HTML}{1D4ED8}
+\definecolor{warnbg}{HTML}{FEF3C7}
+\definecolor{warnc}{HTML}{92400E}
+
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}GEP Intern -- Technology}
+\fancyhead[R]{\small\color{accent}\textbf{R2 LogiFlow Prep}}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{rulec}\hrule height 0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{12pt}{5pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{8pt}{3pt}
+
+\newcommand{\card}[1]{%
+  \par\vspace{4pt}%
+  \noindent\colorbox{soft}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{5pt}#1\vspace{5pt}}%
+  }\par\vspace{5pt}%
+}
+\newcommand{\warn}[1]{%
+  \par\vspace{4pt}%
+  \noindent\colorbox{warnbg}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{5pt}\textcolor{warnc}{#1}\vspace{5pt}}%
+  }\par\vspace{5pt}%
+}
+\newcommand{\Q}[1]{\par\vspace{4pt}\noindent\textcolor{qcol}{\textbf{Q.}}~\textbf{#1}\par\vspace{0pt}}
+\newcommand{\T}[1]{\noindent{\small\color{muted}\textit{Typical: #1}}\par\vspace{1pt}}
+\newcommand{\You}[1]{%
+  \par\vspace{2pt}%
+  \noindent\colorbox{youbg}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep}{\vspace{3pt}\textcolor{you}{\textbf{\small You say.}}~#1\vspace{3pt}}%
+  }\par}
+\newcommand{\src}[1]{\noindent{\footnotesize\color{tag}\textbf{From reports:} #1}\par\vspace{2pt}}
+\newcommand{\clk}[1]{\noindent\textcolor{timec}{\textbf{#1}}\quad}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{accent}R2 LogiFlow Prep}\\[5pt]
+  {\color{muted}All likely LogiFlow questions for GEP Round 2 $\cdot$ Ojas Srivastava}\\[3pt]
+  {\footnotesize\color{muted}R2 goes deeper on projects. LogiFlow is where they will spend the most time. Know every number.}
+\end{center}
+
+\src{GFG SDE: R2 = project ML deep-dive + Fibonacci two ways. GFG Intern: R2 ``Explain LogiFlow to a product manager.'' GFG ASD: R2 = projects + OOP one-liners + SQL. Shivam Kumar (SDE 2025): questions from intro/resume, not a bank.}
+
+\card{
+\textbf{R2 context.} They already heard your intro and OOP in R1. R2 opens with a short intro (30 seconds), then goes functional/product on LogiFlow. They want to know: do you \textbf{own} this, or did you just show up?\\[4pt]
+\textbf{Your 30-second R2 intro:}\\
+Good afternoon. I am Ojas Srivastava, pre-final year B.Tech AI at SVNIT Surat, 9.20 CGPA. I actively compete in hackathons. Technical co-lead on LogiFlow --- Google Solution Challenge Global Top 106. Solo-built Community Hero --- Vibe2Ship Global Top 20. Chairperson of Nexus --- I lead a team of sixteen and we manage initiatives for 500-plus students.
+}
+
+\section{The product pitch (3--20 min of R2)}
+
+\Q{Explain LogiFlow to a product manager. Not code --- the product.}
+\T{``It is an AI logistics app we made for a hackathon.''}
+\You{A planner has freight to move. They open LogiFlow, set constraints --- budget ceiling, delivery window, acceptable delay risk --- and get ranked corridors. Each corridor shows time, cost, and a delay-risk score. They pick a route and commit. The product is the \textbf{ranking}, not the map. Without it, the planner calls three brokers and guesses.}
+
+\Q{Who uses it? What is the user journey?}
+\T{``Everyone in logistics.''}
+\You{A logistics operator or procurement planner at a mid-size shipper. Journey: log in $\rightarrow$ enter origin, destination, constraints $\rightarrow$ see ranked corridors on a map $\rightarrow$ compare trade-offs (fast but expensive vs slow but cheap) $\rightarrow$ select and commit. The comparator pipeline exists so they see trade-offs, not one answer.}
+
+\Q{What breaks? What is the worst failure?}
+\T{``Nothing, it works.''}
+\You{Worst case: stale ranking leads to a wrong commit. Mitigation: Redis TTL + SQL as source of truth. If cache returns a corridor that no longer exists in SQL, the commit step validates before confirming. Second failure: model gives a bad delay estimate. Mitigation: delay risk is one input to ranking, not the only signal --- time and cost still hold. I surface the confidence, not hide it.}
+
+\Q{What would you change if you had another month?}
+\T{``Add more AI.''}
+\You{Three things. First, user-configurable weights on time vs cost vs delay --- right now the ranking is fixed. Second, historical commit data to learn which corridors planners actually pick and bias toward those. Third, alerting --- if a corridor's delay risk spikes after a commit, notify the planner before the shipment moves.}
+
+\section{Architecture and ownership}
+
+\Q{Draw the architecture. What calls what?}
+\T{``Frontend talks to backend.''}
+\You{Next.js UI $\rightarrow$ FastAPI $\rightarrow$ cache-aside on Redis (check $\rightarrow$ miss $\rightarrow$ SQL $\rightarrow$ pipeline $\rightarrow$ rank $\rightarrow$ SET with TTL $\rightarrow$ return). Three pipelines feed the ranker: railway, comparator, hybrid. pytest runs in CI before merge. GCP Cloud Run hosts both API and UI.}
+
+\Q{What was your code vs the team's?}
+\T{``I did everything / I was the main lead.''}
+\You{Co-lead. I owned: railway pipeline (geometry, reads, ranking into API, tests), comparator pipeline (compare modes so user sees trade-offs), hybrid pipeline, and the test suite. Frontend was shared --- I do not claim I wrote every React file. Data ingestion was shared. I can walk you through any file I wrote.}
+
+\Q{How many people on the team? How did you split work?}
+\T{``Four people, we all did everything.''}
+\You{Four. I took the backend pipelines and tests. One person owned data ingestion and cleaning. One owned the Next.js UI and map rendering. One handled deployment and Cloud Run config. We used GitHub PRs --- every merge was reviewed. Co-lead means I also reviewed others' code and made architecture calls on the ranking logic.}
+
+\Q{Show me the code for ranking. How does it work?}
+\T{``It is a neural network.''}
+\You{Not a neural network. Scoring function: each corridor gets a composite score from three normalised dimensions --- time, cost, delay risk. Pareto-style: I do not hide a slow cheap route behind a fast expensive one. The user sees the frontier. Delay risk comes from a gradient-boosting model (sklearn, not PyTorch) trained on 15k+ train-day records --- MAE around 22 minutes. The model is one input; the ranking logic is deterministic.}
+
+\section{Redis and caching (they always ask this)}
+
+\Q{Why Redis? Why not just SQL?}
+\T{``Redis is fast.''}
+\You{Corridor metadata is read far more than written --- classic read-heavy pattern. SQL is the source of truth but recomputing rankings on every request took seconds. Redis gives sub-millisecond lookups. Cache-aside: check Redis $\rightarrow$ miss $\rightarrow$ compute from SQL $\rightarrow$ SET with TTL $\rightarrow$ return. Reads drop to 100--400 ms.}
+
+\Q{What if Redis is down?}
+\T{``The app crashes.''}
+\You{FastAPI catches the Redis connection error and falls back to SQL. Slower, but correct. Redis is never the source of truth. I do not serve a 500 because the cache is unavailable.}
+
+\Q{What if the cache is stale?}
+\T{``We invalidate on every write.''}
+\You{TTL handles most staleness --- corridor data does not change per request. On write (new tariff, corridor update), I invalidate the affected keys. Stale reads inside TTL are acceptable for map display --- a planner seeing a 2-minute-old ranking is fine. Not acceptable for an irreversible commit --- the commit step re-validates against SQL.}
+
+\Q{What TTL did you use? How did you pick it?}
+\T{``I don't remember.''}
+\You{TTL depends on how often the underlying data changes. For corridor metadata that updates a few times a day, a TTL of 5--15 minutes is reasonable. I would not cache with a 24-hour TTL because tariff changes would be invisible. I would not cache with a 10-second TTL because that defeats the purpose. The right TTL is a product decision, not just a tech one.}
+
+\section{Data and pipelines}
+
+\Q{Where does the data come from? 15,000 train-day records?}
+\T{``We used an API.''}
+\You{Indian Railways public data --- schedules, routes, historical delays. 15,000+ train-day records across 580+ corridors. We ingested, cleaned, joined, and validated in SQL/Python pipelines. No live API call per request --- batch ingest, then serve from the processed store.}
+
+\Q{What is a ``corridor''?}
+\T{``A route.''}
+\You{A corridor is a logical freight path between two points --- it may involve multiple legs (rail, road, or both). Each corridor has attributes: distance, estimated time, cost, and a delay-risk score. 580+ corridors means 580+ distinct origin-destination pairs with at least one viable path.}
+
+\Q{What is the railway pipeline vs comparator vs hybrid?}
+\T{``Three different projects.''}
+\You{Three stages of the same system. Railway pipeline: processes rail-only corridors --- geometry, schedule data, delay model. Comparator pipeline: compares rail vs road for the same OD pair so the user sees trade-offs. Hybrid pipeline: multi-modal corridors --- rail for trunk, road for first/last mile. All three feed the same ranker interface.}
+
+\section{Testing}
+
+\Q{100/100 pytest --- what are you testing?}
+\T{``We test everything.''}
+\You{Business rules, not UI clicks. Pricing rules: does a tariff change propagate correctly to the ranking? Routing rules: does a blocked corridor get excluded? Edge cases: zero-distance corridor, negative cost, missing delay data. Each test is a contract --- if this input, then this output. If a test fails, CI blocks the merge.}
+
+\Q{How do you test Redis caching?}
+\T{``We don't.''}
+\You{Integration test: seed Redis with known data, hit the API, assert the response matches. Then invalidate, hit again, assert it recomputes from SQL. Also test the fallback: mock Redis as unavailable, assert the API still returns correct data from SQL, just slower.}
+
+\section{Connecting to GEP}
+
+\Q{This is a hackathon project. How is it relevant to GEP?}
+\T{``GEP and LogiFlow are the same product.''}
+\You{GEP is buy + move + plan. LogiFlow is the \textbf{move} layer: given constraints, which path. The engineering transfers --- ranking on operational data, caching for performance, tests as contracts, and treating the model as one input with guards, not the whole answer. I have not built a purchase-order system. I have built decisioning on operational logistics data.}
+
+\Q{GEP uses SMART and NEXXE. How would LogiFlow fit?}
+\T{``I would replace NEXXE.''}
+\You{I would not replace anything --- I have not seen their internal stack. LogiFlow's pattern --- ingest operational data, rank options under constraints, surface trade-offs to a human --- is the same shape as what NEXXE likely does for supply chain visibility. I would learn their system and apply the engineering habits, not transplant my hackathon code.}
+
+\Q{How would you put AI on procurement data at GEP?}
+\T{``RAG, fine-tune GPT, LangGraph agents.''}
+\You{I have not used LangGraph. Pattern I have used: ingest $\rightarrow$ validate $\rightarrow$ model (Gemini categorise on Community Hero, gradient boosting on LogiFlow) $\rightarrow$ guard $\rightarrow$ human if unsure. Same shape on invoices or POs: extract fields, never auto-post a bad total. Model is untrusted until validated. I would learn their workflow tool on the job.}
+
+\section{Hard follow-ups (they drill what you claim)}
+
+\Q{What is multi-objective ranking? How is it different from sorting?}
+\T{``We sort by score.''}
+\You{Sorting is one dimension --- highest score wins. Multi-objective means no single ``best'' --- a fast expensive route and a slow cheap route are both valid. Pareto frontier: I show all non-dominated options. The user picks based on their constraint, not my opinion. If I collapsed to one score, I would hide trade-offs.}
+
+\Q{What is gradient boosting? Why not a neural network?}
+\T{``It is a type of AI.''}
+\You{Gradient boosting builds trees sequentially --- each tree corrects the errors of the previous one. sklearn's GradientBoostingRegressor. Why not a neural net: 15k records is small for deep learning; boosting handles tabular data well with less tuning. MAE around 22 minutes. I can explain bias-variance if asked, but I will not claim I tuned a transformer on this.}
+
+\Q{What is MAE 22 minutes? Is that good?}
+\T{``It is very accurate.''}
+\You{MAE means on average the predicted delay is 22 minutes off from actual. For freight routing where delays are measured in hours, 22 minutes is useful as a risk signal --- it tells you ``this corridor tends to run late.'' It is not precise enough to promise a 2:00 PM arrival. I surface it as a risk indicator, not a guarantee.}
+
+\Q{What if I gave you real-time GPS data? How would you change LogiFlow?}
+\T{``I would use deep learning.''}
+\You{Real-time data changes the caching story --- TTL drops, maybe I stream updates instead of cache-aside. The ranking would factor in live delay instead of historical average. I would still keep the model as one input to the ranker, not the sole decision. The architecture shape stays the same; the data freshness changes.}
+
+\warn{
+\textbf{Do NOT say in R2:}
+\begin{itemize}[leftmargin=1.1em, topsep=1pt, itemsep=1pt]
+  \item ``I led the whole team'' --- say co-lead, and name what you owned.
+  \item ``We used AI / neural network'' --- say gradient boosting, sklearn, MAE 22 min.
+  \item ``LangGraph / Azure / Angular'' --- you have not used them.
+  \item Numbers you cannot defend --- if unsure, say ``I would need to check.''
+\end{itemize}
+\textbf{DO say:}
+\begin{itemize}[leftmargin=1.1em, topsep=1pt, itemsep=1pt]
+  \item Co-lead. Three pipelines. 580+ corridors. 15k+ train-days. 100--400 ms. pytest 100/100.
+  \item Redis is not the source of truth. SQL is.
+  \item Ranking is the product. The model is one input.
+  \item ``I have not used X. The closest I have used is Y.''
+\end{itemize}
+}
+
+\section{Quick-fire numbers (memorise these)}
+
+\card{
+\begin{tabular}{@{}ll@{}}
+\textbf{Global rank} & 106 (Google Solution Challenge 2026) \\
+\textbf{Corridors} & 580+ \\
+\textbf{Train-day records} & 15,000+ \\
+\textbf{Response time} & 100--400 ms (with Redis) \\
+\textbf{Test suite} & 100/100 pytest (business rules) \\
+\textbf{Delay model} & Gradient boosting, sklearn, MAE $\sim$22 min \\
+\textbf{Stack} & Python, FastAPI, TypeScript, Next.js, Redis, SQL, GCP Cloud Run \\
+\textbf{Your pipelines} & Railway, Comparator, Hybrid \\
+\textbf{Role} & Technical co-lead \\
+\textbf{Team size} & 4 \\
+\end{tabular}
+}
+
+\end{document}

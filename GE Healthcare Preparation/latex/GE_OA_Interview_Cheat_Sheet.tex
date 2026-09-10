@@ -1,0 +1,123 @@
+% GE HealthCare EID / EEDP | OA + Interview Cheat Sheet
+\documentclass[a4paper,9pt]{extarticle}
+\usepackage[margin=0.75cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\pagestyle{empty}
+\definecolor{ink}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{accent}{HTML}{0B4F6C}
+\definecolor{hot}{HTML}{B91C1C}
+\color{ink}
+\setlength{\parskip}{0pt}
+\clubpenalty=10000
+\widowpenalty=10000
+\setlist[itemize]{leftmargin=1.05em, topsep=0.35pt, itemsep=0.28pt, parsep=0pt}
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}[\vspace{0.4pt}{\color{accent}\hrule height 0.5pt}]
+\titlespacing{\section}{0pt}{4pt}{1.5pt}
+
+\begin{document}
+\begin{center}
+  {\LARGE\textbf{GE HealthCare: OA \& Interview Cheat Sheet}}\\[0.5pt]
+  {\small\color{hot}\textbf{Print --- desk reference for OA through HR}}\\[1pt]
+  {\small Vansh Rawat \textbar{} EID 2027 Software \textbar{} SVNIT AI \textbar{} LeetCode Rawat\_987}
+\end{center}
+
+\section{1) Five-round map (senior + GFG)}
+\begin{itemize}
+  \item \textbf{R1 OA:} 2 DSA + $\sim$20 CS MCQs (OS, DBMS, CN, OOP) --- also seen: aptitude, English, 50 MCQ variants
+  \item \textbf{R2 HireVue:} $\sim$5 Qs, 30--60s think, 3 record attempts --- intro, why GE
+  \item \textbf{R3 Tech:} 30--75 min, panel-dependent --- projects + DSA logic + OOP + fundamentals
+  \item \textbf{R4 HR:} $\sim$15 min --- hobbies, clubs, teamwork, why GE
+  \item \textbf{R5 Personality:} 100 situational (untimed) + 3 timed puzzle games
+\end{itemize}
+
+\section{2) OA --- coding patterns (Easy--Medium)}
+\noindent\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{2.8cm} X@{}}
+Arrays & Two Sum (hash), Kadane, prefix sum, merge intervals, buy/sell stock \\
+Strings & First unique char, anagram / group anagrams, valid parens, longest substring no repeat \\
+Linked list & Reverse, insert/delete, cycle detection \\
+Trees & Level-order BFS, zig-zag, \textbf{sum of leaf nodes}, BST insert/delete \\
+Graphs & BFS/DFS islands, Euler path (one-off) \\
+DP & Climbing stairs, easy 1D DP \\
+Math / recursion & Sieve primes $<$100, Fibonacci, digit counting (248), Tower of Hanoi \\
+\textbf{EID twist} & Implement Easy DSA \textbf{inside OOP classes} (Two Sum + leaf-sum --- PCON 2024) \\
+\end{tabularx}
+
+\section{3) OA --- CS MCQ flash (GFG)}
+\begin{itemize}
+  \item \textbf{OOP:} 4 pillars; overloading vs overriding; virtual functions; copy ctor
+  \item \textbf{OS:} process vs thread; deadlock (4); mutex vs semaphore; paging
+  \item \textbf{DBMS:} ACID; 1NF--3NF; PK/FK; INNER vs LEFT JOIN; index = faster read, slower write
+  \item \textbf{CN:} OSI layers; TCP vs UDP; 3-way handshake; DHCP, DNS
+  \item \textbf{DSA theory:} stack LIFO, queue FIFO; BST property; BFS vs DFS use-cases
+\end{itemize}
+
+\section{4) Kadane + Two Sum (dry-run) + OOP wrap}
+\begin{itemize}
+  \item \textbf{Kadane:} \texttt{[-2,1,-3,4,-1,2,1,-5,4]} $\rightarrow$ max = \textbf{6}, subarray \texttt{[4,-1,2,1]}
+  \item \textbf{Two Sum:} one pass hashmap of \texttt{target - x}; O(n) time O(n) space
+  \item \textbf{EID OOP:} class \texttt{TwoSumSolver\{solve(nums,target)\}}; class \texttt{TreeNode} + \texttt{leafSum(root)}
+  \item \textbf{First unique char:} freq map, two passes; or single pass with ordered dict
+\end{itemize}
+
+\section{5) OOP --- speak + code}
+\begin{itemize}
+  \item \textbf{Encapsulation} hide data (private fields + public methods)
+  \item \textbf{Inheritance} reuse (Django models / class hierarchy)
+  \item \textbf{Polymorphism} same interface, different behavior (runtime via virtual/override)
+  \item \textbf{Compile-time} overload; \textbf{runtime} override --- EEDP FTE asked \textbf{implement live}
+  \item Tie to \textbf{Beneath The Blue:} User model, auth views, quiz classes
+\end{itemize}
+
+\section{6) OS / DBMS / CN one-liners}
+\begin{itemize}
+  \item \textbf{Race condition:} two threads read/write shared data --- fix with mutex/lock
+  \item \textbf{Normalization:} reduce redundancy; 3NF removes transitive dependency
+  \item \textbf{SQL:} \texttt{SELECT * FROM t ORDER BY sal DESC LIMIT 1 OFFSET 2} (3rd highest trick)
+  \item \textbf{3-tier:} presentation (React/HTML) $\rightarrow$ business logic (Django) $\rightarrow$ data (MySQL)
+  \item \textbf{REST:} JSON over HTTP; GET read, POST create, PATCH update
+\end{itemize}
+
+\section{7) Technical interview --- project drill}
+\begin{itemize}
+  \item \textbf{Workflow:} user signs up $\rightarrow$ login $\rightarrow$ action $\rightarrow$ DB $\rightarrow$ response
+  \item \textbf{Auth:} Django session/auth; password hash; protected views
+  \item \textbf{Quiz logic:} generate Qs, score, store attempts
+  \item \textbf{Improve:} unit tests (pytest), API validation, rate limits, error pages
+  \item \textbf{Testing software design (senior):} unit $\rightarrow$ integration $\rightarrow$ E2E; mock DB; CI on push
+  \item \textbf{AI angle:} supervised vs unsupervised; how you'd measure accuracy; fallback if model wrong
+\end{itemize}
+
+\section{8) HireVue bullets (60--90s each)}
+\begin{itemize}
+  \item \textbf{Intro:} SVNIT AI, CGPA 8, full-stack Django projects, Web Wonder Team Lead Finalist, Nexus rep
+  \item \textbf{Why GE:} healthcare software with real impact; EID live project + EEDP pathway; engineering rigor
+  \item \textbf{Strength:} team lead --- task split, deadlines, demo delivery
+  \item \textbf{Challenge STAR:} pick one bug/deadline story from Web Wonder or EduAce deploy
+\end{itemize}
+
+\section{9) HR + personality}
+\begin{itemize}
+  \item Hobbies, clubs, teamwork --- Nexus + Web Wonder
+  \item Know 1--2 GE products (MRI, patient monitoring, ultrasound)
+  \item Competitors: Siemens Healthineers, Philips Healthcare (high level)
+  \item Personality test: \textbf{consistent} answers; games --- read fast, stay calm
+\end{itemize}
+
+\section{10) Day-of checklist}
+\begin{itemize}
+  \item Stable internet, webcam, quiet room, charged laptop, resume PDF open
+  \item Warm up: 1 Easy + Kadane dry-run on paper
+  \item Live URLs ready: EduAce, Beneath The Blue, GitHub, LeetCode
+  \item Mostly \textbf{logic} --- still know OOP syntax for surprise live coding
+\end{itemize}
+
+\end{document}

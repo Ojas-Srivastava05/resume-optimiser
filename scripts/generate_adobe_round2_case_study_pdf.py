@@ -7,6 +7,7 @@ from fpdf import FPDF
 
 OUT = (
     Path(__file__).resolve().parents[1]
+    / "Company Drives"
     / "Adobe University Hackathon 2026"
     / "Adobe_Round2_Brand_Visibility_Case_Study_Prep.pdf"
 )
