@@ -1,0 +1,132 @@
+% GE HealthCare + CoCubes OA --- 30-minute invite recheck
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=1.4cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\pagestyle{plain}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue!50!black}
+\definecolor{accent}{HTML}{0B4F6C}
+\definecolor{warn}{HTML}{B91C1C}
+\definecolor{ok}{HTML}{047857}
+\definecolor{muted}{HTML}{4B5563}
+\color{black}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.15em, topsep=0.4pt, itemsep=0.35pt, parsep=0pt}
+\setlist[enumerate]{leftmargin=1.25em, topsep=0.4pt, itemsep=0.35pt, parsep=0pt}
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}[\vspace{1pt}{\color{accent}\hrule height 0.6pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\titleformat{\subsection}{\bfseries\normalsize\color{accent}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{5pt}{2pt}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\textbf{GE HealthCare + CoCubes OA}}\\[2pt]
+  {\large\color{warn}\textbf{Rechecked for a 30-minute invite}}\\[3pt]
+  {\small\color{muted}Updated Sep 15, 2026 \textbar{} User-confirmed duration: \textbf{30 minutes total}}\\[2pt]
+  {\small\color{muted}Sources: CoCubes/HirePro module timings, GFG GE experiences, FACE Prep, SVNIT senior intel}
+\end{center}
+
+\section{1. Corrected verdict (30 min)}
+\begin{itemize}
+  \item Your invite duration (\textbf{30 minutes}) does \textbf{not} match the long historical GE OAs (often 60--120 min with aptitude + MCQs + 2 coding).
+  \item On CoCubes, companies enable \textbf{only the modules they want}. A 30-minute slot almost always means \textbf{one module} (or one custom short block), not the full six-module employability battery.
+  \item The only CoCubes module whose \textbf{standard} duration is exactly \textbf{$\sim$30 minutes} at the low end is the \textbf{Coding} module (usually listed as 30--45 min). Aptitude is usually 45 min; Computer Fundamentals is usually 15 min --- companies can still shorten/customize.
+  \item So for a GE + CoCubes + \textbf{30 min} invite, the \textbf{most likely} formats are below --- \textbf{read the invite / first screen} to see which one you got.
+\end{itemize}
+
+\section{2. Most likely formats for a 30-minute CoCubes OA}
+\begin{tabularx}{\textwidth}{@{}c >{\bfseries}p{3.2cm} X@{}}
+\toprule
+\textbf{\#} & \textbf{Likely format} & \textbf{Why it fits 30 min / what to expect} \\
+\midrule
+1 & \textbf{Coding only} & CoCubes coding module is officially \textbf{30--45 min}. Expect \textbf{1--2} problems (full default is often 3 Q / 45 min; a 30-min company slot is usually fewer/easier). Languages commonly C / C++ / Java / C\# (+ Python on some drives). \\
+2 & \textbf{Aptitude only} & Many company Cocubes drives customize aptitude to \textbf{$\sim$30 Q / 30 min} (quant + logical + verbal). Classic Cocubes-style speed test; no coding. \\
+3 & \textbf{Tech / CF MCQs} & Default CF is $\sim$15 Q / 15 min, but a company can expand to $\sim$25--30 CS MCQs in 30 min (OOP, DS, OS, DBMS, CN). \\
+4 & \textbf{Mixed short} & Less common: e.g.\ few aptitude MCQs + 1 short coding, or CF + aptitude in one timed block --- only if invite says ``sections.'' \\
+\bottomrule
+\end{tabularx}
+
+\vspace{1mm}
+{\color{ok}\textbf{How to know which one in 10 seconds:}} open the test $\rightarrow$ if you see a code editor / ``Write a program'', it's \#1; if only MCQs with English/quant/logic, \#2; if MCQs about OOP/OS/DBMS/code snippets, \#3.
+
+\section{3. What does \emph{not} fit a 30-minute total}
+Do \textbf{not} prep as if you will get the old long GE packs in one sitting:
+\begin{itemize}
+  \item GFG Off-Campus 2021 (Cocubes-named): aptitude + tech MCQs + \textbf{2 coding}, sectional cutoffs --- that is a \textbf{multi-section} session, typically much longer than 30 min.
+  \item SVNIT senior EID intel: \textbf{2 DSA + 20 CS MCQs} --- realistic for $\sim$45--90+ min, \textbf{tight/unlikely} as a full 30-min package unless coding is tiny.
+  \item PCON EID 2024: \textbf{90 min} (reasoning + CS MCQ + 2 Med--Hard coding).
+  \item GFG SVNIT SDE Intern: $\sim$\textbf{2 hours}.
+  \item EEDP FTE GFG: 50 MCQ / 50 min + 2 coding / 45 min.
+\end{itemize}
+Those remain useful for \textbf{content} (what GE likes to ask), but they are \textbf{not} the format of a 30-minute invite.
+
+\section{4. CoCubes standard module times (for context)}
+\begin{tabularx}{\textwidth}{@{}l X r@{}}
+\toprule
+\textbf{Module} & \textbf{Usual content} & \textbf{Default time} \\
+\midrule
+Aptitude & Quant + analytical + English MCQs (often 45 Q) & $\sim$45 min \\
+Computer Fundamentals & C/C++, OOP, DS, OS, DBMS, networks & $\sim$15 min \\
+Domain & Branch topics & $\sim$20 min \\
+\textbf{Coding} & 2--3 programming problems & \textbf{$\sim$30--45 min} \\
+Written English & Essay & $\sim$25 min \\
+Psychometric & Personality & $\sim$12 min \\
+\bottomrule
+\end{tabularx}
+
+\vspace{1mm}
+Usually \textbf{no negative marking}. GE sets its own cutoff for whatever module(s) it enabled.
+
+\section{5. GE content still useful (even if format is short)}
+If your 30-min slot is \textbf{coding-heavy}, practice Easy--Medium:
+\begin{itemize}
+  \item Arrays / hashing (Two Sum), strings, prefix sums
+  \item Linked list reverse / basics
+  \item Trees BFS / leaf-sum style
+  \item Easy DP (climbing stairs)
+\end{itemize}
+If it is \textbf{MCQ-heavy}, prioritize:
+\begin{itemize}
+  \item Aptitude speed (percentages, ratios, series, DI, grammar)
+  \item CS flash: OOP pillars, overload vs override, process vs thread, ACID, joins, TCP vs UDP, OSI
+\end{itemize}
+
+\section{6. 30-minute strategy}
+\subsection{If coding}
+\begin{enumerate}
+  \item Minute 0--2: skim all problems; pick easiest first.
+  \item Aim for \textbf{one fully correct} solution before polishing the second.
+  \item Handle empty/single-element edge cases; print format carefully --- Cocubes is picky.
+  \item Don't burn 25 min on an incomplete hard problem.
+\end{enumerate}
+\subsection{If aptitude / CF MCQs}
+\begin{enumerate}
+  \item $\sim$1 min per question budget; skip and return.
+  \item Guess remaining at end if no negative marking.
+  \item For CF: code-output / OOP conceptual questions are common eliminators.
+\end{enumerate}
+
+\section{7. Proctoring (unchanged)}
+Expect webcam / AI flags (tab switch, second face, phone in frame). A 30-min test is still proctored --- integrity risk remains.
+
+\section{8. Bottom line for \emph{your} invite}
+\begin{itemize}
+  \item \textbf{Duration:} 30 minutes total (confirmed by you).
+  \item \textbf{Most probable CoCubes interpretation:} coding-only \textbf{or} aptitude-only (custom company config) --- \textbf{not} the full historical GE 3-part marathon.
+  \item \textbf{Action:} check invite text for words like \textit{Coding}, \textit{Aptitude}, \textit{Technical}, \textit{Computer Fundamentals}. Prep both light coding + speed MCQs until the first screen confirms.
+\end{itemize}
+
+\vspace{2mm}
+{\small\color{muted}If you paste the invite wording (section names / languages / question counts), this brief can be narrowed to a single exact format.}
+
+\end{document}

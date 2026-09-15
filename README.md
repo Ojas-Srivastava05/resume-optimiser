@@ -164,7 +164,7 @@ python scout.py --fast
 python sap_scout.py
 ```
 
-**Secrets** (GitHub Actions): `SMTP_EMAIL`, `SMTP_APP_PASSWORD`, `RECIPIENT_EMAIL`, `SAP_RECIPIENT_EMAIL`, `SUPABASE_URL`, `SUPABASE_KEY`
+**Secrets** (GitHub Actions): `SMTP_EMAIL`, `SMTP_APP_PASSWORD`, `RECIPIENT_EMAIL`, `EXTRA_RECIPIENTS`, `SAP_RECIPIENT_EMAIL`, `SUPABASE_URL`, `SUPABASE_KEY`
 
 ---
 

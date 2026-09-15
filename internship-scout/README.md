@@ -189,6 +189,7 @@ cp .env.example .env   # fill SMTP + Supabase
 ```bash
 # Required
 RECIPIENT_EMAIL=you@gmail.com
+EXTRA_RECIPIENTS=rawatvans94@gmail.com,jatinnigam2118@gmail.com,u24ai029@aid.svnit.ac.in,u24ai027@aid.svnit.ac.in
 SMTP_EMAIL=you@gmail.com
 SMTP_APP_PASSWORD=xxxx xxxx xxxx xxxx
 
@@ -222,7 +223,7 @@ Workflow: [`/.github/workflows/internship-scout.yml`](../.github/workflows/inter
 | `CAREERS_MAX_SCRAPES` | **100** |
 | `FETCH_WORKERS` | 16 |
 
-**Secrets:** `RECIPIENT_EMAIL`, `SMTP_EMAIL`, `SMTP_APP_PASSWORD`, `SUPABASE_URL`, `SUPABASE_KEY`
+**Secrets:** `RECIPIENT_EMAIL`, `EXTRA_RECIPIENTS`, `SMTP_EMAIL`, `SMTP_APP_PASSWORD`, `SUPABASE_URL`, `SUPABASE_KEY`
 
 Manual dispatch: Actions → *Internship Scout Daily* → optional `full_scan`, `no_hackathons`.
 

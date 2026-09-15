@@ -20,9 +20,9 @@ def _getenv(key: str, default: str = "") -> str:
 RECIPIENT_EMAIL = _getenv("RECIPIENT_EMAIL", "srivastavaojas454@gmail.com")
 SMTP_EMAIL = _getenv("SMTP_EMAIL", RECIPIENT_EMAIL)
 SMTP_APP_PASSWORD = _getenv("SMTP_APP_PASSWORD", "").replace(" ", "")
-# Extra digests every run (comma-separated). Default: Vansh + Jatin + Vansh college.
+# Extra digests every run (comma-separated). Default: Vansh + Jatin + college (u24ai029, u24ai027).
 _DEFAULT_EXTRA = (
-    "rawatvans94@gmail.com,jatinnigam2118@gmail.com,u24ai035@aid.svnit.ac.in"
+    "rawatvans94@gmail.com,jatinnigam2118@gmail.com,u24ai029@aid.svnit.ac.in,u24ai027@aid.svnit.ac.in"
 )
 EXTRA_RECIPIENTS = [
     addr.strip()
