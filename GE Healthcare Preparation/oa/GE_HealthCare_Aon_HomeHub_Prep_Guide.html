@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>GE HealthCare × Aon HomeHub Prep Guide</title>
+<style>
+  @page { size: A4; margin: 16mm 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 11.5pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 24px 20px 48px;
+  }
+  h1 {
+    font-size: 22pt;
+    line-height: 1.25;
+    margin: 0 0 8px;
+    color: #0b3d5c;
+    page-break-after: avoid;
+  }
+  h2 {
+    font-size: 15pt;
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #0b3d5c;
+    color: #0b3d5c;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 12.5pt;
+    margin: 20px 0 8px;
+    color: #163a52;
+    page-break-after: avoid;
+  }
+  h4 {
+    font-size: 11.5pt;
+    margin: 16px 0 6px;
+    color: #333;
+    page-break-after: avoid;
+  }
+  p, li { margin: 0 0 8px; }
+  ul, ol { padding-left: 22px; margin: 0 0 12px; }
+  .subtitle { font-size: 12pt; color: #555; margin-bottom: 6px; }
+  .meta { font-size: 9.5pt; color: #666; margin-bottom: 18px; }
+  .cover {
+    border: 2px solid #0b3d5c;
+    padding: 28px 24px;
+    margin-bottom: 28px;
+    border-radius: 8px;
+    background: #f4f8fb;
+  }
+  .badge {
+    display: inline-block;
+    background: #0b3d5c;
+    color: #fff;
+    font-size: 9pt;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .note {
+    background: #fff8e8;
+    border-left: 4px solid #d4a017;
+    padding: 10px 14px;
+    margin: 12px 0 18px;
+    border-radius: 0 6px 6px 0;
+  }
+  .tip {
+    background: #eef7f0;
+    border-left: 4px solid #2f7d4a;
+    padding: 10px 14px;
+    margin: 12px 0 18px;
+    border-radius: 0 6px 6px 0;
+  }
+  .keybox {
+    background: #f0f4f8;
+    border: 1px solid #c5d3df;
+    padding: 12px 14px;
+    margin: 10px 0 16px;
+    border-radius: 6px;
+    page-break-inside: avoid;
+  }
+  .card {
+    border: 1px solid #d8dee6;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 10px 0 14px;
+    page-break-inside: avoid;
+    background: #fff;
+  }
+  .card h4 { margin-top: 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px;
+    font-size: 10.5pt;
+    page-break-inside: auto;
+  }
+  th, td {
+    border: 1px solid #cfd8e3;
+    padding: 8px 9px;
+    vertical-align: top;
+    text-align: left;
+  }
+  th {
+    background: #0b3d5c;
+    color: #fff;
+    font-weight: 600;
+  }
+  tr:nth-child(even) td { background: #f7fafc; }
+  .pair td:first-child { width: 36px; text-align: center; font-weight: 700; }
+  .pair td:nth-child(2), .pair td:nth-child(3) { width: 47%; }
+  .ans td:nth-child(2) { width: 48px; font-weight: 700; color: #0b3d5c; }
+  .grid {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12pt;
+    line-height: 1.35;
+    letter-spacing: 0.08em;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 12px 14px;
+    white-space: pre;
+    overflow: hidden;
+    margin: 8px 0 12px;
+    page-break-inside: avoid;
+  }
+  .q {
+    border-left: 3px solid #0b3d5c;
+    padding: 8px 0 8px 12px;
+    margin: 10px 0;
+    page-break-inside: avoid;
+  }
+  .q .label {
+    font-weight: 700;
+    color: #0b3d5c;
+    margin-bottom: 4px;
+  }
+  .opts { font-size: 10.5pt; line-height: 1.45; }
+  .toc a { color: #0b3d5c; text-decoration: none; }
+  .toc li { margin-bottom: 4px; }
+  .page-break { page-break-before: always; }
+  .checklist li { margin-bottom: 6px; }
+  .muted { color: #666; font-size: 10pt; }
+  .timer {
+    display: inline-block;
+    background: #e8f1f8;
+    color: #0b3d5c;
+    font-weight: 700;
+    font-size: 10pt;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 6px;
+  }
+  a { color: #0b3d5c; word-break: break-word; }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media print {
+    body { padding: 0; max-width: none; }
+    a { text-decoration: none; color: #0b3d5c; }
+    .page-break { break-before: page; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="badge">Assessment Prep Guide</div>
+  <h1>GE HealthCare × Aon HomeHub</h1>
+  <p class="subtitle">Full format · Sample questions · 2 end-to-end mock tests · Sources</p>
+  <p class="meta">Prepared for <strong>Ojas</strong> · Original practice material · Not affiliated with Aon or GE HealthCare · 2026</p>
+  <div class="note">
+    <strong>How to use:</strong> Read Section 1 → try the samples → sit Mock 1 timed → review answers → sit Mock 2 on another day → use official Aon demos listed in Section 5.
+  </div>
+</div>
+
+<h2>Contents</h2>
+<ol class="toc">
+  <li><a href="#format">Test format overview</a></li>
+  <li><a href="#samples">Sample questions + answers</a></li>
+  <li><a href="#mock1">Mock Test 1 (end-to-end)</a></li>
+  <li><a href="#mock1key">Mock Test 1 answer key</a></li>
+  <li><a href="#mock2">Mock Test 2 (end-to-end)</a></li>
+  <li><a href="#mock2key">Mock Test 2 answer key</a></li>
+  <li><a href="#sources">Preparation sources</a></li>
+  <li><a href="#checklist">Day-of checklist &amp; strategy</a></li>
+</ol>
+
+<!-- ===================== FORMAT ===================== -->
+<h2 id="format">1. Test Format Overview</h2>
+
+<div class="card">
+  <h4>Platform</h4>
+  <table>
+    <tr><th>Item</th><th>Detail</th></tr>
+    <tr><td>Portal</td><td><strong>Aon HomeHub</strong> — aon-assessment.com/homehub</td></tr>
+    <tr><td>Access</td><td>Invitation link + Sign-In ID from email</td></tr>
+    <tr><td>Total time</td><td><strong>~50 minutes</strong> including instructions</td></tr>
+    <tr><td>Device</td><td>Laptop / desktop preferred</td></tr>
+    <tr><td>Browser</td><td>Chrome / Edge / Firefox — <strong>pop-up blocker OFF</strong></td></tr>
+    <tr><td>Deadline</td><td>Usually <strong>3 days</strong> from invitation</td></tr>
+  </table>
+</div>
+
+<h3>The four modules</h3>
+<table>
+  <tr>
+    <th>#</th><th>Module</th><th>Name</th><th>Time</th><th>What you do</th>
+  </tr>
+  <tr>
+    <td>A</td><td>Personality</td><td><strong>ADEPT-15</strong></td><td>25–30 min</td>
+    <td>Pick which of two statements is more like you. Adaptive. No right/wrong.</td>
+  </tr>
+  <tr>
+    <td>B</td><td>Inductive</td><td><strong>scales ix</strong></td><td>5 min</td>
+    <td>20 tasks. Nine objects — find the odd one out.</td>
+  </tr>
+  <tr>
+    <td>C</td><td>Deductive</td><td><strong>gapChallenge</strong></td><td>6 min</td>
+    <td>Unlimited grids. Fill the <code>?</code> cell. Latin-square rule.</td>
+  </tr>
+  <tr>
+    <td>D</td><td>Planning</td><td><strong>motionChallenge</strong></td><td>6 min</td>
+    <td>Unlimited puzzles. Move deflectors so the ball reaches the exit.</td>
+  </tr>
+</table>
+
+<div class="tip">
+  Personality usually comes first. Cognitive modules are short and timed. You may pause <strong>between</strong> modules, never mid-module.
+</div>
+
+<h3>What each module feels like</h3>
+
+<div class="card">
+  <h4>A. ADEPT-15</h4>
+  <ul>
+    <li>Forced-choice pairs about workplace behaviour</li>
+    <li>Measures 15 traits across 6 styles</li>
+    <li>No correct answer — <strong>consistency</strong> matters</li>
+    <li>Answer from one stable <em>work</em> self, not an idealised self</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h4>B. Inductive (scales ix)</h4>
+  <ul>
+    <li>Nine objects labelled A–I</li>
+    <li>Eight follow one rule; one does not</li>
+    <li>Target pace: <strong>~15 seconds per task</strong></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h4>C. gapChallenge</h4>
+  <ul>
+    <li>4×4 or 5×5 grid of symbols; one cell is <code>?</code></li>
+    <li>Rule: each symbol appears <strong>once per row and once per column</strong></li>
+    <li>Score = how many correct in 6 minutes</li>
+  </ul>
+  <p class="muted">Legend used in this guide: O = circle · # = square · ^ = triangle · * = star · + = cross · . = empty · ? = solve</p>
+</div>
+
+<div class="card">
+  <h4>D. motionChallenge</h4>
+  <ul>
+    <li>6×6 grid · columns A–F · rows 1–6</li>
+    <li><code>\</code> turns: East→South, South→East, West→North, North→West</li>
+    <li><code>/</code> turns: East→North, North→East, West→South, South→West</li>
+    <li><code>#</code> blocker stops the ball · walls stop the ball</li>
+    <li>One move = relocate one deflector · fewer moves is better</li>
+  </ul>
+</div>
+
+<h3>Critical rules</h3>
+<table>
+  <tr><th>Rule</th><th>What it means</th></tr>
+  <tr><td>No mid-task exit</td><td>Closing mid-module usually forfeits it. No reattempt.</td></tr>
+  <tr><td>20-min idle logout</td><td>Keep breaks between modules under ~10 minutes.</td></tr>
+  <tr><td>Pop-ups required</td><td>Blocked pop-up looks like a frozen screen.</td></tr>
+  <tr><td>Quiet setup</td><td>Phone away, notifications off, stable internet.</td></tr>
+  <tr><td>Technical failure</td><td>Screenshot + email indiasupport@aon.com same day.</td></tr>
+</table>
+
+<!-- ===================== SAMPLES ===================== -->
+<div class="page-break"></div>
+<h2 id="samples">2. Sample Questions</h2>
+
+<h3>2.1 ADEPT-15 — 8 sample pairs</h3>
+<p>Choose A or B — whichever is <em>more like you at work</em>.</p>
+<table class="pair">
+  <tr><th>#</th><th>Statement A</th><th>Statement B</th></tr>
+  <tr><td>1</td><td>I keep a detailed written plan for every project.</td><td>I adjust my approach as soon as new information arrives.</td></tr>
+  <tr><td>2</td><td>I speak up early when I disagree with a decision.</td><td>I make sure everyone has had their say before I add mine.</td></tr>
+  <tr><td>3</td><td>I stay calm when a deadline slips.</td><td>I push hard to recover the lost time.</td></tr>
+  <tr><td>4</td><td>I enjoy debating abstract ideas and models.</td><td>I prefer to test an idea in practice straight away.</td></tr>
+  <tr><td>5</td><td>I notice quickly when a colleague is frustrated.</td><td>I stay focused on the task until it is complete.</td></tr>
+  <tr><td>6</td><td>I credit the team before I mention my own part.</td><td>I make sure my contribution is visible to decision-makers.</td></tr>
+  <tr><td>7</td><td>I bring energy and talk freely in meetings.</td><td>I read my own reactions accurately under pressure.</td></tr>
+  <tr><td>8</td><td>I keep a positive outlook when a plan fails.</td><td>I re-forecast realistically as soon as a plan fails.</td></tr>
+</table>
+<div class="note"><strong>No answer key.</strong> Both options sound good on purpose. Stay consistent across similar themes.</div>
+
+<h3>2.2 Inductive — 6 samples</h3>
+<p>Find the odd one out (A–I).</p>
+
+<div class="q">
+  <div class="label">S-I1</div>
+  <div class="opts">A △ 3 dots · B □ 4 · C ⬠ 5 · D ⬡ 6 · E □ 4 · F △ 3 · G ⬠ 5 · H ⬡ 5 · I △ 3</div>
+</div>
+<div class="q">
+  <div class="label">S-I2</div>
+  <div class="opts">Outer contains same inner: A ○/○ · B □/□ · C △/○ · D ★/★ · E ⬡/⬡ · F ○/○ · G □/□ · H ★/★ · I △/△</div>
+</div>
+<div class="q">
+  <div class="label">S-I3</div>
+  <div class="opts">A 63 · B 27 · C 90 · D 45 · E 84 · F 18 · G 72 · H 36 · I 54</div>
+</div>
+<div class="q">
+  <div class="label">S-I4</div>
+  <div class="opts">Arrow + square on pointed side — except one: G has arrow down but square above</div>
+</div>
+<div class="q">
+  <div class="label">S-I5</div>
+  <div class="opts">A H · B R · C M · D T · E U · F V · G W · H A · I Y</div>
+</div>
+<div class="q">
+  <div class="label">S-I6</div>
+  <div class="opts">A 3B/2W · B 4B/3W · C 2B/1W · D 5B/4W · E 3B/2W · F 6B/5W · G 4B/3W · H 2B/1W · I 4B/4W</div>
+</div>
+
+<div class="keybox">
+  <strong>Answers</strong>
+  <table class="ans">
+    <tr><th>Item</th><th>Ans</th><th>Rule</th></tr>
+    <tr><td>S-I1</td><td>H</td><td>Dots = number of sides</td></tr>
+    <tr><td>S-I2</td><td>C</td><td>Inner matches outer type</td></tr>
+    <tr><td>S-I3</td><td>E</td><td>Digits sum to 9</td></tr>
+    <tr><td>S-I4</td><td>G</td><td>Square sits on arrow side</td></tr>
+    <tr><td>S-I5</td><td>B</td><td>Vertical line of symmetry</td></tr>
+    <tr><td>S-I6</td><td>I</td><td>Black = white + 1</td></tr>
+  </table>
+</div>
+
+<h3>2.3 gapChallenge — 5 samples</h3>
+<p>Find the symbol for <code>?</code>. Each symbol once per row and column.</p>
+
+<div class="two-col">
+  <div>
+    <h4>G-S1</h4>
+    <div class="grid">O # ^ *
+# O * ^
+^ * O #
+* ^ # ?</div>
+  </div>
+  <div>
+    <h4>G-S2</h4>
+    <div class="grid">O # ^ *
+# ^ ? O
+^ * O #
+. O # ^</div>
+  </div>
+</div>
+<div class="two-col">
+  <div>
+    <h4>G-S3</h4>
+    <div class="grid">O # ^ *
+^ * O #
+* O # ^
+# ? * .</div>
+  </div>
+  <div>
+    <h4>G-S4 (5×5)</h4>
+    <div class="grid">O . ^ * +
+# O * + ^
+^ + O # ?
+* ^ . O #
++ * # ^ O</div>
+  </div>
+</div>
+<div>
+  <h4>G-S5 (5×5)</h4>
+  <div class="grid">O # ^ . +
+^ * + O #
+. O # ? *
+# ^ * + O
+* + O # ^</div>
+</div>
+
+<div class="keybox">
+  <strong>Answers</strong>
+  <table class="ans">
+    <tr><th>Grid</th><th>Ans</th><th>Why</th></tr>
+    <tr><td>G-S1</td><td>O</td><td>Column 4 missing only O</td></tr>
+    <tr><td>G-S2</td><td>*</td><td>Column 3 missing only *</td></tr>
+    <tr><td>G-S3</td><td>^</td><td>Column 2 missing only ^</td></tr>
+    <tr><td>G-S4</td><td>*</td><td>Column 5 missing only *</td></tr>
+    <tr><td>G-S5</td><td>^</td><td>Row ∩ column missing-sets = ^</td></tr>
+  </table>
+  <p class="muted"><strong>Technique:</strong> check the ? column first, then the row. If both incomplete, intersect the missing-symbol sets.</p>
+</div>
+
+<h3>2.4 motionChallenge — 3 samples</h3>
+
+<div class="card">
+  <h4>M-S1</h4>
+  <p>Ball at A1 heading East → Exit F6. Fixed <code>\</code> at C1. Movable <code>\</code> at E4. Blockers at D2, B5.</p>
+  <p><strong>Answer:</strong> 1 move — place <code>\</code> at <strong>C6</strong>. Path: A1 → C1 ↓ C6 → F6 EXIT.</p>
+</div>
+<div class="card">
+  <h4>M-S2</h4>
+  <p>Ball A1 East → Exit A6. Movable <code>\</code> at C2 and <code>/</code> at B5. Blockers B4, C4, D5, F3.</p>
+  <p><strong>Answer:</strong> 2 moves — <code>\</code> → <strong>E1</strong>, <code>/</code> → <strong>E6</strong>. Path: A1 → E1 ↓ E6 ← A6 EXIT.</p>
+</div>
+<div class="card">
+  <h4>M-S3</h4>
+  <p>Ball C1 South → Exit F1. Movable <code>\</code> at B3 and <code>/</code> at A6. Blockers D2, E3, D4, E6.</p>
+  <p><strong>Answer:</strong> 2 moves — <code>\</code> → <strong>C5</strong>, <code>/</code> → <strong>F5</strong>. Path: C1 ↓ C5 → F5 ↑ F1 EXIT.</p>
+</div>
+
+<!-- ===================== MOCK 1 ===================== -->
+<div class="page-break"></div>
+<h2 id="mock1">3. Mock Test 1 <span class="timer">Timed · one sitting</span></h2>
+<div class="note">Write answers on paper. Do not check the key until you finish all four parts.</div>
+
+<table>
+  <tr><th>Part</th><th>Module</th><th>Timer</th><th>Items</th></tr>
+  <tr><td>A</td><td>ADEPT-15 style</td><td>8 min (short proxy)</td><td>20 pairs</td></tr>
+  <tr><td>B</td><td>Inductive</td><td><strong>3 min</strong></td><td>12 items</td></tr>
+  <tr><td>C</td><td>gapChallenge</td><td><strong>6 min</strong></td><td>8 grids</td></tr>
+  <tr><td>D</td><td>motionChallenge</td><td><strong>6 min</strong></td><td>4 puzzles</td></tr>
+</table>
+
+<h3>Part A — ADEPT-15 style</h3>
+<table class="pair">
+  <tr><th>#</th><th>A</th><th>B</th></tr>
+  <tr><td>1</td><td>I set stretch targets even when none are required.</td><td>I fully deliver current commitments before taking more.</td></tr>
+  <tr><td>2</td><td>I re-plan quickly when priorities change mid-week.</td><td>I follow the agreed plan so the team knows what to expect.</td></tr>
+  <tr><td>3</td><td>I am comfortable challenging a senior colleague’s analysis.</td><td>I look for common ground before raising an objection.</td></tr>
+  <tr><td>4</td><td>I like problems with no established method.</td><td>I like problems where a proven method applies well.</td></tr>
+  <tr><td>5</td><td>I recover quickly from critical feedback.</td><td>I use critical feedback to redesign how I work.</td></tr>
+  <tr><td>6</td><td>I keep files and workspace rigorously organised.</td><td>I keep my calendar open for unplanned work.</td></tr>
+  <tr><td>7</td><td>I volunteer to present the team’s results.</td><td>I volunteer to do the analysis behind the results.</td></tr>
+  <tr><td>8</td><td>I notice when the mood in a meeting shifts.</td><td>I notice when numbers in a report don’t add up.</td></tr>
+  <tr><td>9</td><td>I decide fast with 80% of the information.</td><td>I prefer to wait for the remaining 20%.</td></tr>
+  <tr><td>10</td><td>I enjoy meeting new stakeholders.</td><td>I enjoy going deep with a small familiar group.</td></tr>
+  <tr><td>11</td><td>I openly say when a task is outside my expertise.</td><td>I take the task and close the knowledge gap quickly.</td></tr>
+  <tr><td>12</td><td>I stay optimistic when a project is behind.</td><td>I stay realistic about what can still be delivered.</td></tr>
+  <tr><td>13</td><td>I keep working after others have moved on.</td><td>I know when to stop and escalate.</td></tr>
+  <tr><td>14</td><td>I like clear reporting lines and defined roles.</td><td>I like fluid roles that shift with the work.</td></tr>
+  <tr><td>15</td><td>I check my reaction before responding to conflict.</td><td>I respond immediately so issues don’t fester.</td></tr>
+  <tr><td>16</td><td>I want responsibility for a budget or team.</td><td>I want to be the recognised technical expert.</td></tr>
+  <tr><td>17</td><td>I adapt my message to each audience.</td><td>I give everyone the same consistent message.</td></tr>
+  <tr><td>18</td><td>I finish well ahead of the deadline.</td><td>I keep refining until the deadline arrives.</td></tr>
+  <tr><td>19</td><td>I build the model first, then look at data.</td><td>I look at data first and let the model emerge.</td></tr>
+  <tr><td>20</td><td>I ask for help early.</td><td>I try everything I can think of first.</td></tr>
+</table>
+
+<div class="page-break"></div>
+<h3>Part B — Inductive <span class="timer">3 minutes</span></h3>
+<p>Find the odd one out.</p>
+
+<div class="q"><div class="label">B1</div><div class="opts">A square(4) · B hexagon(6) · C octagon(8) · D pentagon(5) · E rectangle(4) · F hexagon(6) · G decagon(10) · H octagon(8) · I square(4)</div></div>
+<div class="q"><div class="label">B2</div><div class="opts">A ↗ · B ↘ · C ↙ · D ↖ · E ↗ · F ↓ · G ↘ · H ↙ · I ↖</div></div>
+<div class="q"><div class="label">B3</div><div class="opts">A 49 · B 63 · C 84 · D 91 · E 56 · F 68 · G 77 · H 35 · I 42</div></div>
+<div class="q"><div class="label">B4</div><div class="opts">A big○/small□ · B big□/small△ · C big△/small○ · D big★/small○ · E big⬡/small□ · F small○/big□ · G big□/small★ · H big○/small△ · I big⬠/small○</div></div>
+<div class="q"><div class="label">B5</div><div class="opts">A A · B C · C E · D G · E I · F K · G M · H P · I O</div></div>
+<div class="q"><div class="label">B6</div><div class="opts">Two shaded cells in a 2×2: A topL+topR · B topL+botL · C botL+botR · D topR+botR · E topL+topR · F topL+botR · G botL+botR · H topR+botR · I topL+botL</div></div>
+<div class="q"><div class="label">B7</div><div class="opts">Outer / inner: A △/□ · B □/⬠ · C ⬡/□ · D △/⬡ · E □/octagon · F ⬠/⬡ · G ⬠/octagon · H △/⬠ · I □/⬡</div></div>
+<div class="q"><div class="label">B8</div><div class="opts">A ★●★ · B ▲■▲ · C ●★● · D ■▲■ · E ★▲★ · F ●■● · G ▲★● · H ■●■ · I ★■★</div></div>
+<div class="q"><div class="label">B9</div><div class="opts">Angles of two lines: A–D and F–I are 90° · E is 60°</div></div>
+<div class="q"><div class="label">B10</div><div class="opts">Dot counts: A 2 · B 3 · C 5 · D 7 · E 11 · F 13 · G 9 · H 17 · I 19</div></div>
+<div class="q"><div class="label">B11</div><div class="opts">Half shaded: A ○ left · B □ top · C △ left · D ★ left · E ⬡ left · F ○ left · G □ left · H △ left · I ⬠ left</div></div>
+<div class="q"><div class="label">B12</div><div class="opts">A 12/21 · B 34/43 · C 56/65 · D 78/87 · E 19/91 · F 23/32 · G 45/54 · H 67/77 · I 89/98</div></div>
+
+<h3>Part C — gapChallenge <span class="timer">6 minutes</span></h3>
+
+<div class="two-col">
+  <div><h4>C1</h4><div class="grid"># ^ ? *
+O * ^ #
+^ # * O
+* O # ^</div></div>
+  <div><h4>C2</h4><div class="grid">^ # O *
+? O # .
+O * ^ #
+# . * O</div></div>
+</div>
+<div class="two-col">
+  <div><h4>C3</h4><div class="grid">O # ^ *
+^ ? O .
+* . # ^
+# ^ * O</div></div>
+  <div><h4>C4</h4><div class="grid">O + ^ * .
+# ^ * + O
+^ . O # +
+* # ? O ^
++ O # . *</div></div>
+</div>
+<div class="two-col">
+  <div><h4>C5</h4><div class="grid">+ * . # O
+# O + * ^
+. ^ ? O +
+O + * ^ #
+^ # O + *</div></div>
+  <div><h4>C6</h4><div class="grid">O # . * +
+# O . + ^
+^ + O # *
+* ^ + O #
+. * ? ^ O</div></div>
+</div>
+<div class="two-col">
+  <div><h4>C7</h4><div class="grid">O # ^ * .
+^ . + O ?
++ O # ^ *
+# ^ * + .
+* + O # ^</div></div>
+  <div><h4>C8</h4><div class="grid">? * ^ . .
+. O + * ^
+. ^ # O +
+O + * ^ #
+^ . O + *</div></div>
+</div>
+
+<div class="page-break"></div>
+<h3>Part D — motionChallenge <span class="timer">6 minutes</span></h3>
+
+<div class="card">
+  <h4>D1</h4>
+  <p>Ball A1 East → Exit F6. Movable <code>\</code> at C1, B3, E3, A5. Blockers D1, C4, F3. Give minimum moves + path.</p>
+</div>
+<div class="card">
+  <h4>D2</h4>
+  <p>Ball A6 East → Exit F1. Movable <code>/</code> at C6, B2, E5. Blockers D6, C2. Give minimum moves + path.</p>
+</div>
+<div class="card">
+  <h4>D3</h4>
+  <p>Ball A2 East → Exit F6. Movable <code>\</code> at C5, A1, B4, F1. Blockers D2, C6, F5. Give minimum moves + path.</p>
+</div>
+<div class="card">
+  <h4>D4</h4>
+  <p>Ball F1 South → Exit A3. Movable <code>/</code> at B1 and <code>\</code> at C1. Blockers D2, E3, D4, C6. Give minimum moves + path.</p>
+</div>
+
+<!-- ===================== MOCK 1 KEY ===================== -->
+<div class="page-break"></div>
+<h2 id="mock1key">Mock Test 1 — Answer Key</h2>
+
+<div class="note"><strong>Part A:</strong> No answer key. Check consistency on planning (items 2 / 6 / 14) and assertiveness (3 / 13 / 20). Be work-context honest.</div>
+
+<div class="keybox">
+  <strong>Part B</strong>
+  <table class="ans">
+    <tr><th>#</th><th>Ans</th><th>Rule</th></tr>
+    <tr><td>B1</td><td>D</td><td>Even number of sides</td></tr>
+    <tr><td>B2</td><td>F</td><td>Diagonal arrows only</td></tr>
+    <tr><td>B3</td><td>F</td><td>Divisible by 7</td></tr>
+    <tr><td>B4</td><td>F</td><td>Left shape always larger</td></tr>
+    <tr><td>B5</td><td>H</td><td>Odd alphabet position</td></tr>
+    <tr><td>B6</td><td>F</td><td>Shaded cells share an edge</td></tr>
+    <tr><td>B7</td><td>C</td><td>Inner has more sides than outer</td></tr>
+    <tr><td>B8</td><td>G</td><td>1st symbol equals 3rd</td></tr>
+    <tr><td>B9</td><td>E</td><td>Angle is 90°</td></tr>
+    <tr><td>B10</td><td>G</td><td>Dot count is prime</td></tr>
+    <tr><td>B11</td><td>B</td><td>Left half shaded</td></tr>
+    <tr><td>B12</td><td>H</td><td>Second number is digit reverse</td></tr>
+  </table>
+</div>
+
+<div class="keybox">
+  <strong>Part C</strong>
+  <table class="ans">
+    <tr><th>Grid</th><th>Ans</th><th>Why</th></tr>
+    <tr><td>C1</td><td>O</td><td>Col 3 missing O</td></tr>
+    <tr><td>C2</td><td>*</td><td>Col 1 missing *</td></tr>
+    <tr><td>C3</td><td>*</td><td>Row ∩ col missing-sets = *</td></tr>
+    <tr><td>C4</td><td>+</td><td>Col 3 missing +</td></tr>
+    <tr><td>C5</td><td>#</td><td>Row ∩ col = #</td></tr>
+    <tr><td>C6</td><td>#</td><td>Row 5 missing {#,+}; col 3 has + → #</td></tr>
+    <tr><td>C7</td><td>#</td><td>Row 2 ∩ col 5 → #</td></tr>
+    <tr><td>C8</td><td>+</td><td>Multi-step elimination → +</td></tr>
+  </table>
+</div>
+
+<div class="keybox">
+  <strong>Part D</strong>
+  <p><strong>D1 — 2 moves.</strong> Keep C1 &amp; E3. Move B3→C3, A5→E6. Path: A1 → C1 ↓ C3 → E3 ↓ E6 → F6 EXIT.</p>
+  <p><strong>D2 — 2 moves.</strong> Keep C6. Move B2→C3, E5→F3. Path: A6 → C6 ↑ C3 → F3 ↑ F1 EXIT.</p>
+  <p><strong>D3 — 3 moves.</strong> Keep C5. Move A1→C2, B4→E5, F1→E6. Path: A2 → C2 ↓ C5 → E5 ↓ E6 → F6 EXIT.</p>
+  <p><strong>D4 — 2 moves.</strong> Move / → F5 and \ → A5. Path: F1 ↓ F5 ← A5 ↑ A3 EXIT.</p>
+</div>
+
+<!-- ===================== MOCK 2 ===================== -->
+<div class="page-break"></div>
+<h2 id="mock2">4. Mock Test 2 <span class="timer">Timed · same structure</span></h2>
+<div class="note">Same timings as Mock 1. Different items. One sitting.</div>
+
+<h3>Part A — ADEPT-15 style</h3>
+<table class="pair">
+  <tr><th>#</th><th>A</th><th>B</th></tr>
+  <tr><td>1</td><td>I am energised by competing for a result.</td><td>I am energised by improving a process.</td></tr>
+  <tr><td>2</td><td>I document my work so anyone can pick it up.</td><td>I move on as soon as the current task works.</td></tr>
+  <tr><td>3</td><td>I keep composure when a customer escalates.</td><td>I match the customer’s urgency so they feel heard.</td></tr>
+  <tr><td>4</td><td>I understand the theory before I build.</td><td>I build and learn from what breaks.</td></tr>
+  <tr><td>5</td><td>I raise risks even when the team is confident.</td><td>I back the team’s decision once it is made.</td></tr>
+  <tr><td>6</td><td>I prefer detailed written instructions.</td><td>I prefer a clear goal and freedom on method.</td></tr>
+  <tr><td>7</td><td>I track performance vs peers.</td><td>I track performance vs my last quarter.</td></tr>
+  <tr><td>8</td><td>I start conversations easily with strangers at events.</td><td>I keep long-term working relationships strong.</td></tr>
+  <tr><td>9</td><td>I admit mistakes publicly and quickly.</td><td>I fix mistakes quietly and report the outcome.</td></tr>
+  <tr><td>10</td><td>I plan my week in detail on Monday.</td><td>I set three priorities and let the week arrange itself.</td></tr>
+  <tr><td>11</td><td>I stay steady through repeated setbacks.</td><td>I change tactics as soon as a setback appears.</td></tr>
+  <tr><td>12</td><td>I look for the pattern behind unrelated issues.</td><td>I resolve each issue on its own merits.</td></tr>
+  <tr><td>13</td><td>I am comfortable being the person who says no.</td><td>I am comfortable finding the compromise.</td></tr>
+  <tr><td>14</td><td>I need to know why a rule exists before following it.</td><td>I follow the rule and ask afterwards.</td></tr>
+  <tr><td>15</td><td>I get satisfaction from mastering a difficult skill.</td><td>I get satisfaction from being visibly successful.</td></tr>
+  <tr><td>16</td><td>I read people’s unspoken concerns well.</td><td>I read technical documentation quickly.</td></tr>
+  <tr><td>17</td><td>I keep an even tone in disagreements.</td><td>I let my conviction show in disagreements.</td></tr>
+  <tr><td>18</td><td>I set my own deadlines ahead of official ones.</td><td>I use the official deadline and pace to it.</td></tr>
+  <tr><td>19</td><td>I enjoy leading a group through ambiguity.</td><td>I enjoy contributing expertise inside clear structure.</td></tr>
+  <tr><td>20</td><td>I ask many questions when joining a new project.</td><td>I observe carefully and form my own picture first.</td></tr>
+</table>
+
+<div class="page-break"></div>
+<h3>Part B — Inductive <span class="timer">3 minutes</span></h3>
+
+<div class="q"><div class="label">B1</div><div class="opts">Dot counts: A 3 · B 6 · C 9 · D 12 · E 15 · F 18 · G 21 · H 24 · I 20</div></div>
+<div class="q"><div class="label">B2</div><div class="opts">Black mark at top-left on every shape except F (bottom-right)</div></div>
+<div class="q"><div class="label">B3</div><div class="opts">A 16 · B 25 · C 36 · D 49 · E 64 · F 81 · G 44 · H 16 · I 25</div></div>
+<div class="q"><div class="label">B4</div><div class="opts">Outer white / inner black — except G (colours reversed)</div></div>
+<div class="q"><div class="label">B5</div><div class="opts">Three circles, exactly one filled — except G (two filled)</div></div>
+<div class="q"><div class="label">B6</div><div class="opts">Shape repeated as many times as it has sides — I has 4 triangles (should be 3)</div></div>
+<div class="q"><div class="label">B7</div><div class="opts">A C-3 · B F-6 · C J-10 · D M-13 · E P-16 · F S-19 · G V-22 · H Y-25 · I H-9</div></div>
+<div class="q"><div class="label">B8</div><div class="opts">2×2 with exactly 3 shaded cells — F has only 2 shaded</div></div>
+<div class="q"><div class="label">B9</div><div class="opts">Two polygons whose side counts sum to 9 — G is ⬠+⬠ = 10</div></div>
+<div class="q"><div class="label">B10</div><div class="opts">Dice faces sum to 7 — G is 2+6 = 8</div></div>
+<div class="q"><div class="label">B11</div><div class="opts">Constant step sequences — H is 3, 6, 10 (+3 then +4)</div></div>
+<div class="q"><div class="label">B12</div><div class="opts">Black has fewer sides than white — F black hexagon / white square fails</div></div>
+
+<h3>Part C — gapChallenge <span class="timer">6 minutes</span></h3>
+
+<div class="two-col">
+  <div><h4>E1</h4><div class="grid">* O # ^
+^ * O #
+# ? * O
+O # ^ *</div></div>
+  <div><h4>E2</h4><div class="grid">* O ^ #
+# ^ * ?
+O * # ^
+. # O *</div></div>
+</div>
+<div class="two-col">
+  <div><h4>E3</h4><div class="grid">. O # ^
+^ * O #
+? ^ * .
+O # ^ *</div></div>
+  <div><h4>E4</h4><div class="grid"># O * + .
+* ? + O #
+O # ^ * +
++ * # ^ O
+^ + . # *</div></div>
+</div>
+<div class="two-col">
+  <div><h4>E5</h4><div class="grid">+ O # ^ *
+* # . O ^
+^ * O # +
+. ^ ? + O
+O + ^ * #</div></div>
+  <div><h4>E6</h4><div class="grid">* . ^ O +
++ O * # ^
+# . O ^ ?
+O ^ + * #
+^ * # + O</div></div>
+</div>
+<div class="two-col">
+  <div><h4>E7</h4><div class="grid"># O * + ^
+. ^ + O #
+O # ^ * +
++ * # ^ O
+? + O . *</div></div>
+  <div><h4>E8</h4><div class="grid">? O . ^ .
+* # + O ^
+. * O # +
+# ^ * + O
+. + ^ * #</div></div>
+</div>
+
+<div class="page-break"></div>
+<h3>Part D — motionChallenge <span class="timer">6 minutes</span></h3>
+
+<div class="card">
+  <h4>F1</h4>
+  <p>Ball A4 East → Exit F1. Movable <code>/</code> at A1, C6. Blockers E4, C2, B2.</p>
+</div>
+<div class="card">
+  <h4>F2</h4>
+  <p>Ball B1 South → Exit F6. Movable <code>\</code> at A2, D6. Blockers B5, D2, E3.</p>
+</div>
+<div class="card">
+  <h4>F3</h4>
+  <p>Ball A1 East → Exit A6. Movable <code>\</code> at F2, <code>/</code> at E5, <code>/</code> at B6. Blockers D1, C4.</p>
+</div>
+<div class="card">
+  <h4>F4</h4>
+  <p>Ball A6 East → Exit F1. Movable <code>/</code> at C6, B2, A4, D1. Blockers D6, C3, F4.</p>
+</div>
+
+<!-- ===================== MOCK 2 KEY ===================== -->
+<div class="page-break"></div>
+<h2 id="mock2key">Mock Test 2 — Answer Key</h2>
+
+<div class="note"><strong>Part A:</strong> No key. Consistency check — Structure (2/6/10/18), Assertiveness (5/13/17), Achievement (1/7/15).</div>
+
+<div class="keybox">
+  <strong>Part B</strong>
+  <table class="ans">
+    <tr><th>#</th><th>Ans</th><th>Rule</th></tr>
+    <tr><td>B1</td><td>I</td><td>Multiple of 3</td></tr>
+    <tr><td>B2</td><td>F</td><td>Dot at top-left</td></tr>
+    <tr><td>B3</td><td>G</td><td>Perfect square</td></tr>
+    <tr><td>B4</td><td>G</td><td>Outer white / inner black</td></tr>
+    <tr><td>B5</td><td>G</td><td>Exactly one filled</td></tr>
+    <tr><td>B6</td><td>I</td><td>Count = number of sides</td></tr>
+    <tr><td>B7</td><td>I</td><td>Number = alphabet index</td></tr>
+    <tr><td>B8</td><td>F</td><td>Exactly three shaded</td></tr>
+    <tr><td>B9</td><td>G</td><td>Side counts sum to 9</td></tr>
+    <tr><td>B10</td><td>G</td><td>Dice sum to 7</td></tr>
+    <tr><td>B11</td><td>H</td><td>Constant arithmetic step</td></tr>
+    <tr><td>B12</td><td>F</td><td>Black has fewer sides</td></tr>
+  </table>
+</div>
+
+<div class="keybox">
+  <strong>Part C</strong>
+  <table class="ans">
+    <tr><th>Grid</th><th>Ans</th><th>Why</th></tr>
+    <tr><td>E1</td><td>^</td><td>Col 2 missing ^</td></tr>
+    <tr><td>E2</td><td>O</td><td>Col 4 missing O</td></tr>
+    <tr><td>E3</td><td>#</td><td>Row ∩ col = #</td></tr>
+    <tr><td>E4</td><td>^</td><td>Col 2 missing ^</td></tr>
+    <tr><td>E5</td><td>*</td><td>Row ∩ col = *</td></tr>
+    <tr><td>E6</td><td>*</td><td>Col 5 missing *</td></tr>
+    <tr><td>E7</td><td>^</td><td>Row ∩ col = ^</td></tr>
+    <tr><td>E8</td><td>+</td><td>Row 1 ∩ col 1 missing-sets = +</td></tr>
+  </table>
+</div>
+
+<div class="keybox">
+  <strong>Part D</strong>
+  <p><strong>F1 — 2 moves.</strong> / → D4 and / → D1. Path: A4 → D4 ↑ D1 → F1 EXIT.</p>
+  <p><strong>F2 — 2 moves.</strong> \ → B4 and \ → F4. Path: B1 ↓ B4 → F4 ↓ F6 EXIT.</p>
+  <p><strong>F3 — 3 moves.</strong> \ → C1, / → C3, / → A3. Path: A1 → C1 ↓ C3 ← A3 ↓ A6 EXIT.</p>
+  <p><strong>F4 — 3 moves.</strong> Keep C6. Move to C4, E4, E1. Path: A6 → C6 ↑ C4 → E4 ↑ E1 → F1 EXIT.</p>
+</div>
+
+<!-- ===================== SOURCES ===================== -->
+<div class="page-break"></div>
+<h2 id="sources">5. Preparation Sources</h2>
+
+<h3>Official Aon (use these first)</h3>
+<table>
+  <tr><th>Resource</th><th>Link</th></tr>
+  <tr>
+    <td><strong>Prepare for your online assessment</strong></td>
+    <td><a href="https://www.aon.com/en/capabilities/talent-and-rewards/prepare-for-your-online-assessment">aon.com/.../prepare-for-your-online-assessment</a></td>
+  </tr>
+  <tr>
+    <td>HomeHub portal</td>
+    <td><a href="https://www.aon-assessment.com/homehub">aon-assessment.com/homehub</a></td>
+  </tr>
+  <tr>
+    <td>Assessment overview</td>
+    <td><a href="https://www.aon.com/en/capabilities/talent-and-rewards/assessment-and-selection">aon.com/.../assessment-and-selection</a></td>
+  </tr>
+</table>
+
+<div class="tip">
+  On the Aon hub, practise specifically: <strong>gapChallenge PDF</strong>, <strong>scales ix PDF</strong>, and the <strong>motionChallenge demo</strong> (best 10 minutes of prep).
+</div>
+
+<h3>ADEPT-15</h3>
+<ul>
+  <li><a href="https://www.aonhumancapital.co.in/home/for-employers/assessment-solutions/leadership-assessments/adept">Aon India ADEPT page</a></li>
+  <li><a href="https://www.aon.com/india/adept">aon.com/india/adept</a></li>
+</ul>
+
+<h3>Employer context</h3>
+<ul>
+  <li><a href="https://careers.gehealthcare.com/">GE HealthCare careers</a></li>
+  <li><a href="https://www.gehealthcare.com/about">GE HealthCare about / culture</a></li>
+</ul>
+
+<h3>Optional paid drill</h3>
+<ul>
+  <li><a href="https://www.jobtestprep.com/aon-assessment">JobTestPrep Aon packs</a></li>
+  <li><a href="https://www.graduatesfirst.com/aon-cut-e-practice-assessments">GraduatesFirst Aon / cut-e</a></li>
+</ul>
+<p class="muted">Recommended order: Official demos → this guide’s mocks → paid pack only if still slow.</p>
+
+<h3>Support</h3>
+<table>
+  <tr><th>Issue</th><th>Contact</th></tr>
+  <tr><td>Crash / expired link / re-issue</td><td><strong>indiasupport@aon.com</strong></td></tr>
+  <tr><td>Accessibility adjustment</td><td>Same email — request before starting</td></tr>
+  <tr><td>Role / timeline questions</td><td>Your GE HealthCare recruiter</td></tr>
+</table>
+
+<!-- ===================== CHECKLIST ===================== -->
+<div class="page-break"></div>
+<h2 id="checklist">6. Day-of Checklist &amp; Strategy</h2>
+
+<div class="two-col">
+  <div class="card">
+    <h4>24 hours before</h4>
+    <ul class="checklist">
+      <li>□ Re-do official demos (~15 min)</li>
+      <li>□ Memorise \ and / turn rules</li>
+      <li>□ Sleep &gt; cramming</li>
+      <li>□ Confirm HomeHub login (don’t start)</li>
+      <li>□ Block 60 minutes in calendar</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>30 minutes before</h4>
+    <ul class="checklist">
+      <li>□ Laptop plugged in</li>
+      <li>□ Strong Wi-Fi / ethernet</li>
+      <li>□ Pop-ups allowed for aon-assessment.com</li>
+      <li>□ VPN / Slack / Teams closed</li>
+      <li>□ Phone in another room</li>
+      <li>□ Paper + pen ready</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h4>Strategy by module</h4>
+  <p><strong>ADEPT-15:</strong> Steady pace. One work context. Pick what’s more true, not more impressive.</p>
+  <p><strong>Inductive:</strong> Scan count → sides → fill → orientation. Cap ~20s; guess and move on.</p>
+  <p><strong>gapChallenge:</strong> Column → row → intersect missing sets. Don’t solve the whole grid. Aim ~20s/item.</p>
+  <p><strong>motionChallenge:</strong> Plan backwards from the exit. Blockers reveal the corridor. Cap ~60s then take next.</p>
+</div>
+
+<div class="card">
+  <h4>If something breaks</h4>
+  <ol>
+    <li>Don’t close unless clearly crashed</li>
+    <li>Screenshot (include URL + clock)</li>
+    <li>Check pop-up blocker first</li>
+    <li>Email <strong>indiasupport@aon.com</strong> same day + notify recruiter</li>
+    <li>Don’t restart the whole battery blindly</li>
+  </ol>
+</div>
+
+<div class="tip">
+  <strong>Final pre-flight:</strong> pop-ups on · VPN off · phone away · charger in · paper ready · deflection rules fresh · gapChallenge scan order fresh. Good luck.
+</div>
+
+</body>
+</html>

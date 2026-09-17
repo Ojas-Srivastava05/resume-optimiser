@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>GEHC Interview Cheat Sheet — Ojas</title>
+<style>
+  @page { size: A4; margin: 10mm 10mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 9.8pt;
+    line-height: 1.32;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-size: 16pt;
+    margin: 0 0 2px;
+    color: #0b3d5c;
+  }
+  h2 {
+    font-size: 11.5pt;
+    margin: 9px 0 4px;
+    padding: 3px 8px;
+    background: #0b3d5c;
+    color: #fff;
+    border-radius: 3px;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 10.5pt;
+    margin: 10px 0 4px;
+    color: #0b3d5c;
+    page-break-after: avoid;
+  }
+  p, li { margin: 0 0 4px; }
+  ul { padding-left: 16px; margin: 0 0 6px; }
+  .meta { font-size: 9pt; color: #555; margin-bottom: 8px; }
+  .badge {
+    display: inline-block;
+    background: #e8f1f8;
+    color: #0b3d5c;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-right: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 3px 0 5px;
+    font-size: 9.5pt;
+  }
+  th, td {
+    border: 1px solid #cfd8e3;
+    padding: 4px 6px;
+    vertical-align: top;
+    text-align: left;
+  }
+  th { background: #0b3d5c; color: #fff; }
+  tr:nth-child(even) td { background: #f7fafc; }
+  .script {
+    background: #f6f8fa;
+    border-left: 3px solid #0b3d5c;
+    padding: 6px 10px;
+    margin: 3px 0 5px;
+    font-size: 9.5pt;
+    border-radius: 0 4px 4px 0;
+    page-break-inside: avoid;
+  }
+  .script strong { color: #0b3d5c; }
+  .tip {
+    background: #eef7f0;
+    border-left: 3px solid #2f7d4a;
+    padding: 6px 10px;
+    margin: 6px 0;
+    font-size: 9.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+  .warn {
+    background: #fff8e8;
+    border-left: 3px solid #d4a017;
+    padding: 6px 10px;
+    margin: 6px 0;
+    font-size: 9.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .card {
+    border: 1px solid #d8dee6;
+    border-radius: 5px;
+    padding: 7px 9px;
+    page-break-inside: avoid;
+  }
+  .card h3 { margin-top: 0; }
+  .page-break { page-break-before: always; } /* keep */
+  .check li { list-style: none; margin-left: -4px; }
+  .muted { color: #666; font-size: 9pt; }
+  code { font-size: 9pt; background: #eef2f6; padding: 0 3px; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<h1>GE HealthCare — Interview Cheat Sheet</h1>
+<p class="meta">
+  <span class="badge">Prepared for Ojas</span>
+  <span class="badge">After HomeHub</span>
+  Software Intern · Bengaluru · Short desk reference
+</p>
+
+<div class="warn">
+  <strong>Where you are:</strong> HomeHub (ADEPT-15 + games) is done. Next is usually live interviews — technical, then manager/HR. Order can vary by role. Treat HR seriously — people clear tech and fail HR.
+</div>
+
+<h2>1. Likely rounds after HomeHub</h2>
+<table>
+  <tr><th>Round</th><th>Time</th><th>What to expect</th></tr>
+  <tr><td><strong>Technical</strong></td><td>30–75 min</td><td>Intro → resume/projects deep-dive → DSA logic and/or OOP → OS/DBMS/CN. Panel-dependent: mostly logic; sometimes live code.</td></tr>
+  <tr><td><strong>Manager</strong></td><td>30–45 min</td><td>Why GE, projects ownership, hobbies, culture fit, GE website research.</td></tr>
+  <tr><td><strong>HR</strong></td><td>15–30 min</td><td>Why GE, products, competitors, relocate to Bengaluru, teamwork STAR, other offers.</td></tr>
+  <tr><td><strong>HireVue</strong> (if scheduled)</td><td>~5 Qs</td><td>Recorded. 30–60s think, 3 attempts. Intro / why GE / strength / challenge.</td></tr>
+</table>
+
+<h2>2. 60-second scripts (say out loud once)</h2>
+
+<div class="script">
+  <strong>Intro</strong><br>
+  I’m Ojas Srivastava, B.Tech AI at SVNIT Surat, CGPA 9.20. I’ve shipped production APIs as a Software Engineering Intern at IFFCO (Node/Express/MySQL), and co-led LogiFlow — a multi-modal logistics platform that reached Google Solution Challenge Global Top 106 — with FastAPI, Redis, and GCP Cloud Run. I also built Community Hero (Vibe2Ship Global Top 20) end-to-end. I’m a LeetCode Knight (2048). I’m excited about GE HealthCare because I want to build software where reliability and patient impact actually matter — and I’m ready to work on-site in Bengaluru.
+</div>
+
+<div class="script">
+  <strong>Why GE HealthCare?</strong><br>
+  GE HealthCare sits at engineering + patient outcomes. Software here has to be reliable, tested, and maintainable — that matches how I work: APIs with validation, unit/integration tests, CI/CD. The intern role in Bengaluru is a chance to contribute to real healthcare products under senior engineers, not just demos.
+</div>
+
+<div class="script">
+  <strong>Why healthcare / why this role?</strong><br>
+  Healthcare software must fail safely. That discipline appeals to me — clear requirements, testing, ownership. I’ve already owned design → deploy → maintain on production systems; I want that same ownership inside medical technology.
+</div>
+
+<div class="script">
+  <strong>Challenge (STAR)</strong><br>
+  <em>S:</em> At IFFCO, production APIs needed reliability under real load.<br>
+  <em>T:</em> Own debug + quality for 10+ APIs.<br>
+  <em>A:</em> Added indexing, validation, structured errors; wrote tests; worked with seniors on requirements.<br>
+  <em>R:</em> More stable ops path + clearer maintainability — same habits I used on LogiFlow (100/100 business-rule tests).
+</div>
+
+<h2>3. Drive tech toward your strengths</h2>
+<div class="cols">
+  <div class="card">
+    <h3>IFFCO internship</h3>
+    <ul>
+      <li>10+ production APIs — Node/Express/MySQL</li>
+      <li>Indexing, validation, error handling</li>
+      <li>Code reviews, Docker, CI/CD</li>
+      <li>Cross-functional with seniors</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>LogiFlow (Top 106)</h3>
+    <ul>
+      <li>FastAPI + C++ + Next.js + Redis</li>
+      <li>GCP Cloud Run modules</li>
+      <li>Hot-path latency 100–400 ms</li>
+      <li>100/100 pytest business rules</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Community Hero (Top 20)</h3>
+    <ul>
+      <li>Full ownership: design → deploy</li>
+      <li>React/TS + Express + Firebase</li>
+      <li>REST + admin analytics + Cloud Run</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>AirHelp</h3>
+    <ul>
+      <li>WebSockets + RAG + A*</li>
+      <li>Latency cut to 1–3s under load</li>
+      <li>Real-time debugging story</li>
+    </ul>
+  </div>
+</div>
+
+<div class="tip">
+  <strong>Project drill (any project):</strong> workflow → architecture (client→API→DB) → auth → one hard bug → how you’d test → what you’d change at scale. If asked to “design testing software”: unit → integration → E2E; pytest; mock DB; CI on push; regression before release.
+</div>
+
+
+
+<h2>4. CS flash — one-liners</h2>
+<div class="cols">
+  <div class="card">
+    <h3>OOP</h3>
+    <ul>
+      <li>4 pillars: encapsulate, inherit, polymorph, abstract</li>
+      <li>Overload = compile-time; override = runtime</li>
+      <li>Virtual/override for runtime polymorphism</li>
+      <li>May ask: implement polymorphism live</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>OS</h3>
+    <ul>
+      <li>Process vs thread; mutex vs semaphore</li>
+      <li>Deadlock: 4 conditions; race → locks</li>
+      <li>Paging / virtual memory basics</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>DBMS / SQL</h3>
+    <ul>
+      <li>ACID; 1NF–3NF; PK/FK; index tradeoff</li>
+      <li>INNER vs LEFT JOIN</li>
+      <li>3rd highest salary: <code>ORDER BY … LIMIT 1 OFFSET 2</code></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>CN / System</h3>
+    <ul>
+      <li>OSI 7 layers; TCP vs UDP; 3-way handshake</li>
+      <li>DNS, DHCP; REST + JSON</li>
+      <li>3-tier: UI → business → data</li>
+    </ul>
+  </div>
+</div>
+
+<h2>5. DSA — patterns they actually ask</h2>
+<table>
+  <tr><th>Area</th><th>Prep these</th></tr>
+  <tr><td>Arrays</td><td>Two Sum (hash), Kadane, prefix, merge intervals, stock buy/sell</td></tr>
+  <tr><td>Strings</td><td>Anagrams, valid parens, first unique char, longest substring</td></tr>
+  <tr><td>LL / Trees</td><td>Reverse LL, cycle; level-order BFS, leaf sum, BST insert</td></tr>
+  <tr><td>OOP twist</td><td>Wrap Easy DSA in a class/method (Two Sum, leaf sum) — reported for EID</td></tr>
+</table>
+<p class="muted">Mostly logic + approach. Still know C++/Python syntax for surprise live coding. Warm up: One Easy + Kadane dry-run.</p>
+
+<h2>6. HR / manager must-know</h2>
+<table>
+  <tr><th>Question</th><th>Crisp answer angle</th></tr>
+  <tr><td>GE products?</td><td>Imaging (MRI, CT, ultrasound), patient monitoring, Edison platform — “software that clinicians rely on.”</td></tr>
+  <tr><td>Competitors?</td><td>Siemens Healthineers, Philips Healthcare (high level is enough).</td></tr>
+  <tr><td>Relocate Bengaluru?</td><td>Yes — already stated on resume; ready on-site.</td></tr>
+  <tr><td>Teamwork?</td><td>ACM/Nexus mentoring + LogiFlow co-lead — task split, syncs, demo.</td></tr>
+  <tr><td>Strength?</td><td>Ownership under deadlines + testing mindset (production APIs + pytest).</td></tr>
+  <tr><td>Weakness?</td><td>One real growth area + what you changed (e.g. over-polishing → time-box + ship).</td></tr>
+  <tr><td>Other offers?</td><td>Honest; GE is priority for healthcare impact + Bengaluru engineering.</td></tr>
+</table>
+
+<div class="script">
+  <strong>Ask them (pick 1–2):</strong> What does a successful Software Intern look like in the first 4 weeks? · Which product/team would I likely join? · How do interns get code-review / testing mentorship?
+</div>
+
+<h2>7. Day-of checklist</h2>
+<div class="cols">
+  <ul class="check">
+    <li>□ Quiet room, charged laptop, stable Wi-Fi</li>
+    <li>□ Resume PDF + GitHub + LeetCode open</li>
+    <li>□ LogiFlow / Community Hero live URLs ready</li>
+    <li>□ Camera eye-level, collared shirt</li>
+  </ul>
+  <ul class="check">
+    <li>□ Speak: intro + why GE once out loud</li>
+    <li>□ Think aloud; ask clarifying Qs</li>
+    <li>□ Drive to IFFCO APIs / LogiFlow / testing</li>
+    <li>□ Take HR as seriously as tech</li>
+  </ul>
+</div>
+
+<div class="tip">
+  <strong>Rule:</strong> Consistent personality (same as HomeHub). Don’t invent GE product depth — 2–3 facts + genuine curiosity beats a fake encyclopedia.
+</div>
+
+<p class="muted" style="margin-top:10px;">Ojas Srivastava · GE HealthCare Software Intern interview prep · After HomeHub · Not affiliated with GE HealthCare</p>
+
+</body>
+</html>
