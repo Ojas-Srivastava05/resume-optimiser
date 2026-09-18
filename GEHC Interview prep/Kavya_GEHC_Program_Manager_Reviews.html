@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'/><style>
+@page { size: A4; margin: 10mm 11mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9.6pt; line-height: 1.38; color: #1f2937; margin: 0;
+}
+h1 { font-size: 16pt; color: #0b4f6c; margin: 0 0 2px; }
+h2 {
+  font-size: 10.5pt; margin: 10px 0 5px; padding: 4px 8px;
+  background: #0b4f6c; color: #fff; border-radius: 5px; page-break-after: avoid;
+}
+h3 { font-size: 10pt; color: #0b4f6c; margin: 8px 0 3px; page-break-after: avoid; }
+p, li { margin: 0 0 3px; }
+ul, ol { padding-left: 1.1em; margin: 3px 0 7px; }
+.hero {
+  background: linear-gradient(135deg, #0b4f6c, #147a9b);
+  color: #fff; padding: 14px 16px; border-radius: 10px; margin-bottom: 10px;
+}
+.hero h1 { color: #fff; margin: 0 0 3px; font-size: 17pt; }
+.meta { opacity: 0.92; font-size: 9pt; margin: 0 0 7px; }
+.badges { display: flex; flex-wrap: wrap; gap: 5px; }
+.badge {
+  display: inline-block; background: rgba(255,255,255,0.18);
+  padding: 2px 9px; border-radius: 999px; font-size: 8.2pt; font-weight: 700;
+}
+.note {
+  background: #f0f9ff; border-left: 4px solid #0b4f6c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.warn {
+  background: #fff7ed; border-left: 4px solid #ea580c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.ok {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+table {
+  width: 100%; border-collapse: collapse; margin: 5px 0 10px; font-size: 8.8pt;
+}
+th, td {
+  border: 1px solid #d1d5db; padding: 4px 6px; text-align: left; vertical-align: top;
+}
+th { background: #0b4f6c; color: #fff; font-weight: 700; }
+tr:nth-child(even) td { background: #f8fafc; }
+.iv {
+  background: #fce7f3; border-left: 4px solid #be185d;
+  padding: 6px 9px; border-radius: 0 6px 6px 0; margin: 7px 0 3px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.iv strong { color: #9d174d; }
+.you {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 3px 0 7px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.you strong { color: #047857; }
+.src {
+  background: #fef3c7; border-left: 4px solid #d97706;
+  padding: 4px 8px; border-radius: 0 6px 6px 0; margin: 2px 0 5px;
+  font-size: 8.4pt; color: #92400e;
+}
+.probe {
+  background: #eff6ff; border: 1px solid #bfdbfe;
+  padding: 5px 8px; border-radius: 6px; margin: 3px 0 7px; font-size: 8.8pt;
+}
+.score {
+  background: #fafafa; border: 1px solid #e5e7eb;
+  padding: 7px 9px; border-radius: 6px; margin: 6px 0 8px; font-size: 8.9pt;
+}
+.kpi {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin: 6px 0 10px;
+}
+.kpi div {
+  background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 7px;
+  padding: 7px 8px; font-size: 8.7pt;
+}
+.kpi b { display: block; color: #0b4f6c; font-size: 11pt; margin-bottom: 1px; }
+.tag {
+  display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 1px 6px;
+  border-radius: 999px; margin-right: 4px;
+}
+.tag-hot { background: #fee2e2; color: #991b1b; }
+.tag-ed { background: #dbeafe; color: #1e40af; }
+.tag-ai { background: #ede9fe; color: #5b21b6; }
+.tag-ops { background: #d1fae5; color: #065f46; }
+.footer {
+  margin-top: 10px; padding-top: 6px; border-top: 1px solid #e5e7eb;
+  font-size: 8pt; color: #6b7280;
+}
+.page-break { page-break-before: always; }
+</style></head><body>
+<div class="hero">
+  <h1>Program Manager Round — EID Intern filter</h1>
+  <p class="meta">Campus EID Intern · post-tech · PPO questions removed</p>
+  <div class="badges">
+    <span class="badge">EID Intern</span>
+    <span class="badge">Surekha Sailesh</span>
+    <span class="badge">No PPO USP Q</span>
+  </div>
+</div>
+<div class="warn">
+  <strong>Irrelevant for EID Intern:</strong> “What project are you on, and what USP does it create for an organisation?”
+  and “learning in the internship to date” — those are GFG PPO / already-at-GE manager questions.
+</div>
+<div class="ok">
+  <strong>Use instead:</strong> strongest project you owned · why EID / GEHC / healthcare · conflict or learning STAR ·
+  Bengaluru full yes · what a strong EID intern looks like. Pack: <code>Kavya_GEHC_PM_Master_Pack.pdf</code>
+</div>
+<table>
+  <tr><th>Ask</th><th>Skip</th></tr>
+  <tr><td>Walk me through a project you owned</td><td>Project you’re on + USP for the org</td></tr>
+  <tr><td>Why healthcare / why GEHC / why EID</td><td>Rate EEDP as if converting PPO</td></tr>
+  <tr><td>Ambiguity · conflict · feedback</td><td>Internship learning to date</td></tr>
+  <tr><td>Bengaluru · full duration</td><td>Invented product SKUs</td></tr>
+</table>
+<div class='footer'>EID Intern prep · public sources</div></body></html>

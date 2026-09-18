@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>PM Mock 4 — EID Intern · Non-coder + GEHC</title>
+<style>
+@page { size: A4; margin: 10mm 11mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9.6pt; line-height: 1.38; color: #1f2937; margin: 0;
+}
+h1 { font-size: 16pt; color: #0b4f6c; margin: 0 0 2px; }
+h2 {
+  font-size: 10.5pt; margin: 10px 0 5px; padding: 4px 8px;
+  background: #0b4f6c; color: #fff; border-radius: 5px; page-break-after: avoid;
+}
+h3 { font-size: 10pt; color: #0b4f6c; margin: 8px 0 3px; page-break-after: avoid; }
+p, li { margin: 0 0 3px; }
+ul, ol { padding-left: 1.1em; margin: 3px 0 7px; }
+.hero {
+  background: linear-gradient(135deg, #0b4f6c, #147a9b);
+  color: #fff; padding: 14px 16px; border-radius: 10px; margin-bottom: 10px;
+}
+.hero h1 { color: #fff; margin: 0 0 3px; font-size: 17pt; }
+.meta { opacity: 0.92; font-size: 9pt; margin: 0 0 7px; }
+.badges { display: flex; flex-wrap: wrap; gap: 5px; }
+.badge {
+  display: inline-block; background: rgba(255,255,255,0.18);
+  padding: 2px 9px; border-radius: 999px; font-size: 8.2pt; font-weight: 700;
+}
+.note {
+  background: #f0f9ff; border-left: 4px solid #0b4f6c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.warn {
+  background: #fff7ed; border-left: 4px solid #ea580c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.ok {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+table {
+  width: 100%; border-collapse: collapse; margin: 5px 0 10px; font-size: 8.8pt;
+}
+th, td {
+  border: 1px solid #d1d5db; padding: 4px 6px; text-align: left; vertical-align: top;
+}
+th { background: #0b4f6c; color: #fff; font-weight: 700; }
+tr:nth-child(even) td { background: #f8fafc; }
+.iv {
+  background: #fce7f3; border-left: 4px solid #be185d;
+  padding: 6px 9px; border-radius: 0 6px 6px 0; margin: 7px 0 3px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.iv strong { color: #9d174d; }
+.you {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 3px 0 7px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.you strong { color: #047857; }
+.src {
+  background: #fef3c7; border-left: 4px solid #d97706;
+  padding: 4px 8px; border-radius: 0 6px 6px 0; margin: 2px 0 5px;
+  font-size: 8.4pt; color: #92400e;
+}
+.probe {
+  background: #eff6ff; border: 1px solid #bfdbfe;
+  padding: 5px 8px; border-radius: 6px; margin: 3px 0 7px; font-size: 8.8pt;
+}
+.score {
+  background: #fafafa; border: 1px solid #e5e7eb;
+  padding: 7px 9px; border-radius: 6px; margin: 6px 0 8px; font-size: 8.9pt;
+}
+.kpi {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin: 6px 0 10px;
+}
+.kpi div {
+  background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 7px;
+  padding: 7px 8px; font-size: 8.7pt;
+}
+.kpi b { display: block; color: #0b4f6c; font-size: 11pt; margin-bottom: 1px; }
+.tag {
+  display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 1px 6px;
+  border-radius: 999px; margin-right: 4px;
+}
+.tag-hot { background: #fee2e2; color: #991b1b; }
+.tag-ed { background: #dbeafe; color: #1e40af; }
+.tag-ai { background: #ede9fe; color: #5b21b6; }
+.tag-ops { background: #d1fae5; color: #065f46; }
+.footer {
+  margin-top: 10px; padding-top: 6px; border-top: 1px solid #e5e7eb;
+  font-size: 8pt; color: #6b7280;
+}
+.page-break { page-break-before: always; }
+</style>
+</head><body>
+
+<div class="hero">
+  <h1>PM Mock 4 — EID Intern · Explain + company research</h1>
+  <p class="meta">Program manager who is not deep-coding · communication + why GEHC · 20 min</p>
+  <div class="badges">
+    <span class="badge">20 min</span>
+    <span class="badge">Layman English</span>
+    <span class="badge">Website check</span>
+    <span class="badge">EID Intern</span>
+  </div>
+</div>
+
+<div class="warn">If you drown them in FastAPI jargon, you fail this mock even if tech was right.</div>
+
+<h2>Clock</h2>
+<table>
+  <tr><th>Time</th><th>Block</th></tr>
+  <tr><td>0:00–2:00</td><td>Intro</td></tr>
+  <tr><td>2:00–7:00</td><td>Explain LogiFlow to a non-engineer</td></tr>
+  <tr><td>7:00–11:00</td><td>What do you know about GEHC?</td></tr>
+  <tr><td>11:00–15:00</td><td>Why healthcare / why EID for you</td></tr>
+  <tr><td>15:00–18:00</td><td>How will you ramp in week 1–2?</td></tr>
+  <tr><td>18:00–20:00</td><td>Bengaluru + questions</td></tr>
+</table>
+
+<div class="iv"><strong>INTERVIEWER</strong> Introduce yourself — keep it human.</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+I’m Kavya, AI undergrad at SVNIT Surat. I like building systems that make trade-offs visible — my team’s LogiFlow project reached Top 106 in Google Solution Challenge. I’m interviewing for EID Intern to do that kind of careful engineering on healthcare software in Bengaluru.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Explain your project as if I’m a hospital ops person, not a coder.</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Imagine choosing how to move a shipment — cheap, fast, and reliable pull in different directions. LogiFlow shows options side by side and flags which ones are more likely to arrive late — like a weather risk score for logistics. It doesn’t make the final call; it gives a clearer picture so people don’t pick “cheap and fast” that often fails. I built the scoring backend and the delay-risk model, and I insisted we report the metrics that matter — catching real delays — not only a flattering accuracy number.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> What do you actually know about GE HealthCare?</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Major med-tech company, now standalone. Imaging — MRI, CT, X-ray, ultrasound — plus patient monitoring, and a growing software/AI layer that turns device data into clinical insight. Edison sits in that software layer. Customers are hospitals and clinicians. I’m not inventing product model numbers; I care about the reliability bar those products need.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Why this internship — why not a pure product company?</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Money matters, but early career the multiplier is the problem. I want reliability under clinical-adjacent standards. LogiFlow taught me wrong signals have a cost; healthcare raises that cost. EID is live work under seniors — how I learn.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> First two weeks here — how do you ramp without wasting the team?</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Read the smallest ticket end-to-end; write acceptance checks; ask one clarifying question early; ship a thin visible slice; update in writing. I’d rather show a small correct piece than disappear for a week.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Relocate? Questions?</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Yes — full duration Bengaluru. Q: How do you expect interns to communicate progress — standup, chat, or short written updates?</div>
+
+<div class="footer">Public LinkedIn / GFG / company posts only · Kavya Bhatiya prep · not affiliated with GE HealthCare · do not name-drop LinkedIn in the interview</div>
+</body></html>

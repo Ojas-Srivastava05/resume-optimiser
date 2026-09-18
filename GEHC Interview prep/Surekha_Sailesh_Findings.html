@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>Surekha Sailesh — Findings</title>
+<style>
+@page { size: A4; margin: 10mm 11mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9.6pt; line-height: 1.38; color: #1f2937; margin: 0;
+}
+h1 { font-size: 16pt; color: #0b4f6c; margin: 0 0 2px; }
+h2 {
+  font-size: 10.5pt; margin: 10px 0 5px; padding: 4px 8px;
+  background: #0b4f6c; color: #fff; border-radius: 5px; page-break-after: avoid;
+}
+h3 { font-size: 10pt; color: #0b4f6c; margin: 8px 0 3px; page-break-after: avoid; }
+p, li { margin: 0 0 3px; }
+ul, ol { padding-left: 1.1em; margin: 3px 0 7px; }
+.hero {
+  background: linear-gradient(135deg, #0b4f6c, #147a9b);
+  color: #fff; padding: 14px 16px; border-radius: 10px; margin-bottom: 10px;
+}
+.hero h1 { color: #fff; margin: 0 0 3px; font-size: 17pt; }
+.meta { opacity: 0.92; font-size: 9pt; margin: 0 0 7px; }
+.badges { display: flex; flex-wrap: wrap; gap: 5px; }
+.badge {
+  display: inline-block; background: rgba(255,255,255,0.18);
+  padding: 2px 9px; border-radius: 999px; font-size: 8.2pt; font-weight: 700;
+}
+.note {
+  background: #f0f9ff; border-left: 4px solid #0b4f6c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.warn {
+  background: #fff7ed; border-left: 4px solid #ea580c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.ok {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+table {
+  width: 100%; border-collapse: collapse; margin: 5px 0 10px; font-size: 8.8pt;
+}
+th, td {
+  border: 1px solid #d1d5db; padding: 4px 6px; text-align: left; vertical-align: top;
+}
+th { background: #0b4f6c; color: #fff; font-weight: 700; }
+tr:nth-child(even) td { background: #f8fafc; }
+.iv {
+  background: #fce7f3; border-left: 4px solid #be185d;
+  padding: 6px 9px; border-radius: 0 6px 6px 0; margin: 7px 0 3px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.iv strong { color: #9d174d; }
+.you {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 3px 0 7px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.you strong { color: #047857; }
+.src {
+  background: #fef3c7; border-left: 4px solid #d97706;
+  padding: 4px 8px; border-radius: 0 6px 6px 0; margin: 2px 0 5px;
+  font-size: 8.4pt; color: #92400e;
+}
+.probe {
+  background: #eff6ff; border: 1px solid #bfdbfe;
+  padding: 5px 8px; border-radius: 6px; margin: 3px 0 7px; font-size: 8.8pt;
+}
+.score {
+  background: #fafafa; border: 1px solid #e5e7eb;
+  padding: 7px 9px; border-radius: 6px; margin: 6px 0 8px; font-size: 8.9pt;
+}
+.kpi {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin: 6px 0 10px;
+}
+.kpi div {
+  background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 7px;
+  padding: 7px 8px; font-size: 8.7pt;
+}
+.kpi b { display: block; color: #0b4f6c; font-size: 11pt; margin-bottom: 1px; }
+.tag {
+  display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 1px 6px;
+  border-radius: 999px; margin-right: 4px;
+}
+.tag-hot { background: #fee2e2; color: #991b1b; }
+.tag-ed { background: #dbeafe; color: #1e40af; }
+.tag-ai { background: #ede9fe; color: #5b21b6; }
+.tag-ops { background: #d1fae5; color: #065f46; }
+.footer {
+  margin-top: 10px; padding-top: 6px; border-top: 1px solid #e5e7eb;
+  font-size: 8pt; color: #6b7280;
+}
+.page-break { page-break-before: always; }
+</style>
+</head><body>
+
+<div class="hero">
+  <h1>Surekha Sailesh — Findings</h1>
+  <p class="meta">Public-web only · Edison Program Manager (confirmed by GEHC TA posts) · Kavya Edison Intern PM round</p>
+  <div class="badges">
+    <span class="badge">Spelling: Sailesh (not Shailesh)</span>
+    <span class="badge">Bengaluru</span>
+    <span class="badge">Sr. Manager — Strategic Programs</span>
+    <span class="badge">Highest-likelihood PM panelist</span>
+  </div>
+</div>
+
+<div class="ok">
+  <strong>Why she matters for you.</strong> Multiple GE HealthCare India / TA posts for the 2025 Edison intern cohort
+  explicitly thank <em>Edison Program Manager Surekha Sailesh</em> alongside APAC TA Head Annu Mathew and HR partners.
+  A GE HealthCare India “Desk Diaries” post notes photos of her <em>Edison batches</em> on her desk — early-talent is core to her work.
+  For a post-tech “Program Manager” round on Edison Intern, she is the highest-probability named interviewer from public sources.
+</div>
+
+<div class="warn">
+  <strong>Inference vs fact.</strong> Role + Edison Program Manager title = CONFIRMED. Exact Saturday panel assignment is NOT public.
+  Everything about “how she interviews” is INFERENCE from role + campus EID Intern managerial patterns. Do not say “I saw your LinkedIn.”
+</div>
+
+<div class="warn">
+  <strong>EID Intern ≠ PPO.</strong> GFG “project you are on / USP for the organisation” and “learning in the internship to date” are for people <em>already interning</em> converting to FTE.
+  Kavya is a <strong>campus EID Intern</strong> candidate — ask about <em>her</em> projects (LogiFlow), why GEHC/EID, ownership, Bengaluru — not GE project USP.
+</div>
+
+<div class="kpi">
+  <div><b>CONFIRMED</b>Edison Program Manager (TA posts)</div>
+  <div><b>Apr 2023→</b>Sr. Manager, Strategic Programs &amp; Initiatives</div>
+  <div><b>EID Intern</b>campus fit · not PPO</div>
+</div>
+
+<h2>1. Confirmed public facts</h2>
+<table>
+  <tr><th>Item</th><th>Detail</th></tr>
+  <tr><td>Current title</td><td>Sr. Manager — Strategic Programs &amp; Initiatives, GE HealthCare (India)</td></tr>
+  <tr><td>Edison role</td><td>Named <strong>Edison Program Manager</strong> on GEHC intern onboarding posts (May 2025 cohort of 35; SVNIT Surat listed among colleges)</td></tr>
+  <tr><td>Prior GEHC</td><td>India Healthcare Technology Center — Strategic Programs and Initiatives Lead (Nov 2021 → Apr 2023), Bengaluru</td></tr>
+  <tr><td>Before GEHC</td><td>Cisco — Program Manager, Enterprise PMO &amp; Operations; Business Operations / site strategies</td></tr>
+  <tr><td>Public themes</td><td>University relations, early talent, partner/program ops, employee engagement, cross-functional interlock</td></tr>
+  <tr><td>Culture signal</td><td>Desk Diaries: Edison batch photos + art/painting — values young talent energy, not only delivery metrics</td></tr>
+  <tr><td>Public AI pride</td><td>Reposted GEHC topping USFDA AI-enabled medical device authorizations list — cares about healthcare AI impact narrative</td></tr>
+</table>
+
+<h2>2. What she is likely screening for — EID Intern (INFERENCE)</h2>
+<ul>
+  <li><strong>Why EID / why healthcare / why GEHC</strong> — genuine, not “any internship.”</li>
+  <li><strong>Ownership on <em>your</em> projects</strong> — LogiFlow: what you built, what was hard, honest metrics — not “USP for GE.”</li>
+  <li><strong>Will you show up</strong> — Bengaluru full duration; no-show = withdrawal.</li>
+  <li><strong>Coachability</strong> — feedback, ambiguity, conflict without ego.</li>
+  <li><strong>Curiosity</strong> — what a strong EID intern looks like; how interns are staffed.</li>
+</ul>
+<div class="note">She is a <strong>program / strategic ops</strong> leader, not an architect. Expect fit + ownership storytelling, not live coding. Skip PPO phrasing.</div>
+
+<h2>3. How to play 20–25 minutes with her</h2>
+<table>
+  <tr><th>Do</th><th>Don’t</th></tr>
+  <tr>
+    <td>45s intro → LogiFlow you owned → why healthcare / EID → why GEHC → Bengaluru yes → 1–2 intern questions</td>
+    <td>PPO “project I’m on at GE” answers · name-drop LinkedIn · invent SKUs · “maybe” on relocate · accuracy-only metrics</td>
+  </tr>
+</table>
+<div class="you">
+  <strong>One line she should hear.</strong><br/>
+  “I want my first engineering bar to be reliability under clinical-adjacent standards — LogiFlow taught me to defend metrics honestly; EID is where I want to grow that under mentorship.”
+</div>
+
+<div class="footer">Public LinkedIn / GFG / company posts only · Kavya Bhatiya prep · not affiliated with GE HealthCare · do not name-drop LinkedIn in the interview</div>
+</body></html>

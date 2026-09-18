@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/>
+<title>Mock 7 — Resume roast + situational</title><style>
+@page { size: A4; margin: 10mm 11mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9.5pt; line-height: 1.38; color: #1f2937; margin: 0;
+}
+h1 { font-size: 15.5pt; color: #0b4f6c; margin: 0 0 2px; }
+h2 {
+  font-size: 10.2pt; margin: 9px 0 5px; padding: 4px 8px;
+  background: #0b4f6c; color: #fff; border-radius: 5px; page-break-after: avoid;
+}
+p, li { margin: 0 0 3px; }
+ul { padding-left: 1.1em; margin: 3px 0 7px; }
+.hero {
+  background: linear-gradient(135deg, #0b4f6c, #147a9b);
+  color: #fff; padding: 13px 15px; border-radius: 10px; margin-bottom: 9px;
+}
+.hero h1 { color: #fff; margin: 0 0 3px; font-size: 16pt; }
+.meta { opacity: 0.92; font-size: 8.8pt; margin: 0 0 6px; }
+.badge {
+  display: inline-block; background: rgba(255,255,255,0.18);
+  padding: 2px 8px; border-radius: 999px; font-size: 8pt; font-weight: 700; margin: 1px 3px 0 0;
+}
+.note, .warn, .ok, .iv, .you, .src, .probe, .score {
+  padding: 6px 9px; border-radius: 0 6px 6px 0; margin: 5px 0 6px; font-size: 9pt;
+  page-break-inside: avoid;
+}
+.note { background: #f0f9ff; border-left: 4px solid #0b4f6c; }
+.warn { background: #fff7ed; border-left: 4px solid #ea580c; }
+.ok { background: #ecfdf5; border-left: 4px solid #059669; }
+.iv { background: #fce7f3; border-left: 4px solid #be185d; }
+.you { background: #ecfdf5; border-left: 4px solid #059669; }
+.src { background: #fef3c7; border-left: 4px solid #d97706; color: #92400e; font-size: 8.3pt; }
+.probe { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; font-size: 8.7pt; }
+.score { background: #fafafa; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 8.7pt; }
+table { width: 100%; border-collapse: collapse; margin: 4px 0 8px; font-size: 8.5pt; }
+th, td { border: 1px solid #d1d5db; padding: 4px 6px; text-align: left; vertical-align: top; }
+th { background: #0b4f6c; color: #fff; }
+tr:nth-child(even) td { background: #f8fafc; }
+.footer { margin-top: 8px; padding-top: 5px; border-top: 1px solid #e5e7eb; font-size: 7.8pt; color: #6b7280; }
+.page-break { page-break-before: always; }
+</style></head><body>
+
+<div class="hero">
+  <h1>Mock 7 — Resume roast + situational barrage</h1>
+  <p class="meta">GFG GE Intern 2022 managerial · ~40 min pattern compressed to 25 · EID Intern</p>
+  <span class="badge">25 min</span>
+  <span class="badge">Resume roast</span>
+  <span class="badge">Situational</span>
+</div>
+<div class="src">Source: Managerial round described as “basically resume roasting” + many situational Qs + Why GE?</div>
+
+<table>
+  <tr><th>Time</th><th>Block</th></tr>
+  <tr><td>0–2</td><td>Intro (≤90s)</td></tr>
+  <tr><td>2–10</td><td>Line-by-line resume: LogiFlow → SMSRF → LC → competitions</td></tr>
+  <tr><td>10–18</td><td>Situational rapid fire</td></tr>
+  <tr><td>18–22</td><td>Why GEHC (use real reasons, not vague brand)</td></tr>
+  <tr><td>22–25</td><td>Bengaluru + your Q</td></tr>
+</table>
+
+<div class="iv"><strong>INTERVIEWER</strong> Introduce yourself — under 90 seconds.</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Kavya Bhatiya, B.Tech AI, SVNIT Surat, CGPA 9.05. Cleared tech. I build measurable systems — LogiFlow Top 106 GSC 2026; multi-objective research with NSGA-II; 470+ LeetCode. Here for EID Intern in Bengaluru.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> CGPA 9.05 — what does that say about how you work under load?</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Consistency over spikes. I plan weekly: academics + project slices + DSA. When GSC collided with semesters I cut project scope instead of letting grades or the core demo slip.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> SMSRF / NSGA-II on the resume — one minute, no jargon dump.</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Multi-objective recommender research — optimising conflicting goals (e.g. novelty vs serenity) with NSGA-II. Reported gains vs a baseline on MovieLens. Habit: when goals conflict, measure trade-offs explicitly — same habit as LogiFlow’s four objectives.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Teammate misses a deadline two days before a demo. What do you do?</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Check blockers without blame → re-scope their slice to a minimum → take a parallel critical path if I can → tell the team early what’s at risk. Never surprise the demo with silence.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Senior asks for a feature that would break your metric honesty. Response?</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Explain the failure mode in one sentence + offer a safer alternative (flag as experimental / behind a toggle). I won’t ship a number I can’t defend — especially near clinical-adjacent software.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Why GE HealthCare — and don’t say “brand.”</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Imaging + monitoring + Edison AI layer = software that must earn trust. I want that reliability bar as my first internship. Bengaluru engineering + EID mentorship is the learning environment I chose — not any logo.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Relocate? Question?</div>
+<div class="you"><strong>YOU SAY</strong><br/>Yes, full Bengaluru. Q: In managerial check-ins, what signal tells you an intern is on track by week 3?</div>
+
+<div class="footer">Set 2 · public GFG / PCON / Freshers Dunia / AmbitionBox · EID Intern · Kavya prep · not affiliated with GEHC</div>
+</body></html>

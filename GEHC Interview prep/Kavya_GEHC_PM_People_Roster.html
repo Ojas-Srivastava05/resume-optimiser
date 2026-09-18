@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>GEHC Bengaluru — Program Manager Roster</title>
+<style>
+@page { size: A4; margin: 10mm 11mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9.6pt; line-height: 1.38; color: #1f2937; margin: 0;
+}
+h1 { font-size: 16pt; color: #0b4f6c; margin: 0 0 2px; }
+h2 {
+  font-size: 10.5pt; margin: 10px 0 5px; padding: 4px 8px;
+  background: #0b4f6c; color: #fff; border-radius: 5px; page-break-after: avoid;
+}
+h3 { font-size: 10pt; color: #0b4f6c; margin: 8px 0 3px; page-break-after: avoid; }
+p, li { margin: 0 0 3px; }
+ul, ol { padding-left: 1.1em; margin: 3px 0 7px; }
+.hero {
+  background: linear-gradient(135deg, #0b4f6c, #147a9b);
+  color: #fff; padding: 14px 16px; border-radius: 10px; margin-bottom: 10px;
+}
+.hero h1 { color: #fff; margin: 0 0 3px; font-size: 17pt; }
+.meta { opacity: 0.92; font-size: 9pt; margin: 0 0 7px; }
+.badges { display: flex; flex-wrap: wrap; gap: 5px; }
+.badge {
+  display: inline-block; background: rgba(255,255,255,0.18);
+  padding: 2px 9px; border-radius: 999px; font-size: 8.2pt; font-weight: 700;
+}
+.note {
+  background: #f0f9ff; border-left: 4px solid #0b4f6c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.warn {
+  background: #fff7ed; border-left: 4px solid #ea580c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.ok {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+table {
+  width: 100%; border-collapse: collapse; margin: 5px 0 10px; font-size: 8.8pt;
+}
+th, td {
+  border: 1px solid #d1d5db; padding: 4px 6px; text-align: left; vertical-align: top;
+}
+th { background: #0b4f6c; color: #fff; font-weight: 700; }
+tr:nth-child(even) td { background: #f8fafc; }
+.iv {
+  background: #fce7f3; border-left: 4px solid #be185d;
+  padding: 6px 9px; border-radius: 0 6px 6px 0; margin: 7px 0 3px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.iv strong { color: #9d174d; }
+.you {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 3px 0 7px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.you strong { color: #047857; }
+.src {
+  background: #fef3c7; border-left: 4px solid #d97706;
+  padding: 4px 8px; border-radius: 0 6px 6px 0; margin: 2px 0 5px;
+  font-size: 8.4pt; color: #92400e;
+}
+.probe {
+  background: #eff6ff; border: 1px solid #bfdbfe;
+  padding: 5px 8px; border-radius: 6px; margin: 3px 0 7px; font-size: 8.8pt;
+}
+.score {
+  background: #fafafa; border: 1px solid #e5e7eb;
+  padding: 7px 9px; border-radius: 6px; margin: 6px 0 8px; font-size: 8.9pt;
+}
+.kpi {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin: 6px 0 10px;
+}
+.kpi div {
+  background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 7px;
+  padding: 7px 8px; font-size: 8.7pt;
+}
+.kpi b { display: block; color: #0b4f6c; font-size: 11pt; margin-bottom: 1px; }
+.tag {
+  display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 1px 6px;
+  border-radius: 999px; margin-right: 4px;
+}
+.tag-hot { background: #fee2e2; color: #991b1b; }
+.tag-ed { background: #dbeafe; color: #1e40af; }
+.tag-ai { background: #ede9fe; color: #5b21b6; }
+.tag-ops { background: #d1fae5; color: #065f46; }
+.footer {
+  margin-top: 10px; padding-top: 6px; border-top: 1px solid #e5e7eb;
+  font-size: 8pt; color: #6b7280;
+}
+.page-break { page-break-before: always; }
+</style>
+</head><body>
+
+<div class="hero">
+  <h1>GEHC Bengaluru — Program Manager Roster</h1>
+  <p class="meta">Public LinkedIn / company posts · who could sit a “Program Manager” / managerial round · ranked by Edison-intern relevance</p>
+  <div class="badges">
+    <span class="badge">14 people mapped</span>
+    <span class="badge">Edison-linked first</span>
+    <span class="badge">Then AI/Edison platform PMs</span>
+    <span class="badge">Then product / TPM</span>
+  </div>
+</div>
+
+<div class="warn">
+  Panel assignment is never public. Treat Tier A as primary prep; Tier B/C as “if the calendar name is different, adapt tone.”
+  Do not contact these people. Do not mention scraping this list in interview.
+</div>
+
+<h2>Tier A — Edison / early-talent program (prep first)</h2>
+<table>
+  <tr><th>Person</th><th>Public role</th><th>Why relevant</th></tr>
+  <tr>
+    <td><span class="tag tag-hot">HOT</span><strong>Surekha Sailesh</strong></td>
+    <td>Sr. Manager, Strategic Programs &amp; Initiatives; named <strong>Edison Program Manager</strong></td>
+    <td>Thanked on 2025 Edison intern onboarding (35 interns; SVNIT listed). Desk has Edison batch photos. Highest-likelihood PM round.</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-ed">ED</span><strong>Uma Parameswaran</strong></td>
+    <td>Lean Six Sigma MBB · <strong>Edison Program Manager</strong> · Talent Competency Leader (since ~2013)</td>
+    <td>Long-standing Edison Program Manager; issues Edison impact awards / graduation support. Alternate or senior Edison voice.</td>
+  </tr>
+  <tr>
+    <td><strong>Annu Mathew</strong></td>
+    <td>TA Leader — APAC / Global IT Segment</td>
+    <td>Leads campus / Edison talent posts; more TA/HR than PM, but co-appears with Surekha on Edison intern wins.</td>
+  </tr>
+  <tr>
+    <td><strong>HR partners (cohort posts)</strong></td>
+    <td>Monika Suryawanshi · Amrita Mishra · Shreya Kumar · Sarvesh Sharma · Siren Sivan</td>
+    <td>Delivery / HR side of Edison intern process — more likely HR round than PM, but know the names if calendar shows them.</td>
+  </tr>
+</table>
+
+<h2>Tier B — Edison platform / AI program delivery (if named)</h2>
+<table>
+  <tr><th>Person</th><th>Public role</th><th>Tone shift if they interview</th></tr>
+  <tr>
+    <td><span class="tag tag-ai">AI</span><strong>Gajanana Kamath</strong></td>
+    <td>Sr. Program Manager — AVS Digital; ex Staff TPM — <strong>Edison AI</strong></td>
+    <td>Regulated software / SaMD / AI-ML delivery language. Lean into metric honesty, risk, reliability — not only soft fit.</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-ai">AI</span><strong>Hitesh Boda</strong></td>
+    <td>Sr. PM AI/ML (STO); ex Sr. PM <strong>Edison Data Platform</strong></td>
+    <td>Data platform, governance, clinical data lake. Speak pipelines, validation, “advisory not verdict” for ML.</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-ai">AI</span><strong>Shubha Shirsat</strong></td>
+    <td>Product Program Leader — AI/ML Strategic Partnerships</td>
+    <td>Partnerships / AI programs. Why healthcare AI + honest impact story.</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-ai">AI</span><strong>Ashwin TV</strong></td>
+    <td>AI Transformation Program Manager (PCS)</td>
+    <td>Portfolio / governance of AI initiatives. Prioritisation and measurable outcomes.</td>
+  </tr>
+</table>
+
+<h2>Tier C — Product / TPM / ops PMs (Bengaluru)</h2>
+<table>
+  <tr><th>Person</th><th>Public role</th><th>Note</th></tr>
+  <tr><td><strong>Rajee Kukreja</strong></td><td>Sr. PM — Advanced Visualization Solutions Digital; ex PCS Data Platform TPM</td><td>Imaging / AVS digital + data-as-product.</td></tr>
+  <tr><td><strong>Abhilash G</strong></td><td>Program Manager (Agile/SAFe, embedded SW background)</td><td>Classic delivery PM — ownership, milestones, conflict.</td></tr>
+  <tr><td><strong>Sheeja Shetty</strong></td><td>Program Manager; ex NASSCOM Digital Innovation / Novo Nordisk</td><td>Innovation ecosystem background.</td></tr>
+  <tr><td><strong>Preethi Kandavel</strong></td><td>Sr. Staff Technical Program Manager</td><td>Agile coaching + TPM depth.</td></tr>
+  <tr><td><strong>Keshava J</strong></td><td>Staff Technical Program Manager</td><td>Scrum / PI planning / stakeholder reporting.</td></tr>
+  <tr><td><strong>Rajesh Roshan</strong></td><td>TPM / Staff Software Architect; PACS performance &amp; reliability</td><td>Reliability programs — metric honesty lands well.</td></tr>
+  <tr><td><strong>Sandeep MB</strong></td><td>Senior Staff TPM; LPI Digital Cloud (AWS)</td><td>Cloud migration / cross-functional governance.</td></tr>
+  <tr><td><strong>Sravan Vasireddy</strong></td><td>Strategic Initiatives Leader — Enterprise Applications</td><td>Enterprise release / transformation — less Edison-intern specific.</td></tr>
+</table>
+
+<div class="note">
+  <strong>Practical rule (EID Intern).</strong> Calendar “Program Manager” → Mock 1 (Surekha-style fit).
+  Tier B/C name → Mock 2. Never use PPO “project you’re on / USP for the organisation.”
+</div>
+
+<div class="footer">Public LinkedIn / GFG / company posts only · Kavya Bhatiya prep · not affiliated with GE HealthCare · do not name-drop LinkedIn in the interview</div>
+</body></html>

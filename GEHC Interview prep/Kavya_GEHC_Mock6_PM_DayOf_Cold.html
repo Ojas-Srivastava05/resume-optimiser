@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>PM Mock 6 — EID Intern · Day-of cold run</title>
+<style>
+@page { size: A4; margin: 10mm 11mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9.6pt; line-height: 1.38; color: #1f2937; margin: 0;
+}
+h1 { font-size: 16pt; color: #0b4f6c; margin: 0 0 2px; }
+h2 {
+  font-size: 10.5pt; margin: 10px 0 5px; padding: 4px 8px;
+  background: #0b4f6c; color: #fff; border-radius: 5px; page-break-after: avoid;
+}
+h3 { font-size: 10pt; color: #0b4f6c; margin: 8px 0 3px; page-break-after: avoid; }
+p, li { margin: 0 0 3px; }
+ul, ol { padding-left: 1.1em; margin: 3px 0 7px; }
+.hero {
+  background: linear-gradient(135deg, #0b4f6c, #147a9b);
+  color: #fff; padding: 14px 16px; border-radius: 10px; margin-bottom: 10px;
+}
+.hero h1 { color: #fff; margin: 0 0 3px; font-size: 17pt; }
+.meta { opacity: 0.92; font-size: 9pt; margin: 0 0 7px; }
+.badges { display: flex; flex-wrap: wrap; gap: 5px; }
+.badge {
+  display: inline-block; background: rgba(255,255,255,0.18);
+  padding: 2px 9px; border-radius: 999px; font-size: 8.2pt; font-weight: 700;
+}
+.note {
+  background: #f0f9ff; border-left: 4px solid #0b4f6c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.warn {
+  background: #fff7ed; border-left: 4px solid #ea580c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.ok {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+table {
+  width: 100%; border-collapse: collapse; margin: 5px 0 10px; font-size: 8.8pt;
+}
+th, td {
+  border: 1px solid #d1d5db; padding: 4px 6px; text-align: left; vertical-align: top;
+}
+th { background: #0b4f6c; color: #fff; font-weight: 700; }
+tr:nth-child(even) td { background: #f8fafc; }
+.iv {
+  background: #fce7f3; border-left: 4px solid #be185d;
+  padding: 6px 9px; border-radius: 0 6px 6px 0; margin: 7px 0 3px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.iv strong { color: #9d174d; }
+.you {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 3px 0 7px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.you strong { color: #047857; }
+.src {
+  background: #fef3c7; border-left: 4px solid #d97706;
+  padding: 4px 8px; border-radius: 0 6px 6px 0; margin: 2px 0 5px;
+  font-size: 8.4pt; color: #92400e;
+}
+.probe {
+  background: #eff6ff; border: 1px solid #bfdbfe;
+  padding: 5px 8px; border-radius: 6px; margin: 3px 0 7px; font-size: 8.8pt;
+}
+.score {
+  background: #fafafa; border: 1px solid #e5e7eb;
+  padding: 7px 9px; border-radius: 6px; margin: 6px 0 8px; font-size: 8.9pt;
+}
+.kpi {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin: 6px 0 10px;
+}
+.kpi div {
+  background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 7px;
+  padding: 7px 8px; font-size: 8.7pt;
+}
+.kpi b { display: block; color: #0b4f6c; font-size: 11pt; margin-bottom: 1px; }
+.tag {
+  display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 1px 6px;
+  border-radius: 999px; margin-right: 4px;
+}
+.tag-hot { background: #fee2e2; color: #991b1b; }
+.tag-ed { background: #dbeafe; color: #1e40af; }
+.tag-ai { background: #ede9fe; color: #5b21b6; }
+.tag-ops { background: #d1fae5; color: #065f46; }
+.footer {
+  margin-top: 10px; padding-top: 6px; border-top: 1px solid #e5e7eb;
+  font-size: 8pt; color: #6b7280;
+}
+.page-break { page-break-before: always; }
+</style>
+</head><body>
+
+<div class="hero">
+  <h1>PM Mock 6 — EID Intern · Day-of cold run</h1>
+  <p class="meta">Shortest full loop · morning-of rehearsal · 15 min · no notes</p>
+  <div class="badges">
+    <span class="badge">15 min</span>
+    <span class="badge">Cold</span>
+    <span class="badge">Must land</span>
+    <span class="badge">EID Intern</span>
+  </div>
+</div>
+
+<div class="ok">Run once the morning of. Then stop rehearsing. If you blank, use the order below as a mental checklist.</div>
+
+<table>
+  <tr><th>Min</th><th>They ask</th><th>You must land</th></tr>
+  <tr><td>0–1</td><td>Intro</td><td>Name · SVNIT · 9.05 · LogiFlow Top 106 · EID Intern</td></tr>
+  <tr><td>1–5</td><td>Project</td><td>What you owned · 73/68/78.3 · hard = recall not vanity accuracy</td></tr>
+  <tr><td>5–8</td><td>Why GEHC / EID</td><td>Reliability bar · live team · not any internship</td></tr>
+  <tr><td>8–11</td><td>One STAR</td><td>Conflict or feedback — Result in one line</td></tr>
+  <tr><td>11–13</td><td>Bengaluru</td><td>Full yes · no constraints</td></tr>
+  <tr><td>13–15</td><td>Your Q</td><td>Strong EID intern week 2 vs 6</td></tr>
+</table>
+
+<div class="iv"><strong>INTERVIEWER</strong> Intro.</div>
+<div class="you"><strong>YOU SAY (~45s)</strong><br/>
+Good morning. Kavya Bhatiya, B.Tech AI, SVNIT Surat, CGPA 9.05. Cleared technical. Strongest work LogiFlow — FastAPI, PostgreSQL, Next.js, delay-risk ML — Top 106 GSC 2026. Here for EID Intern to contribute on a live healthcare software team in Bengaluru.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Project — what did you own?</div>
+<div class="you"><strong>YOU SAY (~60s)</strong><br/>
+Ranking pipelines + delay-risk model. Tuned for 68% delayed recall / 78.3% ROC-AUC because missing delays mattered more than flattering accuracy. Hard part was changing the metric story under deadline. Outcome Top 106.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Why us?</div>
+<div class="you"><strong>YOU SAY (~40s)</strong><br/>
+GEHC: imaging, monitoring, software/AI (Edison) clinicians rely on. I want that reliability bar. EID = ship under seniors. That’s the internship I want.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> One teamwork example.</div>
+<div class="you"><strong>YOU SAY (~40s)</strong><br/>
+Metrics vs UI polish — time-boxed polish, locked defendable metrics. Compromise on polish, not on numbers.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Location? Questions?</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Bengaluru full duration — yes. Question: what does a strong EID intern look like in week 2 versus week 6?</div>
+
+<div class="warn">Do <strong>not</strong> say: USP for the organisation · internship learning to date · Cloud Run · invent SKUs · ask PPO odds.</div>
+
+<div class="footer">Public LinkedIn / GFG / company posts only · Kavya Bhatiya prep · not affiliated with GE HealthCare · do not name-drop LinkedIn in the interview</div>
+</body></html>

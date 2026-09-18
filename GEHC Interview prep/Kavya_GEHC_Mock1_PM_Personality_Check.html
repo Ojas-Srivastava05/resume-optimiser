@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>PM Mock 1 — EID Intern · Surekha / Edison PM</title>
+<style>
+@page { size: A4; margin: 10mm 11mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9.6pt; line-height: 1.38; color: #1f2937; margin: 0;
+}
+h1 { font-size: 16pt; color: #0b4f6c; margin: 0 0 2px; }
+h2 {
+  font-size: 10.5pt; margin: 10px 0 5px; padding: 4px 8px;
+  background: #0b4f6c; color: #fff; border-radius: 5px; page-break-after: avoid;
+}
+h3 { font-size: 10pt; color: #0b4f6c; margin: 8px 0 3px; page-break-after: avoid; }
+p, li { margin: 0 0 3px; }
+ul, ol { padding-left: 1.1em; margin: 3px 0 7px; }
+.hero {
+  background: linear-gradient(135deg, #0b4f6c, #147a9b);
+  color: #fff; padding: 14px 16px; border-radius: 10px; margin-bottom: 10px;
+}
+.hero h1 { color: #fff; margin: 0 0 3px; font-size: 17pt; }
+.meta { opacity: 0.92; font-size: 9pt; margin: 0 0 7px; }
+.badges { display: flex; flex-wrap: wrap; gap: 5px; }
+.badge {
+  display: inline-block; background: rgba(255,255,255,0.18);
+  padding: 2px 9px; border-radius: 999px; font-size: 8.2pt; font-weight: 700;
+}
+.note {
+  background: #f0f9ff; border-left: 4px solid #0b4f6c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.warn {
+  background: #fff7ed; border-left: 4px solid #ea580c;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+.ok {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 6px 0 8px; font-size: 9pt;
+}
+table {
+  width: 100%; border-collapse: collapse; margin: 5px 0 10px; font-size: 8.8pt;
+}
+th, td {
+  border: 1px solid #d1d5db; padding: 4px 6px; text-align: left; vertical-align: top;
+}
+th { background: #0b4f6c; color: #fff; font-weight: 700; }
+tr:nth-child(even) td { background: #f8fafc; }
+.iv {
+  background: #fce7f3; border-left: 4px solid #be185d;
+  padding: 6px 9px; border-radius: 0 6px 6px 0; margin: 7px 0 3px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.iv strong { color: #9d174d; }
+.you {
+  background: #ecfdf5; border-left: 4px solid #059669;
+  padding: 7px 9px; border-radius: 0 6px 6px 0; margin: 3px 0 7px;
+  font-size: 9.2pt; page-break-inside: avoid;
+}
+.you strong { color: #047857; }
+.src {
+  background: #fef3c7; border-left: 4px solid #d97706;
+  padding: 4px 8px; border-radius: 0 6px 6px 0; margin: 2px 0 5px;
+  font-size: 8.4pt; color: #92400e;
+}
+.probe {
+  background: #eff6ff; border: 1px solid #bfdbfe;
+  padding: 5px 8px; border-radius: 6px; margin: 3px 0 7px; font-size: 8.8pt;
+}
+.score {
+  background: #fafafa; border: 1px solid #e5e7eb;
+  padding: 7px 9px; border-radius: 6px; margin: 6px 0 8px; font-size: 8.9pt;
+}
+.kpi {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin: 6px 0 10px;
+}
+.kpi div {
+  background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 7px;
+  padding: 7px 8px; font-size: 8.7pt;
+}
+.kpi b { display: block; color: #0b4f6c; font-size: 11pt; margin-bottom: 1px; }
+.tag {
+  display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 1px 6px;
+  border-radius: 999px; margin-right: 4px;
+}
+.tag-hot { background: #fee2e2; color: #991b1b; }
+.tag-ed { background: #dbeafe; color: #1e40af; }
+.tag-ai { background: #ede9fe; color: #5b21b6; }
+.tag-ops { background: #d1fae5; color: #065f46; }
+.footer {
+  margin-top: 10px; padding-top: 6px; border-top: 1px solid #e5e7eb;
+  font-size: 8pt; color: #6b7280;
+}
+.page-break { page-break-before: always; }
+</style>
+</head><body>
+
+<div class="hero">
+  <h1>PM Mock 1 — EID Intern · Surekha / Edison PM</h1>
+  <p class="meta">Kavya Bhatiya · campus EID Intern · post-tech · no PPO / “project you’re on at GE” questions</p>
+  <div class="badges">
+    <span class="badge">20–25 min</span>
+    <span class="badge">EID Intern</span>
+    <span class="badge">Ownership · fit · Bengaluru</span>
+    <span class="badge">Do not name-drop</span>
+  </div>
+</div>
+
+<div class="warn">
+  <strong>Removed as irrelevant for EID Intern:</strong> “What project are you on, and what USP does it create for an organisation?”
+  That is PPO/EEDP Manager language for current interns. Here we ask about <em>your</em> college / GSC project.
+</div>
+
+<div class="note">
+  <strong>How to use.</strong> Friend reads pink only. 25-min timer. Green = debrief. She screens: will this intern show up, own a slice, take feedback, care about healthcare — not GE product USP.
+</div>
+
+<div class="kpi">
+  <div><b>Your project</b>LogiFlow · what you owned</div>
+  <div><b>Why EID</b>healthcare bar + mentorship</div>
+  <div><b>Logistics</b>Bengaluru full yes</div>
+</div>
+
+<h2>Clock</h2>
+<table>
+  <tr><th>Time</th><th>Block</th><th>Goal</th></tr>
+  <tr><td>0:00–2:00</td><td>Intro</td><td>45–60s; why EID Intern; stop.</td></tr>
+  <tr><td>2:00–8:00</td><td>Your project</td><td>LogiFlow ownership + hard part + metrics.</td></tr>
+  <tr><td>8:00–13:00</td><td>Why GEHC / healthcare</td><td>Motivation; no Amazon-bash.</td></tr>
+  <tr><td>13:00–17:00</td><td>Learning / ambiguity</td><td>Metric honesty or thin-slice STAR.</td></tr>
+  <tr><td>17:00–20:00</td><td>After internship</td><td>Ship + learn; EEDP only if earned — light.</td></tr>
+  <tr><td>20:00–25:00</td><td>Bengaluru + questions</td><td>Full yes; intern success criteria.</td></tr>
+</table>
+
+<h2>Script</h2>
+<div class="iv"><strong>INTERVIEWER</strong> Good morning. Please introduce yourself — and why the EID / Edison Intern role.</div>
+<div class="you"><strong>YOU SAY</strong><br/>
+Good morning. I am Kavya Bhatiya, B.Tech Artificial Intelligence at SVNIT Surat, CGPA 9.05. I cleared technical.
+Strongest work: LogiFlow — multimodal logistics on FastAPI, PostgreSQL, Next.js with delay-risk ML — Top 106 Google Solution Challenge 2026.
+I am here for EID Intern because I want to contribute on a live healthcare software team, take feedback from seniors, and learn GEHC engineering practices on-site in Bengaluru.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Tell me about your strongest project — what did you personally own, and what was hard?</div>
+<div class="src">EID Intern framing · NOT “USP for the organisation” / PPO</div>
+<div class="you"><strong>YOU SAY (~75s)</strong><br/>
+LogiFlow ranks road/rail/air/sea on time, reliability, cost, and sustainability. Most tools optimise only speed or cost; we put delay risk in the ranking.
+I owned the FastAPI ranking pipelines and the HistGradientBoosting delay-risk model — 73.0% accuracy, 68.0% delayed recall, 78.3% ROC-AUC — tuned for recall because missing a delay costs more than a false alarm.
+Hard part: early accuracy looked fine while we were missing real delays. I moved the team to recall and ROC-AUC and treated the model as an advisory risk signal, not a verdict. Outcome: Top 106 global. That habit — measure what the user feels — is what I want to bring as an EID intern.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Why healthcare — and why GE HealthCare — for this internship?</div>
+<div class="you"><strong>YOU SAY (~60s)</strong><br/>
+I want my first real engineering bar to be reliability under clinical-adjacent standards. In LogiFlow a wrong risk signal costs money; here it can cost trust.
+GE HealthCare builds imaging and monitoring plus a software/AI layer (Edison) clinicians rely on. EID gives live project work under review — how I learn fastest. Money matters, but early on the problem shape matters more; I’m not Amazon-bashing, I’m choosing this bar.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Tell me about a time something was unfamiliar or you had to change approach under pressure.</div>
+<div class="you"><strong>YOU SAY — STAR</strong><br/>
+Delay model looked fine on accuracy, weak on real delays. Unfamiliar: defending a “bad looking” metric choice. Switched focus to recall/ROC-AUC; kept the model advisory inside ranking. Learned to pick the metric the user feels — same loop I’ll use on a new codebase here.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Where do you see yourself after this internship?</div>
+<div class="you"><strong>YOU SAY (~40s)</strong><br/>
+Short term: contribute a tested slice on a real backlog and learn GEHC practices. If performance is strong, I’m interested in growing further here — including an EEDP-style path later if I earn it. I’m not claiming a title; I want to compound in healthcare software.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Bengaluru, full duration — any constraints?</div>
+<div class="you"><strong>YOU SAY</strong><br/>Yes — full duration, on-site Bengaluru, no constraints. Every scheduled slot is mandatory; no-shows are not an option for me.</div>
+
+<div class="iv"><strong>INTERVIEWER</strong> Questions for me?</div>
+<div class="you"><strong>YOU SAY (pick 1–2)</strong><br/>
+What does a strong EID intern look like in week 2 versus week 6?<br/>
+How are interns staffed — one-team ownership or rotating support?<br/>
+Avoid: stipend, PPO odds, WFH, “how did I do?”, LinkedIn name-drops.</div>
+
+<h2>Rapid probes</h2>
+<div class="probe">
+• Explain LogiFlow to a non-coder → risk score for routes, not a black-box “fastest.”<br/>
+• Strength with proof → ownership + metric honesty.<br/>
+• Weakness → early over-scoping; now ship thin slices.<br/>
+• Higher studies? (if asked) → industry first this internship; master’s later only if a problem needs research depth.
+</div>
+
+<div class="score">
+Score 1–5: Structure · Project ownership · Why EID/GEHC · Learning STAR · Bengaluru · Questions.<br/>
+<strong>Fail:</strong> answering as if already on a GE project · inventing SKUs · “maybe” relocate · no questions.
+</div>
+
+<div class="footer">Public LinkedIn / GFG / company posts only · Kavya Bhatiya prep · not affiliated with GE HealthCare · do not name-drop LinkedIn in the interview</div>
+</body></html>
