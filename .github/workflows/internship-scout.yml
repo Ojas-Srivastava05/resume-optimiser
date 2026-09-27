@@ -105,7 +105,7 @@ jobs:
           python scout.py $FLAGS
 
       - name: Upload seen jobs cache
-        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
         uses: actions/upload-artifact@v4
         with:
           name: seen-jobs

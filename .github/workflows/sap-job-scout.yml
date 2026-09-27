@@ -53,7 +53,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Verify Gmail SMTP credentials
-        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
         env:
           SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
           SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
@@ -69,7 +69,7 @@ jobs:
           SAP_MONITOR_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
           ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
-          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == true }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true }}
         run: |
           echo "Trigger: ${{ github.event_name }} at $(date -u)"
           FLAGS=""
@@ -79,7 +79,7 @@ jobs:
           python sap_scout.py $FLAGS
 
       - name: Commit SAP scout state
-        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != true }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
         working-directory: .
         run: |
           bash .github/scripts/git-push-state.sh "chore(sap-scout): update send state" \
