@@ -1,0 +1,207 @@
+% Night-before plan. Interview is Sunday 15 Nov 2026, 10:00 AM IST.
+\documentclass[a4paper,9.5pt]{extarticle}
+\usepackage[margin=0.85cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+
+\pagestyle{plain}
+\definecolor{ink}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{accent}{HTML}{9F1239}
+\definecolor{hot}{HTML}{9F1239}
+\definecolor{ok}{HTML}{166534}
+\color{ink}
+\setlength{\parskip}{1.3pt}
+\setlist[itemize]{leftmargin=1.15em, topsep=1pt, itemsep=1.2pt, parsep=0pt}
+\setlist[enumerate]{leftmargin=1.25em, topsep=1pt, itemsep=1.2pt, parsep=0pt}
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}[\vspace{0.4pt}{\color{accent}\hrule height 0.55pt}]
+\titlespacing{\section}{0pt}{6pt}{2pt}
+\titleformat{\subsection}{\bfseries\normalsize}{}{0em}{}
+\titlespacing{\subsection}{0pt}{3.5pt}{1pt}
+
+\begin{document}
+\begin{center}
+  {\LARGE\textbf{Tonight and Sunday morning}}\\[2pt]
+  {\small\color{hot}\textbf{L1 is Sunday 15 November 2026, 10:00 AM IST. Lobby at 9:55. Sleep. Stop new topics at 10:00 tonight.}}\\[2pt]
+  {\small This replaces the broad plan. It covers the Reddit note: resume nouns, easy--medium DSA, Java syntax, OOP, DBMS, networks, SQL.}\\[1pt]
+  {\footnotesize\color{muted} Open \textbf{Wells-Fargo-L1-Project-Points.pdf} only when a pitch stalls, and again at 9:25 for the trap table. Code DSA in Python. Java is syntax. The greeting is Good morning.}
+\end{center}
+
+\section{The clock}
+\noindent\begin{tabularx}{\textwidth}{@{}>{\bfseries\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}X@{}}
+7:00--7:20 & Intro once, then the three twenty-second pitches, resume closed. \\
+7:20--8:05 & Write the three SQL queries on paper. Say joins, keys, and the IFFCO index. \\
+8:05--8:40 & OOP, hashing, trees, AI vs ML, networks, and the one OS pair. Out loud. \\
+8:40--9:25 & Java syntax card once. Then type four Python problems. Speak, then type. \\
+9:25--9:45 & Last page of the project PDF only. The trap table. \\
+9:45--10:00 & Room, charger, resume, ID, phone. Then close the laptop. \\
+Sunday 8:15 & Intro and three pitches once. One SQL from memory. The Python problem that felt worst. \\
+8:50--9:20 & Trap table again. One OOP pass. TCP versus UDP in one sentence. \\
+9:40 & Dressed. Resume and ID on the desk. Water. Teams open. \\
+9:55 & In the lobby. Camera on. Phone in another room. Stay until they tell you to leave. \\
+\end{tabularx}
+
+\section{7:00. Say this, then stop}
+\textit{Good morning. I am Ojas Srivastava. I am a pre-final year B.Tech student in Artificial Intelligence at SVNIT Surat, with a CGPA of 9.20. I graduate in May 2028, and I am available from May to August 2027.}
+
+\textit{Last summer I interned at IFFCO's Phulpur unit. I shipped production web services through the full lifecycle: REST APIs, MySQL with indexes and joins, JWT and input checks, Docker on Linux, and I had to explain the work to managers who do not write code.}
+
+\textit{The project I want to walk through is LogiFlow, from Google Solution Challenge 2026, Global Top 106. I co-led the backend on Cloud Run. Corridor reads came back in 100 to 400 milliseconds through Redis, and I trained a delay model on 15{,}650 train-days.}
+
+\textit{Wells Fargo is the same standard I already worked under. A service in front of a real user has to be correct, explainable, and safe when something fails. That is the work I want to do this summer.}
+
+\noindent Then stop. If they say go on: Community Hero was solo, a civic-reporting API, Firestore, and Gemini only as an untrusted tagger. Stop again.
+
+\subsection{Twenty seconds each, resume closed}
+\begin{itemize}
+  \item \textbf{LogiFlow.} Compares road, rail, air, and water and returns cheapest, fastest, safest. Neural Foundry. I owned rail, compose, Next.js, and Supabase. Kavya owns road, Shreya water, Samanvitha air.
+  \item \textbf{Community Hero.} Solo. Photo, Gemini suggests a category, neighbours verify, an admin closes it. Eight features. Confidence under 0.6 stays Draft.
+  \item \textbf{AirHelp.} FastAPI. Navigation is A* on a terminal graph. Discovery is retrieval. Alerts are a WebSocket. 1--3 seconds, 50--100 users on one instance, 95 percent-plus on our graph.
+\end{itemize}
+If a pitch stalls, open the project PDF at that project only. Do not reread it.
+
+\section{7:20. SQL, written by hand}
+Use a table \texttt{employee(id, name, salary, manager\_id)}.
+
+\textbf{Second-highest salary.}
+\begin{verbatim}
+SELECT DISTINCT salary
+FROM employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
+\end{verbatim}
+Say the tie: \texttt{DISTINCT} keeps one salary value. If they want names, join back or use that salary in a \texttt{WHERE}.
+
+\textbf{Top 3 above a condition.}
+\begin{verbatim}
+SELECT name, salary
+FROM employee
+WHERE salary > 50000
+ORDER BY salary DESC
+LIMIT 3;
+\end{verbatim}
+
+\textbf{Highest-paid person under manager E1.}
+\begin{verbatim}
+SELECT name, salary
+FROM employee
+WHERE manager_id = 'E1'
+ORDER BY salary DESC
+LIMIT 1;
+\end{verbatim}
+
+\noindent Then say, once: an inner join keeps matches. A left join keeps every left row and fills nulls on the right. A primary key identifies a row and is not null. A foreign key points at a primary key. An index speeds the lookup and slows the write. At IFFCO the slow query filtered or joined on one column, so the index is on that column. A full scan became a lookup. SQL is the query language. PL/pgSQL is PostgreSQL's language for functions with IF and loops. I write SQL. I have not shipped PL/pgSQL. A database is the catalog. A schema is a namespace inside it. My production engine is MySQL.
+
+\section{8:05. Fundamentals, one example each}
+\textbf{OOP, from the code, not from animals.} Encapsulation: SQL stays behind the function the route calls. Abstraction: the caller asks for corridors and does not see Redis. Inheritance: say you composed services unless you actually subclassed. Polymorphism: one handler shape, behaviour depends on the real type, if you have that. Overloading is the same name with different inputs, decided at compile time in Java. Overriding is a child replacing a parent method. An abstract class can hold state. An interface is a contract. In Python the closest thing you use is a base class.
+
+\textbf{Hashing.} The key becomes a bucket. Average lookup is constant. The worst case is a long chain in one bucket. An array scan is linear. The map wins when you look up many times. An array wins when the data is tiny or you need order by index. Redis is the same idea: a key to a value, not a scan of every corridor.
+
+\textbf{Trees, names only.} Inorder, preorder, postorder, and level order with a queue. Inorder on a BST is sorted. Level order is ``nearest.''
+
+\textbf{AI versus ML.} AI is a system taking a decision a person used to take. ML is fitting a model on data. LogiFlow's delay model is ML. Gemini on Community Hero is a model I call, not a model I trained. A JWT check is neither.
+
+\textbf{DBMS.} IFFCO stayed in MySQL because the workflows were tables, joins, and an index. Community Hero uses Firestore because a report is fetched by id or by a map cell. ACID if they ask: a transfer is atomic, leaves the books consistent, is isolated from the one beside it, and stays after a crash.
+
+\textbf{Networks.} TCP is reliable and ordered. UDP is not. HTTP sits on TCP. AirHelp alerts go out on a WebSocket so a gate change does not wait for the next poll.
+
+\textbf{OS, because it is on the coursework line.} A process has its own memory. Threads in one process share it. Deadlock needs mutual exclusion, hold and wait, no preemption, and a cycle. I would name which one a timeout breaks.
+
+\section{8:40. Java syntax, then four Python writes}
+You ship Python. If they point at Java on the skills line, write this shape and say the services are Python, Node, and MySQL.
+\begin{verbatim}
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4};
+        ArrayList<Integer> evens = new ArrayList<>();
+        for (int x : nums) {
+            if (x % 2 == 0) {
+                evens.add(x);
+            }
+        }
+        System.out.println(evens);
+    }
+}
+\end{verbatim}
+\noindent An \texttt{ArrayList} is the growable array. A plain array has a fixed length. \texttt{==} compares primitive values. For strings, \texttt{equals}.
+
+\subsection{Type these four. Say the idea, then the code, then the cost}
+\textbf{1. Frequency.} One pass, a dict. $O(n)$ time, $O(n)$ space. Sorted output adds a sort.
+\begin{verbatim}
+def freq(nums):
+    count = {}
+    for x in nums:
+        count[x] = count.get(x, 0) + 1
+    return count
+\end{verbatim}
+
+\textbf{2. Compare two dates, dd/mm/yyyy.} Split, then compare year, month, day as a tuple. Reject 31/02 before comparing.
+\begin{verbatim}
+def later(a, b):
+    da, ma, ya = map(int, a.split("/"))
+    db, mb, yb = map(int, b.split("/"))
+    return (ya, ma, da) > (yb, mb, db)
+\end{verbatim}
+
+\textbf{3. kth largest.} Min-heap of size k. The top of that heap is the answer. $O(n \log k)$.
+\begin{verbatim}
+import heapq
+def kth_largest(nums, k):
+    heap = nums[:k]
+    heapq.heapify(heap)
+    for x in nums[k:]:
+        if x > heap[0]:
+            heapq.heapreplace(heap, x)
+    return heap[0]
+\end{verbatim}
+
+\textbf{4. Binary search.} Window shrinks because the array is sorted. Check both ends and a missing target.
+\begin{verbatim}
+def binary_search(nums, target):
+    lo, hi = 0, len(nums) - 1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if nums[mid] == target:
+            return mid
+        if nums[mid] < target:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1
+\end{verbatim}
+
+\subsection{Say these. Type them only if the four above were clean before 9:20}
+\begin{itemize}
+  \item \textbf{Longest common prefix.} Walk until the first mismatch. Empty list. First characters already differ.
+  \item \textbf{Linked-list cycle.} Slow and fast pointers. One node. Cycle at the head.
+  \item \textbf{Stock profit, one pass.} Track the cheapest so far and the best difference. A falling series returns 0.
+  \item \textbf{Bubble sort.} $O(n^2)$, stable. I would not use it on the corridor table. I would use the language sort, which is $O(n \log n)$.
+  \item \textbf{Number of islands.} BFS or DFS from each land cell, mark visited. One traced grid is enough. A* is the weighted version you already have on AirHelp.
+\end{itemize}
+If the statement is messy, repeat it back on four numbers before you code. Brute force first if the better one is not immediate. Complexity at the end.
+
+\section{9:25. Trap table, then stop}
+\noindent\begin{tabularx}{\textwidth}{@{}>{\bfseries\raggedright\arraybackslash}p{3.1cm} >{\color{ok}\raggedright\arraybackslash}X@{}}
+All of LogiFlow? & Rail, compose, Next.js, Supabase. Name Kavya, Shreya, Samanvitha. \\
+22.7 minutes? & Typical miss about 20 minutes. About 81 percent inside 30. It ranks risk. The timetable still stands. \\
+Redis down? & SQL or Supabase still answers, slower. The cache is not the ledger. \\
+Name the eight. & Reporting, AI category, map, verification, tracking, dashboards, hotspots, gamification. Under 0.6 stays Draft. \\
+Gemini wrong? & Under 0.6 stays Draft. An admin decides. \\
+95 percent? & Evaluation on our graph. Then walk one route. \\
+Java service? & Coursework. I can write the syntax. Production is Python, Node, and MySQL. \\
+Cloud Run live? & The path I measured was Cloud Run. Say if the link they opened is the later Vercel mirror. \\
+\end{tabularx}
+
+\vspace{3pt}
+\noindent Do not say Chairperson. The line is DSA Mentor and Representative, Nexus SVNIT. Do not say Global Top 20. LeetCode is Knight, rating 2048, 637-plus solved. Do not ask the stipend. Do not mention 5--6 December unless they do.
+
+\vspace{2pt}
+\noindent{\footnotesize\color{hot}\textbf{10:00 tonight the laptop closes.} Sunday at 9:55 you are in the Teams lobby, camera on, phone in another room, this resume and a government ID on the desk.}
+\end{document}

@@ -5,6 +5,7 @@ Campus-drive prep packs — interview PDFs, OA refs, plans, and drive-specific r
 | Drive | Folder | Status |
 |-------|--------|--------|
 | **GEP Worldwide** — Intern, Technology | [`GEP Worldwide Campus Hiring/`](GEP%20Worldwide%20Campus%20Hiring/) | Active — see its README |
+| **Wells Fargo** — Technology Program Intern 2027, R-557386 | [`Wells Fargo Technology Intern 2027/`](Wells%20Fargo%20Technology%20Intern%202027/) | Off-campus technical playbook |
 | **Adobe University Hackathon 2026** | [`Adobe University Hackathon 2026/`](Adobe%20University%20Hackathon%202026/) | Round 2 prep PDFs |
 
 Each drive folder has its own README with PDF index and compile instructions.

@@ -1,0 +1,191 @@
+% L1 project drill --- speak only what the code and the printed resume support
+\documentclass[a4paper,9.5pt]{extarticle}
+\usepackage[margin=0.85cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+
+\pagestyle{plain}
+\definecolor{ink}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{accent}{HTML}{9F1239}
+\definecolor{hot}{HTML}{9F1239}
+\definecolor{ok}{HTML}{166534}
+\color{ink}
+\setlength{\parskip}{1.4pt}
+\setlist[itemize]{leftmargin=1.15em, topsep=1pt, itemsep=1.3pt, parsep=0pt}
+\setlist[enumerate]{leftmargin=1.25em, topsep=1pt, itemsep=1.3pt, parsep=0pt}
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{}[\vspace{0.4pt}{\color{accent}\hrule height 0.55pt}]
+\titlespacing{\section}{0pt}{7pt}{2pt}
+\titleformat{\subsection}{\bfseries\normalsize}{}{0em}{}
+\titlespacing{\subsection}{0pt}{4pt}{1pt}
+
+\newcommand{\Q}[1]{\par\vspace{1.2pt}\noindent\textcolor{hot}{\textbf{Q:} #1}\par}
+\newcommand{\Say}[1]{\noindent\textcolor{ok}{\textbf{You say:} #1}\par}
+\newcommand{\No}[1]{\noindent\textcolor{muted}{\textbf{Do not say:} #1}\par}
+
+\begin{document}
+\begin{center}
+  {\LARGE\textbf{L1 project drill --- LogiFlow, Community Hero, AirHelp}}\\[2pt]
+  {\small\color{hot}\textbf{Sunday 15 November 2026, 10:00 AM IST \textbar{} Microsoft Teams \textbar{} join the lobby at 9:55}}\\[2pt]
+  {\small Ojas Srivastava \textbar{} Technology Program Intern \textbar{} R-557386 \textbar{} facts from the printed resume and the public repos}\\[1pt]
+  {\footnotesize\color{muted} Mail from Mihir Jha, \texttt{mihir.k.jha@wellsfargo.com}, +91 993-128-1666. Laptop, camera, mic, charger, quiet light, this resume, a government ID. Phone off. Do not record. Do not leave until they tell you.}
+\end{center}
+
+\section{How to use this on Saturday}
+Say the twenty-second version of each project once, out loud, with the repo closed. Then drill only the questions in red. A number you cannot point at in a file does not get said. The printed resume is still the ceiling: no Chairperson, no Global Top 20, LeetCode stays 637-plus.
+
+\section{LogiFlow}
+\subsection{Twenty seconds}
+LogiFlow compares road, rail, air, and water for one shipment and returns cheapest, fastest, and safest. Google Solution Challenge 2026, Global Top 106. The team is Neural Foundry. I was technical lead on the rail pipeline, the route composer, the Next.js app, and Supabase.
+
+\subsection{Who owns what}
+\begin{itemize}
+  \item \textbf{You:} technical lead. Next.js, rail pipeline, compose, Supabase, the Cloud Run path the resume names.
+  \item \textbf{Kavya Bhatiya:} road pipeline, hybrid scoring, auth and planner, deployment.
+  \item \textbf{Shreya:} water and PortWatch.
+  \item \textbf{Samanvitha Bolisetty:} air cargo, on-time performance, international routing.
+\end{itemize}
+\Q{Did you build all of LogiFlow?}
+\No{``Yes, end to end.''}
+\Say{I co-led. My code is rail, compose, and the web app around it. Road is Kavya, water is Shreya, air is Samanvitha. If you open the rail folder, that is mine.}
+
+\subsection{The rail path, which is your code}
+Entry is \texttt{RailCargoOptimizer} in \texttt{backend/app/pipelines/rail/pipeline.py}. API is \texttt{POST /railway/optimize}.
+\begin{enumerate}
+  \item Input: source, destination, cargo weight and type, departure date.
+  \item Location funnel. A city or a code such as \texttt{PRYJ} becomes the station cluster for that district. About 7{,}400 stations parsed from a station-name file, plus a curated city-to-station map. Shared with the other modes via \texttt{location\_funnel.py}.
+  \item \raggedright Schedules, best source first: a live trains-between-stations scrape, the delay-scrape cache from runningstatus.in, then the December 2017 train-details CSV. That file is 11{,}113 trains and about 796{,}000 direct pairs. It is lazy-loaded. \texttt{RAIL\_PRELOAD\_ON\_STARTUP} is false, so startup does not hold the whole file. The file name is \texttt{Train\_details\_22122017.csv}.\par
+  \item Route finder: direct trains, plus one transfer, between station clusters.
+  \item Features: tariff, punctuality, booking ease, risk.
+  \item Delay model scores the train.
+  \item Decision engine returns cheapest, fastest, and safest, or \texttt{status: no\_routes} with a plain message. Example in the doc: no railway route between Delhi and Kochi.
+\end{enumerate}
+\texttt{POST /railway/simulate} takes weather and congestion multipliers and returns the same shape, so a demo does not fan out to live APIs. Geometry for one train is \texttt{GET /railway/trains/\{n\}/geometry}. Model metadata, without loading the pickle, is \texttt{GET /railway/model-info}.
+
+\subsection{The number 22.7}
+Trained with \texttt{make train-delay-ml} on scraped \texttt{ir\_train\_delays.csv}.
+\begin{itemize}
+  \item \textbf{15{,}650} labeled train-day rows. That is the resume figure.
+  \item \textbf{5-fold GroupKFold} grouped by \texttt{train\_number}, so the same train is not in both train and test.
+  \item Leave-one-date-out backtests on held-out scrape dates.
+  \item Model in the rail doc: \texttt{GradientBoostingRegressor}. HistGradientBoosting is optional, not the number you quote first.
+  \item From \texttt{scraped\_delay\_metrics.json}: CV MAE \textbf{22.7 min}, \textbf{59.3\%} within 15 minutes, \textbf{80.9\%} within 30 minutes, backtest within 30 minutes about \textbf{80.1\%}.
+\end{itemize}
+\Q{Is 22.7 minutes good?}
+\No{``The model is very accurate.''}
+\Say{A typical miss is about twenty minutes. About 81 percent of predictions land inside half an hour. That is enough to rank delay risk. It is not a promise to a passenger. The schedule still exists if the model is wrong.}
+
+The UI reads these metrics from Supabase table \texttt{rail\_ml\_metrics}, so the page does not wait on the API. Fallback is \texttt{frontend/public/data/rail-ml-metrics.json}, then \texttt{GET /railway/model-info}.
+
+\subsection{580 corridors, 9{,}526 stations, Redis, pytest}
+\begin{itemize}
+  \item Station coordinates sit in Supabase \texttt{station\_coordinates}, about 9{,}500 rows. The resume prints \textbf{9{,}526}. Use the printed figure, and say it is the coordinate table.
+  \item Corridor polylines are built per train leg in \texttt{geometry\_builder.py} and cached in Supabase \texttt{train\_route\_geometry}. An audit of 100 trains matched schedule halts to map stops on \textbf{82}. The other 18 failed on schedule gaps or old geometry. Say that if they ask whether the map can be wrong.
+  \item \textbf{580-plus corridors} is the resume's count of corridor records used for ranking. Do not invent a second definition if you cannot show the query.
+  \item \textbf{100--400 ms} is the warm cached read, not the cold path that hits a scrape and the model. Cache-aside: miss, then the store, then set with a TTL. If Redis is down, SQL or Supabase still answers, slower. Redis is not the source of truth. A stale map for a few minutes is acceptable. A stale balance would not be.
+  \item \textbf{pytest 100/100} is business-rule checks on pricing and routing, not a claim that every file is covered. One rule you can name: a missing pair returns \texttt{no\_routes}, not a made-up train.
+\end{itemize}
+
+\subsection{If they open the repo today}
+The README's live stack is a Next.js app on Vercel and a FastAPI service on Zoho Catalyst AppSail, with Redis and Supabase in the data line. The resume, and the rail doc, name Cloud Run, including the lazy CSV load written for that memory limit. Say: the path I owned and measured was rail on Cloud Run with Redis in front of the hot read. The public mirror now also runs on Vercel and Catalyst. Do not pretend those are the same host.
+
+\subsection{Why a bank should care}
+Five pipelines, one result shape, then a rank. The model is an input to cheapest, fastest, and safest. It does not override the timetable. That is the same split as a ledger and a risk score.
+
+\section{Community Hero}
+\subsection{Twenty seconds}
+Solo. A resident photographs a pothole, a leak, a streetlight, or waste. Gemini suggests a category. Neighbours verify it. An admin closes it with a proof photo. Vibe2Ship, problem statement Community Hero. Codename CIVICPULSE AI. I wrote the React PWA, the Express API, Firestore, auth, and the deploy.
+
+\subsection{The eight features, in repo order}
+The resume compresses these. If they say ``name the eight,'' use this list and stop.
+\begin{enumerate}
+  \item Image and video reporting. \texttt{/report}, a 3-step wizard, image resized to WebP.
+  \item AI categorization. \texttt{POST /api/reports/analyze}, Gemini Vision, structured JSON. Confidence under 0.6 becomes Draft and \texttt{needs\_review}. It does not auto-route.
+  \item Geo-location and mapping. \texttt{/map}, Google Maps, with a list if the map fails.
+  \item Community verification. \texttt{POST /api/reports/:id/upvote}. One vote per user. 1 upvote is level 1. 3 upvotes sets Community Verified. 10 upvotes is level 3.
+  \item Real-time tracking. \texttt{/issues/:id} timeline, and \texttt{/my-reports} with an SLA countdown.
+  \item Impact dashboards. \texttt{/dashboard} and \texttt{/api/analytics/*}.
+  \item Predictive insights. \texttt{/api/analytics/hotspots}.
+  \item Gamification. \texttt{/leaderboard}, civic points, badges. Creating a report is +10 and a First Reporter badge.
+\end{enumerate}
+Also shipped, and not a ninth official feature: admin panel, civic assistant, Open311 export, activity threads, and the agent pipeline. Do not say Global Top 20. It is not on this resume.
+
+\subsection{One report, end to end}
+The browser compresses the photo. \texttt{POST /analyze} is about 1--3 seconds. The user confirms. \texttt{POST /reports} is about 2--5 seconds for the upload plus the agents. A Firestore listener moves the pin.
+\begin{itemize}
+  \item \textbf{Intake} writes the document, geohash-7, and ward.
+  \item \textbf{Vision} writes the analysis JSON.
+  \item \textbf{Routing} sets \texttt{departmentId} and an Open311 code.
+  \item \textbf{SLA} writes \texttt{slaDeadline}.
+  \item \textbf{Dedup} writes \texttt{duplicate\_suggestions}.
+  \item \textbf{Priority} writes a score from 0 to 100.
+  \item \textbf{Gamification} adds the points. \textbf{Verification} runs later, on upvote. \textbf{Notify} runs on a status change.
+\end{itemize}
+Status moves Draft, Submitted, Community Verified, Assigned, In Progress, Resolved. The timeline is a subcollection: analysis, routing, upvote, merge, status change, reopen, notify. Votes are \texttt{issues/\{id\}/votes/\{uid\}}, so a second upvote from the same person does not count.
+
+\subsection{Auth, limits, and the error line}
+Google sign-in. The API checks the Firebase ID token. No token, no write. Rate limits in the architecture doc: reports 10 a day, upvotes 30 an hour, chat 20 a minute. Zod checks the body. Failures go through one \texttt{sendError} path. That is the ``structured error handling'' on the resume. Gemini and the geocoding key stay on the server. The browser only has a restricted Maps key.
+
+\Q{Why Firestore, not MySQL?}
+\Say{A report's shape varies, and I fetch it by id, by the reporter, or by a map cell. IFFCO's workflows were tables, joins, and an index, so those stayed in MySQL. I do not pretend one store does both.}
+
+\Q{What if Gemini is wrong?}
+\No{``We retry the model.''}
+\Say{Empty or noisy input does not go to the model. Confidence under 0.6, or a category I do not know, stays Draft with the raw text for an admin. A missed tag is better than the wrong department.}
+
+\subsection{Cloud Run, and the later README note}
+The architecture doc and the resume URL are Cloud Run in \texttt{asia-south1}, project \texttt{community-hero-vibe2ship}, one container, Express on 8080 serving \texttt{/api} and the built React app. The README also says GCP billing was later paused and a Vercel mirror is what answers today (\texttt{community-hero-eight.vercel.app}). If they open a link, say that in one sentence. Do not claim the Cloud Run instance is warm if billing is off.
+
+\subsection{Open311}
+The export is a GeoReport v2 adapter: your department maps to their service code so a city system can ingest the file. Do not claim a municipality is live on it unless you demoed that.
+
+\section{AirHelp}
+\subsection{Twenty seconds}
+PowerMind Hackathon 2026. I built the FastAPI side. An intent goes to a graph for navigation, to retrieval for ``where can I eat,'' and to a WebSocket for operational alerts. The resume numbers are 1--3 seconds, 50--100 users on one instance, and 95 percent-plus navigation accuracy.
+
+\subsection{What the code actually is}
+React talks REST and a socket. An orchestrator classifies intent.
+\begin{itemize}
+  \item Navigation intent goes to NetworkX and A*. Files in the README: \texttt{navigation.py}, \texttt{navigation\_service.py}, \texttt{core/graph}.
+  \item Discovery intent goes to RAG: ChromaDB, sentence-transformer embeddings, then a filter by category and by terminal or level, then a rerank. If the retrieved text does not support the sentence, the sentence is not shown.
+  \item Alerts go out on a WebSocket from \texttt{ops.py}, so a gate change does not wait for the next poll.
+  \item Sessions and lost-and-found sit in SQLite. The airport catalog is JSON. The local model in the README is Ollama with Gemma 2B.
+\end{itemize}
+Voice in the repo is Whisper and Piper, and there is boarding-pass OCR. Claim those only if you wrote them. The resume bullet is the backend, the socket, A*, the latency, and the accuracy.
+
+\subsection{A*, and the 95 percent}
+\Q{Explain A* without a lecture.}
+\Say{The score is cost so far plus a guess of what is left. On a terminal map the guess is straight-line distance. If that guess never overestimates, the first time I reach the gate I have a shortest path. BFS is what I would use if every corridor cost the same. The graph is deterministic: hops, a time estimate, turn-by-turn.}
+
+\Q{What does 95 percent mean?}
+\No{``The algorithm is always right.''}
+\Say{It is the evaluation figure on the graph we built, from the performance table in the repo, next to 1--3 seconds response and 50--100 users on a single instance. A route counts as wrong when the path we returned was not the path the test expected. If I cannot describe that test from memory, I walk one route, Gate B12 in the demo script, instead of defending a percentage I did not recompute that morning.}
+
+\subsection{Why it takes 1--3 seconds}
+The local model is the slow part. A small graph is not. Memory is split so a food recommendation does not stick: profile and flight stay, recommendations expire in about five minutes, navigation context in about fifteen, and the current turn dies with the request. The README calls this the fix for ``recommendation contamination.''
+
+\subsection{Privacy, said carefully}
+The design goal was local processing: local model, local vectors, no passenger profile sent to a cloud LLM. Do not upgrade that into a claim that it is certified for bank data.
+
+\subsection{The README's team block}
+The AirHelp README still has placeholder team names. Do not read those out. Say what the resume bullet says you built: the FastAPI backend, the socket, and the graph. If someone else owned the React screens, say so.
+
+\section{Traps, one page}
+\noindent\begin{tabularx}{\textwidth}{@{}>{\bfseries\raggedright\arraybackslash}p{3.15cm} >{\color{muted}\raggedright\arraybackslash}p{3.5cm} >{\color{ok}\raggedright\arraybackslash}X@{}}
+They ask & Weak & You \\[2pt]
+All of LogiFlow? & ``Yes.'' & Rail, compose, Next.js, Supabase. Name the other three owners. \\[3pt]
+22.7 minutes? & ``Very accurate.'' & About 20 minutes typical miss. 81 percent inside 30. Ranks risk. Does not override the timetable. \\[3pt]
+Redis down? & ``The app is down.'' & SQL or Supabase still answers. Slower. Cache is not the ledger. \\[3pt]
+Name the eight. & ``AI, maps, admin.'' & The eight rows, in order, including the 0.6 confidence gate. \\[3pt]
+Gemini wrong? & ``We retry.'' & Under 0.6 stays Draft. An admin decides. \\[3pt]
+95 percent? & ``A* cannot be wrong.'' & Evaluation on our graph. Then one walked route. \\[3pt]
+Cloud Run live? & A guess. & Submission deploy was Cloud Run. Say if the link they opened is the Vercel mirror. \\
+\end{tabularx}
+
+\vspace{3pt}
+\noindent{\footnotesize\color{hot}\textbf{Sunday morning.} Twenty-second version of each project, once, resume closed. Then one red question from each section. Laptop on the Teams lobby at 9:55. Phone off. No recording.}
+\end{document}
