@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-19T10:33:31.282263+00:00",
+  "updated_at": "2026-11-20T10:14:15.635027+00:00",
   "records": {
     "linkedin|delta system & software, inc.|sap abap + fiori + btp consultant|https://in.linkedin.com/jobs/view/sap-abap-%2b-fiori-%2b-btp-consultant-at-delta-system-software-inc-4427712696": {
       "send_count": 1,
@@ -1127,9 +1127,9 @@
       "last_sent_at": "2026-09-14T08:04:31.021795+00:00"
     },
     "linkedin|vois|sap abap consultant (hana / fiori / btp) - vois|https://in.linkedin.com/jobs/view/sap-abap-consultant-hana-fiori-btp-vois-at-vois-4465543732": {
-      "send_count": 1,
+      "send_count": 2,
       "first_sent_at": "2026-09-27T06:45:06.936619+00:00",
-      "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|cyient|sap abap & fiori consultant|https://in.linkedin.com/jobs/view/sap-abap-fiori-consultant-at-cyient-4450893163": {
       "send_count": 1,
@@ -1142,9 +1142,9 @@
       "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
     },
     "linkedin|vois|sap abap on hana, fiori/ui5, javascript & node.js consultant - vois|https://in.linkedin.com/jobs/view/sap-abap-on-hana-fiori-ui5-javascript-node-js-consultant-vois-at-vois-4465536704": {
-      "send_count": 1,
+      "send_count": 2,
       "first_sent_at": "2026-09-27T06:45:06.936619+00:00",
-      "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|deloitte|sap ui5 senior consultant|https://in.linkedin.com/jobs/view/sap-ui5-senior-consultant-at-deloitte-4456878251": {
       "send_count": 1,
@@ -1167,9 +1167,9 @@
       "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
     },
     "linkedin|infosys|sap fiori consultant|https://in.linkedin.com/jobs/view/sap-fiori-consultant-at-infosys-4466870141": {
-      "send_count": 1,
+      "send_count": 2,
       "first_sent_at": "2026-09-27T06:45:06.936619+00:00",
-      "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|infosys|sap ui5 fiori consultant|https://in.linkedin.com/jobs/view/sap-ui5-fiori-consultant-at-infosys-4450590973": {
       "send_count": 1,
@@ -1247,14 +1247,14 @@
       "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
     },
     "linkedin|fusion consulting|sap btp consultant/developer|https://in.linkedin.com/jobs/view/sap-btp-consultant-developer-at-fusion-consulting-4467717428": {
-      "send_count": 1,
+      "send_count": 2,
       "first_sent_at": "2026-09-27T06:45:06.936619+00:00",
-      "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|fusion consulting|sap btp consultant/developer|https://in.linkedin.com/jobs/view/sap-btp-consultant-developer-at-fusion-consulting-4467717430": {
-      "send_count": 1,
+      "send_count": 2,
       "first_sent_at": "2026-09-27T06:45:06.936619+00:00",
-      "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|gyansys inc.|sap capm senior developer|https://in.linkedin.com/jobs/view/sap-capm-senior-developer%c2%a0-at-gyansys-inc-4469461260": {
       "send_count": 1,
@@ -1262,14 +1262,14 @@
       "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
     },
     "linkedin|solventum|sap btp capm senior consultant|https://in.linkedin.com/jobs/view/sap-btp-capm-senior-consultant-at-solventum-4470105436": {
-      "send_count": 1,
+      "send_count": 2,
       "first_sent_at": "2026-09-27T06:45:06.936619+00:00",
-      "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|verso altima india pvt ltd ( group company of adroit infotech ltd )|sap btp developer|https://in.linkedin.com/jobs/view/sap-btp-developer-at-verso-altima-india-pvt-ltd-group-company-of-adroit-infotech-ltd-4471136056": {
       "send_count": 2,
       "first_sent_at": "2026-09-27T06:45:06.936619+00:00",
-      "last_sent_at": "2026-11-19T10:33:31.282192+00:00"
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|artech l.l.c.|sap integration suite technical consultant|https://in.linkedin.com/jobs/view/sap-integration-suite-technical-consultant-at-artech-l-l-c-4466642792": {
       "send_count": 1,
@@ -1406,45 +1406,250 @@
       "first_sent_at": "2026-09-27T06:45:06.936619+00:00",
       "last_sent_at": "2026-09-27T06:45:06.936619+00:00"
     },
+    "linkedin|jpmorganchase|software engineer iii - sap abap, fiori, rap|https://in.linkedin.com/jobs/view/software-engineer-iii-sap-abap-fiori-rap-at-jpmorganchase-4483031583": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
     "linkedin|infosys|sap btp/fiori consultant|https://in.linkedin.com/jobs/view/sap-btp-fiori-consultant-at-infosys-4471994798": {
       "send_count": 1,
-      "first_sent_at": "2026-11-19T10:33:31.282192+00:00",
-      "last_sent_at": "2026-11-19T10:33:31.282192+00:00"
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|lonza|s/4hana fiori and ui5 developer|https://in.linkedin.com/jobs/view/s-4hana-fiori-and-ui5-developer-at-lonza-4489009643": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|schaeffler|sap abap developer with fiori (fullstack developer)|https://in.linkedin.com/jobs/view/sap-abap-developer-with-fiori-fullstack-developer-at-schaeffler-4483590043": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|assa abloy group|sap ui5 developer|https://in.linkedin.com/jobs/view/sap-ui5-developer-at-assa-abloy-group-4472924079": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|gyansys inc.|sap ui5 / fiori developer|https://in.linkedin.com/jobs/view/sap-ui5-fiori-developer-at-gyansys-inc-4491820692": {
       "send_count": 1,
-      "first_sent_at": "2026-11-19T10:33:31.282192+00:00",
-      "last_sent_at": "2026-11-19T10:33:31.282192+00:00"
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|hcltech|sap ui5 and flori consultant|https://in.linkedin.com/jobs/view/sap-ui5-and-flori-consultant-at-hcltech-4481468352": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|hcltech|sap fiori consultant|https://in.linkedin.com/jobs/view/sap-fiori-consultant-at-hcltech-4486645007": {
       "send_count": 1,
-      "first_sent_at": "2026-11-19T10:33:31.282192+00:00",
-      "last_sent_at": "2026-11-19T10:33:31.282192+00:00"
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|highbrow technology inc|sap fiori technical consultant|https://in.linkedin.com/jobs/view/sap-fiori-technical-consultant-at-highbrow-technology-inc-4489210291": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|highbrow technology inc|sap fiori technical consultant|https://in.linkedin.com/jobs/view/sap-fiori-technical-consultant-at-highbrow-technology-inc-4489551425": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|infosys|sap ui5/fiori consultant|https://in.linkedin.com/jobs/view/sap-ui5-fiori-consultant-at-infosys-4471302836": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|micron technology|senior sap ui5 / fiori developer|https://in.linkedin.com/jobs/view/senior-sap-ui5-fiori-developer-at-micron-technology-4483646193": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|nexsap solutions|sap  fiori ui5 consultant|https://in.linkedin.com/jobs/view/sap-fiori-ui5-consultant-at-nexsap-solutions-4483618759": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|quadric it|sap fiori / sapui5 developer|https://in.linkedin.com/jobs/view/sap-fiori-sapui5-developer-at-quadric-it-4476340324": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|yash technologies|consultant - sap fiori job|https://in.linkedin.com/jobs/view/consultant-sap-fiori-job-at-yash-technologies-4492110907": {
       "send_count": 1,
-      "first_sent_at": "2026-11-19T10:33:31.282192+00:00",
-      "last_sent_at": "2026-11-19T10:33:31.282192+00:00"
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
-    "linkedin|yash technologies middle east|consultant - sap fiori job|https://in.linkedin.com/jobs/view/consultant-sap-fiori-job-at-yash-technologies-middle-east-4490888729": {
+    "linkedin|tata consultancy services|sap fiori technical lead|https://in.linkedin.com/jobs/view/sap-fiori-technical-lead-at-tata-consultancy-services-4483309625": {
       "send_count": 1,
-      "first_sent_at": "2026-11-19T10:33:31.282192+00:00",
-      "last_sent_at": "2026-11-19T10:33:31.282192+00:00"
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|ccs technologies it (p) ltd.|sap btp consultant|https://in.linkedin.com/jobs/view/sap-btp-consultant-at-ccs-technologies-it-p-ltd-4489415726": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|deloitte|sap btp consultant|https://in.linkedin.com/jobs/view/sap-btp-consultant-at-deloitte-4464598930": {
       "send_count": 1,
-      "first_sent_at": "2026-11-19T10:33:31.282192+00:00",
-      "last_sent_at": "2026-11-19T10:33:31.282192+00:00"
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|deloitte|sap btp consultant|https://in.linkedin.com/jobs/view/sap-btp-consultant-at-deloitte-4464593900": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|deloitte|sap btp extension developer (cloud)- tax technology services consultant ii|https://in.linkedin.com/jobs/view/sap-btp-extension-developer-cloud-tax-technology-services-consultant-ii-at-deloitte-4485750368": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|highbrow technology inc|sap btp consultant|https://in.linkedin.com/jobs/view/sap-btp-consultant-at-highbrow-technology-inc-4491402380": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|infosys|sap btp consultant|https://in.linkedin.com/jobs/view/sap-btp-consultant-at-infosys-4471325010": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|ust|lead i - enterprise solutions(sap btp senior frontend developer)|https://in.linkedin.com/jobs/view/lead-i-enterprise-solutions-sap-btp-senior-frontend-developer-at-ust-4487152229": {
       "send_count": 1,
-      "first_sent_at": "2026-11-19T10:33:31.282192+00:00",
-      "last_sent_at": "2026-11-19T10:33:31.282192+00:00"
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     },
     "linkedin|vois|sap btp cloud developer - vois|https://in.linkedin.com/jobs/view/sap-btp-cloud-developer-vois-at-vois-4491309390": {
       "send_count": 1,
-      "first_sent_at": "2026-11-19T10:33:31.282192+00:00",
-      "last_sent_at": "2026-11-19T10:33:31.282192+00:00"
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|yash technologies|consultant - sap btp job|https://in.linkedin.com/jobs/view/consultant-sap-btp-job-at-yash-technologies-4486595558": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|assa abloy group|sap abap developer|https://in.linkedin.com/jobs/view/sap-abap-developer-at-assa-abloy-group-4485338006": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|electrolux group|senior sap abap developer|https://in.linkedin.com/jobs/view/senior-sap-abap-developer-at-electrolux-group-4478545705": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|fujitsu|senior technical consultant - sap abap - 14125|https://in.linkedin.com/jobs/view/senior-technical-consultant-sap-abap-14125-at-fujitsu-4491788243": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|fujitsu|senior technical consultant - sap abap - 14125|https://in.linkedin.com/jobs/view/senior-technical-consultant-sap-abap-14125-at-fujitsu-4491792054": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|ibm|application developer-sap abap hana|https://in.linkedin.com/jobs/view/application-developer-sap-abap-hana-at-ibm-4488924344": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|ibm|application developer-sap abap hana|https://in.linkedin.com/jobs/view/application-developer-sap-abap-hana-at-ibm-4491397667": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|ibm|application developer-sap abap hana|https://in.linkedin.com/jobs/view/application-developer-sap-abap-hana-at-ibm-4490460954": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|ibm|application developer-sap abap hana|https://in.linkedin.com/jobs/view/application-developer-sap-abap-hana-at-ibm-4490473429": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|infosys|sap abap consultant|https://in.linkedin.com/jobs/view/sap-abap-consultant-at-infosys-4471913178": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|infosys|sap abap technical consultant|https://in.linkedin.com/jobs/view/sap-abap-technical-consultant-at-infosys-4476234701": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|infosys|sap abap technical consultant|https://in.linkedin.com/jobs/view/sap-abap-technical-consultant-at-infosys-4471318236": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|mks inc.|principal sap abap developer / analyst|https://in.linkedin.com/jobs/view/principal-sap-abap-developer-analyst-at-mks-inc-4490992851": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|mks inc.|sap abap senior technical developer analyst-i|https://in.linkedin.com/jobs/view/sap-abap-senior-technical-developer-analyst-i-at-mks-inc-4484681901": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|swits digital private limited|application developer - sap abap hana|https://in.linkedin.com/jobs/view/application-developer-sap-abap-hana-at-swits-digital-private-limited-4491040561": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|tata consultancy services|sap fiori|https://in.linkedin.com/jobs/view/sap-fiori-at-tata-consultancy-services-4481683482": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|vgreen technology solutions (vgreentek)|sap abap developer|https://in.linkedin.com/jobs/view/sap-abap-developer-at-vgreen-technology-solutions-vgreentek-4487720851": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|yash technologies|associate consultant - sap abap job|https://in.linkedin.com/jobs/view/associate-consultant-sap-abap-job-at-yash-technologies-4492523043": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|yash technologies|consultant - sap cpi job|https://in.linkedin.com/jobs/view/consultant-sap-cpi-job-at-yash-technologies-4486947429": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|yash technologies middle east|consultant - sap cpi job|https://in.linkedin.com/jobs/view/consultant-sap-cpi-job-at-yash-technologies-middle-east-4490828447": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|ibm|package consultant-sap hana basis|https://in.linkedin.com/jobs/view/package-consultant-sap-hana-basis-at-ibm-4487478284": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|tata consultancy services|sap btp capm|https://in.linkedin.com/jobs/view/sap-btp-capm-at-tata-consultancy-services-4483665878": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|tata consultancy services|sap btp-capm|https://in.linkedin.com/jobs/view/sap-btp-capm-at-tata-consultancy-services-4482655359": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|capgemini|sap tm technical|https://in.linkedin.com/jobs/view/sap-tm-technical-at-capgemini-4491791414": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
+    },
+    "linkedin|teknikoz|sap abap|https://in.linkedin.com/jobs/view/sap-abap-at-teknikoz-4492568298": {
+      "send_count": 1,
+      "first_sent_at": "2026-11-20T10:14:15.634928+00:00",
+      "last_sent_at": "2026-11-20T10:14:15.634928+00:00"
     }
   }
 }
